@@ -25,11 +25,11 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         }
         
         self.countdownManager.updateCompletionClosure = {
-            //println("did update values")
-            //self.collectionView?.reloadData()
+            println("did update values")
+            self.collectionView?.reloadData()
         }
         
-        //self.countdownManager.startUpdates()
+        self.countdownManager.startUpdates()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "modelDidLoadItems", name: modelDidLoadItemsKey, object: nil)
         
@@ -44,6 +44,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         self.countdownManager.reload()
         self.collectionView?.reloadData()
     }
+    
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1

@@ -85,7 +85,7 @@ class LKModel {
         let _rawItems: NSArray = fetchedItems.reverseObjectEnumerator().allObjects
         if (error != nil) {
         } else {
-            self.items = []
+            self.items = [] // This is nexccessary in order to clear the array, otherwise, after each reload (eg after adding/deleting, there would be each item multiple times
             self.rawItems = []
             for object in _rawItems {
                 let managedObject: NSManagedObject = object as NSManagedObject

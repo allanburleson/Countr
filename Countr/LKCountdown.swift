@@ -61,19 +61,15 @@ class LKCountdownManager: NSObject {
     }
     
     func update() {
-        /*
-        for object in self.items {
-            let index = self.items.indexOfObject(object)
-            //println("current update index: \(index)")
+        
+        for item in self.items() {
             
-            let item: LKCountdownItem = object as LKCountdownItem
             item.updateTimeRemaining()
             
-            self.items.replaceObjectAtIndex(index, withObject: item)
         }
         
         self.updateCompletionClosure()
-*/
+
     }
     
     
@@ -136,6 +132,8 @@ class LKCountdownItem: NSObject {
     
     
     func updateTimeRemaining() {
+        
+        println("updateTimeRemaining")
         
         let calendar = NSCalendar.currentCalendar()
         
