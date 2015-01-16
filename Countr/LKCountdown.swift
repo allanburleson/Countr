@@ -51,7 +51,7 @@ class LKCountdownManager: NSObject {
     }
     
     func startUpdates() {
-        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        //self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
     
     
@@ -59,6 +59,7 @@ class LKCountdownManager: NSObject {
         self.updateTimer?.invalidate()
         self.updateTimer = nil
     }
+    
     
     func update() {
         
@@ -72,6 +73,10 @@ class LKCountdownManager: NSObject {
 
     }
     
+    func updateCellAtItem(item: Int) {
+        self.items()[item].updateTimeRemaining()
+    }
+    
     
     func saveNewCountdownItem(item: LKCountdownItem) {
         self.model.saveNewItem(item)
@@ -82,6 +87,11 @@ class LKCountdownManager: NSObject {
     
     func deleteCountdownItem(item: LKCountdownItem) {
         self.model.deleteItem(item)
+        
+        if self.items().isEmpty {
+            println("isEmpty")
+            self.endUpdates()
+        }
     }
     
     

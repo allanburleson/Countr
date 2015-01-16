@@ -21,6 +21,10 @@ class LKItemCell: UICollectionViewCell {
         }
     }
     
+    func updateTimeRemainignLabel() {
+        self.countdownLabel.text = self.countdownItem.remaining.asString
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

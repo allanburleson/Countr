@@ -24,6 +24,10 @@ class LKAddItemViewController: UITableViewController {
         super.loadView()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        self.nameTextField.becomeFirstResponder()
+    }
+    
     @IBAction func countdownModeChanged(sender: UISegmentedControl) {
         switch self.countdownModeSegmentedControl.selectedSegmentIndex {
         case 0:
