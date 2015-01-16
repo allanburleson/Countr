@@ -8,16 +8,29 @@
 
 import UIKit
 import CoreData
+import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        UILabel.appearance().font = UIFont(name: "Avenir-Book", size: 17)
+        UILabel.appearance().textAlignment = NSTextAlignment.Center
+        
+        let mngr = LKCountdownManager.sharedInstance
+        
+        application.registerForRemoteNotifications()
+        
+        
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        let cloudkitNotification = CKNotification(fromRemoteNotificationDictionary: userInfo)
+        println("recived notification: \(cloudkitNotification)")
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D57D4981A481F7A0030EF9C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D57D4971A481F7A0030EF9C /* CloudKit.framework */; };
+		5D57D49A1A48219E0030EF9C /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
+		5D83B1491A2B4E2000BB17E3 /* LKItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */; };
+		5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */; };
+		5D97BC0C1A4960B700C685A4 /* LocalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D97BC0B1A4960B700C685A4 /* LocalData.plist */; };
 		5DAA338F1A2B19EB006DDB65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */; };
 		5DAA33921A2B19EB006DDB65 /* Countr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33901A2B19EB006DDB65 /* Countr.xcdatamodeld */; };
-		5DAA33941A2B19EB006DDB65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33931A2B19EB006DDB65 /* ViewController.swift */; };
 		5DAA33971A2B19EB006DDB65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA33951A2B19EB006DDB65 /* Main.storyboard */; };
 		5DAA33991A2B19EB006DDB65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA33981A2B19EB006DDB65 /* Images.xcassets */; };
 		5DAA339C1A2B19EB006DDB65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA339A1A2B19EB006DDB65 /* LaunchScreen.xib */; };
 		5DAA33A81A2B19EB006DDB65 /* CountrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33A71A2B19EB006DDB65 /* CountrTests.swift */; };
+		5DAA33B21A2B1A7F006DDB65 /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
+		5DAA33B81A2B4026006DDB65 /* LKAddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B71A2B4026006DDB65 /* LKAddItemViewController.swift */; };
+		5DAA33BA1A2B42B8006DDB65 /* LKMainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B91A2B42B8006DDB65 /* LKMainCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +34,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D57D4961A481F770030EF9C /* Countr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Countr.entitlements; sourceTree = "<group>"; };
+		5D57D4971A481F7A0030EF9C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		5D57D4991A48219E0030EF9C /* LKModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKModel.swift; sourceTree = "<group>"; };
+		5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKItemCell.swift; sourceTree = "<group>"; };
+		5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKItemCell.xib; sourceTree = "<group>"; };
+		5D97BC0B1A4960B700C685A4 /* LocalData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LocalData.plist; sourceTree = "<group>"; };
 		5DAA33891A2B19EB006DDB65 /* Countr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAA338D1A2B19EB006DDB65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DAA33911A2B19EB006DDB65 /* Countr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Countr.xcdatamodel; sourceTree = "<group>"; };
-		5DAA33931A2B19EB006DDB65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5DAA33961A2B19EB006DDB65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DAA33981A2B19EB006DDB65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5DAA339B1A2B19EB006DDB65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5DAA33A11A2B19EB006DDB65 /* CountrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAA33A61A2B19EB006DDB65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DAA33A71A2B19EB006DDB65 /* CountrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrTests.swift; sourceTree = "<group>"; };
+		5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKCountdown.swift; sourceTree = "<group>"; };
+		5DAA33B71A2B4026006DDB65 /* LKAddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKAddItemViewController.swift; sourceTree = "<group>"; };
+		5DAA33B91A2B42B8006DDB65 /* LKMainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKMainCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D57D4981A481F7A0030EF9C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +77,7 @@
 		5DAA33801A2B19EB006DDB65 = {
 			isa = PBXGroup;
 			children = (
+				5D57D4971A481F7A0030EF9C /* CloudKit.framework */,
 				5DAA338B1A2B19EB006DDB65 /* Countr */,
 				5DAA33A41A2B19EB006DDB65 /* CountrTests */,
 				5DAA338A1A2B19EB006DDB65 /* Products */,
@@ -79,9 +96,16 @@
 		5DAA338B1A2B19EB006DDB65 /* Countr */ = {
 			isa = PBXGroup;
 			children = (
+				5D57D4961A481F770030EF9C /* Countr.entitlements */,
 				5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */,
-				5DAA33931A2B19EB006DDB65 /* ViewController.swift */,
+				5D57D4991A48219E0030EF9C /* LKModel.swift */,
+				5D97BC0B1A4960B700C685A4 /* LocalData.plist */,
+				5DAA33B71A2B4026006DDB65 /* LKAddItemViewController.swift */,
 				5DAA33951A2B19EB006DDB65 /* Main.storyboard */,
+				5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */,
+				5DAA33B91A2B42B8006DDB65 /* LKMainCollectionViewController.swift */,
+				5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */,
+				5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */,
 				5DAA33981A2B19EB006DDB65 /* Images.xcassets */,
 				5DAA339A1A2B19EB006DDB65 /* LaunchScreen.xib */,
 				5DAA33901A2B19EB006DDB65 /* Countr.xcdatamodeld */,
@@ -164,6 +188,12 @@
 				TargetAttributes = {
 					5DAA33881A2B19EB006DDB65 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = WL6ZJ4C8V3;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					5DAA33A01A2B19EB006DDB65 = {
 						CreatedOnToolsVersion = 6.1;
@@ -196,6 +226,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DAA33971A2B19EB006DDB65 /* Main.storyboard in Resources */,
+				5D97BC0C1A4960B700C685A4 /* LocalData.plist in Resources */,
+				5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */,
 				5DAA339C1A2B19EB006DDB65 /* LaunchScreen.xib in Resources */,
 				5DAA33991A2B19EB006DDB65 /* Images.xcassets in Resources */,
 			);
@@ -215,9 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DAA33941A2B19EB006DDB65 /* ViewController.swift in Sources */,
+				5D57D49A1A48219E0030EF9C /* LKModel.swift in Sources */,
+				5D83B1491A2B4E2000BB17E3 /* LKItemCell.swift in Sources */,
 				5DAA33921A2B19EB006DDB65 /* Countr.xcdatamodeld in Sources */,
+				5DAA33B81A2B4026006DDB65 /* LKAddItemViewController.swift in Sources */,
 				5DAA338F1A2B19EB006DDB65 /* AppDelegate.swift in Sources */,
+				5DAA33BA1A2B42B8006DDB65 /* LKMainCollectionViewController.swift in Sources */,
+				5DAA33B21A2B1A7F006DDB65 /* LKCountdown.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,9 +376,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Countr/Countr.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Countr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -350,9 +391,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Countr/Countr.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Countr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -409,6 +455,7 @@
 				5DAA33AD1A2B19EB006DDB65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DAA33AE1A2B19EB006DDB65 /* Build configuration list for PBXNativeTarget "CountrTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +464,7 @@
 				5DAA33B01A2B19EB006DDB65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
