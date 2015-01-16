@@ -29,8 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        let cloudkitNotification = CKNotification(fromRemoteNotificationDictionary: userInfo)
-        println("recived notification: \(cloudkitNotification)")
     }
 
     func applicationWillResignActive(application: UIApplication) {

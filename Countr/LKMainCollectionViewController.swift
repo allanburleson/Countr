@@ -15,6 +15,9 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     override func loadView() {
         super.loadView()
+        
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: Selector("refresh"))
+        self.navigationItem.leftBarButtonItem = refreshButton
         //println(self.countdownManager.hash)
         self.countdownManager.didAddNewItemConpletionClosure = {
             //println("did add new item")
@@ -36,12 +39,17 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
 
     }
     
+    func refresh() {
+        println("refresh")
+        self.countdownManager.reload()
+        self.collectionView?.reloadData()
+    }
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        println("number of items as seen by the collectionview: \(self.countdownManager.numberOfItems)")
         return self.countdownManager.numberOfItems
     }
     
@@ -65,6 +73,25 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         //println("did select cell at indexpath\(indexPath)")
         //println("did select cell in section \(indexPath.section) and item \(indexPath.item)")
+        
+        
+        let alertController = UIAlertController(title: "Delete Item", message: "Do you really want to delete the countdown \(self.countdownManager.items()[indexPath.row].name)", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            println(action)
+        }
+        
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
+            println(action)
+            self.countdownManager.deleteCountdownItem(self.countdownManager.items()[indexPath.row])
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    
     }
     
     func modelDidLoadItems() {

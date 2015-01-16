@@ -33,7 +33,6 @@ class LKCountdownManager: NSObject {
     
     var numberOfItems: Int {
         get {
-            println("items array as seen by the number of items var: \(self.items())")
             return self.items().count
         }
     }
@@ -44,8 +43,11 @@ class LKCountdownManager: NSObject {
     
     
     func items() -> [LKCountdownItem]! {
-        println("model.items array as seen by the items() func: \(self.model.items)")
         return self.model.items
+    }
+    
+    func reload() {
+        self.model.reloadItems()
     }
     
     func startUpdates() {
@@ -72,7 +74,6 @@ class LKCountdownManager: NSObject {
         
         self.updateCompletionClosure()
 */
-        println("due to cloudkit integrauion, updateing has been disabled")
     }
     
     
@@ -81,6 +82,10 @@ class LKCountdownManager: NSObject {
         println("did succed saving the item")
         self.didAddNewItemConpletionClosure()
 
+    }
+    
+    func deleteCountdownItem(item: LKCountdownItem) {
+        self.model.deleteItem(item)
     }
     
     
@@ -92,6 +97,8 @@ class LKCountdownItem: NSObject {
     let name: String!
     let date: NSDate!
     let id: String!
+    
+    let managedObject: NSManagedObject!
     
     var timeUpdatedClosure: () -> () = {}
     
@@ -116,6 +123,7 @@ class LKCountdownItem: NSObject {
     init(object: NSManagedObject) {
         self.name = object.valueForKey(coreDataNameKey) as String
         self.date = object.valueForKey(coreDataDateKey) as NSDate
+        self.managedObject = object;
     }
     
     init(cloudRecord: CKRecord) {
@@ -143,5 +151,11 @@ class LKCountdownItem: NSObject {
     }
     
     // TODO: calculate the current time for updating at the same time for all items. A way to achive this would be to add a manager property to all items and then add a time property to the manager, the time propetzy of teh manager would be updated at teh beginning of each update cycle (in the maneger class)
+}
+
+extension LKCountdownItem {
+    func isEqualToCountdownItem(item: LKCountdownItem) -> Bool {
+        return self.id == item.id
+    }
 }
 
