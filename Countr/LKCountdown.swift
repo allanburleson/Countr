@@ -11,6 +11,8 @@ import UIKit
 import CloudKit
 import CoreData
 
+typealias LKCountdownMode = UIDatePickerMode
+
 
 class LKCountdownManager: NSObject {
     
@@ -81,8 +83,22 @@ class LKCountdownManager: NSObject {
     }
     
     
-    func saveNewCountdownItem(item: LKCountdownItem, completionHandler: () -> Void) {
-        self.model.saveNewItem(item)
+    func saveNewCountdownItem(item: LKCountdownItem, countdownMode: LKCountdownMode, completionHandler: () -> Void) {
+        var adaptedItem: LKCountdownItem!
+        switch countdownMode {
+        case .Date:
+            let date: NSDate = NSCalendar.currentCalendar().dateBySettingHour(0, minute: 0, second: 0, ofDate: item.date, options: nil)!
+            adaptedItem = LKCountdownItem(name: item.name, date: date)
+            break
+        case .DateAndTime:
+            let date: NSDate = NSCalendar.currentCalendar().dateBySettingHour(item.date.hour, minute: item.date.minute, second: 0, ofDate: item.date, options: nil)!
+            adaptedItem = LKCountdownItem(name: item.name, date: date)
+            break
+        default:
+            break
+        }
+        
+        self.model.saveNewItem(adaptedItem)
         println("did succed saving the item")
         completionHandler()
         self.didAddNewItemCompletionClosure(item: item)
@@ -124,7 +140,8 @@ class LKCountdownItem: NSObject {
     
     init(name: String, date: NSDate) {
         self.name = name
-        self.date = date
+        self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: nil)
+        //self.date = date
         let uuid = NSUUID().UUIDString
         println("uuid used for saving: \(uuid)")
         self.id = uuid
@@ -170,4 +187,42 @@ extension LKCountdownItem {
         return self.id == item.id
     }
 }
+
+
+extension NSDate {
+    
+    
+    
+    var hour: Int {
+        get {
+            return self.dateComponents.hour
+        }
+    }
+    
+    var minute: Int {
+        get {
+            return self.dateComponents.minute
+        }
+    }
+    
+    var second: Int {
+        get {
+            return self.dateComponents.second
+        }
+    }
+    
+    
+        private var dateComponents: NSDateComponents {
+        get {
+            let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+            let calendarUnits: NSCalendarUnit = (.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit | .HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit)
+            
+            
+            let dateComponents = calendar?.components( calendarUnits, fromDate: self)
+            
+            return dateComponents!
+        }
+    }
+}
+
 

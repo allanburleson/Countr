@@ -58,7 +58,7 @@ class LKAddItemViewController: UITableViewController {
         
         
         let item = LKCountdownItem(name: self.nameTextField.text, date: self.datePicker.date)
-        countdownManager.saveNewCountdownItem(item, completionHandler: {
+        countdownManager.saveNewCountdownItem(item,countdownMode: self.datePicker.datePickerMode, completionHandler: {
             self.dismissViewControllerAnimated(true, completion: nil)
         })
     }

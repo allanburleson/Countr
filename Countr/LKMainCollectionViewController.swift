@@ -21,7 +21,8 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         self.countdownManager.didAddNewItemCompletionClosure = { (item: LKCountdownItem) in
             println("did add new item: \(item.description)")
             self.countdownManager.reload()
-            self.collectionView?.reloadData()
+            self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
+            //self.collectionView?.reloadData()
         }
         
         self.countdownManager.updateCompletionClosure = {
@@ -36,7 +37,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
 
 
-        //self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
 
     }
