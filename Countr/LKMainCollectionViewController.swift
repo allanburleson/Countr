@@ -13,6 +13,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     let countdownManager = LKCountdownManager.sharedInstance
     
+    
     var updateTimer: NSTimer?
     
     override func loadView() {
@@ -41,6 +42,10 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         //self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
 
+    }
+    
+    func didLongPress() {
+        println("didLongPressOnMainScreen")
     }
     
     func refresh() {
@@ -103,6 +108,41 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         println("will load the item for the cell")
         cell.countdownItem = self.countdownManager.items()[indexPath.item]
         
+        cell.longPressAction = {
+            self.countdownManager.endUpdates()
+            
+            
+            let alertController = UIAlertController(title: "Delete Item", message: "Do you really want to delete the countdown \(self.countdownManager.items()[indexPath.row].name)", preferredStyle: UIAlertControllerStyle.ActionSheet)
+            alertController.popoverPresentationController?.sourceView = cell
+            alertController.popoverPresentationController?.sourceRect = cell.bounds
+            println("cell.frame: \(cell.frame)")
+            println("alertController.popoverPresentationController?.sourceRect: \(alertController.popoverPresentationController?.sourceRect)")
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                println(action)
+                self.countdownManager.startUpdates()
+            }
+            
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
+                println(action)
+                self.countdownManager.deleteCountdownItem(self.countdownManager.items()[indexPath.row])
+                
+                if self.countdownManager.items().count > 1 {
+                    self.collectionView?.deleteItemsAtIndexPaths([indexPath])
+                } else {
+                    self.collectionView?.reloadData()
+                }
+                self.countdownManager.startUpdates()
+            }
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(deleteAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+
+        }
+        
         //println(cell)
         return cell
     }
@@ -110,6 +150,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         //println("did select cell at indexpath\(indexPath)")
         //println("did select cell in section \(indexPath.section) and item \(indexPath.item)")
+        /*
         self.countdownManager.endUpdates()
         
         
@@ -137,6 +178,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         alertController.addAction(deleteAction)
         
         self.presentViewController(alertController, animated: true, completion: nil)
+*/
     
     }
     

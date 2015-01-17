@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D33343C1A6A8BD6007D9A4B /* LKInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */; };
 		5D57D49A1A48219E0030EF9C /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
 		5D83B1491A2B4E2000BB17E3 /* LKItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */; };
 		5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKInfoViewController.swift; sourceTree = "<group>"; };
 		5D57D4961A481F770030EF9C /* Countr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Countr.entitlements; sourceTree = "<group>"; };
 		5D57D4991A48219E0030EF9C /* LKModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKModel.swift; sourceTree = "<group>"; };
 		5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKItemCell.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				5D57D4961A481F770030EF9C /* Countr.entitlements */,
 				5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */,
 				5D57D4991A48219E0030EF9C /* LKModel.swift */,
+				5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */,
 				5D97BC0B1A4960B700C685A4 /* LocalData.plist */,
 				5DAA33B71A2B4026006DDB65 /* LKAddItemViewController.swift */,
 				5DAA33951A2B19EB006DDB65 /* Main.storyboard */,
@@ -253,6 +256,7 @@
 				5DAA338F1A2B19EB006DDB65 /* AppDelegate.swift in Sources */,
 				5DAA33BA1A2B42B8006DDB65 /* LKMainCollectionViewController.swift in Sources */,
 				5DAA33B21A2B1A7F006DDB65 /* LKCountdown.swift in Sources */,
+				5D33343C1A6A8BD6007D9A4B /* LKInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,9 +10,14 @@ import UIKit
 
 class LKItemCell: UICollectionViewCell {
 
+
     @IBOutlet weak private var countdownLabel: UILabel!
 
     @IBOutlet weak private var titleLabel: UILabel!
+    
+    private(set) var longPressGestureRecognizer: UILongPressGestureRecognizer!
+    
+    var longPressAction: () -> () = {}
     
     var countdownItem: LKCountdownItem! {
         didSet {
@@ -30,6 +35,14 @@ class LKItemCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         self.backgroundColor = UIColor.orangeColor()
+        self.longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("didLongPress"))
+        
+        self.addGestureRecognizer(self.longPressGestureRecognizer)
+    }
+    
+    func didLongPress() {
+        println("didLongPressOnCell")
+        self.longPressAction()
     }
 
 }

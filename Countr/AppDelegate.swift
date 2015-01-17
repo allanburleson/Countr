@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UILabel.appearance().font = UIFont(name: "Avenir-Book", size: 17)
-        UILabel.appearance().textAlignment = NSTextAlignment.Center
+        //UILabel.appearance().textAlignment = NSTextAlignment.Center
         
         let mngr = LKCountdownManager.sharedInstance
         
