@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import CloudKit
 
+public let refreshUIKey = "refreshUI"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -24,9 +26,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
+        self.registerForiCloudNotifications()
+        
         
         return true
     }
+    
+    func registerForiCloudNotifications() {
+        println("registerForiCloudNotifications")
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        
+        notificationCenter.addObserver(self, selector: "storesWillChange:", name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: self.persistentStoreCoordinator)
+        notificationCenter.addObserver(self, selector: "storesDidChange:", name: NSPersistentStoreCoordinatorStoresDidChangeNotification, object: self.persistentStoreCoordinator)
+        notificationCenter.addObserver(self, selector: "persistentStoreDidImportUbiquitousContentChanges:", name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: self.persistentStoreCoordinator)
+    }
+    
+    // MARK: iCloud support
+    func iCloudPersistentStoreOptions() -> [NSObject : AnyObject] {
+        println("iCloudPersistentStoreOptions")
+        return [NSPersistentStoreUbiquitousContentNameKey : "CountrStore"]
+    }
+    
+    func storesWillChange(notification: NSNotification) {
+        println("storesWillChange")
+        let context = self.managedObjectContext
+        
+        context?.performBlockAndWait({
+            var error: NSError? = nil
+            
+            if (context?.hasChanges != nil) {
+                let success: Bool! = context?.save(&error)
+                
+                if (!success && error != nil) {
+                    println("Error: \(error?.localizedDescription)")
+                }
+            }
+            
+            context?.reset()
+        })
+        //TODO: Refresh your User Interface.
+        refreshUI()
+    }
+    
+    func storesDidChange(notification: NSNotification) {
+        println("storesDidChange")
+        //TODO: Refresh your User Interface.
+        refreshUI()
+    }
+    
+    func persistentStoreDidImportUbiquitousContentChanges(changeNotification: NSNotification) {
+        println("persistentStoreDidImportUbiquitousContentChanges")
+        let context = self.managedObjectContext
+        
+        context?.performBlock({
+            context?.mergeChangesFromContextDidSaveNotification(changeNotification)
+            return //This is needed, otherwise complains teh compiler
+        })
+        refreshUI()
+    }
+    
+    func refreshUI() {
+        NSNotificationCenter.defaultCenter().postNotificationName(refreshUIKey, object: nil)
+    }
+    
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
     }
@@ -76,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Countr.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: self.iCloudPersistentStoreOptions(), error: &error) == nil {
             coordinator = nil
             // Report any error we got.
             let dict = NSMutableDictionary()
@@ -99,7 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if coordinator == nil {
             return nil
         }
-        var managedObjectContext = NSManagedObjectContext()
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()

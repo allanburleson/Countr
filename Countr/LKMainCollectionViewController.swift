@@ -34,10 +34,11 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         self.countdownManager.startUpdates()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "modelDidLoadItems", name: modelDidLoadItemsKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: refreshUIKey, object: nil)
         
 
 
-        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        //self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
 
     }
