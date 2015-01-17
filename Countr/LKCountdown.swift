@@ -118,7 +118,7 @@ class LKCountdownManager: NSObject {
     
 }
 
-class LKCountdownItem: NSObject {
+class LKCountdownItem: NSObject, Printable {
     
     let name: String!
     let date: NSDate!
@@ -177,6 +177,12 @@ class LKCountdownItem: NSObject {
         self.remaining.seconds = components.second
         self.remaining.asString = "\(self.remaining.days) : \(self.remaining.hours) : \(self.remaining.minutes): \(self.remaining.seconds)"
         
+    }
+    
+    override var description: String {
+        get {
+            return "LKCountdownItem: Name: \(self.name), Reference date: \(self.date), uuid: \(self.id)"
+        }
     }
     
     // TODO: calculate the current time for updating at the same time for all items. A way to achive this would be to add a manager property to all items and then add a time property to the manager, the time propetzy of teh manager would be updated at teh beginning of each update cycle (in the maneger class)

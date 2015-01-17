@@ -12,6 +12,11 @@
 		5D3388621A6AB63F0068C37C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3388611A6AB63F0068C37C /* TodayViewController.swift */; };
 		5D3388641A6AB63F0068C37C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D3388631A6AB63F0068C37C /* MainInterface.storyboard */; };
 		5D3388671A6AB63F0068C37C /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5D33885A1A6AB63F0068C37C /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5D33886D1A6AB7320068C37C /* Countr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33901A2B19EB006DDB65 /* Countr.xcdatamodeld */; };
+		5D3388701A6AB8660068C37C /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
+		5D3388711A6AB9E80068C37C /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
+		5D33887C1A6AC4640068C37C /* LKExtensionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D33887A1A6AC4640068C37C /* LKExtensionItemCell.swift */; };
+		5D33887D1A6AC4640068C37C /* LKExtensionItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D33887B1A6AC4640068C37C /* LKExtensionItemCell.xib */; };
 		5D57D49A1A48219E0030EF9C /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
 		5D83B1491A2B4E2000BB17E3 /* LKItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */; };
 		5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */; };
@@ -65,6 +70,9 @@
 		5D3388601A6AB63F0068C37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D3388611A6AB63F0068C37C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		5D3388631A6AB63F0068C37C /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		5D33886C1A6AB6810068C37C /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TodayExtension.entitlements; sourceTree = "<group>"; };
+		5D33887A1A6AC4640068C37C /* LKExtensionItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKExtensionItemCell.swift; sourceTree = "<group>"; };
+		5D33887B1A6AC4640068C37C /* LKExtensionItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKExtensionItemCell.xib; sourceTree = "<group>"; };
 		5D57D4961A481F770030EF9C /* Countr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Countr.entitlements; sourceTree = "<group>"; };
 		5D57D4991A48219E0030EF9C /* LKModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKModel.swift; sourceTree = "<group>"; };
 		5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKItemCell.swift; sourceTree = "<group>"; };
@@ -122,8 +130,11 @@
 		5D33885E1A6AB63F0068C37C /* TodayExtension */ = {
 			isa = PBXGroup;
 			children = (
+				5D33886C1A6AB6810068C37C /* TodayExtension.entitlements */,
 				5D3388611A6AB63F0068C37C /* TodayViewController.swift */,
 				5D3388631A6AB63F0068C37C /* MainInterface.storyboard */,
+				5D33887A1A6AC4640068C37C /* LKExtensionItemCell.swift */,
+				5D33887B1A6AC4640068C37C /* LKExtensionItemCell.xib */,
 				5D33885F1A6AB63F0068C37C /* Supporting Files */,
 			);
 			path = TodayExtension;
@@ -274,6 +285,14 @@
 					5D3388591A6AB63F0068C37C = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = WL6ZJ4C8V3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					5DAA33881A2B19EB006DDB65 = {
 						CreatedOnToolsVersion = 6.1;
@@ -319,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D3388641A6AB63F0068C37C /* MainInterface.storyboard in Resources */,
+				5D33887D1A6AC4640068C37C /* LKExtensionItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +368,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D3388711A6AB9E80068C37C /* LKModel.swift in Sources */,
+				5D3388701A6AB8660068C37C /* LKCountdown.swift in Sources */,
+				5D33887C1A6AC4640068C37C /* LKExtensionItemCell.swift in Sources */,
+				5D33886D1A6AB7320068C37C /* Countr.xcdatamodeld in Sources */,
 				5D3388621A6AB63F0068C37C /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +437,7 @@
 		5D3388681A6AB6400068C37C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -422,6 +447,7 @@
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -429,11 +455,13 @@
 		5D3388691A6AB6400068C37C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
