@@ -28,8 +28,9 @@ class LKCountdownManager: NSObject {
     private var updateTimer: NSTimer?
     
     
-    var updateCompletionClosure: () -> () = {}
-    var didAddNewItemConpletionClosure: () -> () = {}
+    var updateCompletionClosure: () -> ()
+    //var didAddNewItemConpletionClosure: () -> () = {}
+    var didAddNewItemCompletionClosure: (item: LKCountdownItem) -> ()
     
     var numberOfItems: Int {
         get {
@@ -38,6 +39,8 @@ class LKCountdownManager: NSObject {
     }
     
     override init() {
+        self.updateCompletionClosure = {}
+        self.didAddNewItemCompletionClosure = {(item: LKCountdownItem) in}
         super.init()
     }
     
@@ -78,10 +81,11 @@ class LKCountdownManager: NSObject {
     }
     
     
-    func saveNewCountdownItem(item: LKCountdownItem) {
+    func saveNewCountdownItem(item: LKCountdownItem, completionHandler: () -> Void) {
         self.model.saveNewItem(item)
         println("did succed saving the item")
-        self.didAddNewItemConpletionClosure()
+        completionHandler()
+        self.didAddNewItemCompletionClosure(item: item)
 
     }
     

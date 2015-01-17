@@ -18,12 +18,10 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     override func loadView() {
         super.loadView()
         
-        let refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: Selector("refresh"))
-        self.navigationItem.leftBarButtonItem = refreshButton
-        //println(self.countdownManager.hash)
-        self.countdownManager.didAddNewItemConpletionClosure = {
-            //println("did add new item")
-            
+        self.countdownManager.didAddNewItemCompletionClosure = { (item: LKCountdownItem) in
+            println("did add new item: \(item.description)")
+            self.countdownManager.reload()
+            self.collectionView?.reloadData()
         }
         
         self.countdownManager.updateCompletionClosure = {

@@ -56,11 +56,10 @@ class LKAddItemViewController: UITableViewController {
     @IBAction func doneButtonClicked(sender: UIBarButtonItem) {
         let countdownManager = LKCountdownManager.sharedInstance
         
-        countdownManager.didAddNewItemConpletionClosure = {
-            self.dismissViewControllerAnimated(true, completion: nil)
-        }
         
         let item = LKCountdownItem(name: self.nameTextField.text, date: self.datePicker.date)
-        countdownManager.saveNewCountdownItem(item)
+        countdownManager.saveNewCountdownItem(item, completionHandler: {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
     }
 }
