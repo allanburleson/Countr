@@ -124,6 +124,7 @@ class LKModel {
         let index: Int = _nsarrayRawData.indexOfObject(item.managedObject)
         
         self.items.removeAtIndex(index)
+        self.rawItems.removeAtIndex(index)
         self.managedObjectContext().deleteObject(item.managedObject)
         
         var error: NSErrorPointer = NSErrorPointer()

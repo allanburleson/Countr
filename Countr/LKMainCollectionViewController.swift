@@ -38,7 +38,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
 
 
-        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        //self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
 
     }
