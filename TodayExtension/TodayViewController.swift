@@ -40,6 +40,49 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
+        
+        
+        /*
+        for label in self.countdownTitleLabels {
+            let index = find(self.countdownTitleLabels, label)!
+            self.countdownTitleLabels[index].text = self.countdownManager.items()[index].name
+        }
+*/
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.countdownManager.reload()
+        
+        println("data loaded in extension: \(self.countdownManager.items())")
+        println("number of items loaded in teh \(self.countdownManager.items().count)")
+        
+        configureViewForCountdownItems()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        stopTimer()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+        // Perform any setup necessary in order to update the view.
+
+        // If an error is encountered, use NCUpdateResult.Failed
+        // If there's no update required, use NCUpdateResult.NoData
+        // If there's an update, use NCUpdateResult.NewData
+
+        completionHandler(NCUpdateResult.NewData)
+    }
+    
+    func configureViewForCountdownItems() {
         println("data loaded in extension: \(self.countdownManager.items())")
         println("number of items loaded in teh \(self.countdownManager.items().count)")
         
@@ -50,17 +93,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         for label in self.countdownTitleLabels {
             label.font = UIFont(name: "Avenir-Book", size: 17)
         }
+        self.messageLabel.hidden = true
         
         switch self.countdownManager.numberOfItems {
         case 0:
+            println("0 items")
             for label in self.allLabels {
                 label.hidden = true
                 label.text = nil
                 label.frame = CGRectZero
                 self.preferredContentSize = CGSizeMake(0, 40)
             }
+            self.messageLabel.hidden = false
             break
         case 1:
+            println("1 items")
             
             let allItems = self.countdownManager.items()
             self.itemsCached.append(allItems[0])
@@ -82,6 +129,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             startTimer()
             break
         case 2:
+            
+            println("2 items")
             
             let allItems = self.countdownManager.items()
             self.itemsCached.append(allItems[0])
@@ -115,44 +164,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             let index = find(self.itemsCached, item)!
             self.countdownTitleLabels[index].text = item.name
         }
-        
-        /*
-        for label in self.countdownTitleLabels {
-            let index = find(self.countdownTitleLabels, label)!
-            self.countdownTitleLabels[index].text = self.countdownManager.items()[index].name
-        }
-*/
-        
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        //self.countdownManager.reload()
-        
-        println("data loaded in extension: \(self.countdownManager.items())")
-        println("number of items loaded in teh \(self.countdownManager.items().count)")
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        stopTimer()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
-        // Perform any setup necessary in order to update the view.
 
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-
-        completionHandler(NCUpdateResult.NewData)
     }
+    
     
     
     func startTimer() {
