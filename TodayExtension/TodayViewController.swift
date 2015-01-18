@@ -61,15 +61,59 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             }
             break
         case 1:
+            
+            let allItems = self.countdownManager.items()
+            self.itemsCached.append(allItems[0])
+            
+            
+            for label in self.itemTwoLabels {
+                label.hidden = true
+                label.text = nil
+                label.frame = CGRectZero
+            }
+            
+            for label in self.itemThreeLabels {
+                label.hidden = true
+                label.text = nil
+                label.frame = CGRectZero
+            }
+            
+            self.preferredContentSize = CGSizeMake(0, 70)
+            startTimer()
             break
         case 2:
+            
+            let allItems = self.countdownManager.items()
+            self.itemsCached.append(allItems[0])
+            self.itemsCached.append(allItems[1])
+            
+            for label in self.itemThreeLabels {
+                label.hidden = true
+                label.text = nil
+                label.frame = CGRectZero
+            }
+            
+            self.preferredContentSize = CGSizeMake(0, 135)
+            startTimer()
             break
         case 3:
+            
+            let allItems = self.countdownManager.items()
+            self.itemsCached.append(allItems[0])
+            self.itemsCached.append(allItems[1])
+            self.itemsCached.append(allItems[2])
+            startTimer()
             break
         default:
             // More than 3 items
             break
             
+        }
+        
+        // Set the titles
+        for item in self.itemsCached {
+            let index = find(self.itemsCached, item)!
+            self.countdownTitleLabels[index].text = item.name
         }
         
         /*
@@ -79,15 +123,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
 */
         
-        self.itemsCached = self.countdownManager.items()
-        
         
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        //self.countdownManager.reload()
         
-        //startTimer()
+        println("data loaded in extension: \(self.countdownManager.items())")
+        println("number of items loaded in teh \(self.countdownManager.items().count)")
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -122,13 +166,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func update() {
         for item in self.itemsCached {
+            println("in the loop")
             item.updateTimeRemaining()
+            let index = find(self.itemsCached, item)!
+            self.countdownRemainingLabels[index].text = item.remaining.asString
         }
         
-        for label in self.countdownRemainingLabels {
-            let index = find(self.countdownRemainingLabels, label)!
-            self.countdownTitleLabels[index].text = self.countdownManager.items()[index].remaining.asString
-        }
+
+        
     }
     
     
