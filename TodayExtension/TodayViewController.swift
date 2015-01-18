@@ -18,8 +18,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     var itemsCached: [LKCountdownItem] = []
     
+    @IBOutlet var allLabels: [UILabel]!
     @IBOutlet var countdownRemainingLabels: [UILabel]!
     @IBOutlet var countdownTitleLabels: [UILabel]!
+    
+    @IBOutlet var itemOneLabels: [UILabel]!
+    @IBOutlet var itemTwoLabels: [UILabel]!
+    @IBOutlet var itemThreeLabels: [UILabel]!
+    
+    @IBOutlet weak var messageLabel: UILabel!
     
     override func loadView() {
         super.loadView()
@@ -44,10 +51,33 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             label.font = UIFont(name: "Avenir-Book", size: 17)
         }
         
+        switch self.countdownManager.numberOfItems {
+        case 0:
+            for label in self.allLabels {
+                label.hidden = true
+                label.text = nil
+                label.frame = CGRectZero
+                self.preferredContentSize = CGSizeMake(0, 40)
+            }
+            break
+        case 1:
+            break
+        case 2:
+            break
+        case 3:
+            break
+        default:
+            // More than 3 items
+            break
+            
+        }
+        
+        /*
         for label in self.countdownTitleLabels {
             let index = find(self.countdownTitleLabels, label)!
             self.countdownTitleLabels[index].text = self.countdownManager.items()[index].name
         }
+*/
         
         self.itemsCached = self.countdownManager.items()
         
@@ -57,7 +87,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        startTimer()
+        //startTimer()
     }
     
     override func viewDidDisappear(animated: Bool) {
