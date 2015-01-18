@@ -92,11 +92,17 @@ class LKModel {
                 
                 self.rawItems.append(managedObject)
             }
+            
+            sortArray()
+            
             println("the local data: \(self.items)")
         }
     }
     
-    
+    func sortArray() {
+        self.items.sort({$0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow})
+        self.rawItems.sort({($0.valueForKey(coreDataDateKey) as NSDate).timeIntervalSinceNow < ($1.valueForKey(coreDataDateKey) as NSDate).timeIntervalSinceNow})
+    }
 
     
     
@@ -110,6 +116,10 @@ class LKModel {
         context.save(saveError)
         if !(saveError != nil) {
             println("locally saved!")
+            self.items.append(item)
+            self.rawItems.append(object)
+            self.sortArray()
+            
         } else {
             println("error saving locally")
         }
@@ -117,8 +127,9 @@ class LKModel {
     }
     
     func deleteItem(item: LKCountdownItem) {
-        let _nsarrayRawData: NSArray = NSArray(array: self.rawItems)
-        let index: Int = _nsarrayRawData.indexOfObject(item.managedObject)
+        
+        let index: Int = find(self.items, item)!
+        println("Will delet item at index: \(index) itemDescription: \(item)")
         
         self.items.removeAtIndex(index)
         self.rawItems.removeAtIndex(index)
@@ -131,10 +142,27 @@ class LKModel {
         } else {
             println("Did sucessfully delete the item at index \(index)")
         }
+        
+        reloadItems()
     }
 
     func reloadItems() {
         self.loadLocalData()
+    }
+    
+    
+    func deleteAllItems(completionHandler: () -> ()) {
+        let moc = self.managedObjectContext!
+        for object in self.rawItems {
+            moc.deleteObject(object)
+        }
+        let error: NSErrorPointer = NSErrorPointer()
+        if moc.save(error) {
+            println("Sucessfully deleted all items")
+            completionHandler()
+        } else {
+            println("Error: \(error.debugDescription)")
+        }
     }
     
     

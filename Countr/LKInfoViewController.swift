@@ -84,6 +84,10 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         let alertController = UIAlertController(title: "¿¿Sure??", message: "Are you sure you want to delete all data in this application?", preferredStyle: .ActionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {(action) in
             println("delete")
+            let countdownManager = LKCountdownManager.sharedInstance
+            countdownManager.deleteAllItems({
+                NSNotificationCenter.defaultCenter().postNotificationName(didDeleteAllItemsKey, object: nil)
+            })
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {(action) in

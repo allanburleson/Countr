@@ -21,9 +21,9 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         self.countdownManager.didAddNewItemCompletionClosure = { (item: LKCountdownItem) in
             println("did add new item: \(item.description)")
-            self.countdownManager.reload()
-            self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
-            //self.collectionView?.reloadData()
+            //self.countdownManager.reload()
+            //self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
+            self.collectionView?.reloadData()
         }
         
         self.countdownManager.updateCompletionClosure = {
@@ -34,8 +34,11 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         self.countdownManager.startUpdates()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "modelDidLoadItems", name: modelDidLoadItemsKey, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: refreshUIKey, object: nil)
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        
+        notificationCenter.addObserver(self, selector: "modelDidLoadItems", name: modelDidLoadItemsKey, object: nil)
+        notificationCenter.addObserver(self, selector: "refresh", name: refreshUIKey, object: nil)
+        notificationCenter.addObserver(self, selector: "refresh", name: didDeleteAllItemsKey, object: nil)
         
 
 
@@ -98,6 +101,8 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
+        println("will load cell for item \(indexPath.item) in section \(indexPath.section)")
+        println("name for this item: \(self.countdownManager.items()[indexPath.item].name)")
         
         let nib = UINib(nibName: "LKItemCell", bundle: nil)
         collectionView.registerClass(LKItemCell.self, forCellWithReuseIdentifier: "itemCell")
@@ -111,8 +116,8 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         cell.longPressAction = {
             self.countdownManager.endUpdates()
             
-            
-            let alertController = UIAlertController(title: "Delete Item", message: "Do you really want to delete the countdown \(self.countdownManager.items()[indexPath.row].name)", preferredStyle: UIAlertControllerStyle.ActionSheet)
+            let indexPath = collectionView.indexPathForCell(cell)!
+            let alertController = UIAlertController(title: "Delete Item", message: "Do you really want to delete the countdown \(self.countdownManager.items()[indexPath.item].name)", preferredStyle: UIAlertControllerStyle.ActionSheet)
             alertController.popoverPresentationController?.sourceView = cell
             alertController.popoverPresentationController?.sourceRect = cell.bounds
             println("cell.frame: \(cell.frame)")
@@ -126,7 +131,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             
             let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
                 println(action)
-                self.countdownManager.deleteCountdownItem(self.countdownManager.items()[indexPath.row])
+                self.countdownManager.deleteCountdownItem(self.countdownManager.items()[indexPath.item])
                 
                 if self.countdownManager.items().count > 1 {
                     self.collectionView?.deleteItemsAtIndexPaths([indexPath])

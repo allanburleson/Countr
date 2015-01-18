@@ -11,6 +11,8 @@ import UIKit
 import CloudKit
 import CoreData
 
+public let didDeleteAllItemsKey = "didDeleteAllItems"
+
 typealias LKCountdownMode = UIDatePickerMode
 
 
@@ -112,6 +114,10 @@ class LKCountdownManager: NSObject {
             println("isEmpty")
             self.endUpdates()
         }
+    }
+    
+    func deleteAllItems(completionHandler: () -> ()) {
+        self.model.deleteAllItems(completionHandler)
     }
     
     
