@@ -40,11 +40,21 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         notificationCenter.addObserver(self, selector: "refresh", name: refreshUIKey, object: nil)
         notificationCenter.addObserver(self, selector: "refresh", name: didDeleteAllItemsKey, object: nil)
         
-
-
-        //self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
 
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.startUpdates()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.stopUpdates()
     }
     
     func didLongPress() {
@@ -55,6 +65,15 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         println("refresh")
         self.countdownManager.reload()
         self.collectionView?.reloadData()
+    }
+    
+    func startUpdates() {
+        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+    }
+    
+    func stopUpdates() {
+        self.updateTimer?.invalidate()
+        self.updateTimer = nil
     }
     
     func update() {

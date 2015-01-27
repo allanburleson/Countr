@@ -14,10 +14,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     let countdownManager = LKCountdownManager.sharedInstance
     
-    var timer: NSTimer!
+    var timer: NSTimer?
     
     var itemsCached: [LKCountdownItem] = []
     
+    @IBOutlet var gestureRecognizer: [UITapGestureRecognizer]!
+    @IBOutlet var backgroundViews: [UIView]!
     @IBOutlet var allLabels: [UILabel]!
     @IBOutlet var countdownRemainingLabels: [UILabel]!
     @IBOutlet var countdownTitleLabels: [UILabel]!
@@ -31,6 +33,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func loadView() {
         super.loadView()
         println("loadView")
+        
+        for view in self.backgroundViews {
+            view.hidden = true
+            view.frame = CGRectZero
+            view.removeFromSuperview()
+        }
         
         
         self.preferredContentSize = CGSizeMake(320, 246)
@@ -47,9 +55,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             let index = find(self.countdownTitleLabels, label)!
             self.countdownTitleLabels[index].text = self.countdownManager.items()[index].name
         }
+        
+        // TODO: [MAYBE] Create a second timer which checks for new/deletd content every 10-20 seconds
 */
-        
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -86,6 +94,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         println("data loaded in extension: \(self.countdownManager.items())")
         println("number of items loaded in teh \(self.countdownManager.items().count)")
         
+        //for view in self.backgroundViews {
+        //    view.alpha = 0.00000001
+        //}
+        
         for label in self.countdownRemainingLabels {
             label.font = UIFont(name: "Avenir-Book", size: 20)
         }
@@ -104,6 +116,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 label.frame = CGRectZero
                 self.preferredContentSize = CGSizeMake(0, 40)
             }
+            
+            for view in self.backgroundViews {
+                view.hidden = true
+                view.frame = CGRectZero
+                view.removeFromSuperview()
+            }
             self.messageLabel.hidden = false
             break
         case 1:
@@ -112,6 +130,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             let allItems = self.countdownManager.items()
             self.itemsCached.append(allItems[0])
             
+            /*
+            self.backgroundViews[1].hidden = true
+            self.backgroundViews[1].frame = CGRectZero
+            self.backgroundViews[1].removeFromSuperview()
+            
+            self.backgroundViews[2].hidden = true
+            self.backgroundViews[2].frame = CGRectZero
+            self.backgroundViews[2].removeFromSuperview()
+            */
+            
+            
+
             
             for label in self.itemTwoLabels {
                 label.hidden = true
@@ -141,6 +171,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 label.text = nil
                 label.frame = CGRectZero
             }
+            
+            /*
+            self.backgroundViews[2].hidden = true
+            self.backgroundViews[2].frame = CGRectZero
+            self.backgroundViews[2].removeFromSuperview()
+            */
             
             self.preferredContentSize = CGSizeMake(0, 135)
             startTimer()
@@ -175,7 +211,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     
     func stopTimer() {
-        
+        self.timer?.invalidate()
+        self.timer = nil
     }
     
     func update() {
@@ -189,6 +226,25 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
         
     }
+    
+    /*
+    // MARK: UI Interaction
+    @IBAction func didTapGestureRecognizer(sender: UITapGestureRecognizer) {
+        switch sender {
+        case self.gestureRecognizer[0]:
+            println("did tap the first view")
+            break
+        case self.gestureRecognizer[1]:
+            println("did tap the second view")
+            break
+        case self.gestureRecognizer[2]:
+            println("did tap the third view")
+            break
+        default:
+            break
+        }
+    }
+*/
     
     
 }

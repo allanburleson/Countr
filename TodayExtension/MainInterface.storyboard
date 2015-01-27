@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Today View Controller-->
@@ -17,13 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnC-NG-t9Q">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yZi-qK-j4J" appends="YES" id="Bcl-38-vnc"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cD9-J8-SSP">
+                                <rect key="frame" x="0.0" y="82" width="320" height="82"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2ww-7o-mOh" appends="YES" id="pTL-Zw-Rtb"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wyi-Uo-F7t">
+                                <rect key="frame" x="0.0" y="164" width="320" height="82"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vqG-7a-Nfj" appends="YES" id="Zfb-Ag-piV"/>
+                                </connections>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vm-nC-Eqq">
                                 <rect key="frame" x="16" y="8" width="288" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8Mk-un-S7y"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28F-ml-dxg">
@@ -32,7 +57,7 @@
                                     <constraint firstAttribute="height" constant="30" id="xnu-8a-yhQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlk-cu-Bv8">
@@ -41,7 +66,7 @@
                                     <constraint firstAttribute="height" constant="21" id="3Lp-ND-EEN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ru6-xu-ced">
@@ -50,13 +75,13 @@
                                     <constraint firstAttribute="height" constant="21" id="JSw-qU-qby"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJp-d9-Tcv">
                                 <rect key="frame" x="16" y="210" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vQ-dU-dVc">
@@ -65,19 +90,21 @@
                                     <constraint firstAttribute="height" constant="30" id="7Vw-Ld-Aet"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No countdowns added yet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-cq-CZ8">
                                 <rect key="frame" x="16" y="112" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ghl-cq-CZ8" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="3mW-m3-nrA"/>
                             <constraint firstItem="gJp-d9-Tcv" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="4BS-2m-Ryj"/>
+                            <constraint firstItem="cnC-NG-t9Q" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="-16" id="5DA-Om-MsH"/>
+                            <constraint firstAttribute="height" secondItem="cnC-NG-t9Q" secondAttribute="height" multiplier="3" id="5F0-Sh-TqB"/>
                             <constraint firstItem="ghl-cq-CZ8" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="5Xb-d3-gFl"/>
                             <constraint firstItem="5Vm-nC-Eqq" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="78s-By-K2b"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="gJp-d9-Tcv" secondAttribute="bottom" constant="15" id="AuZ-kd-NgE"/>
@@ -91,8 +118,10 @@
                             <constraint firstItem="28F-ml-dxg" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="TvC-wf-fAn"/>
                             <constraint firstItem="Xlk-cu-Bv8" firstAttribute="top" secondItem="5Vm-nC-Eqq" secondAttribute="bottom" constant="8" id="U4k-lZ-CXi"/>
                             <constraint firstItem="6vQ-dU-dVc" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="Ywx-sB-BHp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cnC-NG-t9Q" secondAttribute="trailing" constant="-16" id="aEc-Ma-RY5"/>
                             <constraint firstItem="gJp-d9-Tcv" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="bdF-hM-M68"/>
                             <constraint firstItem="gJp-d9-Tcv" firstAttribute="top" secondItem="6vQ-dU-dVc" secondAttribute="bottom" constant="8" id="eU7-sp-gyx"/>
+                            <constraint firstItem="cnC-NG-t9Q" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="j65-aD-oFF"/>
                             <constraint firstItem="28F-ml-dxg" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="maW-Eg-5hc"/>
                             <constraint firstItem="ru6-xu-ced" firstAttribute="top" secondItem="28F-ml-dxg" secondAttribute="bottom" constant="8" id="pKv-BM-em5"/>
                             <constraint firstItem="gJp-d9-Tcv" firstAttribute="top" secondItem="6vQ-dU-dVc" secondAttribute="bottom" constant="8" id="ptc-4K-5xh"/>
@@ -128,9 +157,30 @@
                         <outletCollection property="itemTwoLabels" destination="ru6-xu-ced" collectionClass="NSMutableArray" id="VVI-ns-cuW"/>
                         <outletCollection property="itemThreeLabels" destination="6vQ-dU-dVc" collectionClass="NSMutableArray" id="I6z-oQ-JCQ"/>
                         <outletCollection property="itemThreeLabels" destination="gJp-d9-Tcv" collectionClass="NSMutableArray" id="JNB-BI-tQb"/>
+                        <outletCollection property="backgroundViews" destination="cnC-NG-t9Q" collectionClass="NSMutableArray" id="1Yt-Ho-8g3"/>
+                        <outletCollection property="backgroundViews" destination="cD9-J8-SSP" collectionClass="NSMutableArray" id="hdx-Yn-gIM"/>
+                        <outletCollection property="backgroundViews" destination="Wyi-Uo-F7t" collectionClass="NSMutableArray" id="dA0-4f-QK7"/>
+                        <outletCollection property="gestureRecognizer" destination="yZi-qK-j4J" collectionClass="NSMutableArray" id="xcA-u8-bgb"/>
+                        <outletCollection property="gestureRecognizer" destination="2ww-7o-mOh" collectionClass="NSMutableArray" id="M6g-fQ-2vi"/>
+                        <outletCollection property="gestureRecognizer" destination="vqG-7a-Nfj" collectionClass="NSMutableArray" id="oHg-ZF-XKG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yZi-qK-j4J">
+                    <connections>
+                        <action selector="didTapGestureRecognizer:" destination="M4Y-Lb-cyx" id="nAu-79-bhq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2ww-7o-mOh">
+                    <connections>
+                        <action selector="didTapGestureRecognizer:" destination="M4Y-Lb-cyx" id="vYr-QO-gfZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="vqG-7a-Nfj">
+                    <connections>
+                        <action selector="didTapGestureRecognizer:" destination="M4Y-Lb-cyx" id="lTj-47-loe"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="516" y="285"/>
         </scene>
