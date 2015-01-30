@@ -81,7 +81,7 @@ static NSDateFormatter *_displayFormatter = nil;
  */
 - (NSUInteger)daysAgo {
     NSCalendar *calendar = [[self class] sharedCalendar];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitDay)
+    NSDateComponents *components = [calendar components:(NSDayCalendarUnit)
                                                fromDate:self
                                                  toDate:[NSDate date]
                                                 options:0];
@@ -118,19 +118,19 @@ static NSDateFormatter *_displayFormatter = nil;
 
 - (NSUInteger)hour {
     NSCalendar *calendar = [[self class] sharedCalendar];
-    NSDateComponents *weekdayComponents = [calendar components:(NSCalendarUnitHour) fromDate:self];
+    NSDateComponents *weekdayComponents = [calendar components:(NSHourCalendarUnit) fromDate:self];
 	return [weekdayComponents hour];
 }
 
 - (NSUInteger)minute {
     NSCalendar *calendar = [[self class] sharedCalendar];
-    NSDateComponents *weekdayComponents = [calendar components:(NSCalendarUnitMinute) fromDate:self];
+    NSDateComponents *weekdayComponents = [calendar components:(NSMinuteCalendarUnit) fromDate:self];
 	return [weekdayComponents minute];
 }
 
 - (NSUInteger)year {
     NSCalendar *calendar = [[self class] sharedCalendar];
-    NSDateComponents *weekdayComponents = [calendar components:(NSCalendarUnitYear) fromDate:self];
+    NSDateComponents *weekdayComponents = [calendar components:(NSYearCalendarUnit) fromDate:self];
 	return [weekdayComponents year];
 }
 
@@ -139,7 +139,7 @@ static NSDateFormatter *_displayFormatter = nil;
 }
 
 - (NSUInteger)weekday {
-    NSDateComponents *weekdayComponents = [[[self class] sharedCalendar] components:(NSCalendarUnitWeekday) fromDate:self];
+    NSDateComponents *weekdayComponents = [[[self class] sharedCalendar] components:(NSWeekdayCalendarUnit) fromDate:self];
 	return [weekdayComponents weekday];
 }
 

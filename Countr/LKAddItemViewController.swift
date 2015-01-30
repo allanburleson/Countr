@@ -86,13 +86,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     
     
     func textFieldTextChanged() {
-        
-        println("textFieldTextChanged")
-        if self.nameTextField.text.isEmpty {
-            self.doneBarButtonItem.enabled = false
-        } else {
-            self.doneBarButtonItem.enabled = true
-        }
+        self.doneBarButtonItem.enabled = !self.nameTextField.text.isEmpty
     }
     
     @IBAction func cancelButtonClicked(sender: UIBarButtonItem) {

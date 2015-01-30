@@ -84,7 +84,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
             self.selectRow(dateComponents.day-1, inComponent: 1, animated: false)
             self.selectRow(dateComponents.year, inComponent: 2, animated: false)
         case .DateAndTime:
-            self.selectRow(500, inComponent: 0, animated: false)
+            self.selectRow(365, inComponent: 0, animated: false)
             self.selectRow(dateComponents.hour-1, inComponent: 1, animated: false)
             self.selectRow(dateComponents.minute-1, inComponent: 2, animated: false)
             println("hour: \(dateComponents.hour)")
@@ -116,7 +116,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         case .DateAndTime:
             switch component {
             case 0:
-                return 1001 // These are the days, the the following format: "[Mon] [Jan] [22]" // 1001 because 500 ((1000-1) /2) rows exist above and below the "Today" row
+                return 731 // These are the days, in the following format: "[Mon] [Jan] [22]"
             case 1: // the hours
                 if UIDevice.currentDevice().is12HourFormat {
                     return 12
@@ -219,12 +219,12 @@ struct LKPickerData {
         let _date = NSDate() // As creating the dates in the dateByAddingUnit function would either take a lot if time each time teh functions is loaded (>1000 x) it is created once and accessed over and over. Also, re-creating it over and over would produce a slightld different date each time
         let _calendar = NSCalendar.currentCalendar()
         
-        for index in 1...10 {
-            println("in loop #\(index)")
+        for index in 0...730 { // 731 means being able to go back one year and one year in the future // NOTE: It is 730 because the for_loop starts at 0 (instead of 1)
+            //println("in loop #\(index)")
             let _date: NSDate = _calendar.dateByAddingUnit(.CalendarUnitDay, value: -index, toDate: _date, options: nil)!
-            println("date: \(_date)")
+            //println("date: \(_date)")
             let _descriptiveDate = _date.descriptiveStringForDatePicker
-            println("_descriptiveDate: \(_descriptiveDate)")
+            //println("_descriptiveDate: \(_descriptiveDate)")
             _descriptiveDates.append(_descriptiveDate)
         }
         
