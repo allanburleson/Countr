@@ -19,6 +19,12 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     override func loadView() {
         super.loadView()
         
+        /*
+        NOTE: The default contentInset is 64. If you want to get more than 64 (in this case 85), you have to set the difference (85-64=11) as the "new" contentInsetn
+        */
+        self.collectionView?.contentInset = UIEdgeInsetsMake(21, 0, 0, 0)
+        self.collectionView?.backgroundColor = UIColor(rgba: "#232323")
+        
         self.countdownManager.didAddNewItemCompletionClosure = { (item: LKCountdownItem) in
             println("did add new item: \(item.description)")
             //self.countdownManager.reload()
@@ -48,7 +54,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.startUpdates()
+        self.startUpdates() //TODO: Un-Comment thi sline
     }
     
     override func viewDidDisappear(animated: Bool) {

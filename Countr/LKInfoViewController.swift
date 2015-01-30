@@ -17,6 +17,8 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     override func loadView() {
         super.loadView()
         
+        self.tableView.backgroundColor = UIColor(rgba: "#232323")
+        
         if self.traitCollection.userInterfaceIdiom == .Pad {
             self.navigationItem.leftBarButtonItem = nil
         }

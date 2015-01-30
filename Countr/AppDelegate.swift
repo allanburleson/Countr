@@ -21,11 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UILabel.appearance().font = UIFont(name: "Avenir-Book", size: 17)
+        UINavigationBar.appearance().barStyle = .Black
+        UITextField.appearance().tintColor = UIColor.whiteColor()
         //UILabel.appearance().textAlignment = NSTextAlignment.Center
         
         application.registerForRemoteNotifications()
         
         self.registerForiCloudNotifications()
+        
+        println("Device is 12hr format: \(UIDevice.currentDevice().is12HourFormat)")
         
         
         return true

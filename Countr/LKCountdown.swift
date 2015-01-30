@@ -87,6 +87,8 @@ class LKCountdownManager: NSObject {
     
     func saveNewCountdownItem(item: LKCountdownItem, countdownMode: LKCountdownMode, completionHandler: () -> Void) {
         var adaptedItem: LKCountdownItem!
+        
+        /*
         switch countdownMode {
         case .Date:
             let date: NSDate = NSCalendar.currentCalendar().dateBySettingHour(0, minute: 0, second: 0, ofDate: item.date, options: nil)!
@@ -99,8 +101,10 @@ class LKCountdownManager: NSObject {
         default:
             break
         }
+*/
         
-        self.model.saveNewItem(adaptedItem)
+        //self.model.saveNewItem(adaptedItem)
+        self.model.saveNewItem(item)
         println("did succed saving the item")
         completionHandler()
         self.didAddNewItemCompletionClosure(item: item)

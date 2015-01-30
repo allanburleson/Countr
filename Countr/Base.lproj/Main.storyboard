@@ -21,10 +21,16 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hCi-Xk-pkl" id="mvm-uE-nlp">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tCU-BB-gQb">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tCU-BB-gQb">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="WCH-ri-BhP"/>
+                                                    </constraints>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -34,6 +40,7 @@
                                                 <constraint firstItem="tCU-BB-gQb" firstAttribute="leading" secondItem="mvm-uE-nlp" secondAttribute="leadingMargin" id="X0k-m9-uou"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.14509803921568629" green="0.14509803921568629" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -45,22 +52,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VwF-q7-5AS">
-                                                    <rect key="frame" x="106" y="8" width="389" height="29"/>
+                                                    <rect key="frame" x="8" y="10" width="584" height="29"/>
                                                     <segments>
                                                         <segment title="Day"/>
                                                         <segment title="Day &amp; Time"/>
-                                                        <segment title="Simple Countdown"/>
                                                     </segments>
                                                     <connections>
                                                         <action selector="countdownModeChanged:" destination="NDr-WG-CxX" eventType="valueChanged" id="Hha-8N-VST"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="VwF-q7-5AS" secondAttribute="centerY" id="Ief-Zf-1yB"/>
+                                                <constraint firstAttribute="centerY" secondItem="VwF-q7-5AS" secondAttribute="centerY" constant="-2" id="Ief-Zf-1yB"/>
+                                                <constraint firstItem="VwF-q7-5AS" firstAttribute="leading" secondItem="2bq-RW-5kh" secondAttribute="leadingMargin" id="JC5-yl-YeG"/>
+                                                <constraint firstItem="VwF-q7-5AS" firstAttribute="trailing" secondItem="2bq-RW-5kh" secondAttribute="trailingMargin" id="RU2-mK-4pB"/>
                                                 <constraint firstAttribute="centerX" secondItem="VwF-q7-5AS" secondAttribute="centerX" constant="-0.5" id="Xb6-8p-kBI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -71,20 +81,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PQN-iy-KiO" id="LBn-OF-dvl">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="k9m-7z-gri">
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GiS-8P-nUN" customClass="LKDatePicker" customModule="Countr" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="162"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="439041635.57975501">
-                                                        <!--2014-11-30 12:00:35 +0000-->
-                                                    </date>
-                                                </datePicker>
+                                                </pickerView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="k9m-7z-gri" secondAttribute="trailing" constant="-8" id="O1F-eq-IOc"/>
-                                                <constraint firstItem="k9m-7z-gri" firstAttribute="leading" secondItem="LBn-OF-dvl" secondAttribute="leadingMargin" constant="-8" id="V3Y-Fc-MDk"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="k9m-7z-gri" secondAttribute="bottom" constant="-9" id="aOB-jr-Kv9"/>
-                                                <constraint firstItem="k9m-7z-gri" firstAttribute="top" secondItem="LBn-OF-dvl" secondAttribute="topMargin" constant="-8" id="sdh-eP-Hoj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GiS-8P-nUN" secondAttribute="bottom" constant="-9" id="YP1-a8-9wO"/>
+                                                <constraint firstItem="GiS-8P-nUN" firstAttribute="leading" secondItem="LBn-OF-dvl" secondAttribute="leadingMargin" constant="-8" id="gGt-9h-J1K"/>
+                                                <constraint firstItem="GiS-8P-nUN" firstAttribute="top" secondItem="LBn-OF-dvl" secondAttribute="topMargin" constant="-8" id="hau-O5-tAY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="GiS-8P-nUN" secondAttribute="trailing" constant="-8" id="uaK-Ji-vb2"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -108,13 +116,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="countdownModeSegmentedControl" destination="VwF-q7-5AS" id="Dvf-5Q-JEf"/>
-                        <outlet property="datePicker" destination="k9m-7z-gri" id="2GV-yg-9K7"/>
+                        <outlet property="datePicker" destination="GiS-8P-nUN" id="mfN-bw-4dl"/>
+                        <outlet property="doneBarButtonItem" destination="zav-Rr-vpq" id="eoc-Wg-SBD"/>
                         <outlet property="nameTextField" destination="tCU-BB-gQb" id="Vb3-fW-9Up"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fT5-Uc-hNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616" y="-319"/>
+            <point key="canvasLocation" x="2616" y="-321"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="oT5-sm-akk">
@@ -141,7 +150,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZf-r4-utw">
                                                     <rect key="frame" x="16" y="11" width="57" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -152,6 +161,7 @@
                                                 <constraint firstItem="NZf-r4-utw" firstAttribute="top" secondItem="9ak-vl-rD1" secondAttribute="topMargin" constant="3" id="aXq-kp-lwD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -175,6 +185,7 @@
                                                 <constraint firstItem="StU-Cc-TdA" firstAttribute="leading" secondItem="LuT-ly-WoG" secondAttribute="leading" constant="16" id="j9M-a9-aq9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="azA-Fz-6Vb">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -195,6 +206,7 @@
                                                 <constraint firstItem="udG-OD-yGS" firstAttribute="leading" secondItem="mID-fi-oi9" secondAttribute="leadingMargin" constant="8" id="yBW-Bq-vVL"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -218,6 +230,7 @@
                                                 <constraint firstItem="rBO-ga-OHI" firstAttribute="top" secondItem="pfX-0I-8UG" secondAttribute="topMargin" constant="3" id="W4v-sd-jqr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -231,7 +244,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015, Lukas Kollmer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTW-IE-4RE">
                                                     <rect key="frame" x="16" y="11" width="176" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -240,6 +253,7 @@
                                                 <constraint firstItem="wTW-IE-4RE" firstAttribute="leading" secondItem="tME-pa-he6" secondAttribute="leading" constant="16" id="teL-84-LZb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -297,7 +311,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="zou-YS-eis">
                         <barButtonItem key="leftBarButtonItem" id="4Go-89-plq">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="wQE-yj-aHf">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="wQE-yj-aHf">
                                 <rect key="frame" x="16" y="7" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
@@ -376,4 +390,5 @@
             <point key="canvasLocation" x="2616" y="1050"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

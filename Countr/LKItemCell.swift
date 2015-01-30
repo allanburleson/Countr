@@ -34,7 +34,13 @@ class LKItemCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.backgroundColor = UIColor.orangeColor()
+        self.countdownLabel.textColor = UIColor.whiteColor() // These values are not set in IB, as there ia a white background
+        self.titleLabel.textColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor(rgba: "#252525")
+        self.layer.borderColor = UIColor(rgba: "#292929").CGColor
+        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 12
+        self.clipsToBounds = true
         self.longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("didLongPress"))
         
         self.addGestureRecognizer(self.longPressGestureRecognizer)
