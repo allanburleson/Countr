@@ -31,7 +31,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         
         self.tableView.backgroundColor = UIColor(rgba: "#232323")
         
-        self.nameTextField.attributedPlaceholder = NSAttributedString(string: "Enter a name for your countdown (required)", attributes: [NSForegroundColorAttributeName : UIColor(rgba: "#D9D9D9"), NSFontAttributeName: UIFont(name: "Avenir-Book", size: 15)!])
+        self.nameTextField.attributedPlaceholder = NSAttributedString(string: "Enter a name for your countdown", attributes: [NSForegroundColorAttributeName : UIColor(rgba: "#D9D9D9"), NSFontAttributeName: UIFont(name: "Avenir-Book", size: 15)!])
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldTextChanged", name: UITextFieldTextDidChangeNotification, object: self.nameTextField)
         

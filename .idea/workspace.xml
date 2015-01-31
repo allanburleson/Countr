@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9764292-d01d-4296-8f73-863827d264b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/AppDelegate.swift" afterPath="$PROJECT_DIR$/Countr/AppDelegate.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/LKAddItemViewController.swift" afterPath="$PROJECT_DIR$/Countr/LKAddItemViewController.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Countr.iws" />
@@ -47,10 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppDelegate.swift" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AppDelegate.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Countr/AppDelegate.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52374303" vertical-offset="0" max-vertical-offset="1545">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1545">
               <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
               <folding />
             </state>
@@ -77,6 +77,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="LKAddItemViewController.swift" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Countr/LKAddItemViewController.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6913408" vertical-offset="0" max-vertical-offset="1995">
+              <caret line="33" column="110" selection-start-line="33" selection-start-column="110" selection-end-line="33" selection-end-column="110" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -91,7 +101,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Countr/NSDate+Helper.m" />
-        <option value="$PROJECT_DIR$/Countr/LKAddItemViewController.swift" />
         <option value="$PROJECT_DIR$/Countr/Extensions.swift" />
         <option value="$PROJECT_DIR$/Countr/LKCountdown.swift" />
         <option value="$PROJECT_DIR$/Countr/LKDatePicker.swift" />
@@ -100,6 +109,7 @@
         <option value="$PROJECT_DIR$/Countr/LKInfoViewController.swift" />
         <option value="$PROJECT_DIR$/Countr/PBWebViewController.m" />
         <option value="$PROJECT_DIR$/Countr/AppDelegate.swift" />
+        <option value="$PROJECT_DIR$/Countr/LKAddItemViewController.swift" />
       </list>
     </option>
   </component>
@@ -167,7 +177,7 @@
   <component name="PropertiesComponent">
     <property name="FullScreen" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="SearchEverywhereHistoryKey" value="lkin&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKInfoViewController.swift&#10;collect&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKMainCollectionViewController.swift&#10;exten&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/Extensions.swift" />
+    <property name="SearchEverywhereHistoryKey" value="addIte&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKAddItemViewController.swift&#10;lkin&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKInfoViewController.swift&#10;collect&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKMainCollectionViewController.swift&#10;exten&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/Extensions.swift" />
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="Countr" />
   </component>
   <component name="RunManager" selected="Application.Countr">
@@ -246,7 +256,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422694326857</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="The Toolbar item sin the PBWebViewController are now white">
+      <created>1422694764158</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1422694764158</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -316,7 +332,8 @@
     <MESSAGE value="-  added support for 12/24 hour time formats" />
     <MESSAGE value="-  The ScrollIndicator of the collectionView is now .White&#10;-  The scrollIndicator of the collectionView does now flash once after the viewDidAppear()" />
     <MESSAGE value="Added PBWebViewController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added PBWebViewController" />
+    <MESSAGE value="The Toolbar item sin the PBWebViewController are now white" />
+    <option name="LAST_COMMIT_MESSAGE" value="The Toolbar item sin the PBWebViewController are now white" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -350,14 +367,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.5523691" vertical-offset="0" max-vertical-offset="5100">
           <caret line="83" column="74" selection-start-line="83" selection-start-column="74" selection-end-line="83" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Countr/LKAddItemViewController.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.40274313" vertical-offset="1193" max-vertical-offset="1995">
-          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -435,8 +444,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Countr/AppDelegate.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52374303" vertical-offset="0" max-vertical-offset="1545">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1545">
           <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Countr/LKAddItemViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6913408" vertical-offset="0" max-vertical-offset="1995">
+          <caret line="33" column="110" selection-start-line="33" selection-start-column="110" selection-end-line="33" selection-end-column="110" />
           <folding />
         </state>
       </provider>
