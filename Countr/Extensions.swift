@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+extension UIApplication {
+    var version: String {
+        get {
+            return NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as String
+        }
+    }
+}
+
 extension UIDevice {
     var is12HourFormat: Bool { // This shit works
         get {

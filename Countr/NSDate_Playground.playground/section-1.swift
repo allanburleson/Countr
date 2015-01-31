@@ -3,6 +3,9 @@
 import UIKit
 
 
+// App version
+//UIApplication.sharedApplication().version
+
 // Day in year
 NSCalendar.currentCalendar().ordinalityOfUnit(NSCalendarUnit.DayCalendarUnit, inUnit: NSCalendarUnit.YearCalendarUnit, forDate: NSDate())
 

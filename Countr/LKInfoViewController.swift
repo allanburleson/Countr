@@ -12,12 +12,14 @@ import MessageUI
 
 class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
+    @IBOutlet weak var versionNumberLabel: UILabel!
     @IBOutlet weak var sendFeedbackCell: UITableViewCell!
     @IBOutlet weak var infoBarButtonItem: UIBarButtonItem!
     override func loadView() {
         super.loadView()
         
         self.tableView.backgroundColor = UIColor(rgba: "#232323")
+        self.versionNumberLabel.text = UIApplication.sharedApplication().version
         
         if self.traitCollection.userInterfaceIdiom == .Pad {
             self.navigationItem.leftBarButtonItem = nil
