@@ -22,6 +22,10 @@ let coreDataEnitiyNameKey = "Item"
 let coreDataNameKey = "name"
 let coreDataDateKey = "date"
 let coreDataIdKey = "id"
+let coreDataKindKey = "kind"
+let coreDataKindDateKey = "date"
+let coreDataKindDateAndTimeKey = "dateAndTime"
+let coreDataKindUnknownKey = "unknown"
 
 let didAddNewItemsSinceLastCloudSyncKey = "didAddNewItemsSinceLastCloudSync"
 
@@ -112,6 +116,8 @@ class LKModel {
         let object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(coreDataEnitiyNameKey, inManagedObjectContext: context) as NSManagedObject
         object.setValue(item.name, forKey: coreDataNameKey)
         object.setValue(item.date, forKey: coreDataDateKey)
+        object.setValue(item.id, forKey: coreDataIdKey)
+        object.setValue(item.countdownMode.toString(), forKey: coreDataKindKey)
         let saveError = NSErrorPointer()
         context.save(saveError)
         if !(saveError != nil) {

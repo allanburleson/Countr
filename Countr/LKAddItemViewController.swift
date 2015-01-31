@@ -21,6 +21,8 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     
     let notification = CWStatusBarNotification()
     
+    lazy var tracker = GAI.sharedInstance().defaultTracker
+    
     
     
     override func loadView() {
@@ -51,6 +53,11 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         println("appleClearButton: \(appleClearButton)")
         println("appleClearButton.image: \(appleClearButton.imageView?.image)")
         */
+        
+        // Google Analytics
+        tracker.set(kGAIScreenName, value: nameOfClass(self))
+        tracker.send(GAIDictionaryBuilder.createScreenView().build())
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -92,7 +99,10 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancelButtonClicked(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: {
+            
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: cancel_button_key, value: nil).build())
+        })
     }
     
     @IBAction func doneButtonClicked(sender: UIBarButtonItem) {
@@ -103,7 +113,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         let countdownManager = LKCountdownManager.sharedInstance
         
         
-        let item = LKCountdownItem(name: self.nameTextField.text, date: self.datePicker.date)
+        let item = LKCountdownItem(name: self.nameTextField.text, date: self.datePicker.date, mode: self.datePicker.pickerMode)
         countdownManager.saveNewCountdownItem(item,countdownMode: self.datePicker.pickerMode, completionHandler: {
             self.dismissViewControllerAnimated(true, completion: nil)
         })

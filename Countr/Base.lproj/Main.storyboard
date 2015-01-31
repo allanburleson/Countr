@@ -327,7 +327,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="g0r-0b-NGm">
                             <connections>
-                                <segue destination="mpB-6R-lD1" kind="presentation" modalPresentationStyle="formSheet" id="VD8-lW-qMs"/>
+                                <segue destination="mpB-6R-lD1" kind="presentation" identifier="addNewItem" modalPresentationStyle="formSheet" id="VD8-lW-qMs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

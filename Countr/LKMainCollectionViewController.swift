@@ -13,6 +13,8 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     let countdownManager = LKCountdownManager.sharedInstance
     
+    lazy var tracker = GAI.sharedInstance().defaultTracker
+    
     
     var updateTimer: NSTimer?
     
@@ -30,14 +32,23 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             println("did add new item: \(item.description)")
             //self.countdownManager.reload()
             //self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
-            self.reloadEmptyDataMessage()
             self.collectionView?.reloadData()
+            self.reloadEmptyDataMessage()
+            self.startUpdates()
+            
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_add_new_item_key, label: "", value: nil).build())
         }
         
         self.countdownManager.updateCompletionClosure = {
             println("did update values")
             //self.collectionView?.reloadData()
             self.update()
+        }
+        
+        self.countdownManager.didDeleteAllItemsCompletionClosure = {
+            self.reloadEmptyDataMessage()
+            self.countdownManager.reload()
+            self.collectionView?.reloadData()
         }
         
         self.countdownManager.startUpdates()
@@ -47,7 +58,6 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         notificationCenter.addObserver(self, selector: "modelDidLoadItems", name: modelDidLoadItemsKey, object: nil)
         notificationCenter.addObserver(self, selector: "refresh", name: refreshUIKey, object: nil)
         notificationCenter.addObserver(self, selector: "refresh", name: didDeleteAllItemsKey, object: nil)
-        
         
 
     }
@@ -61,14 +71,16 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.startUpdates() //TODO: Un-Comment thi sline
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
         self.collectionView?.flashScrollIndicators()
+        
+        // Google Analytics
+        tracker.set(kGAIScreenName, value: nameOfClass(self))
+        tracker.send(GAIDictionaryBuilder.createScreenView().build())
     }
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
@@ -142,6 +154,13 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
 */
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "addNewItem" {
+            println("addNewItem")
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: add_new_item_button_key, value: nil).build())
+        }
+    }
+    
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -193,6 +212,8 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
                 }
                 self.reloadEmptyDataMessage()
                 self.countdownManager.startUpdates()
+                
+                self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_delete_item_key, label: nil, value: nil).build())
             }
             
             alertController.addAction(cancelAction)
@@ -238,6 +259,9 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         self.presentViewController(alertController, animated: true, completion: nil)
 */
+        
+        // Google Analytics
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: select_collection_view_cell_key, label: nil, value: nil).build())
     
     }
     

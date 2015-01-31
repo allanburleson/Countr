@@ -12,9 +12,12 @@ import MessageUI
 
 class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
+    // Google analytics
+    lazy var tracker = GAI.sharedInstance().defaultTracker
+    
     @IBOutlet weak var versionNumberLabel: UILabel!
     @IBOutlet weak var sendFeedbackCell: UITableViewCell!
-    @IBOutlet weak var infoBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //TODO: What is this?
     override func loadView() {
         super.loadView()
         
@@ -25,11 +28,18 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             self.navigationItem.leftBarButtonItem = nil
         }
         
+        // Google Analytics
+        tracker.set(kGAIScreenName, value: nameOfClass(self))
+        tracker.send(GAIDictionaryBuilder.createScreenView().build())
+
+        
     }
     
     
     @IBAction func doneButtonClicked() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: {
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: done_button_key, value: nil).build())
+        })
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -62,6 +72,8 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     func sendFeedback() {
         println("sendFeedback")
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: write_email_key, value: nil).build())
+        
         if MFMailComposeViewController.canSendMail() {
 
             let mailComposer = MFMailComposeViewController()
@@ -90,6 +102,8 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         webViewController.URL = url
 
         self.navigationController?.pushViewController(webViewController, animated: true)
+        
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: show_website_key, value: nil).build())
 
 
     }
@@ -101,17 +115,22 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             let countdownManager = LKCountdownManager.sharedInstance
             countdownManager.deleteAllItems({
                 NSNotificationCenter.defaultCenter().postNotificationName(didDeleteAllItemsKey, object: nil)
+                self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: true).build())
             })
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {(action) in
             println("cancel")
+            
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: false).build())
         })
         
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.presentViewController(alertController, animated: true, completion: {
+            //self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: nil).build())
+        })
     }
     
     // MARK: MFMailViewController delegate

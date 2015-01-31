@@ -5,3 +5,8 @@
 #import "UIAppearance+Swift.h"
 #import "NSDate+Helper.h"
 #import "PBWebViewController.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAILogger.h"
+#import "TAGLogger.h"

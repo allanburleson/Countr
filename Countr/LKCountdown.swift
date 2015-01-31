@@ -35,6 +35,7 @@ class LKCountdownManager: NSObject {
     var updateCompletionClosure: () -> ()
     //var didAddNewItemConpletionClosure: () -> () = {}
     var didAddNewItemCompletionClosure: (item: LKCountdownItem) -> ()
+    var didDeleteAllItemsCompletionClosure: () -> ()
     
     var numberOfItems: Int {
         get {
@@ -45,6 +46,7 @@ class LKCountdownManager: NSObject {
     override init() {
         self.updateCompletionClosure = {}
         self.didAddNewItemCompletionClosure = {(item: LKCountdownItem) in}
+        self.didDeleteAllItemsCompletionClosure = {}
         super.init()
     }
     
@@ -122,6 +124,7 @@ class LKCountdownManager: NSObject {
     
     func deleteAllItems(completionHandler: () -> ()) {
         self.model.deleteAllItems(completionHandler)
+        self.didDeleteAllItemsCompletionClosure()
     }
     
     
@@ -133,6 +136,7 @@ class LKCountdownItem: NSObject, Printable {
     let name: String!
     let date: NSDate!
     let id: String!
+    let countdownMode: LKCountdownMode!
     
     let managedObject: NSManagedObject!
     
@@ -148,19 +152,22 @@ class LKCountdownItem: NSObject, Printable {
         private(set) var asString: String = "000 : 00 : 00 : 00"
     }
     
-    init(name: String, date: NSDate) {
+    init(name: String, date: NSDate, mode: LKCountdownMode) {
         self.name = name
         self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: nil)
         //self.date = date
         let uuid = NSUUID().UUIDString
         println("uuid used for saving: \(uuid)")
         self.id = uuid
+        self.countdownMode = mode
     }
     
     init(object: NSManagedObject) {
         self.name = object.valueForKey(coreDataNameKey) as String
         self.date = object.valueForKey(coreDataDateKey) as NSDate
-        self.managedObject = object;
+        self.id = object.valueForKey(coreDataIdKey) as String
+        self.countdownMode = LKCountdownMode(string: object.valueForKey(coreDataKindKey) as String)
+        self.managedObject = object
     }
     
     init(cloudRecord: CKRecord) {
@@ -191,7 +198,7 @@ class LKCountdownItem: NSObject, Printable {
     
     override var description: String {
         get {
-            return "LKCountdownItem: Name: \(self.name), Reference date: \(self.date), uuid: \(self.id)"
+            return "LKCountdownItem: Name: \(self.name), Reference date: \(self.date), uuid: \(self.id), countdownMode: \(self.countdownMode.toString())"
         }
     }
     
@@ -204,7 +211,32 @@ extension LKCountdownItem {
     }
 }
 
-
+extension LKCountdownMode {
+    init(string: String) {
+        if string == coreDataKindDateKey {
+            self = .Date
+            return
+        }
+        
+        if string == coreDataKindDateAndTimeKey {
+            self = .DateAndTime
+            return
+        }
+        
+        self = .Date
+    }
+    
+    func toString() -> String {
+        switch self {
+        case .Date:
+            return coreDataKindDateKey
+        case .DateAndTime:
+            return coreDataKindDateAndTimeKey
+        default:
+            return coreDataKindUnknownKey
+        }
+    }
+}
 
 extension NSDate {
     var hour: Int {

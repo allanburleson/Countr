@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E0843918F43B5A8FC1546CD /* PBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E084343712F0FE3162EBD28 /* PBWebViewController.m */; };
+		066A32AD2BF22D51716F9342 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FCE20DDEA76DB63F5B519B /* libPods.a */; };
 		5D0A9D5E1A790DF30040C100 /* UITextField_ClearButton_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A9D5D1A790DF30040C100 /* UITextField_ClearButton_White.png */; };
 		5D0A9D621A79132A0040C100 /* LKDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A9D611A79132A0040C100 /* LKDatePicker.swift */; };
 		5D33343C1A6A8BD6007D9A4B /* LKInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */; };
@@ -26,7 +26,6 @@
 		5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */; };
 		5D97BC0C1A4960B700C685A4 /* LocalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D97BC0B1A4960B700C685A4 /* LocalData.plist */; };
 		5D9DAA081A7BD3E400CED935 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
-		5D9DAA0B1A7BE08D00CED935 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA0A1A7BE08D00CED935 /* NSDate+Helper.m */; };
 		5DAA338F1A2B19EB006DDB65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */; };
 		5DAA33921A2B19EB006DDB65 /* Countr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33901A2B19EB006DDB65 /* Countr.xcdatamodeld */; };
 		5DAA33971A2B19EB006DDB65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA33951A2B19EB006DDB65 /* Main.storyboard */; };
@@ -72,8 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1E08404B11275A29A88D9841 /* PBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBWebViewController.h; sourceTree = "<group>"; };
-		1E084343712F0FE3162EBD28 /* PBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBWebViewController.m; sourceTree = "<group>"; };
+		18FB7CFE6B3582DD12EF9318 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5D0A9D5D1A790DF30040C100 /* UITextField_ClearButton_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITextField_ClearButton_White.png; sourceTree = "<group>"; };
 		5D0A9D611A79132A0040C100 /* LKDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKDatePicker.swift; sourceTree = "<group>"; };
 		5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKInfoViewController.swift; sourceTree = "<group>"; };
@@ -90,13 +88,10 @@
 		5D56C2071A77F161000E0FE3 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		5D57D4961A481F770030EF9C /* Countr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Countr.entitlements; sourceTree = "<group>"; };
 		5D57D4991A48219E0030EF9C /* LKModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKModel.swift; sourceTree = "<group>"; };
-		5D78AB811A77DE6600E8015C /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKItemCell.swift; sourceTree = "<group>"; };
 		5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKItemCell.xib; sourceTree = "<group>"; };
 		5D97BC0B1A4960B700C685A4 /* LocalData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LocalData.plist; sourceTree = "<group>"; };
 		5D9DAA071A7BD3E400CED935 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		5D9DAA091A7BE08D00CED935 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
-		5D9DAA0A1A7BE08D00CED935 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		5D9DAA0C1A7BE19A00CED935 /* NSDate_Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NSDate_Playground.playground; sourceTree = "<group>"; };
 		5DAA33891A2B19EB006DDB65 /* Countr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAA338D1A2B19EB006DDB65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +108,8 @@
 		5DAA33B91A2B42B8006DDB65 /* LKMainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKMainCollectionViewController.swift; sourceTree = "<group>"; };
 		5DE0732D1A79394500A1071E /* CWStatusBarNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotification.swift; sourceTree = "<group>"; };
 		5DE497721A77E1FE009197A8 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		B3DBA926475D472657B32222 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C9FCE20DDEA76DB63F5B519B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				066A32AD2BF22D51716F9342 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +142,8 @@
 		5D33885B1A6AB63F0068C37C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5D78AB811A77DE6600E8015C /* Reveal.framework */,
 				5D33885C1A6AB63F0068C37C /* NotificationCenter.framework */,
+				C9FCE20DDEA76DB63F5B519B /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -179,6 +177,7 @@
 				5D33885E1A6AB63F0068C37C /* TodayExtension */,
 				5D33885B1A6AB63F0068C37C /* Frameworks */,
 				5DAA338A1A2B19EB006DDB65 /* Products */,
+				981F309711B965AD94DF7FC8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,15 +212,11 @@
 				5DAA33901A2B19EB006DDB65 /* Countr.xcdatamodeld */,
 				5D9DAA071A7BD3E400CED935 /* Extensions.swift */,
 				5DE497721A77E1FE009197A8 /* UIColorExtension.swift */,
-				5D9DAA091A7BE08D00CED935 /* NSDate+Helper.h */,
-				5D9DAA0A1A7BE08D00CED935 /* NSDate+Helper.m */,
 				5D56C2061A77F161000E0FE3 /* UIAppearance+Swift.h */,
 				5D56C2071A77F161000E0FE3 /* UIAppearance+Swift.m */,
 				5D9DAA0C1A7BE19A00CED935 /* NSDate_Playground.playground */,
 				5DAA338C1A2B19EB006DDB65 /* Supporting Files */,
 				5D56C2051A77F160000E0FE3 /* Countr-Bridging-Header.h */,
-				1E084343712F0FE3162EBD28 /* PBWebViewController.m */,
-				1E08404B11275A29A88D9841 /* PBWebViewController.h */,
 			);
 			path = Countr;
 			sourceTree = "<group>";
@@ -252,6 +247,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		981F309711B965AD94DF7FC8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3DBA926475D472657B32222 /* Pods.debug.xcconfig */,
+				18FB7CFE6B3582DD12EF9318 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -276,10 +280,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DAA33AB1A2B19EB006DDB65 /* Build configuration list for PBXNativeTarget "Countr" */;
 			buildPhases = (
+				391FF7997ABA41E78658C22B /* Check Pods Manifest.lock */,
 				5DAA33851A2B19EB006DDB65 /* Sources */,
 				5DAA33861A2B19EB006DDB65 /* Frameworks */,
 				5DAA33871A2B19EB006DDB65 /* Resources */,
 				5D33886B1A6AB6400068C37C /* Embed App Extensions */,
+				1036446A50168306062A5590 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -400,6 +406,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1036446A50168306062A5590 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		391FF7997ABA41E78658C22B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5D3388561A6AB63F0068C37C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -429,9 +468,7 @@
 				5D56C2081A77F161000E0FE3 /* UIAppearance+Swift.m in Sources */,
 				5DAA33B21A2B1A7F006DDB65 /* LKCountdown.swift in Sources */,
 				5DE0732E1A79394500A1071E /* CWStatusBarNotification.swift in Sources */,
-				5D9DAA0B1A7BE08D00CED935 /* NSDate+Helper.m in Sources */,
 				5D33343C1A6A8BD6007D9A4B /* LKInfoViewController.swift in Sources */,
-				1E0843918F43B5A8FC1546CD /* PBWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +626,7 @@
 		};
 		5DAA33AC1A2B19EB006DDB65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3DBA926475D472657B32222 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -603,12 +641,7 @@
 				);
 				INFOPLIST_FILE = Countr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lz",
-					"-framework",
-					Reveal,
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
@@ -619,6 +652,7 @@
 		};
 		5DAA33AD1A2B19EB006DDB65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18FB7CFE6B3582DD12EF9318 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

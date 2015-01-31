@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-GoogleAnalytics-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-NSDate+Helper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-PBWebViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Reveal-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>03AD2143791947B069D46062</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>11BB6EE01E862E010CC91B3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3ECEADFB113AF761F42392C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89C631FB462DA2CCC52CBA14</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F29571BEFE7713148CE5BB7A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

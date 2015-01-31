@@ -40,6 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         println("Device is 12hr format: \(UIDevice.currentDevice().is12HourFormat)")
         
+        // Setup Google Analytics
+        GAI.sharedInstance().trackUncaughtExceptions = true
+        //GAI.sharedInstance().logger.logLevel = GAILogLevel.Verbose
+        GAI.sharedInstance().trackerWithTrackingId("UA-49744076-4")
+        
         
         return true
     }
