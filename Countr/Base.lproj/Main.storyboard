@@ -212,7 +212,7 @@
                             </tableViewSection>
                             <tableViewSection id="Kin-iU-ucu">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="BWl-Xf-KoO">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BWl-Xf-KoO">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BWl-Xf-KoO" id="pfX-0I-8UG">
                                             <autoresizingMask key="autoresizingMask"/>

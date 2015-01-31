@@ -20,11 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        UILabel.appearance().font = UIFont(name: "Avenir-Book", size: 17)
+        let font = UIFont(name: "Avenir-Book", size: 17)!
+        UILabel.appearance().font = font
         UINavigationBar.appearance().barStyle = .Black
         UIToolbar.appearance().barStyle = .Black
         UIToolbar.appearance().tintColor = UIColor.whiteColor()
         UITextField.appearance().tintColor = UIColor.whiteColor()
+        let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font]
+        UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Highlighted)
+        UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Disabled)
         //UILabel.appearance().textAlignment = NSTextAlignment.Center
         
         application.registerForRemoteNotifications()

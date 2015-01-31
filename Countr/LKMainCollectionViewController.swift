@@ -30,6 +30,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             println("did add new item: \(item.description)")
             //self.countdownManager.reload()
             //self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
+            self.reloadEmptyDataMessage()
             self.collectionView?.reloadData()
         }
         
@@ -49,6 +50,12 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         
 
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.reloadEmptyDataMessage()
     }
     
     
@@ -76,7 +83,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     func refresh() {
         println("refresh")
         self.countdownManager.reload()
-        self.collectionView?.reloadData()
+        //self.collectionView?.reloadData()
     }
     
     func startUpdates() {
@@ -86,6 +93,21 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     func stopUpdates() {
         self.updateTimer?.invalidate()
         self.updateTimer = nil
+    }
+
+    func reloadEmptyDataMessage() {
+        self.countdownManager.reload()
+        if self.countdownManager.items().isEmpty {
+            let messageLabel = UILabel()
+            messageLabel.text = "No items addet yet."
+            messageLabel.textAlignment = .Center
+            messageLabel.textColor = UIColor.whiteColor()
+            messageLabel.font = UIFont(name: "Avenir-Book", size: 26)
+            self.collectionView?.backgroundView = messageLabel
+        } else {
+            let view = UIView()
+            self.collectionView?.backgroundView = view
+        }
     }
     
     func update() {
@@ -169,6 +191,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
                 } else {
                     self.collectionView?.reloadData()
                 }
+                self.reloadEmptyDataMessage()
                 self.countdownManager.startUpdates()
             }
             
