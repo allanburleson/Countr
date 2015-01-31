@@ -24,6 +24,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         */
         self.collectionView?.contentInset = UIEdgeInsetsMake(21, 0, 0, 0)
         self.collectionView?.backgroundColor = UIColor(rgba: "#232323")
+        self.collectionView?.indicatorStyle = .White
         
         self.countdownManager.didAddNewItemCompletionClosure = { (item: LKCountdownItem) in
             println("did add new item: \(item.description)")
@@ -56,7 +57,12 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         self.startUpdates() //TODO: Un-Comment thi sline
     }
-    
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.collectionView?.flashScrollIndicators()
+    }
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         
