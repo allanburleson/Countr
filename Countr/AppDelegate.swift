@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UILabel.appearance().font = UIFont(name: "Avenir-Book", size: 17)
         UINavigationBar.appearance().barStyle = .Black
         UIToolbar.appearance().barStyle = .Black
-        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+        UIToolbar.appearance().tintColor = UIColor.whiteColor()
         UITextField.appearance().tintColor = UIColor.whiteColor()
         //UILabel.appearance().textAlignment = NSTextAlignment.Center
         
