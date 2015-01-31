@@ -205,40 +205,38 @@ extension LKCountdownItem {
 }
 
 
+
 extension NSDate {
-    
-    
-    
     var hour: Int {
         get {
             return self.dateComponents.hour
         }
     }
-    
+
     var minute: Int {
         get {
             return self.dateComponents.minute
         }
     }
-    
+
     var second: Int {
         get {
             return self.dateComponents.second
         }
     }
-    
-    
-        private var dateComponents: NSDateComponents {
+
+
+    private var dateComponents: NSDateComponents {
         get {
             let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
             let calendarUnits: NSCalendarUnit = (.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit | .HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit)
-            
-            
+
+
             let dateComponents = calendar?.components( calendarUnits, fromDate: self)
-            
+
             return dateComponents!
         }
     }
+
+
 }
-
-

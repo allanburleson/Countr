@@ -46,4 +46,43 @@ extension NSDate {
             return fullDateString
         }
     }
+
+    var dayInYear: Int {
+        get {
+            return NSCalendar.currentCalendar().ordinalityOfUnit(NSCalendarUnit.DayCalendarUnit, inUnit: NSCalendarUnit.YearCalendarUnit, forDate: self)
+        }
+    }
+
+    var year: Int {
+        get {
+            return self.dateComponents.year
+
+        }
+    }
+    var month: Int {
+        get {
+            return self.dateComponents.month
+        }
+    }
+    var day: Int {
+        get {
+            return self.dateComponents.day
+        }
+    }
+
+
+
+
+    private var dateComponents: NSDateComponents {
+        get {
+            let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+            let calendarUnits: NSCalendarUnit = (.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit | .HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit)
+
+
+            let dateComponents = calendar?.components( calendarUnits, fromDate: self)
+
+            return dateComponents!
+        }
+    }
+
 }

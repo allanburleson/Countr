@@ -3,6 +3,9 @@
 import UIKit
 
 
+// Day in year
+NSCalendar.currentCalendar().ordinalityOfUnit(NSCalendarUnit.DayCalendarUnit, inUnit: NSCalendarUnit.YearCalendarUnit, forDate: NSDate())
+
 var formattedDate: String
 
 

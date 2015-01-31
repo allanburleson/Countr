@@ -45,7 +45,21 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
                 println("current cal: \(NSCalendar.currentCalendar().timeZone.description)")
                 return NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
             case .DateAndTime:
-                return NSDate()
+                let dateComponents = NSDateComponents()
+                dateComponents.day = self.pickerData.descriptiveDatesRawData[self.selectedRowInComponent(0)].day
+                dateComponents.month = self.pickerData.descriptiveDatesRawData[self.selectedRowInComponent(0)].month
+                dateComponents.year = self.pickerData.descriptiveDatesRawData[self.selectedRowInComponent(0)].year
+                if self.selectedRowInComponent(3) == 0 { // 3 = Am/Pm
+                    //AM
+                    dateComponents.hour = self.selectedRowInComponent(1)+1
+                } else {
+                    //PM
+                    dateComponents.hour = self.selectedRowInComponent(1)+1+12
+                }
+                dateComponents.minute = self.selectedRowInComponent(2)+1
+                dateComponents.second = 0
+                dateComponents.nanosecond = 0
+                return NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
             default:
                 return NSDate()
                 break
