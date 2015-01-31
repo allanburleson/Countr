@@ -59,7 +59,17 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     
     func sendFeedback() {
-        if !MFMailComposeViewController.canSendMail() {
+        println("sendFeedback")
+        if MFMailComposeViewController.canSendMail() {
+
+            let mailComposer = MFMailComposeViewController()
+            mailComposer.mailComposeDelegate = self
+            mailComposer.setSubject("Countr Feedback")
+            mailComposer.setToRecipients(["lukas@kollmer.me"])
+            mailComposer.setMessageBody("", isHTML: false) //TODO: Add some default text?
+            mailComposer.mailComposeDelegate = self
+            self.presentViewController(mailComposer, animated: true, completion: nil)
+        } else {
             println("No Mail accounts configured")
             let alertController = UIAlertController(title: "Error", message: "No Mail accounts configured", preferredStyle: .Alert)
             let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: {(action) in
@@ -67,14 +77,8 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             })
             alertController.addAction(dismissAction)
             self.presentViewController(alertController, animated: true, completion: nil)
-            return
+
         }
-        let mailComposer = MFMailComposeViewController()
-        mailComposer.mailComposeDelegate = self
-        mailComposer.setSubject("Countr Feedback")
-        mailComposer.setToRecipients(["lukas@kollmer.me"])
-        mailComposer.setMessageBody("", isHTML: false) //TODO: Add some default text?
-        
     }
     
     func showWebsite() {
@@ -112,5 +116,19 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         controller.dismissViewControllerAnimated(true, completion: nil)
+        println("mailComposeController didFinishWithResult: \(result)")
+
+        switch result.value {
+            case MFMailComposeResultCancelled.value:
+                println("MFMailComposeResultCancelled")
+            case MFMailComposeResultSaved.value:
+                println("MFMailComposeResultSaved")
+            case MFMailComposeResultSent.value:
+                println("MFMailComposeResultSent")
+            case MFMailComposeResultFailed.value:
+                println("MFMailComposeResultFailed")
+        default:
+        break
+        }
     }
 }

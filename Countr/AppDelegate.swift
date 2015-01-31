@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Normal)
         UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Highlighted)
         UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Disabled)
+        let segmentedControlTitleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName : UIFont(name: "Avenir-Book", size: 13)!]
+        UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlTitleTextAttributes, forState: UIControlState.Normal)
         //UILabel.appearance().textAlignment = NSTextAlignment.Center
         
         application.registerForRemoteNotifications()
