@@ -49,12 +49,10 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
                 dateComponents.day = self.pickerData.descriptiveDatesRawData[self.selectedRowInComponent(0)].day
                 dateComponents.month = self.pickerData.descriptiveDatesRawData[self.selectedRowInComponent(0)].month
                 dateComponents.year = self.pickerData.descriptiveDatesRawData[self.selectedRowInComponent(0)].year
-                if self.selectedRowInComponent(3) == 0 { // 3 = Am/Pm
-                    //AM
-                    dateComponents.hour = self.selectedRowInComponent(1)+1
-                } else {
-                    //PM
+                if UIDevice.currentDevice().is12HourFormat && self.selectedRowInComponent(3) == 1 {
                     dateComponents.hour = self.selectedRowInComponent(1)+1+12
+                } else {
+                    dateComponents.hour = self.selectedRowInComponent(1)+1
                 }
                 dateComponents.minute = self.selectedRowInComponent(2)+1
                 dateComponents.second = 0
@@ -154,7 +152,11 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
             case 2:
                 return 60 // The Minutes
             case 3:
-                return 2 // AM/PM // TODO: ONLY on 12hr format devices (Check: UIDevice.currentDevice().is12HourFormat)
+                if UIDevice.currentDevice().is12HourFormat {
+                    return 2 // AMPM
+                } else {
+                    return 0 // Nothing
+                }
             default:
                 return 0
             }
