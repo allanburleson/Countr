@@ -31,17 +31,26 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var date: NSDate {
         get {
-            let dateComponents = NSDateComponents()
-            dateComponents.day = self.selectedRowInComponent(1)+1
-            dateComponents.month = self.selectedRowInComponent(0)+1
-            dateComponents.year = self.selectedRowInComponent(2)
-            dateComponents.hour = 0
-            dateComponents.minute = 0
-            dateComponents.second = 0
-            dateComponents.nanosecond = 0
-            println("date delivered to addVC: year: \(dateComponents.year) month: \(dateComponents.month) day: \(dateComponents.day)hour:  \(dateComponents.hour) minute: \(dateComponents.minute) second: \(dateComponents.second) ")
-            println("current cal: \(NSCalendar.currentCalendar().timeZone.description)")
-            return NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
+            switch self.pickerMode {
+            case .Date:
+                let dateComponents = NSDateComponents()
+                dateComponents.day = self.selectedRowInComponent(1)+1
+                dateComponents.month = self.selectedRowInComponent(0)+1
+                dateComponents.year = self.selectedRowInComponent(2)
+                dateComponents.hour = 0
+                dateComponents.minute = 0
+                dateComponents.second = 0
+                dateComponents.nanosecond = 0
+                println("date delivered to addVC: year: \(dateComponents.year) month: \(dateComponents.month) day: \(dateComponents.day)hour:  \(dateComponents.hour) minute: \(dateComponents.minute) second: \(dateComponents.second) ")
+                println("current cal: \(NSCalendar.currentCalendar().timeZone.description)")
+                return NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
+            case .DateAndTime:
+                return NSDate()
+            default:
+                return NSDate()
+                break
+            }
+
         }
         set {
             // TODO: Set the components automatically to the right rows, based on the date set
@@ -68,6 +77,11 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         
         setSelectedRows()
         
+    }
+
+
+    func viewDidAppear() {
+        self.pickerData.loadDescriptiveDatesData()
     }
     
     
@@ -178,7 +192,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
 }
 
 
-struct LKPickerData {
+class LKPickerData {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 
@@ -213,21 +227,32 @@ struct LKPickerData {
 
     
     let amPm = ["AM", "PM"]
-    
-    let descriptiveDates: [String] = {
-        var _descriptiveDates: [String] = []
-        let _date = NSDate() // As creating the dates in the dateByAddingUnit function would either take a lot if time each time teh functions is loaded (>1000 x) it is created once and accessed over and over. Also, re-creating it over and over would produce a slightld different date each time
+
+    lazy var descriptiveDatesRawData: [NSDate] = {
+        var descriptiveDatesRawData: [NSDate] = []
+        let _refDate = NSDate() // As creating the dates in the dateByAddingUnit function would either take a lot if time each time teh functions is loaded (>1000 x) it is created once and accessed over and over. Also, re-creating it over and over would produce a slightld different date each time
         let _calendar = NSCalendar.currentCalendar()
-        
-        for index in 0...730 { // 731 means being able to go back one year and one year in the future // NOTE: It is 730 because the for_loop starts at 0 (instead of 1)
-            //println("in loop #\(index)")
-            let _date: NSDate = _calendar.dateByAddingUnit(.CalendarUnitDay, value: -index, toDate: _date, options: nil)!
-            //println("date: \(_date)")
-            let _descriptiveDate = _date.descriptiveStringForDatePicker
-            //println("_descriptiveDate: \(_descriptiveDate)")
-            _descriptiveDates.append(_descriptiveDate)
+
+        /*
+        @explanation:
+        Using the range of -365 to 365 means that the picker will allow scrolling one year back and one year to the future.
+
+        TODO: When the user selects a date one year in the future or one year in the past, adjust the year of the date.
+            Example: It is Jan 30 2015. The user scrolls back 365 rows and selects Jan 30, the date object created for that row has still set 2015 as the date. Same for selecting a december date in january
+        */
+        for index in -365...365 {
+            let _date: NSDate = _calendar.dateByAddingUnit(.CalendarUnitDay, value: index, toDate: _refDate, options: nil)!
+            descriptiveDatesRawData.append(_date)
         }
-        
+
+        return descriptiveDatesRawData
+    }()
+    lazy var descriptiveDates: [String] = {
+        var _descriptiveDates: [String] = []
+        for date in self.descriptiveDatesRawData{
+            _descriptiveDates.append(date.descriptiveStringForDatePicker)
+        }
+
         return _descriptiveDates
     }()
     
@@ -244,6 +269,12 @@ struct LKPickerData {
             return []
         }
     }
+
+    func loadDescriptiveDatesData() {
+        let tempData = [self.descriptiveDatesRawData, self.descriptiveDates]
+    }
+
+
     
     
 }

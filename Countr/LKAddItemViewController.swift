@@ -55,6 +55,8 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         self.nameTextField.becomeFirstResponder()
+
+        self.datePicker.viewDidAppear()
         
         self.notification.notificationAnimationInStyle = .Top
         self.notification.notificationAnimationOutStyle = .Top
