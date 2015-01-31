@@ -79,7 +79,13 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     func showWebsite() {
         let url = NSURL(string: "http://kollmer.me/countr")!
-        UIApplication.sharedApplication().openURL(url)
+
+        let webViewController: PBWebViewController = PBWebViewController()
+        webViewController.URL = url
+
+        self.navigationController?.pushViewController(webViewController, animated: true)
+
+
     }
     
     func deleteAllData() {
