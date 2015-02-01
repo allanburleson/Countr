@@ -378,6 +378,68 @@
             </objects>
             <point key="canvasLocation" x="2616" y="349"/>
         </scene>
+        <!--Main View Controller-->
+        <scene sceneID="So3-UR-1dJ">
+            <objects>
+                <viewController id="dhQ-wE-IhE" customClass="LKMainViewController" customModule="Countr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PXa-Fh-8B2"/>
+                        <viewControllerLayoutGuide type="bottom" id="HIf-Ul-Yhm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eeI-yG-HBR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3K9-W3-JKg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="FX8-9N-XeJ" kind="embed" identifier="embedCollectionView" id="iNf-eg-pgO"/>
+                                </connections>
+                            </containerView>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="GXt-gD-5S4">
+                                <rect key="frame" x="0.0" y="550" width="320" height="50"/>
+                            </adBannerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3K9-W3-JKg" firstAttribute="leading" secondItem="eeI-yG-HBR" secondAttribute="leadingMargin" constant="-16" id="0G5-Cl-Eot"/>
+                            <constraint firstItem="3K9-W3-JKg" firstAttribute="top" secondItem="PXa-Fh-8B2" secondAttribute="bottom" constant="-64" id="3nD-4o-I69"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3K9-W3-JKg" secondAttribute="trailing" constant="-16" id="ADL-ff-DXC"/>
+                            <constraint firstItem="HIf-Ul-Yhm" firstAttribute="top" secondItem="3K9-W3-JKg" secondAttribute="bottom" id="Pjx-4V-sm0"/>
+                            <constraint firstItem="HIf-Ul-Yhm" firstAttribute="top" secondItem="GXt-gD-5S4" secondAttribute="bottom" id="hOl-Q8-G9u"/>
+                            <constraint firstItem="GXt-gD-5S4" firstAttribute="leading" secondItem="eeI-yG-HBR" secondAttribute="leadingMargin" constant="-16" id="sWq-Nk-qxx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zou-YS-eis">
+                        <barButtonItem key="leftBarButtonItem" id="4Go-89-plq">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" lineBreakMode="middleTruncation" id="wQE-yj-aHf">
+                                <rect key="frame" x="16" y="7" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="KYp-Qn-kre" kind="popoverPresentation" popoverAnchorView="wQE-yj-aHf" id="Rmv-yd-raw">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="g0r-0b-NGm">
+                            <connections>
+                                <segue destination="mpB-6R-lD1" kind="presentation" identifier="addNewItem" modalPresentationStyle="formSheet" id="VD8-lW-qMs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="adBannerView" destination="GXt-gD-5S4" id="FBC-MS-IIS"/>
+                        <outlet property="addButton" destination="g0r-0b-NGm" id="Rsp-Eq-BCN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Koz-c2-aCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="-319"/>
+        </scene>
         <!--Main Collection View Controller-->
         <scene sceneID="Chf-q5-ku8">
             <objects>
@@ -417,27 +479,6 @@
                             <outlet property="delegate" destination="FX8-9N-XeJ" id="4hK-p2-FZ4"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="zou-YS-eis">
-                        <barButtonItem key="leftBarButtonItem" id="4Go-89-plq">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" lineBreakMode="middleTruncation" id="wQE-yj-aHf">
-                                <rect key="frame" x="16" y="7" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="KYp-Qn-kre" kind="popoverPresentation" popoverAnchorView="wQE-yj-aHf" id="Rmv-yd-raw">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="g0r-0b-NGm">
-                            <connections>
-                                <segue destination="mpB-6R-lD1" kind="presentation" identifier="addNewItem" modalPresentationStyle="formSheet" id="VD8-lW-qMs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="g0r-0b-NGm" id="Krt-c3-u8Q"/>
                     </connections>
@@ -457,12 +498,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="FX8-9N-XeJ" kind="relationship" relationship="rootViewController" id="qol-B0-4f4"/>
+                        <segue destination="dhQ-wE-IhE" kind="relationship" relationship="rootViewController" id="1WY-ot-K3X"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8VY-Ys-3ob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="898" y="-1"/>
+            <point key="canvasLocation" x="471" y="-319"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CGm-Yb-Fsa">

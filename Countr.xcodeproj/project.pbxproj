@@ -44,6 +44,9 @@
 		5DE497731A77E1FE009197A8 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE497721A77E1FE009197A8 /* UIColorExtension.swift */; };
 		5DF32FBB1A7E114600063FAC /* LKPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */; };
 		5DF32FBD1A7E128200063FAC /* LKPurchasePremiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF32FBC1A7E128200063FAC /* LKPurchasePremiumViewController.swift */; };
+		5DF32FBF1A7E222A00063FAC /* LKMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF32FBE1A7E222A00063FAC /* LKMainViewController.swift */; };
+		5DF32FC11A7E236E00063FAC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF32FC01A7E236E00063FAC /* iAd.framework */; };
+		5DF32FC31A7E23DC00063FAC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF32FC21A7E23DC00063FAC /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +124,9 @@
 		5DE435E61A7D31870034327A /* App_Icon_png_export.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_Icon_png_export.png; sourceTree = "<group>"; };
 		5DE497721A77E1FE009197A8 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		5DF32FBC1A7E128200063FAC /* LKPurchasePremiumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKPurchasePremiumViewController.swift; sourceTree = "<group>"; };
+		5DF32FBE1A7E222A00063FAC /* LKMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKMainViewController.swift; sourceTree = "<group>"; };
+		5DF32FC01A7E236E00063FAC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		5DF32FC21A7E23DC00063FAC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B3DBA926475D472657B32222 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C9FCE20DDEA76DB63F5B519B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -138,6 +144,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF32FC31A7E23DC00063FAC /* StoreKit.framework in Frameworks */,
+				5DF32FC11A7E236E00063FAC /* iAd.framework in Frameworks */,
 				066A32AD2BF22D51716F9342 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +163,8 @@
 		5D33885B1A6AB63F0068C37C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DF32FC21A7E23DC00063FAC /* StoreKit.framework */,
+				5DF32FC01A7E236E00063FAC /* iAd.framework */,
 				5D33885C1A6AB63F0068C37C /* NotificationCenter.framework */,
 				C9FCE20DDEA76DB63F5B519B /* libPods.a */,
 			);
@@ -228,6 +238,7 @@
 				5DAA339A1A2B19EB006DDB65 /* LaunchScreen.xib */,
 				5DAA33901A2B19EB006DDB65 /* Countr.xcdatamodeld */,
 				5D9DAA071A7BD3E400CED935 /* Extensions.swift */,
+				5DF32FBE1A7E222A00063FAC /* LKMainViewController.swift */,
 				5DE497721A77E1FE009197A8 /* UIColorExtension.swift */,
 				5D56C2061A77F161000E0FE3 /* UIAppearance+Swift.h */,
 				5D56C2071A77F161000E0FE3 /* UIAppearance+Swift.m */,
@@ -362,6 +373,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -482,6 +496,7 @@
 				5D0A9D621A79132A0040C100 /* LKDatePicker.swift in Sources */,
 				5D57D49A1A48219E0030EF9C /* LKModel.swift in Sources */,
 				5D83B1491A2B4E2000BB17E3 /* LKItemCell.swift in Sources */,
+				5DF32FBF1A7E222A00063FAC /* LKMainViewController.swift in Sources */,
 				5DAA33921A2B19EB006DDB65 /* Countr.xcdatamodeld in Sources */,
 				5DAA33B81A2B4026006DDB65 /* LKAddItemViewController.swift in Sources */,
 				5DAA338F1A2B19EB006DDB65 /* AppDelegate.swift in Sources */,
