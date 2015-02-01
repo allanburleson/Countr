@@ -55,7 +55,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         */
         
         // Google Analytics
-        tracker.set(kGAIScreenName, value: nameOfClass(self))
+        tracker.set(kGAIScreenName, value: "AddItem")
         tracker.send(GAIDictionaryBuilder.createScreenView().build())
 
     }

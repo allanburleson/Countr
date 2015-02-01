@@ -21,15 +21,13 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     override func loadView() {
         super.loadView()
         
-        self.tableView.backgroundColor = UIColor(rgba: "#232323")
+        self.tableView.backgroundColor = UIColor.backgroundColor()
+        
         self.versionNumberLabel.text = UIApplication.sharedApplication().version
         
-        if self.traitCollection.userInterfaceIdiom == .Pad {
-            self.navigationItem.leftBarButtonItem = nil
-        }
         
         // Google Analytics
-        tracker.set(kGAIScreenName, value: nameOfClass(self))
+        tracker.set(kGAIScreenName, value: "Info")
         tracker.send(GAIDictionaryBuilder.createScreenView().build())
 
         

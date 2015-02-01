@@ -36,6 +36,9 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "embedCollectionView" {
             self.collectionViewController = segue.destinationViewController as LKMainCollectionViewController
+            println("self.bounds: \(self.view.bounds)")
+            self.collectionViewController?.collectionView?.bounds = self.view.bounds
+            println("collectionView.bounds: \(self.collectionViewController?.collectionView?.bounds)")
         }
     }
     

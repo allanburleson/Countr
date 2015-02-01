@@ -24,6 +24,8 @@ class LKPurchasePremiumViewController: UIViewController {
     
     let store = LKPurchaseManager()
     
+    lazy var tracker = GAI.sharedInstance().defaultTracker
+    
     var sender: LKPurchaseViewControllerSender! {
         didSet {
             if self.sender == .PurchaseCell {
@@ -37,8 +39,8 @@ class LKPurchasePremiumViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        self.view.backgroundColor = UIColor(rgba: "#232323")
-        self.descriptionTextView.backgroundColor = UIColor(rgba: "#232323")
+        self.view.backgroundColor = UIColor.backgroundColor()
+        self.descriptionTextView.backgroundColor = UIColor.backgroundColor()
         self.titleLabel.font = UIFont(name: "Avenir-Book", size: 19)
         self.descriptionTextView.font = UIFont(name: "Avenir-Book", size: 15)
         self.descriptionTextView.editable = false
@@ -58,6 +60,11 @@ class LKPurchasePremiumViewController: UIViewController {
         } else {
             self.store.load()
         }
+        
+        // Google Analytics
+        tracker.set(kGAIScreenName, value: "PurchasePremium")
+        tracker.send(GAIDictionaryBuilder.createScreenView().build())
+
     }
     
     override func viewDidLoad() {

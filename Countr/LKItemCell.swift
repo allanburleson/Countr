@@ -38,8 +38,8 @@ class LKItemCell: UICollectionViewCell {
         // Initialization code
         self.countdownLabel.textColor = UIColor.whiteColor() // These values are not set in IB, as there ia a white background
         self.titleLabel.textColor = UIColor.whiteColor()
-        self.backgroundColor = UIColor(rgba: "#252525")
-        self.layer.borderColor = UIColor(rgba: "#292929").CGColor
+        self.backgroundColor = UIColor.foregroundColor()
+        self.layer.borderColor = UIColor.borderColor().CGColor
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 12
         self.clipsToBounds = true

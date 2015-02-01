@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let font = UIFont(name: "Avenir-Book", size: 17)!
         UILabel.appearance().font = font
+        UITableViewCell.appearance().backgroundColor = UIColor.foregroundColor()
+        UICollectionView.appearance().backgroundColor = UIColor.backgroundColor()
         UINavigationBar.appearance().barStyle = .Black
         UIToolbar.appearance().barStyle = .Black
         UIToolbar.appearance().tintColor = UIColor.whiteColor()

@@ -30,6 +30,14 @@ let countdown_manager_key = "countdown_manager"
 let did_add_new_item_key = "did_add_new_item"
 let did_delete_item_key = "did_delete_item"
 
+let purchase_manager_key = "purchase_manager"
+let purchase_manager_load_products_key = "purchase_manager_load_products"
+let purchase_Manager_did_finish_purchase_key = "purchase_Manager_did_finish_purchase"
+let purchase_manager_did_purchase_key = "purchase_manager_did_purchase"
+let purchase_manager_did_restore_key = "purchase_manager_did_restore"
+let purchase_manager_did_cancel_key = "purchase_manager_did_cancel"
+
+
 
 public func nameOfClass(_class: AnyObject) -> String {
     return _stdlib_getDemangledTypeName(_class)
@@ -40,6 +48,20 @@ extension LKCountdownItem {
         get {
             return ""
         }
+    }
+}
+
+extension UIColor {
+    class func backgroundColor() -> UIColor {
+        return UIColor(rgba: "#232323")
+    }
+    
+    class func foregroundColor() -> UIColor {
+        return UIColor(rgba: "#252525")
+    }
+    
+    class func borderColor() -> UIColor {
+        return UIColor(rgba: "#292929")
     }
 }
 

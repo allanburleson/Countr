@@ -138,13 +138,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countr Premium Features" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK9-6W-Qcl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Countr Premium Features" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK9-6W-Qcl">
                                 <rect key="frame" x="16" y="75" width="479" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZU-BP-h4s">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WZU-BP-h4s">
                                 <rect key="frame" x="16" y="175" width="568" height="367"/>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -166,7 +166,7 @@
                                     <action selector="didClickBuyButton:" destination="VDL-jm-Udu" eventType="touchUpInside" id="LlI-5r-6cv"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_Icon_png_export.png" translatesAutoresizingMaskIntoConstraints="NO" id="D5G-vX-bHp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="App_Icon_png_export.png" translatesAutoresizingMaskIntoConstraints="NO" id="D5G-vX-bHp">
                                 <rect key="frame" x="503" y="75" width="81" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="D5G-vX-bHp" secondAttribute="height" multiplier="1:1" id="Laf-l7-7UQ"/>
@@ -397,17 +397,19 @@
                                 </connections>
                             </containerView>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="GXt-gD-5S4">
-                                <rect key="frame" x="0.0" y="550" width="320" height="50"/>
+                                <rect key="frame" x="140" y="550" width="320" height="50"/>
                             </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3K9-W3-JKg" firstAttribute="leading" secondItem="eeI-yG-HBR" secondAttribute="leadingMargin" constant="-16" id="0G5-Cl-Eot"/>
-                            <constraint firstItem="3K9-W3-JKg" firstAttribute="top" secondItem="PXa-Fh-8B2" secondAttribute="bottom" constant="-64" id="3nD-4o-I69"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3K9-W3-JKg" secondAttribute="trailing" constant="-16" id="ADL-ff-DXC"/>
-                            <constraint firstItem="HIf-Ul-Yhm" firstAttribute="top" secondItem="3K9-W3-JKg" secondAttribute="bottom" id="Pjx-4V-sm0"/>
+                            <constraint firstItem="3K9-W3-JKg" firstAttribute="bottom" secondItem="HIf-Ul-Yhm" secondAttribute="top" id="2Xy-lT-oH9"/>
+                            <constraint firstAttribute="trailing" secondItem="3K9-W3-JKg" secondAttribute="trailing" id="ApZ-Yh-Q0t"/>
+                            <constraint firstItem="3K9-W3-JKg" firstAttribute="leading" secondItem="eeI-yG-HBR" secondAttribute="leading" id="HqO-WR-Utc"/>
+                            <constraint firstAttribute="width" secondItem="3K9-W3-JKg" secondAttribute="width" id="QuO-Ib-HVT"/>
+                            <constraint firstAttribute="height" secondItem="3K9-W3-JKg" secondAttribute="height" id="fQA-Ei-PbZ"/>
                             <constraint firstItem="HIf-Ul-Yhm" firstAttribute="top" secondItem="GXt-gD-5S4" secondAttribute="bottom" id="hOl-Q8-G9u"/>
-                            <constraint firstItem="GXt-gD-5S4" firstAttribute="leading" secondItem="eeI-yG-HBR" secondAttribute="leadingMargin" constant="-16" id="sWq-Nk-qxx"/>
+                            <constraint firstAttribute="centerX" secondItem="GXt-gD-5S4" secondAttribute="centerX" id="jfl-lV-98w"/>
+                            <constraint firstItem="3K9-W3-JKg" firstAttribute="leading" secondItem="eeI-yG-HBR" secondAttribute="leadingMargin" constant="-16" id="ncF-5n-gQv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zou-YS-eis">
@@ -419,9 +421,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KYp-Qn-kre" kind="popoverPresentation" popoverAnchorView="wQE-yj-aHf" id="Rmv-yd-raw">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="KYp-Qn-kre" kind="presentation" modalPresentationStyle="formSheet" id="Rmv-yd-raw"/>
                                 </connections>
                             </button>
                         </barButtonItem>

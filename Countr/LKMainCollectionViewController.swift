@@ -28,7 +28,6 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         NOTE: The default contentInset is 64. If you want to get more than 64 (in this case 85), you have to set the difference (85-64=11) as the "new" contentInsetn
         */
         self.collectionView?.contentInset = UIEdgeInsetsMake(21, 0, 0, 0)
-        self.collectionView?.backgroundColor = UIColor(rgba: "#232323")
         self.collectionView?.indicatorStyle = .White
         
         
@@ -103,7 +102,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         self.collectionView?.flashScrollIndicators()
         
         // Google Analytics
-        tracker.set(kGAIScreenName, value: nameOfClass(self))
+        tracker.set(kGAIScreenName, value: "MainCollectionView")
         tracker.send(GAIDictionaryBuilder.createScreenView().build())
     }
     override func viewDidDisappear(animated: Bool) {

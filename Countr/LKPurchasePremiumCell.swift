@@ -27,8 +27,8 @@ class LKPurchasePremiumCell: UICollectionViewCell {
         let white = UIColor.whiteColor()
         self.titleLabel.textColor = white
         self.descriptionLabel.textColor = white
-        self.backgroundColor = UIColor(rgba: "#252525")
-        self.layer.borderColor = UIColor(rgba: "#292929").CGColor
+        self.backgroundColor = UIColor.foregroundColor()
+        self.layer.borderColor = UIColor.borderColor().CGColor
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 12
         self.clipsToBounds = true
