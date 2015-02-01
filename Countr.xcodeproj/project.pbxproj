@@ -47,6 +47,7 @@
 		5DF32FBF1A7E222A00063FAC /* LKMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF32FBE1A7E222A00063FAC /* LKMainViewController.swift */; };
 		5DF32FC11A7E236E00063FAC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF32FC01A7E236E00063FAC /* iAd.framework */; };
 		5DF32FC31A7E23DC00063FAC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF32FC21A7E23DC00063FAC /* StoreKit.framework */; };
+		5DF32FC51A7E44BE00063FAC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF32FC41A7E44BE00063FAC /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		5DF32FBE1A7E222A00063FAC /* LKMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKMainViewController.swift; sourceTree = "<group>"; };
 		5DF32FC01A7E236E00063FAC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		5DF32FC21A7E23DC00063FAC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5DF32FC41A7E44BE00063FAC /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		B3DBA926475D472657B32222 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C9FCE20DDEA76DB63F5B519B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF32FC51A7E44BE00063FAC /* libPods.a in Frameworks */,
 				5D33885D1A6AB63F0068C37C /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +166,7 @@
 		5D33885B1A6AB63F0068C37C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DF32FC41A7E44BE00063FAC /* libPods.a */,
 				5DF32FC21A7E23DC00063FAC /* StoreKit.framework */,
 				5DF32FC01A7E236E00063FAC /* iAd.framework */,
 				5D33885C1A6AB63F0068C37C /* NotificationCenter.framework */,
@@ -293,9 +297,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D33886A1A6AB6400068C37C /* Build configuration list for PBXNativeTarget "TodayExtension" */;
 			buildPhases = (
+				5DF32FC71A7E466300063FAC /* Check Pods Manifest.lock */,
 				5D3388561A6AB63F0068C37C /* Sources */,
-				5D3388571A6AB63F0068C37C /* Frameworks */,
 				5D3388581A6AB63F0068C37C /* Resources */,
+				5D3388571A6AB63F0068C37C /* Frameworks */,
+				5DF32FC61A7E45D300063FAC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -472,6 +478,35 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		5DF32FC61A7E45D300063FAC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"";
+			showEnvVarsInLog = 0;
+		};
+		5DF32FC71A7E466300063FAC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\ncat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\nexit 1\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -558,6 +593,7 @@
 /* Begin XCBuildConfiguration section */
 		5D3388681A6AB6400068C37C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3DBA926475D472657B32222 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -568,23 +604,34 @@
 				);
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		5D3388691A6AB6400068C37C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18FB7CFE6B3582DD12EF9318 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
 			};
 			name = Release;
 		};

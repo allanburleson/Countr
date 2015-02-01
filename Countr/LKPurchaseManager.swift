@@ -44,7 +44,7 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
             productsRequest.delegate = self
             productsRequest.start()
             println("fetching products")
-            tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_manager_load_products_key, label: nil, value: nil).build())
+            //tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_manager_load_products_key, label: nil, value: nil).build())
         } else {
             println("The payment queue cannot make paymants, will cancel")
         }
@@ -109,16 +109,16 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
             NSNotificationCenter.defaultCenter().postNotificationName(didPurchasePremiumFeaturesNotificationKey, object: nil)
             self.didFinishBuyingProductCompletionHandler(status: status)
             
-            tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_Manager_did_finish_purchase_key, label: purchase_manager_did_purchase_key, value: self.recivedProduct[0].price).build())
+            //tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_Manager_did_finish_purchase_key, label: purchase_manager_did_purchase_key, value: self.recivedProduct[0].price).build())
         case .Restored:
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: didPurchasePremiumFeaturesKey)
             NSUserDefaults.standardUserDefaults().synchronize()
             NSNotificationCenter.defaultCenter().postNotificationName(didPurchasePremiumFeaturesNotificationKey, object: nil)
             self.didFinishBuyingProductCompletionHandler(status: status)
-            tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_Manager_did_finish_purchase_key, label: purchase_manager_did_restore_key, value: self.recivedProduct[0].price).build())
+            //tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_Manager_did_finish_purchase_key, label: purchase_manager_did_restore_key, value: self.recivedProduct[0].price).build())
 
         case .Cancelled:
-            tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_Manager_did_finish_purchase_key, label: purchase_manager_did_cancel_key, value: self.recivedProduct[0].price).build())
+            //tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_Manager_did_finish_purchase_key, label: purchase_manager_did_cancel_key, value: self.recivedProduct[0].price).build())
 
             break
         }
