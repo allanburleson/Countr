@@ -15,6 +15,8 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     lazy var tracker = GAI.sharedInstance().defaultTracker
     
+    var refreshControl = UIRefreshControl()
+    
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     var updateTimer: NSTimer?
@@ -29,6 +31,12 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         self.collectionView?.backgroundColor = UIColor(rgba: "#232323")
         self.collectionView?.indicatorStyle = .White
         
+        
+        self.refreshControl.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.tintColor = UIColor.whiteColor()
+        self.collectionView?.addSubview(self.refreshControl)
+
+        
         self.countdownManager.didAddNewItemCompletionClosure = { (item: LKCountdownItem) in
             println("did add new item: \(item.description)")
             //self.countdownManager.reload()
@@ -38,6 +46,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             self.startUpdates()
             
             self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_add_new_item_key, label: "", value: nil).build()) // TODO: set the item kind
+            
         }
         
         self.countdownManager.updateCompletionClosure = {
@@ -110,6 +119,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         self.reloadEmptyDataMessage()
         self.countdownManager.reload()
         self.collectionView?.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     func startUpdates() {
@@ -316,6 +326,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     }
     
     func modelDidLoadItems() {
+        println("modelDidLoadItems")
         self.refresh()
     }
     
