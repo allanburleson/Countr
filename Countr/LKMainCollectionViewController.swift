@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class LKMainCollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class LKMainCollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let countdownManager = LKCountdownManager.sharedInstance
     
@@ -30,6 +30,9 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         self.collectionView?.contentInset = UIEdgeInsetsMake(21, 0, 0, 0)
         self.collectionView?.indicatorStyle = .White
         
+//        self.collectionView?.delegate = self
+//        self.collectionView?.dataSource = self
+        
         
         self.refreshControl.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl.tintColor = UIColor.whiteColor()
@@ -42,6 +45,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             //self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
             self.collectionView?.reloadData()
             self.reloadEmptyDataMessage()
+            self.disableAddButtonIfNeeded()
             self.startUpdates()
             
             self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_add_new_item_key, label: "", value: nil).build()) // TODO: set the item kind
@@ -82,14 +86,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !self.countdownManager.canAddCountdowns {
-            println("at limit. Add button will be disabled")
-            //self.addButton.enabled = false
-            (self.parentViewController as LKMainViewController).addButton.enabled = false
-        } else {
-            //self.addButton.enabled = true
-            (self.parentViewController as LKMainViewController).addButton.enabled = true
-        }
+        disableAddButtonIfNeeded()
         
         if self.countdownManager.numberOfItems > 0 {
             self.startUpdates()
@@ -123,6 +120,17 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         self.refreshControl.endRefreshing()
     }
     
+    func disableAddButtonIfNeeded() {
+        if !self.countdownManager.canAddCountdowns {
+            println("at limit. Add button will be disabled")
+            //self.addButton.enabled = false
+            (self.parentViewController as LKMainViewController).addButton.enabled = false
+        } else {
+            //self.addButton.enabled = true
+            (self.parentViewController as LKMainViewController).addButton.enabled = true
+        }
+
+    }
     func startUpdates() {
         self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
@@ -205,6 +213,14 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         }
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0, 30, 0, 30)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 80
+    }
+    
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -222,7 +238,8 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             cell.shortPressAction = {
                 let purchasePremiumViewController: LKPurchasePremiumViewController = self.storyboard?.instantiateViewControllerWithIdentifier("purchasePremiumViewController") as LKPurchasePremiumViewController
                 let navigationController = UINavigationController(rootViewController: purchasePremiumViewController)
-                purchasePremiumViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+                purchasePremiumViewController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+                navigationController.modalPresentationStyle = .FormSheet
                 purchasePremiumViewController.sender = .PurchaseCell
                 
                 // TODO: Add a cancel button to the navBar in order ti dismiss th epurchaseViewController

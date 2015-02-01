@@ -369,6 +369,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteAllDataLabel" destination="rBO-ga-OHI" id="8hv-Fo-ppl"/>
                         <outlet property="infoBarButtonItem" destination="QQm-8Q-cTC" id="H9K-rd-6X3"/>
                         <outlet property="sendFeedbackCell" destination="Ca3-84-OZb" id="NnA-aV-Tcd"/>
                         <outlet property="versionNumberLabel" destination="1dt-CC-ODz" id="rcH-oy-WI9"/>

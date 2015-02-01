@@ -18,6 +18,12 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     @IBOutlet weak var versionNumberLabel: UILabel!
     @IBOutlet weak var sendFeedbackCell: UITableViewCell!
     @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //TODO: What is this?
+    @IBOutlet weak var deleteAllDataLabel: UILabel!
+    
+    let webViewController = PBWebViewController()
+    var webViewControllerNavigationController: UINavigationController!
+    
+    
     override func loadView() {
         super.loadView()
         
@@ -95,15 +101,31 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     func showWebsite() {
         let url = NSURL(string: "http://kollmer.me/countr")!
-
-        let webViewController: PBWebViewController = PBWebViewController()
+        
         webViewController.URL = url
+        
+        self.webViewControllerNavigationController = UINavigationController(rootViewController: webViewController)
+        webViewControllerNavigationController.modalPresentationStyle = .OverFullScreen
+        webViewControllerNavigationController.modalPresentationStyle = .OverFullScreen
+        
+        
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("doneButtonPressed:"))
+        
+        webViewController.navigationItem.leftBarButtonItem = doneButton
 
-        self.navigationController?.pushViewController(webViewController, animated: true)
+        self.showDetailViewController(webViewControllerNavigationController, sender: self)
         
         tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: show_website_key, value: nil).build())
 
 
+    }
+    
+    func doneButtonPressed(sender: AnyObject) {
+        println("\(sender)")
+        let barButton: UIBarButtonItem = sender as UIBarButtonItem
+        
+        self.webViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func deleteAllData() {
@@ -125,6 +147,8 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
+        
+        alertController.popoverPresentationController?.sourceView = self.deleteAllDataLabel
         
         self.presentViewController(alertController, animated: true, completion: {
             //self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: nil).build())

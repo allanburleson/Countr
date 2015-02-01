@@ -49,7 +49,7 @@ class LKPurchasePremiumViewController: UIViewController {
         self.buyButton.tintColor = UIColor.whiteColor()
         
         
-        self.descriptionTextView.text = "• Multiple Countdowns: Add more than 2 countdowns \n\n• iCloud sync: Keep all your countdowns in sync across all your devices \n\n• Remove Ads: Use the whole app without the banner ad at teh bottom of the screen \n\n• Notifications: Get notifications when a countdown is about to be finished \n\n• Apple Watch: View all your countdowns on your brand-new apple watch"
+        self.descriptionTextView.text = "• Multiple Countdowns: Add more than 2 countdowns \n\n• Remove Ads: Use the whole app without the banner ad at teh bottom of the screen \n\n• Notifications: Get notifications when a countdown is about to be finished \n\n• Apple Watch: View all your countdowns on your brand-new apple watch"
         self.buyButton.setTitle("Loading", forState: .Normal)
         self.buyButton.userInteractionEnabled = false // Ignore taps while the price is loaded
         
