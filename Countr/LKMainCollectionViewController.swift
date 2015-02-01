@@ -18,6 +18,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     var refreshControl = UIRefreshControl()
     
     
+    
     var updateTimer: NSTimer?
     
     override func loadView() {
@@ -85,8 +86,10 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         if !self.countdownManager.canAddCountdowns {
             println("at limit. Add button will be disabled")
             //self.addButton.enabled = false
+            (self.parentViewController as LKMainViewController).addButton.enabled = false
         } else {
             //self.addButton.enabled = true
+            (self.parentViewController as LKMainViewController).addButton.enabled = true
         }
         
         if self.countdownManager.numberOfItems > 0 {
