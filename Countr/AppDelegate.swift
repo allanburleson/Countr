@@ -26,10 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIToolbar.appearance().barStyle = .Black
         UIToolbar.appearance().tintColor = UIColor.whiteColor()
         UITextField.appearance().tintColor = UIColor.whiteColor()
-        let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font]
+        let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Normal)
         UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Highlighted)
         UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Disabled)
+        UINavigationBar.appearance().titleTextAttributes = titleTextAttributes
         let segmentedControlTitleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName : UIFont(name: "Avenir-Book", size: 13)!]
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlTitleTextAttributes, forState: UIControlState.Normal)
         //UILabel.appearance().textAlignment = NSTextAlignment.Center

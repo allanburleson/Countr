@@ -43,6 +43,20 @@ class LKCountdownManager: NSObject {
         }
     }
     
+    var canAddCountdowns: Bool {
+        get {
+            println("self.items.count = \(self.numberOfItems)")
+            if LKPurchaseManager.didPurchase {
+                println("did purchase, will return true")
+               return true
+            } else {
+                let usesAllAvailableSpots: Bool = self.numberOfItems >= 2
+                println("usesAllAvailableSpots: \(usesAllAvailableSpots)")
+                return !usesAllAvailableSpots
+            }
+        }
+    }
+    
     override init() {
         self.updateCompletionClosure = {}
         self.didAddNewItemCompletionClosure = {(item: LKCountdownItem) in}
@@ -198,6 +212,7 @@ class LKCountdownItem: NSObject, Printable {
     
     override var description: String {
         get {
+            //return "LKCountdownItem: Name: \(self.name), Reference date: \(self.date))"
             return "LKCountdownItem: Name: \(self.name), Reference date: \(self.date), uuid: \(self.id), countdownMode: \(self.countdownMode.toString())"
         }
     }

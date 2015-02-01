@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+// Cell identification
+let countdown_cell_tag = 0
+let purchase_cell_tag = 1
+
+
+// Google Analytics strings
+
 let ui_action_key = "ui_action"
 let select_collection_view_cell_key = "select_collection_view_cell"
 let button_press_key = "button_press"

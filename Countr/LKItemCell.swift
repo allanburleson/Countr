@@ -15,8 +15,10 @@ class LKItemCell: UICollectionViewCell {
 
     @IBOutlet weak private var titleLabel: UILabel!
     
+    private var tapGestureRecognizer: UITapGestureRecognizer!
     private(set) var longPressGestureRecognizer: UILongPressGestureRecognizer!
     
+    var shortPressAction: () -> () = {}
     var longPressAction: () -> () = {}
     
     var countdownItem: LKCountdownItem! {
@@ -41,14 +43,21 @@ class LKItemCell: UICollectionViewCell {
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 12
         self.clipsToBounds = true
+        
+        self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("didTap"))
         self.longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("didLongPress"))
         
+        self.addGestureRecognizer(self.tapGestureRecognizer)
         self.addGestureRecognizer(self.longPressGestureRecognizer)
     }
     
     func didLongPress() {
         println("didLongPressOnCell")
         self.longPressAction()
+    }
+    
+    func didTap() {
+        self.shortPressAction()
     }
 
 }

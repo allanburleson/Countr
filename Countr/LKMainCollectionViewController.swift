@@ -15,6 +15,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     lazy var tracker = GAI.sharedInstance().defaultTracker
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     var updateTimer: NSTimer?
     
@@ -36,7 +37,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             self.reloadEmptyDataMessage()
             self.startUpdates()
             
-            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_add_new_item_key, label: "", value: nil).build())
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_add_new_item_key, label: "", value: nil).build()) // TODO: set the item kind
         }
         
         self.countdownManager.updateCompletionClosure = {
@@ -58,6 +59,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         notificationCenter.addObserver(self, selector: "modelDidLoadItems", name: modelDidLoadItemsKey, object: nil)
         notificationCenter.addObserver(self, selector: "refresh", name: refreshUIKey, object: nil)
         notificationCenter.addObserver(self, selector: "refresh", name: didDeleteAllItemsKey, object: nil)
+        notificationCenter.addObserver(self, selector: "didPurchasePremiumFeatures", name: didPurchasePremiumFeaturesNotificationKey, object: nil)
         
 
     }
@@ -71,6 +73,17 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if !self.countdownManager.canAddCountdowns {
+            println("at limit. Add button will be disabled")
+            self.addButton.enabled = false
+        } else {
+            self.addButton.enabled = true
+        }
+        
+        if self.countdownManager.numberOfItems > 0 {
+            self.startUpdates()
+        }
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -94,8 +107,9 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     func refresh() {
         println("refresh")
+        self.reloadEmptyDataMessage()
         self.countdownManager.reload()
-        //self.collectionView?.reloadData()
+        self.collectionView?.reloadData()
     }
     
     func startUpdates() {
@@ -124,11 +138,17 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     func update() {
         if let visible = self.collectionView?.indexPathsForVisibleItems() {
+            println("visiblecells: \(visible)")
             for object in visible {
                 println("in the for loop")
                 let indexPath: NSIndexPath = object as NSIndexPath
-                self.countdownManager.updateCellAtItem(indexPath.item)
-                (self.collectionView?.cellForItemAtIndexPath(indexPath) as LKItemCell).updateTimeRemainignLabel()
+                println("Will update item \(indexPath.item) in section: \(indexPath.section)")
+                let cell = self.collectionView?.cellForItemAtIndexPath(indexPath)
+                println("cell.tag: \(cell?.tag)")
+                if cell?.tag == countdown_cell_tag {
+                    self.countdownManager.updateCellAtItem(indexPath.item)
+                    (self.collectionView?.cellForItemAtIndexPath(indexPath) as LKItemCell).updateTimeRemainignLabel()
+                }
             }
         }
         /*
@@ -167,11 +187,39 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.countdownManager.numberOfItems
+        if LKPurchaseManager.didPurchase {
+            return self.countdownManager.numberOfItems
+        } else {
+            return self.countdownManager.numberOfItems + 1
+        }
     }
     
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        if (indexPath.item >= self.countdownManager.numberOfItems) || (indexPath.item == 0 && self.countdownManager.numberOfItems == 0) {
+            // The purchase item
+            println("The purchase item")
+            let nib = UINib(nibName: "LKPurchasePremiumCell", bundle: nil)
+            collectionView.registerClass(LKPurchasePremiumCell.self, forCellWithReuseIdentifier: "purchasePremiumCell")
+            collectionView.registerNib(nib, forCellWithReuseIdentifier: "purchasePremiumCell")
+            
+            let cell: LKPurchasePremiumCell = collectionView.dequeueReusableCellWithReuseIdentifier("purchasePremiumCell", forIndexPath: indexPath) as LKPurchasePremiumCell
+            
+            cell.tag = purchase_cell_tag
+            
+            cell.shortPressAction = {
+                let purchasePremiumViewController: LKPurchasePremiumViewController = self.storyboard?.instantiateViewControllerWithIdentifier("purchasePremiumViewController") as LKPurchasePremiumViewController
+                let navigationController = UINavigationController(rootViewController: purchasePremiumViewController)
+                purchasePremiumViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+                purchasePremiumViewController.sender = .PurchaseCell
+                
+                // TODO: Add a cancel button to the navBar in order ti dismiss th epurchaseViewController
+            self.showDetailViewController(navigationController, sender: self)
+            }
+            
+            return cell
+        }
         
         println("will load cell for item \(indexPath.item) in section \(indexPath.section)")
         println("name for this item: \(self.countdownManager.items()[indexPath.item].name)")
@@ -181,6 +229,8 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         collectionView.registerNib(nib, forCellWithReuseIdentifier: "itemCell")
         
         let cell: LKItemCell = collectionView.dequeueReusableCellWithReuseIdentifier("itemCell", forIndexPath: indexPath) as LKItemCell
+        
+        cell.tag = countdown_cell_tag
         
         println("will load the item for the cell")
         cell.countdownItem = self.countdownManager.items()[indexPath.item]
@@ -266,7 +316,12 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     }
     
     func modelDidLoadItems() {
-        self.collectionView?.reloadData()
+        self.refresh()
+    }
+    
+    
+    func didPurchasePremiumFeatures() {
+        self.refresh()
     }
     
     
