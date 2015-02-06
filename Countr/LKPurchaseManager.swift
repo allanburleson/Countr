@@ -26,7 +26,9 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     
     class var didPurchase: Bool {
         get {
-            return NSUserDefaults.standardUserDefaults().boolForKey(didPurchasePremiumFeaturesKey)
+            let purchased = NSUserDefaults.standardUserDefaults().boolForKey(didPurchasePremiumFeaturesKey)
+            //println("did purchase: \(purchased)")
+            return purchased
         }
     }
     
@@ -38,15 +40,15 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     
     func load() {
         if SKPaymentQueue.canMakePayments() {
-            println("The pyment queue can make paymants, will continue")
+            //println("The pyment queue can make paymants, will continue")
             
             var productsRequest = SKProductsRequest(productIdentifiers: self.products)
             productsRequest.delegate = self
             productsRequest.start()
-            println("fetching products")
+            //println("fetching products")
             //tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_manager_load_products_key, label: nil, value: nil).build())
         } else {
-            println("The payment queue cannot make paymants, will cancel")
+            //println("The payment queue cannot make paymants, will cancel")
         }
     }
     
@@ -63,37 +65,40 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     
     internal func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
         
-        println("got the request from Apple")
+        //println("got the request from Apple")
         var count : Int = response.products.count
         if (count>0) {
             var product: SKProduct = response.products[0] as SKProduct
             if (product.productIdentifier == self.productIdentifier){
-                println("recived product: \(product)")
+                //println("recived product: \(product)")
                 self.recivedProduct = []
                 self.recivedProduct.append(product)
                 self.didFinishLoadingCompletionHandler()
             }
         } else {
-            println("nothing")
+            //println("nothing")
         }
     }
     
     internal func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
-        println("Received Payment Transaction Response from Apple")
-        println("transactions: \(transactions)")
+        //println("Received Payment Transaction Response from Apple")
+        //println("transactions: \(transactions)")
         for transaction:AnyObject in transactions {
             if let trans:SKPaymentTransaction = transaction as? SKPaymentTransaction {
                 switch trans.transactionState {
                 case .Purchased:
-                    println("Product Purchased")
+                    //println("Product Purchased")
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as SKPaymentTransaction)
+                    self.didFinishPurchaseWithStatus(.Purchased)
                     break
                 case .Failed:
-                    println("Purchased Failed")
+                    //println("Purchased Failed")
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as SKPaymentTransaction)
+                    self.didFinishPurchaseWithStatus(.Failed)
                         break;
                 case .Restored:
-                    println("Purchase restored")
+                    //println("Purchase restored")
+                    self.didFinishPurchaseWithStatus(.Restored)
                 default:
                     break
                 }
@@ -102,6 +107,7 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     }
     
     private func didFinishPurchaseWithStatus(status: LKPurchaseStatus) {
+        //println("didFinishPurchaseWithStatus")
         switch status {
         case .Purchased:
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: didPurchasePremiumFeaturesKey)
@@ -121,6 +127,8 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
             //tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_Manager_did_finish_purchase_key, label: purchase_manager_did_cancel_key, value: self.recivedProduct[0].price).build())
 
             break
+        case .Failed:
+            break
         }
     }
     
@@ -130,5 +138,6 @@ enum LKPurchaseStatus {
     case Purchased
     case Restored
     case Cancelled
+    case Failed
 }
 

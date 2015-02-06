@@ -55,8 +55,8 @@
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VwF-q7-5AS">
                                                     <rect key="frame" x="8" y="10" width="584" height="29"/>
                                                     <segments>
-                                                        <segment title="Day"/>
-                                                        <segment title="Day &amp; Time"/>
+                                                        <segment title="Date"/>
+                                                        <segment title="Date &amp; Time"/>
                                                     </segments>
                                                     <connections>
                                                         <action selector="countdownModeChanged:" destination="NDr-WG-CxX" eventType="valueChanged" id="Hha-8N-VST"/>
@@ -369,10 +369,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="copyrightLabel" destination="wTW-IE-4RE" id="kA3-0K-JtB"/>
                         <outlet property="deleteAllDataLabel" destination="rBO-ga-OHI" id="8hv-Fo-ppl"/>
+                        <outlet property="deleteAllDataTextLabel" destination="rBO-ga-OHI" id="lVP-o1-H8P"/>
                         <outlet property="infoBarButtonItem" destination="QQm-8Q-cTC" id="H9K-rd-6X3"/>
+                        <outlet property="premiumFeaturesTextLabel" destination="rpr-ZO-t5h" id="Ihe-fr-VEO"/>
                         <outlet property="sendFeedbackCell" destination="Ca3-84-OZb" id="NnA-aV-Tcd"/>
+                        <outlet property="sendFeedbackTextLabel" destination="StU-Cc-TdA" id="gjh-Vq-L5U"/>
+                        <outlet property="supportTextLabel" destination="udG-OD-yGS" id="uiv-wL-cVF"/>
                         <outlet property="versionNumberLabel" destination="1dt-CC-ODz" id="rcH-oy-WI9"/>
+                        <outlet property="versionTextLabel" destination="NZf-r4-utw" id="U7W-cP-Tty"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Byf-C8-CES" userLabel="First Responder" sceneMemberID="firstResponder"/>

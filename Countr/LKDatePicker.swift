@@ -41,8 +41,8 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
                 dateComponents.minute = 0
                 dateComponents.second = 0
                 dateComponents.nanosecond = 0
-                println("date delivered to addVC: year: \(dateComponents.year) month: \(dateComponents.month) day: \(dateComponents.day)hour:  \(dateComponents.hour) minute: \(dateComponents.minute) second: \(dateComponents.second) ")
-                println("current cal: \(NSCalendar.currentCalendar().timeZone.description)")
+                //println("date delivered to addVC: year: \(dateComponents.year) month: \(dateComponents.month) day: \(dateComponents.day)hour:  \(dateComponents.hour) minute: \(dateComponents.minute) second: \(dateComponents.second) ")
+                //println("current cal: \(NSCalendar.currentCalendar().timeZone.description)")
                 return NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
             case .DateAndTime:
                 let dateComponents = NSDateComponents()
@@ -54,7 +54,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
                 } else {
                     dateComponents.hour = self.selectedRowInComponent(1)+1
                 }
-                dateComponents.minute = self.selectedRowInComponent(2)+1
+                dateComponents.minute = self.selectedRowInComponent(2)
                 dateComponents.second = 0
                 dateComponents.nanosecond = 0
                 return NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
@@ -113,7 +113,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
             self.selectRow(365, inComponent: 0, animated: false)
             self.selectRow(dateComponents.hour-1, inComponent: 1, animated: false)
             self.selectRow(dateComponents.minute-1, inComponent: 2, animated: false)
-            println("hour: \(dateComponents.hour)")
+            //println("hour: \(dateComponents.hour)")
         default:
             break
         }
@@ -131,9 +131,9 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         case .Date:
             switch component {
             case 0:
-                return 12 // Month
+                return self.pickerData.months.count // Month
             case 1:
-                return 31 // Day
+                return self.pickerData.days.count // Day
             case 2:
                 return 3000 //Year
             default:
@@ -142,7 +142,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         case .DateAndTime:
             switch component {
             case 0:
-                return 731 // These are the days, in the following format: "[Mon] [Jan] [22]"
+                return self.pickerData.descriptiveDates.count // These are the days, in the following format: "[Mon] [Jan] [22]"
             case 1: // the hours
                 if UIDevice.currentDevice().is12HourFormat {
                     return 12
@@ -150,10 +150,10 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
                     return 24
                 }
             case 2:
-                return 60 // The Minutes
+                return self.pickerData.minutes.count // The Minutes
             case 3:
                 if UIDevice.currentDevice().is12HourFormat {
-                    return 2 // AMPM
+                    return self.pickerData.amPm.count // AMPM
                 } else {
                     return 0 // Nothing
                 }
@@ -234,7 +234,7 @@ class LKPickerData {
     
     let minutes: [String] = {
         var _minutes: [String] = []
-        for index in 1...60 {
+        for index in 0...59 {
             _minutes.append("\(index)")
         }
         

@@ -15,7 +15,16 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     // Google analytics
     lazy var tracker = GAI.sharedInstance().defaultTracker
     
+    @IBOutlet weak var versionTextLabel: UILabel!
     @IBOutlet weak var versionNumberLabel: UILabel!
+    @IBOutlet weak var premiumFeaturesTextLabel: UILabel!
+    
+    @IBOutlet weak var sendFeedbackTextLabel: UILabel!
+    
+    @IBOutlet weak var supportTextLabel: UILabel!
+    
+    @IBOutlet weak var copyrightLabel: UILabel!
+    @IBOutlet weak var deleteAllDataTextLabel: UILabel!
     @IBOutlet weak var sendFeedbackCell: UITableViewCell!
     @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //TODO: What is this?
     @IBOutlet weak var deleteAllDataLabel: UILabel!
@@ -30,7 +39,12 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         self.tableView.backgroundColor = UIColor.backgroundColor()
         
         self.versionNumberLabel.text = UIApplication.sharedApplication().version
-        
+        self.versionTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.versionTextLabel", comment: "")
+        self.premiumFeaturesTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.unlockEverything", comment: "")
+        self.sendFeedbackTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.feedbackLabel", comment: "")
+        self.supportTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.supportLabel", comment: "")
+        self.deleteAllDataTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.deleteAllDataLabel", comment: "")
+        self.copyrightLabel.text = NSLocalizedString("me.kollmer.countr.infoView.copyrightLabel", comment: "")
         
         // Google Analytics
         tracker.set(kGAIScreenName, value: "Info")
@@ -38,6 +52,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
 
         
     }
+    
     
     
     @IBAction func doneButtonClicked() {
@@ -75,7 +90,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     
     func sendFeedback() {
-        println("sendFeedback")
+        //println("sendFeedback")
         tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: write_email_key, value: nil).build())
         
         if MFMailComposeViewController.canSendMail() {
@@ -88,7 +103,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             mailComposer.mailComposeDelegate = self
             self.presentViewController(mailComposer, animated: true, completion: nil)
         } else {
-            println("No Mail accounts configured")
+            //println("No Mail accounts configured")
             let alertController = UIAlertController(title: "Error", message: "No Mail accounts configured", preferredStyle: .Alert)
             let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: {(action) in
                 alertController.dismissViewControllerAnimated(true, completion: nil)
@@ -122,16 +137,20 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     }
     
     func doneButtonPressed(sender: AnyObject) {
-        println("\(sender)")
+        //println("\(sender)")
         let barButton: UIBarButtonItem = sender as UIBarButtonItem
         
         self.webViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func deleteAllData() {
-        let alertController = UIAlertController(title: "¿¿Sure??", message: "Are you sure you want to delete all data in this application?", preferredStyle: .ActionSheet)
-        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {(action) in
-            println("delete")
+        let alertTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.title", comment: "")
+        let alertMessage = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.message", comment: "")
+        let alertButtonDeleteTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.deleteButton.title", comment: "")
+        let alertButtonCancelTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.cancelButton.title", comment: "")
+        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .ActionSheet)
+        let deleteAction = UIAlertAction(title: alertButtonDeleteTitle, style: .Destructive, handler: {(action) in
+            //println("delete")
             let countdownManager = LKCountdownManager.sharedInstance
             countdownManager.deleteAllItems({
                 NSNotificationCenter.defaultCenter().postNotificationName(didDeleteAllItemsKey, object: nil)
@@ -139,8 +158,8 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             })
         })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {(action) in
-            println("cancel")
+        let cancelAction = UIAlertAction(title: alertButtonCancelTitle, style: .Cancel, handler: {(action) in
+            //println("cancel")
             
             self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: false).build())
         })
@@ -159,17 +178,21 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         controller.dismissViewControllerAnimated(true, completion: nil)
-        println("mailComposeController didFinishWithResult: \(result)")
+        //println("mailComposeController didFinishWithResult: \(result)")
 
         switch result.value {
             case MFMailComposeResultCancelled.value:
-                println("MFMailComposeResultCancelled")
+                //println("MFMailComposeResultCancelled")
+                break
             case MFMailComposeResultSaved.value:
-                println("MFMailComposeResultSaved")
+                //println("MFMailComposeResultSaved")
+                break
             case MFMailComposeResultSent.value:
-                println("MFMailComposeResultSent")
+                //println("MFMailComposeResultSent")
+                break
             case MFMailComposeResultFailed.value:
-                println("MFMailComposeResultFailed")
+                //println("MFMailComposeResultFailed")
+                break
         default:
         break
         }

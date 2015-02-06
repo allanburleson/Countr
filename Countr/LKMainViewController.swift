@@ -36,9 +36,9 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "embedCollectionView" {
             self.collectionViewController = segue.destinationViewController as LKMainCollectionViewController
-            println("self.bounds: \(self.view.bounds)")
+            //println("self.bounds: \(self.view.bounds)")
             self.collectionViewController?.collectionView?.bounds = self.view.bounds
-            println("collectionView.bounds: \(self.collectionViewController?.collectionView?.bounds)")
+            //println("collectionView.bounds: \(self.collectionViewController?.collectionView?.bounds)")
         }
     }
     
@@ -59,26 +59,26 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
     
     // MARK: ADBannerView delegate
     func bannerViewWillLoadAd(banner: ADBannerView!) {
-        println("bannerViewWillLoadAd")
+        //println("bannerViewWillLoadAd")
     }
     
     func bannerViewDidLoadAd(banner: ADBannerView!) {
-        println("bannerViewDidLoadAd")
+        //println("bannerViewDidLoadAd")
         adjustViewForAdBannerVisible(true)
     }
     
     func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool {
-        println("bannerViewActionShouldBegin")
+        //println("bannerViewActionShouldBegin")
         return true
     }
     
     func bannerViewActionDidFinish(banner: ADBannerView!) {
-        println("bannerViewActionDidFinish")
+        //println("bannerViewActionDidFinish")
     }
     
     func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        println("bannerViewDidFailToReceiveAdWithError")
-        println("error: \(error.debugDescription)")
+        //println("bannerViewDidFailToReceiveAdWithError")
+        //println("error: \(error.debugDescription)")
         adjustViewForAdBannerVisible(false)
     }
 }

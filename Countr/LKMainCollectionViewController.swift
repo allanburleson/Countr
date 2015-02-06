@@ -40,7 +40,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
 
         
         self.countdownManager.didAddNewItemCompletionClosure = { (item: LKCountdownItem) in
-            println("did add new item: \(item.description)")
+            //println("did add new item: \(item.description)")
             //self.countdownManager.reload()
             //self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
             self.collectionView?.reloadData()
@@ -52,8 +52,16 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             
         }
         
+        
+        // NOTE: Not needed, use delete function in cellForItemAtIndexPath instead
+        
+        //self.countdownManager.didDeleteItemCompletionClosure = { (item: LKCountdownItem) in
+        //    self.disableAddButtonIfNeeded()
+        //    self.reloadEmptyDataMessage()
+        //}
+        
         self.countdownManager.updateCompletionClosure = {
-            println("did update values")
+            //println("did update values")
             //self.collectionView?.reloadData()
             self.update()
         }
@@ -62,6 +70,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             self.reloadEmptyDataMessage()
             self.countdownManager.reload()
             self.collectionView?.reloadData()
+            self.disableAddButtonIfNeeded()
         }
         
         self.countdownManager.startUpdates()
@@ -101,7 +110,12 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         // Google Analytics
         tracker.set(kGAIScreenName, value: "MainCollectionView")
         tracker.send(GAIDictionaryBuilder.createScreenView().build())
+        
+        
+    
     }
+    
+    
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         
@@ -109,11 +123,11 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     }
     
     func didLongPress() {
-        println("didLongPressOnMainScreen")
+        //println("didLongPressOnMainScreen")
     }
     
     func refresh() {
-        println("refresh")
+        //println("refresh")
         self.reloadEmptyDataMessage()
         self.countdownManager.reload()
         self.collectionView?.reloadData()
@@ -122,7 +136,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     func disableAddButtonIfNeeded() {
         if !self.countdownManager.canAddCountdowns {
-            println("at limit. Add button will be disabled")
+            //println("at limit. Add button will be disabled")
             //self.addButton.enabled = false
             (self.parentViewController as LKMainViewController).addButton.enabled = false
         } else {
@@ -144,7 +158,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         self.countdownManager.reload()
         if self.countdownManager.items().isEmpty {
             let messageLabel = UILabel()
-            messageLabel.text = "No items addet yet."
+            messageLabel.text = NSLocalizedString("me.kollmer.countr.mainView.noDataAddedYetLabel", comment: "")
             messageLabel.textAlignment = .Center
             messageLabel.textColor = UIColor.whiteColor()
             messageLabel.font = UIFont(name: "Avenir-Book", size: 26)
@@ -157,13 +171,13 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     func update() {
         if let visible = self.collectionView?.indexPathsForVisibleItems() {
-            println("visiblecells: \(visible)")
+            //println("visiblecells: \(visible)")
             for object in visible {
-                println("in the for loop")
+                //println("in the for loop")
                 let indexPath: NSIndexPath = object as NSIndexPath
-                println("Will update item \(indexPath.item) in section: \(indexPath.section)")
+                //println("Will update item \(indexPath.item) in section: \(indexPath.section)")
                 let cell = self.collectionView?.cellForItemAtIndexPath(indexPath)
-                println("cell.tag: \(cell?.tag)")
+                //println("cell.tag: \(cell?.tag)")
                 if cell?.tag == countdown_cell_tag {
                     self.countdownManager.updateCellAtItem(indexPath.item)
                     (self.collectionView?.cellForItemAtIndexPath(indexPath) as LKItemCell).updateTimeRemainignLabel()
@@ -174,7 +188,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         var items: Int = self.collectionView?.numberOfItemsInSection(0) as Int!
         //items++
         for var i = 1; i <= items; ++i {
-            println("index is \(i) of \(items)")
+            //println("index is \(i) of \(items)")
             let indexPaths = self.collectionView?.indexPathsForVisibleItems()
             for object in indexPaths {
                 let indexPath: NSIndexPath = object as NSIndexPath
@@ -182,7 +196,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             let itemInt =  i - 1
             let indexPath = NSIndexPath(forItem: itemInt, inSection: 0)
             self.collectionView?.indexPathsForVisibleItems().count
-            println("created indexPath: item= \(indexPath.item), section= \(indexPath.section)")
+            //println("created indexPath: item= \(indexPath.item), section= \(indexPath.section)")
             //let cell: LKItemCell = self.collectionView?.cellForItemAtIndexPath(indexPath) as LKItemCell
             
             (self.collectionView?.cellForItemAtIndexPath(indexPath) as LKItemCell).updateTimeRemainignLabel()
@@ -195,7 +209,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "addNewItem" {
-            println("addNewItem")
+            //println("addNewItem")
             self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: add_new_item_button_key, value: nil).build())
         }
     }
@@ -221,12 +235,16 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         return 80
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 20
+    }
+    
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if (indexPath.item >= self.countdownManager.numberOfItems) || (indexPath.item == 0 && self.countdownManager.numberOfItems == 0) {
             // The purchase item
-            println("The purchase item")
+            //println("The purchase item")
             let nib = UINib(nibName: "LKPurchasePremiumCell", bundle: nil)
             collectionView.registerClass(LKPurchasePremiumCell.self, forCellWithReuseIdentifier: "purchasePremiumCell")
             collectionView.registerNib(nib, forCellWithReuseIdentifier: "purchasePremiumCell")
@@ -249,8 +267,8 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             return cell
         }
         
-        println("will load cell for item \(indexPath.item) in section \(indexPath.section)")
-        println("name for this item: \(self.countdownManager.items()[indexPath.item].name)")
+        //println("will load cell for item \(indexPath.item) in section \(indexPath.section)")
+        //println("name for this item: \(self.countdownManager.items()[indexPath.item].name)")
         
         let nib = UINib(nibName: "LKItemCell", bundle: nil)
         collectionView.registerClass(LKItemCell.self, forCellWithReuseIdentifier: "itemCell")
@@ -260,7 +278,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         cell.tag = countdown_cell_tag
         
-        println("will load the item for the cell")
+        //println("will load the item for the cell")
         cell.countdownItem = self.countdownManager.items()[indexPath.item]
         
         cell.longPressAction = {
@@ -270,17 +288,17 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             let alertController = UIAlertController(title: "Delete Item", message: "Do you really want to delete the countdown \(self.countdownManager.items()[indexPath.item].name)", preferredStyle: UIAlertControllerStyle.ActionSheet)
             alertController.popoverPresentationController?.sourceView = cell
             alertController.popoverPresentationController?.sourceRect = cell.bounds
-            println("cell.frame: \(cell.frame)")
-            println("alertController.popoverPresentationController?.sourceRect: \(alertController.popoverPresentationController?.sourceRect)")
+            //println("cell.frame: \(cell.frame)")
+            //println("alertController.popoverPresentationController?.sourceRect: \(alertController.popoverPresentationController?.sourceRect)")
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-                println(action)
+                //println(action)
                 self.countdownManager.startUpdates()
             }
             
             
             let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
-                println(action)
+                //println(action)
                 self.countdownManager.deleteCountdownItem(self.countdownManager.items()[indexPath.item])
                 
                 if self.countdownManager.items().count > 1 {
@@ -289,6 +307,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
                     self.collectionView?.reloadData()
                 }
                 self.reloadEmptyDataMessage()
+                self.disableAddButtonIfNeeded()
                 self.countdownManager.startUpdates()
                 
                 self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_delete_item_key, label: nil, value: nil).build())
@@ -301,13 +320,13 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
 
         }
         
-        //println(cell)
+        ////println(cell)
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //println("did select cell at indexpath\(indexPath)")
-        //println("did select cell in section \(indexPath.section) and item \(indexPath.item)")
+        ////println("did select cell at indexpath\(indexPath)")
+        ////println("did select cell in section \(indexPath.section) and item \(indexPath.item)")
         /*
         self.countdownManager.endUpdates()
         
@@ -315,13 +334,13 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         let alertController = UIAlertController(title: "Delete Item", message: "Do you really want to delete the countdown \(self.countdownManager.items()[indexPath.row].name)", preferredStyle: UIAlertControllerStyle.Alert)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-            println(action)
+            //println(action)
             self.countdownManager.startUpdates()
         }
         
         
         let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
-            println(action)
+            //println(action)
             self.countdownManager.deleteCountdownItem(self.countdownManager.items()[indexPath.row])
             
             if self.countdownManager.items().count > 1 {
@@ -344,7 +363,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     }
     
     func modelDidLoadItems() {
-        println("modelDidLoadItems")
+        //println("modelDidLoadItems")
         self.refresh()
     }
     

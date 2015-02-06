@@ -49,13 +49,19 @@ class LKPurchasePremiumViewController: UIViewController {
         self.buyButton.tintColor = UIColor.whiteColor()
         
         
-        self.descriptionTextView.text = "• Multiple Countdowns: Add more than 2 countdowns \n\n• Remove Ads: Use the whole app without the banner ad at teh bottom of the screen \n\n• Notifications: Get notifications when a countdown is about to be finished \n\n• Apple Watch: View all your countdowns on your brand-new apple watch"
-        self.buyButton.setTitle("Loading", forState: .Normal)
+        self.titleLabel.text = NSLocalizedString("me.kollmer.countr.purchaseView.titleLabel", comment: "")
+        self.descriptionTextView.text = NSLocalizedString("me.kollmer.countr.purchaseView.descriptionTextView", comment: "")
+
+        
+        // Notifications + Watch:  \n\n• Notifications: Get notifications when a countdown is about to be finished \n\n• Apple Watch: View all your countdowns on your brand-new apple watch
+        let title = NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.loading", comment: "")
+        self.buyButton.setTitle(title, forState: .Normal)
         self.buyButton.userInteractionEnabled = false // Ignore taps while the price is loaded
         
         if LKPurchaseManager.didPurchase {
             self.buyButton.enabled = false
-            self.buyButton.setTitle("PURCHASED", forState: .Normal)
+            let title = NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.purchased", comment: "")
+            self.buyButton.setTitle(title, forState: .Normal)
             self.buyButton.setTitleColor(UIColor.whiteColor(), forState: .Disabled)
         } else {
             self.store.load()
@@ -72,11 +78,24 @@ class LKPurchasePremiumViewController: UIViewController {
         
         self.store.didFinishLoadingCompletionHandler = {
             self.buyButton.userInteractionEnabled = true
-            self.buyButton.setTitle("Buy for $\(self.store.recivedProduct[0].price)", forState: .Normal)
+            
+            let product = self.store.recivedProduct[0]
+            
+            let numberFormater = NSNumberFormatter()
+            numberFormater.formatterBehavior = .Behavior10_4
+            numberFormater.numberStyle = .CurrencyStyle
+            numberFormater.locale = product.priceLocale
+            
+            let formattedPrice = numberFormater.stringFromNumber(product.price)!
+            
+            
+            let buttonTitle = NSString(format: NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.price", comment: ""), formattedPrice)
+            self.buyButton.setTitle(buttonTitle, forState: .Normal)
         }
         
         self.store.didFinishBuyingProductCompletionHandler = {(status: LKPurchaseStatus) in
-            self.buyButton.setTitle("PURCHASED", forState: .Normal)
+            let title = NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.purchased", comment: "")
+            self.buyButton.setTitle(title, forState: .Normal)
         }
         
     }
@@ -90,7 +109,9 @@ class LKPurchasePremiumViewController: UIViewController {
     
     
     @IBAction func didClickBuyButton(sender: LKRoundBorderedButton) {
-        println("Buy")
+        //println("Buy")
+        let title = NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.loading", comment: "")
+        self.buyButton.setTitle(title, forState: .Normal)
         self.store.buy()
     }
     

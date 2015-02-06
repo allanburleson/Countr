@@ -35,6 +35,7 @@ class LKCountdownManager: NSObject {
     var updateCompletionClosure: () -> ()
     //var didAddNewItemConpletionClosure: () -> () = {}
     var didAddNewItemCompletionClosure: (item: LKCountdownItem) -> ()
+    var didDeleteItemCompletionClosure: (item: LKCountdownItem) -> ()
     var didDeleteAllItemsCompletionClosure: () -> ()
     
     var numberOfItems: Int {
@@ -45,13 +46,13 @@ class LKCountdownManager: NSObject {
     
     var canAddCountdowns: Bool {
         get {
-            println("self.items.count = \(self.numberOfItems)")
+            //println("self.items.count = \(self.numberOfItems)")
             if LKPurchaseManager.didPurchase {
-                println("did purchase, will return true")
+                //println("did purchase, will return true")
                return true
             } else {
                 let usesAllAvailableSpots: Bool = self.numberOfItems >= 2
-                println("usesAllAvailableSpots: \(usesAllAvailableSpots)")
+                //println("usesAllAvailableSpots: \(usesAllAvailableSpots)")
                 return !usesAllAvailableSpots
             }
         }
@@ -60,6 +61,7 @@ class LKCountdownManager: NSObject {
     override init() {
         self.updateCompletionClosure = {}
         self.didAddNewItemCompletionClosure = {(item: LKCountdownItem) in}
+        self.didDeleteItemCompletionClosure = {(item: LKCountdownItem) in}
         self.didDeleteAllItemsCompletionClosure = {}
         super.init()
     }
@@ -121,7 +123,7 @@ class LKCountdownManager: NSObject {
         
         //self.model.saveNewItem(adaptedItem)
         self.model.saveNewItem(item)
-        println("did succed saving the item")
+        //println("did succed saving the item")
         completionHandler()
         self.didAddNewItemCompletionClosure(item: item)
 
@@ -130,8 +132,10 @@ class LKCountdownManager: NSObject {
     func deleteCountdownItem(item: LKCountdownItem) {
         self.model.deleteItem(item)
         
+        self.didDeleteItemCompletionClosure(item: item)
+        
         if self.items().isEmpty {
-            println("isEmpty")
+            //println("isEmpty")
             self.endUpdates()
         }
     }
@@ -171,7 +175,7 @@ class LKCountdownItem: NSObject, Printable {
         self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: nil)
         //self.date = date
         let uuid = NSUUID().UUIDString
-        println("uuid used for saving: \(uuid)")
+        //println("uuid used for saving: \(uuid)")
         self.id = uuid
         self.countdownMode = mode
     }
@@ -180,12 +184,13 @@ class LKCountdownItem: NSObject, Printable {
         self.name = object.valueForKey(coreDataNameKey) as String
         self.date = object.valueForKey(coreDataDateKey) as NSDate
         self.id = object.valueForKey(coreDataIdKey) as String
+        //println("countdownmode: \(object.valueForKey(coreDataKindKey) as String)")
         self.countdownMode = LKCountdownMode(string: object.valueForKey(coreDataKindKey) as String)
         self.managedObject = object
     }
     
     init(cloudRecord: CKRecord) {
-        println("input cloudRecord: \(cloudRecord)")
+        //println("input cloudRecord: \(cloudRecord)")
         
         self.name = cloudRecord.valueForKey(countdownItemRecordNameKey) as String
         self.date = cloudRecord.valueForKey(countdownItemRecordDateKey) as NSDate
@@ -195,7 +200,7 @@ class LKCountdownItem: NSObject, Printable {
     
     func updateTimeRemaining() {
         
-        println("updateTimeRemaining")
+        //println("updateTimeRemaining")
         
         let calendar = NSCalendar.currentCalendar()
         
@@ -209,6 +214,7 @@ class LKCountdownItem: NSObject, Printable {
         self.remaining.asString = "\(self.remaining.days) : \(self.remaining.hours) : \(self.remaining.minutes): \(self.remaining.seconds)"
         
     }
+    
     
     override var description: String {
         get {

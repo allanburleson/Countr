@@ -37,7 +37,7 @@ class LKRoundBorderedButton: UIButton {
     
     override var highlighted: Bool {
         didSet {
-            println("highlighted: \(highlighted)")
+            //println("highlighted: \(highlighted)")
             super.highlighted = self.highlighted
             
             UIView.animateWithDuration(0.25, animations: {

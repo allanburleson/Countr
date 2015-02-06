@@ -36,6 +36,9 @@ class LKPurchasePremiumCell: UICollectionViewCell {
         self.titleLabel.font = UIFont(name: "Avenir-Book", size: 17)
         self.descriptionLabel.font = UIFont(name: "Avenir-Book", size: 13)
         
+        self.titleLabel.text = NSLocalizedString("me.kollmer.countr.purchaseCell.titleLabel", comment: "")
+        self.descriptionLabel.text = NSLocalizedString("me.kollmer.countr.purchaseCell.descriptionLabel", comment: "")
+        
         self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("didTap"))
         
         self.addGestureRecognizer(self.tapGestureRecognizer)

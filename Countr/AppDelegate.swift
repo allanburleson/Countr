@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let font = UIFont(name: "Avenir-Book", size: 17)!
         UILabel.appearance().font = font
+        UITextField.appearance().backgroundColor = UIColor.foregroundColor()
         UITableViewCell.appearance().backgroundColor = UIColor.foregroundColor()
         UICollectionView.appearance().backgroundColor = UIColor.backgroundColor()
         UINavigationBar.appearance().barStyle = .Black
@@ -39,21 +40,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
+        
+        /*
+        // Register for local notifications
+        let localNotificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil)
+        application.registerUserNotificationSettings(localNotificationSettings)
+        
+        //println("current local notifications: \(application.scheduledLocalNotifications.count)")
+        */
+        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
         self.registerForiCloudNotifications()
         
-        println("Device is 12hr format: \(UIDevice.currentDevice().is12HourFormat)")
+        //println("Device is 12hr format: \(UIDevice.currentDevice().is12HourFormat)")
         
         // Setup Google Analytics
         GAI.sharedInstance().trackUncaughtExceptions = true
         //GAI.sharedInstance().logger.logLevel = GAILogLevel.Verbose
         GAI.sharedInstance().trackerWithTrackingId("UA-49744076-4")
         
-        
         return true
     }
     
     func registerForiCloudNotifications() {
-        println("registerForiCloudNotifications")
+        //println("registerForiCloudNotifications")
         let notificationCenter = NSNotificationCenter.defaultCenter()
         
         notificationCenter.addObserver(self, selector: "storesWillChange:", name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: self.model.persistentStoreCoordinator)

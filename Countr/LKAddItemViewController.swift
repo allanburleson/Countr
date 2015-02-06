@@ -30,10 +30,16 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         
         self.doneBarButtonItem.enabled = false
         
+        self.nameTextField.delegate = self
+        
         
         self.tableView.backgroundColor = UIColor(rgba: "#232323")
         
-        self.nameTextField.attributedPlaceholder = NSAttributedString(string: "Enter a name for your countdown", attributes: [NSForegroundColorAttributeName : UIColor(rgba: "#D9D9D9"), NSFontAttributeName: UIFont(name: "Avenir-Book", size: 15)!])
+        let placeholderString = NSLocalizedString("me.kollmer.countr.addItemView.itemTitlePlaceholderString", comment: "")
+        self.nameTextField.attributedPlaceholder = NSAttributedString(string: placeholderString, attributes: [NSForegroundColorAttributeName : UIColor(rgba: "#D9D9D9"), NSFontAttributeName: UIFont(name: "Avenir-Book", size: 15)!])
+        
+        self.countdownModeSegmentedControl.setTitle(NSLocalizedString("me.kollmer.countr.addItem.segmentedControl.titleAtIndex.0", comment: ""), forSegmentAtIndex: 0)
+        self.countdownModeSegmentedControl.setTitle(NSLocalizedString("me.kollmer.countr.addItem.segmentedControl.titleAtIndex.1", comment: ""), forSegmentAtIndex: 1)
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldTextChanged", name: UITextFieldTextDidChangeNotification, object: self.nameTextField)
         
@@ -50,8 +56,8 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         
         /*
         let appleClearButton: UIButton = self.nameTextField.valueForKey("_clearButton") as UIButton
-        println("appleClearButton: \(appleClearButton)")
-        println("appleClearButton.image: \(appleClearButton.imageView?.image)")
+        //println("appleClearButton: \(appleClearButton)")
+        //println("appleClearButton.image: \(appleClearButton.imageView?.image)")
         */
         
         // Google Analytics
@@ -96,6 +102,12 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     
     func textFieldTextChanged() {
         self.doneBarButtonItem.enabled = !self.nameTextField.text.isEmpty
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
     
     @IBAction func cancelButtonClicked(sender: UIBarButtonItem) {

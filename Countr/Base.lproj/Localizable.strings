@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Countr
+
+  Created by Lukas Kollmer on 2/1/15.
+  Copyright (c) 2015 Lukas Kollmer. All rights reserved.
+*/
+
+
+/*
+ Main Collection View Controller
+ */
+"me.kollmer.countr.mainView.noDataAddedYetLabel" = "No data added yet";
+
+/*
+ Info View Controller
+ */
+"me.kollmer.countr.infoView.versionTextLabel" = "Version";
+"me.kollmer.countr.infoView.unlockEverything" = "Unlock everything";
+"me.kollmer.countr.infoView.feedbackLabel" = "Feedback";
+"me.kollmer.countr.infoView.supportLabel" = "Support";
+"me.kollmer.countr.infoView.deleteAllDataLabel" = "Delete All Data";
+"me.kollmer.countr.infoView.copyrightLabel" = "© 2015, Lukas Kollmer";
+
+"me.kollmer.countr.infoView.deleteAlert.title" = "Delete All items";
+"me.kollmer.countr.infoView.deleteAlert.message" = "Are you sure you want to delete all items?";
+"me.kollmer.countr.infoView.deleteAlert.deleteButton.title" = "Delete";
+"me.kollmer.countr.infoView.deleteAlert.cancelButton.title" = "Cancel";
+
+
+
+/*
+ Add Item View Controller
+ */
+
+
+"me.kollmer.countr.addItemView.itemTitlePlaceholderString" = "Enter a title for the item (eg: Christmas)";
+"me.kollmer.countr.addItem.segmentedControl.titleAtIndex.0" = "Date";
+"me.kollmer.countr.addItem.segmentedControl.titleAtIndex.1" = "Date & Time";
+
+
+
+/*
+ Purchase View Controller
+ */
+"me.kollmer.countr.purchaseView.titleLabel" = "Countr Premium Features";
+"me.kollmer.countr.purchaseView.descriptionTextView" = "• Multiple Countdowns: Add more than 2 countdowns \n\n• Remove Ads: Use the whole app without the banner ad at the bottom of the screen \n\n\n\n• Available soon: (Free update for everyone who has purchased the Premium Features)\n\n• Notifications: Get notifications when a countdown is about to be finished \n\n• Apple Watch: View all your countdowns on your brand-new apple watch";
+"me.kollmer.countr.purchaseView.buyButton.loading" = "Loading …";
+"me.kollmer.countr.purchaseView.buyButton.purchased" = "Purchased";
+"me.kollmer.countr.purchaseView.buyButton.price" = "Buy for %@";
+
+
+
+/*
+ Purchase Premium Features Collection View Cell
+ */
+"me.kollmer.countr.purchaseCell.titleLabel" = "Premium Features";
+"me.kollmer.countr.purchaseCell.descriptionLabel" = "Purchase Premium features to get more items, sync, no ads and notifications";

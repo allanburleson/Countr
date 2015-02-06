@@ -38,6 +38,11 @@ let purchase_manager_did_restore_key = "purchase_manager_did_restore"
 let purchase_manager_did_cancel_key = "purchase_manager_did_cancel"
 
 
+// Notifications
+let notification_userInfo_item_id_key = "notification_userInfo_item_id"
+let notification_userInfo_item_name_key = "notification_userInfo_item_name"
+
+
 
 public func nameOfClass(_class: AnyObject) -> String {
     return _stdlib_getDemangledTypeName(_class)

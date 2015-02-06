@@ -1,0 +1,58 @@
+/*
+ Localizable.strings
+ Countr
+ 
+ Created by Lukas Kollmer on 2/1/15.
+ Copyright (c) 2015 Lukas Kollmer. All rights reserved.
+ */
+
+
+/*
+ Main Collection View Controller
+ */
+"me.kollmer.countr.mainView.noDataAddedYetLabel" = "Bisher nichts hinzugefügt";
+
+/*
+ Info View Controller
+ */
+"me.kollmer.countr.infoView.versionTextLabel" = "Version";
+"me.kollmer.countr.infoView.unlockEverything" = "Alles entsperren";
+"me.kollmer.countr.infoView.feedbackLabel" = "Feedback";
+"me.kollmer.countr.infoView.supportLabel" = "Support";
+"me.kollmer.countr.infoView.deleteAllDataLabel" = "Alles Löschen";
+"me.kollmer.countr.infoView.copyrightLabel" = "© 2015, Lukas Kollmer";
+
+"me.kollmer.countr.infoView.deleteAlert.title" = "Alles Löschen";
+"me.kollmer.countr.infoView.deleteAlert.message" = "Möchten Sie wirklich alles Löschen?";
+"me.kollmer.countr.infoView.deleteAlert.deleteButton.title" = "Löschen";
+"me.kollmer.countr.infoView.deleteAlert.cancelButton.title" = "Abbrechen";
+
+
+
+/*
+ Add Item View Controller
+ */
+
+
+"me.kollmer.countr.addItemView.itemTitlePlaceholderString" = "Name für den Countdown (z.B. Weihnachten)";
+"me.kollmer.countr.addItem.segmentedControl.titleAtIndex.0" = "Datum";
+"me.kollmer.countr.addItem.segmentedControl.titleAtIndex.1" = "Datum & Zeit";
+
+
+
+/*
+ Purchase View Controller
+ */
+"me.kollmer.countr.purchaseView.titleLabel" = "Countr Premium Features";
+"me.kollmer.countr.purchaseView.descriptionTextView" = "• Mehrere Countdowns: Fügen Sie mehr als 2 Countdowns hinzu \n\n• Werbung entfernen: Benutzen Sie die ganze App ohne das Werbebanner am unteren Bildschirmrand \n\n\n\n• Bald verfügbar: (Gratis Update für jeden, der zuvor die Premium-Features gekauft hat)\n\n• Benachrichtigungen: Bekommen Sie eine Push-Nachricht, wenn ein Countdown fast fertig ist \n\n• Apple Watch: Sehen Sie alle Countdowns auf Ihrer Apple Watch";
+"me.kollmer.countr.purchaseView.buyButton.loading" = "Lädt …";
+"me.kollmer.countr.purchaseView.buyButton.purchased" = "Gekauft";
+"me.kollmer.countr.purchaseView.buyButton.price" = "Für %@ kaufen";
+
+
+
+/*
+ Purchase Premium Features Collection View Cell
+ */
+"me.kollmer.countr.purchaseCell.titleLabel" = "Premium Features";
+"me.kollmer.countr.purchaseCell.descriptionLabel" = "Premium Features kaufen";
