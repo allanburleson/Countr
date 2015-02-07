@@ -32,7 +32,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func loadView() {
         super.loadView()
-        println("loadView")
+        //println("loadView")
         
         for view in self.backgroundViews {
             view.hidden = true
@@ -64,8 +64,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidAppear(animated)
         self.countdownManager.reload()
         
-        println("data loaded in extension: \(self.countdownManager.items())")
-        println("number of items loaded in teh \(self.countdownManager.items().count)")
+        //println("data loaded in extension: \(self.countdownManager.items())")
+        //println("number of items loaded in teh \(self.countdownManager.items().count)")
         
         configureViewForCountdownItems()
     }
@@ -91,8 +91,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func configureViewForCountdownItems() {
-        println("data loaded in extension: \(self.countdownManager.items())")
-        println("number of items loaded in teh \(self.countdownManager.items().count)")
+        //println("data loaded in extension: \(self.countdownManager.items())")
+        //println("number of items loaded in teh \(self.countdownManager.items().count)")
         
         //for view in self.backgroundViews {
         //    view.alpha = 0.00000001
@@ -109,7 +109,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         switch self.countdownManager.numberOfItems {
         case 0:
-            println("0 items")
+            //println("0 items")
             for label in self.allLabels {
                 label.hidden = true
                 label.text = nil
@@ -125,7 +125,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             self.messageLabel.hidden = false
             break
         case 1:
-            println("1 items")
+            //println("1 items")
             
             let allItems = self.countdownManager.items()
             self.itemsCached.append(allItems[0])
@@ -160,7 +160,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             break
         case 2:
             
-            println("2 items")
+            //println("2 items")
             
             let allItems = self.countdownManager.items()
             self.itemsCached.append(allItems[0])
@@ -217,7 +217,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func update() {
         for item in self.itemsCached {
-            println("in the loop")
+            //println("in the loop")
             item.updateTimeRemaining()
             let index = find(self.itemsCached, item)!
             self.countdownRemainingLabels[index].text = item.remaining.asString
@@ -232,13 +232,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBAction func didTapGestureRecognizer(sender: UITapGestureRecognizer) {
         switch sender {
         case self.gestureRecognizer[0]:
-            println("did tap the first view")
+            //println("did tap the first view")
             break
         case self.gestureRecognizer[1]:
-            println("did tap the second view")
+            //println("did tap the second view")
             break
         case self.gestureRecognizer[2]:
-            println("did tap the third view")
+            //println("did tap the third view")
             break
         default:
             break

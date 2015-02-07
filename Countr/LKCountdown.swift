@@ -46,13 +46,13 @@ class LKCountdownManager: NSObject {
     
     var canAddCountdowns: Bool {
         get {
-            DDLogVerbose("self.items.count = \(self.numberOfItems)")
+            //println("self.items.count = \(self.numberOfItems)")
             if LKPurchaseManager.didPurchase {
-                DDLogVerbose("did purchase, will return true")
+                //println("did purchase, will return true")
                return true
             } else {
                 let usesAllAvailableSpots: Bool = self.numberOfItems >= 2
-                DDLogVerbose("usesAllAvailableSpots: \(usesAllAvailableSpots)")
+                //println("usesAllAvailableSpots: \(usesAllAvailableSpots)")
                 return !usesAllAvailableSpots
             }
         }
@@ -123,7 +123,7 @@ class LKCountdownManager: NSObject {
         
         //self.model.saveNewItem(adaptedItem)
         self.model.saveNewItem(item)
-        DDLogVerbose("did succed saving the item")
+        //println("did succed saving the item")
         completionHandler()
         self.didAddNewItemCompletionClosure(item: item)
 
@@ -135,7 +135,7 @@ class LKCountdownManager: NSObject {
         self.didDeleteItemCompletionClosure(item: item)
         
         if self.items().isEmpty {
-            DDLogVerbose("isEmpty")
+            //println("isEmpty")
             self.endUpdates()
         }
     }
@@ -175,7 +175,7 @@ class LKCountdownItem: NSObject, Printable {
         self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: nil)
         //self.date = date
         let uuid = NSUUID().UUIDString
-        DDLogVerbose("uuid used for saving: \(uuid)")
+        //println("uuid used for saving: \(uuid)")
         self.id = uuid
         self.countdownMode = mode
     }
@@ -184,13 +184,13 @@ class LKCountdownItem: NSObject, Printable {
         self.name = object.valueForKey(coreDataNameKey) as String
         self.date = object.valueForKey(coreDataDateKey) as NSDate
         self.id = object.valueForKey(coreDataIdKey) as String
-        DDLogVerbose("countdownmode: \(object.valueForKey(coreDataKindKey) as String)")
+        //println("countdownmode: \(object.valueForKey(coreDataKindKey) as String)")
         self.countdownMode = LKCountdownMode(string: object.valueForKey(coreDataKindKey) as String)
         self.managedObject = object
     }
     
     init(cloudRecord: CKRecord) {
-        DDLogVerbose("input cloudRecord: \(cloudRecord)")
+        //println("input cloudRecord: \(cloudRecord)")
         
         self.name = cloudRecord.valueForKey(countdownItemRecordNameKey) as String
         self.date = cloudRecord.valueForKey(countdownItemRecordDateKey) as NSDate
@@ -200,7 +200,7 @@ class LKCountdownItem: NSObject, Printable {
     
     func updateTimeRemaining() {
         
-        DDLogVerbose("updateTimeRemaining")
+        //println("updateTimeRemaining")
         
         let calendar = NSCalendar.currentCalendar()
         

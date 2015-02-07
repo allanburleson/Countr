@@ -90,7 +90,7 @@ class LKModel {
             self.rawItems = []
             for object in _rawItems {
                 let managedObject: NSManagedObject = object as NSManagedObject
-                //DDLogVerbose("the managedobject that will be used for adding to the local data meant for being displayed: \(managedObject)")
+                ////println("the managedobject that will be used for adding to the local data meant for being displayed: \(managedObject)")
                 let cdItem = LKCountdownItem(object: managedObject)
                 self.items.append(cdItem)
                 
@@ -99,7 +99,7 @@ class LKModel {
             
             sortArray()
             
-            DDLogVerbose("the local data: \(self.items)")
+            //println("the local data: \(self.items)")
         }
     }
     
@@ -121,13 +121,13 @@ class LKModel {
         let saveError = NSErrorPointer()
         context.save(saveError)
         if !(saveError != nil) {
-            DDLogVerbose("locally saved!")
+            //println("locally saved!")
             self.items.append(item)
             self.rawItems.append(object)
             self.sortArray()
             
         } else {
-            DDLogVerbose("error saving locally")
+            //println("error saving locally")
         }
         
     }
@@ -135,7 +135,7 @@ class LKModel {
     func deleteItem(item: LKCountdownItem) {
         
         let index: Int = find(self.items, item)!
-        DDLogVerbose("Will delet item at index: \(index) itemDescription: \(item)")
+        //println("Will delet item at index: \(index) itemDescription: \(item)")
         
         self.items.removeAtIndex(index)
         self.rawItems.removeAtIndex(index)
@@ -144,9 +144,9 @@ class LKModel {
         var error: NSErrorPointer = NSErrorPointer()
         // Save the object to persistent store
         if !self.managedObjectContext!.save(error) {
-            DDLogVerbose("Can't delete: \(error), \(error.debugDescription)")
+            //println("Can't delete: \(error), \(error.debugDescription)")
         } else {
-            DDLogVerbose("Did sucessfully delete the item at index \(index)")
+            //println("Did sucessfully delete the item at index \(index)")
         }
         
         reloadItems()
@@ -164,10 +164,10 @@ class LKModel {
         }
         let error: NSErrorPointer = NSErrorPointer()
         if moc.save(error) {
-            DDLogVerbose("Sucessfully deleted all items")
+            //println("Sucessfully deleted all items")
             completionHandler()
         } else {
-            DDLogVerbose("Error: \(error.debugDescription)")
+            //println("Error: \(error.debugDescription)")
         }
     }
     
@@ -176,12 +176,12 @@ class LKModel {
     
     // MARK: iCloud support
     func iCloudPersistentStoreOptions() -> [NSObject : AnyObject] {
-        DDLogVerbose("iCloudPersistentStoreOptions")
+        //println("iCloudPersistentStoreOptions")
         return [NSPersistentStoreUbiquitousContentNameKey : "CountrStore"]
     }
     
     func storesWillChange(notification: NSNotification) {
-        DDLogVerbose("storesWillChange")
+        //println("storesWillChange")
         let context = self.managedObjectContext
         
         context?.performBlockAndWait({
@@ -191,7 +191,7 @@ class LKModel {
                 let success: Bool! = context?.save(&error)
                 
                 if (!success && error != nil) {
-                    DDLogVerbose("Error: \(error?.localizedDescription)")
+                    //println("Error: \(error?.localizedDescription)")
                 }
             }
             
@@ -202,13 +202,13 @@ class LKModel {
     }
     
     func storesDidChange(notification: NSNotification) {
-        DDLogVerbose("storesDidChange")
+        //println("storesDidChange")
         //TODO: Refresh your User Interface.
         refreshUI()
     }
     
     func persistentStoreDidImportUbiquitousContentChanges(changeNotification: NSNotification) {
-        DDLogVerbose("persistentStoreDidImportUbiquitousContentChanges")
+        //println("persistentStoreDidImportUbiquitousContentChanges")
         let context = self.managedObjectContext
         
         context?.performBlock({
@@ -399,7 +399,7 @@ notificationInfo.shouldBadge = true
 subscription.notificationInfo = notificationInfo
 
 self.privateDatabase.saveSubscription(subscription, completionHandler: { (subscription: CKSubscription!, error: NSError!) -> Void in
-DDLogVerbose("THE SUBSCRIPTION FIRED")
+//println("THE SUBSCRIPTION FIRED")
 })
 
 }
@@ -408,11 +408,11 @@ DDLogVerbose("THE SUBSCRIPTION FIRED")
 func saveNewItem(item: LKCountdownItem) {
 let record = CKRecord.recordFromCountdownItem(item)
 self.privateDatabase.saveRecord(record, completionHandler: {record, error in
-DDLogVerbose("save record error: \(error)")
+//println("save record error: \(error)")
 if !(error != nil) {
-DDLogVerbose("saving to the cloud succeded")
+//println("saving to the cloud succeded")
 } else {
-DDLogVerbose("saving to teh cloud was not possible, save locally")
+//println("saving to teh cloud was not possible, save locally")
 let context = self.managedObjectContext()
 let object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(coreDataEnitiyNameKey, inManagedObjectContext: context) as NSManagedObject
 object.setValue(item.name, forKey: coreDataNameKey)
@@ -420,10 +420,10 @@ object.setValue(item.date, forKey: coreDataDateKey)
 let saveError = NSErrorPointer()
 context.save(saveError)
 if !(saveError != nil) {
-DDLogVerbose("locally saved!")
+//println("locally saved!")
 NSUserDefaults.standardUserDefaults().setBool(true, forKey: didAddNewItemsSinceLastCloudSyncKey)
 } else {
-DDLogVerbose("error saving locally")
+//println("error saving locally")
 }
 }
 })
@@ -453,8 +453,8 @@ let query = CKQuery(recordType: countdownItemRecordType, predicate: predicate)
 self.privateDatabase.performQuery(query, inZoneWithID: nil) { results, error in
 if error != nil {
 dispatch_async(dispatch_get_main_queue()) {
-DDLogVerbose("error: \(error)")
-DDLogVerbose("Loading CloudKit data failed, will now load local data")
+//println("error: \(error)")
+//println("Loading CloudKit data failed, will now load local data")
 //self.errorUpdating(error)
 //self.loadingCloudDataFailed()
 self.loadLocalData()
@@ -465,13 +465,13 @@ self.items.removeAll(keepCapacity: true)
 for record in results{
 let cdItem = LKCountdownItem(cloudRecord: record as CKRecord)
 self.items.append(cdItem)
-DDLogVerbose("did append item")
+//println("did append item")
 
 }
 dispatch_async(dispatch_get_main_queue()) {
 //self.modelUpdated()
 //_error = nil
-DDLogVerbose("inner array.count: \(self.items.count)")
+//println("inner array.count: \(self.items.count)")
 self.didSucceedLoadingCloudItems()
 return
 }
@@ -484,7 +484,7 @@ NOTE: There are thwo separate functions needed for these two things (finishing l
 */
 
 func didSucceedLoadingCloudItems() {
-DDLogVerbose("didSucceedLoadingCloudItemsssss array.count: \(self.items.count)")
+//println("didSucceedLoadingCloudItemsssss array.count: \(self.items.count)")
 NSNotificationCenter.defaultCenter().postNotificationName(modelDidLoadItemsKey, object: nil)
 
 self.resolveDataConflicts()
@@ -505,7 +505,7 @@ let query = CKQuery(recordType: countdownItemRecordType, predicate: predicate)
 self.privateDatabase.performQuery(query, inZoneWithID: nil) { results, error in
 if error != nil {
 dispatch_async(dispatch_get_main_queue()) {
-DDLogVerbose("error: \(error)")
+//println("error: \(error)")
 //self.errorUpdating(error)
 return
 }
@@ -514,8 +514,8 @@ self.items.removeAll(keepCapacity: true)
 for record in results{
 let cdItem = LKCountdownItem(cloudRecord: record as CKRecord)
 self.items.append(cdItem)
-DDLogVerbose("did append item")
-DDLogVerbose("inner array.count: \(self.items.count)")
+//println("did append item")
+//println("inner array.count: \(self.items.count)")
 
 }
 dispatch_async(dispatch_get_main_queue()) {
@@ -531,7 +531,7 @@ return
 
 
 func loadCloudKitDataToArray() -> [LKCountdownItem] {
-DDLogVerbose("loadCloudKitDataToArray")
+//println("loadCloudKitDataToArray")
 
 var tempItems: [LKCountdownItem] = []
 let predicate = NSPredicate(value: true)
@@ -553,26 +553,26 @@ return
 }
 }
 
-DDLogVerbose("the cloud data to array: \(tempItems)")
+//println("the cloud data to array: \(tempItems)")
 return tempItems
 }
 
 private func modelUpdated() {
-DDLogVerbose("teh fetched items: \(self.items)")
-DDLogVerbose("number of items: \(self.items.count)")
-DDLogVerbose("Should now save teh fetched data to the local coreData")
+//println("teh fetched items: \(self.items)")
+//println("number of items: \(self.items.count)")
+//println("Should now save teh fetched data to the local coreData")
 
 NSNotificationCenter.defaultCenter().postNotificationName(modelDidLoadItemsKey, object: nil)
 
 self.cacheCloudItemsLocally()
-DDLogVerbose("did replace the local coredata stack")
+//println("did replace the local coredata stack")
 
 }
 
 
 
 private func errorUpdating(error: NSError) {
-DDLogVerbose("Error: \(error)")
+//println("Error: \(error)")
 }
 
 
@@ -593,17 +593,17 @@ if (error != nil) {
 self.items = []
 for object in rawItems {
 let managedObject: NSManagedObject = object as NSManagedObject
-DDLogVerbose("the managedobject that will be used for adding to the local data meant for being displayed: \(managedObject)")
+//println("the managedobject that will be used for adding to the local data meant for being displayed: \(managedObject)")
 let cdItem = LKCountdownItem(object: managedObject)
 self.items.append(cdItem)
 }
-DDLogVerbose("the local data: \(self.items)")
+//println("the local data: \(self.items)")
 }
 }
 
 
 func loadLocalDataToArray() -> [LKCountdownItem] {
-DDLogVerbose("loadLocalDataToArray")
+//println("loadLocalDataToArray")
 
 let managedObjectContext: NSManagedObjectContext = self.managedObjectContext()
 let fetchRequest: NSFetchRequest = NSFetchRequest()
@@ -622,50 +622,50 @@ let cdItem = LKCountdownItem(object: managedObject)
 _items.append(cdItem)
 }
 
-DDLogVerbose("the local data to array: \(_items)")
+//println("the local data to array: \(_items)")
 return _items
 }
 
 func resolveDataConflicts() {
 
-DDLogVerbose("RESOLVE_DATA_CONFLICTS")
+//println("RESOLVE_DATA_CONFLICTS")
 
 let _localItems = self.loadLocalDataToArray()
 let cloudItems = self.loadCloudKitDataToArray()
 
 if _localItems.count != cloudItems.count {
-DDLogVerbose("some items have been added or deleted (local.count: \(_localItems.count), cloud.count: \(cloudItems.count))")
+//println("some items have been added or deleted (local.count: \(_localItems.count), cloud.count: \(cloudItems.count))")
 }
 if NSUserDefaults.standardUserDefaults().boolForKey(didAddNewItemsSinceLastCloudSyncKey) {
-DDLogVerbose("should now upload all recently added items")
-DDLogVerbose("will now upload")
+//println("should now upload all recently added items")
+//println("will now upload")
 let _localItems = self.loadLocalDataToArray()
 let localItems: NSMutableArray = NSMutableArray(array: _localItems)
 let cloudItems = self.loadCloudKitDataToArray()
 
-DDLogVerbose("the arrays:localItems: \(localItems) _localitems\(_localItems) cloudItems: \(cloudItems)")
+//println("the arrays:localItems: \(localItems) _localitems\(_localItems) cloudItems: \(cloudItems)")
 for localObject in _localItems {
-DDLogVerbose("in 1st for loop")
+//println("in 1st for loop")
 for cloudObject in cloudItems {
-DDLogVerbose("in 2nd for loop")
+//println("in 2nd for loop")
 if cloudObject.id == localObject.id {
-DDLogVerbose("in if clause")
-DDLogVerbose("array before removing object: \(localItems)")
+//println("in if clause")
+//println("array before removing object: \(localItems)")
 localItems.removeObject(localObject)
-DDLogVerbose("array after removing object: \(localItems)")
+//println("array after removing object: \(localItems)")
 }
 }
 }
 
-DDLogVerbose("all remaining items: \(localItems)")
+//println("all remaining items: \(localItems)")
 for object in localItems {
 let item: LKCountdownItem = object as LKCountdownItem
 self.saveNewItem(item)
-DDLogVerbose("did save item with id \(item.id) to cloud")
+//println("did save item with id \(item.id) to cloud")
 }
 NSUserDefaults.standardUserDefaults().setBool(false, forKey: didAddNewItemsSinceLastCloudSyncKey)
 } else {
-DDLogVerbose("everything is up to date. Tehere is no need to do anything")
+//println("everything is up to date. Tehere is no need to do anything")
 }
 
 }
@@ -675,48 +675,48 @@ let _localItems = self.loadLocalDataToArray()
 let cloudItems = self.loadCloudKitDataToArray()
 
 if _localItems.count != cloudItems.count {
-DDLogVerbose("some items have been added or deleted (local.count: \(_localItems.count), cloud.count: \(cloudItems.count))")
+//println("some items have been added or deleted (local.count: \(_localItems.count), cloud.count: \(cloudItems.count))")
 }
 if NSUserDefaults.standardUserDefaults().boolForKey(didAddNewItemsSinceLastCloudSyncKey) {
-DDLogVerbose("should now upload all recently added items")
+//println("should now upload all recently added items")
 if Reachability.isConnectedToNetwork() {
-DDLogVerbose("will now upload")
+//println("will now upload")
 let _localItems = self.loadLocalDataToArray()
 let localItems: NSMutableArray = NSMutableArray(array: _localItems)
 let cloudItems = self.loadCloudKitDataToArray()
 
-DDLogVerbose("the arrays:localItems: \(localItems) _localitems\(_localItems) cloudItems: \(cloudItems)")
+//println("the arrays:localItems: \(localItems) _localitems\(_localItems) cloudItems: \(cloudItems)")
 for localObject in _localItems {
-DDLogVerbose("in 1st for loop")
+//println("in 1st for loop")
 for cloudObject in cloudItems {
-DDLogVerbose("in 2nd for loop")
+//println("in 2nd for loop")
 if cloudObject.id == localObject.id {
-DDLogVerbose("in if clause")
-DDLogVerbose("array before removing object: \(localItems)")
+//println("in if clause")
+//println("array before removing object: \(localItems)")
 localItems.removeObject(localObject)
-DDLogVerbose("array after removing object: \(localItems)")
+//println("array after removing object: \(localItems)")
 }
 }
 }
 
-DDLogVerbose("all remaining items: \(localItems)")
+//println("all remaining items: \(localItems)")
 for object in localItems {
 let item: LKCountdownItem = object as LKCountdownItem
 self.saveNewItem(item)
-DDLogVerbose("did save item with id \(item.id) to cloud")
+//println("did save item with id \(item.id) to cloud")
 }
 self.loadData()
 NSUserDefaults.standardUserDefaults().setBool(false, forKey: didAddNewItemsSinceLastCloudSyncKey)
 }
 } else {
-DDLogVerbose("everything is up to date. Tehere is no need to do anything")
+//println("everything is up to date. Tehere is no need to do anything")
 self.loadData()
 }
 }
 
 
 func saveNewCountdownItem(item: LKCountdownItem) -> (success: Bool, error: NSErrorPointer){
-DDLogVerbose("saving is currently disabled, due to implementing cloudkit")
+//println("saving is currently disabled, due to implementing cloudkit")
 return (false, nil)
 }
 
@@ -744,7 +744,7 @@ fetchRequest.entity = entity
 var error = NSErrorPointer()
 let fetchedItems: NSArray = managedObjectContext.executeFetchRequest(fetchRequest, error: error)! as NSArray
 let rawItems: NSArray = fetchedItems.reverseObjectEnumerator().allObjects
-DDLogVerbose("moc before deleting: \(rawItems)")
+//println("moc before deleting: \(rawItems)")
 
 for object in rawItems {
 managedObjectContext.deleteObject(object as NSManagedObject)
@@ -754,7 +754,7 @@ managedObjectContext.save(error)
 
 let _2fetchedItems: NSArray = managedObjectContext.executeFetchRequest(fetchRequest, error: error)! as NSArray
 let _2rawItems: NSArray = fetchedItems.reverseObjectEnumerator().allObjects
-DDLogVerbose("moc after deleting: \(_2rawItems)")
+//println("moc after deleting: \(_2rawItems)")
 
 
 
@@ -769,7 +769,7 @@ managedObjectContext.save(error)
 //managedObjectContext.save(error)
 let _3fetchedItems: NSArray = managedObjectContext.executeFetchRequest(fetchRequest, error: error)! as NSArray
 let _3rawItems: NSArray = fetchedItems.reverseObjectEnumerator().allObjects
-DDLogVerbose("moc after saving the cloud items: \(_3rawItems)")
+//println("moc after saving the cloud items: \(_3rawItems)")
 
 }
 */

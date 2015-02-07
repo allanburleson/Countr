@@ -56,8 +56,8 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         
         /*
         let appleClearButton: UIButton = self.nameTextField.valueForKey("_clearButton") as UIButton
-        DDLogVerbose("appleClearButton: \(appleClearButton)")
-        DDLogVerbose("appleClearButton.image: \(appleClearButton.imageView?.image)")
+        //println("appleClearButton: \(appleClearButton)")
+        //println("appleClearButton.image: \(appleClearButton.imageView?.image)")
         */
         
         // Google Analytics

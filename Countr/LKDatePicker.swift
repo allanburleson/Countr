@@ -41,8 +41,8 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
                 dateComponents.minute = 0
                 dateComponents.second = 0
                 dateComponents.nanosecond = 0
-                DDLogVerbose("date delivered to addVC: year: \(dateComponents.year) month: \(dateComponents.month) day: \(dateComponents.day)hour:  \(dateComponents.hour) minute: \(dateComponents.minute) second: \(dateComponents.second) ")
-                DDLogVerbose("current cal: \(NSCalendar.currentCalendar().timeZone.description)")
+                //println("date delivered to addVC: year: \(dateComponents.year) month: \(dateComponents.month) day: \(dateComponents.day)hour:  \(dateComponents.hour) minute: \(dateComponents.minute) second: \(dateComponents.second) ")
+                //println("current cal: \(NSCalendar.currentCalendar().timeZone.description)")
                 return NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
             case .DateAndTime:
                 let dateComponents = NSDateComponents()
@@ -113,7 +113,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
             self.selectRow(365, inComponent: 0, animated: false)
             self.selectRow(dateComponents.hour-1, inComponent: 1, animated: false)
             self.selectRow(dateComponents.minute-1, inComponent: 2, animated: false)
-            DDLogVerbose("hour: \(dateComponents.hour)")
+            //println("hour: \(dateComponents.hour)")
         default:
             break
         }

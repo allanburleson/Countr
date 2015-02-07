@@ -10,8 +10,6 @@ import UIKit
 import CoreData
 import CloudKit
 
-let ddLogLevel = LOG_LEVEL_ALL
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,13 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // Setup CocoaLumberjack
-        DDLog.addLogger(DDASLLogger.sharedInstance())
-        DDLog.addLogger(DDTTYLogger.sharedInstance())
-
-        
-        // UIAppearance
         let font = UIFont(name: "Avenir-Book", size: 17)!
         UILabel.appearance().font = font
         UITextField.appearance().backgroundColor = UIColor.foregroundColor()
@@ -55,15 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let localNotificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil)
         application.registerUserNotificationSettings(localNotificationSettings)
         
-        DDLogVerbose("current local notifications: \(application.scheduledLocalNotifications.count)")
+        //println("current local notifications: \(application.scheduledLocalNotifications.count)")
         */
         
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         
         self.registerForiCloudNotifications()
         
-        DDLogVerbose("Device is 12hr format: \(UIDevice.currentDevice().is12HourFormat)")
-        
+        //println("Device is 12hr format: \(UIDevice.currentDevice().is12HourFormat)")
         
         // Setup Google Analytics
         GAI.sharedInstance().trackUncaughtExceptions = true
@@ -74,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func registerForiCloudNotifications() {
-        DDLogVerbose("registerForiCloudNotifications")
+        //println("registerForiCloudNotifications")
         let notificationCenter = NSNotificationCenter.defaultCenter()
         
         notificationCenter.addObserver(self, selector: "storesWillChange:", name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: self.model.persistentStoreCoordinator)

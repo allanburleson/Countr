@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-CocoaLumberjack.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-GoogleAnalytics-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1F67C4B89C7B2C0BE1BFA6AA</key>
+		<key>0AA4DAB0638002A65235FFFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4889E19C13E1F24753D55A62</key>
+		<key>B5FA9669532F292C2B0DEED4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A0BB79FBEC6977DFF81AB92</key>
+		<key>DF1208C64033BB495D7951C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CFDD898228E60A0FAFD4D5F6</key>
+		<key>EC8B2AB84C8B74A0BC4516BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DDA6A66040B92EF05BE5E524</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EA833C4E1B50B84FE6308E2F</key>
+		<key>ED44702510742FF54B46EA4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
