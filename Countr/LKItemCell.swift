@@ -52,7 +52,7 @@ class LKItemCell: UICollectionViewCell {
     }
     
     func didLongPress() {
-        //println("didLongPressOnCell")
+        DDLogVerbose("didLongPressOnCell")
         self.longPressAction()
     }
     

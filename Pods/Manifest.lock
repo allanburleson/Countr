@@ -1,4 +1,9 @@
 PODS:
+  - CocoaLumberjack (1.9.2):
+    - CocoaLumberjack/Extensions (= 1.9.2)
+  - CocoaLumberjack/Core (1.9.2)
+  - CocoaLumberjack/Extensions (1.9.2):
+    - CocoaLumberjack/Core
   - GoogleAnalytics-iOS-SDK (3.10):
     - GoogleAnalytics-iOS-SDK/Core (= 3.10)
   - GoogleAnalytics-iOS-SDK/Core (3.10)
@@ -7,12 +12,14 @@ PODS:
   - Reveal-iOS-SDK (1.0.7)
 
 DEPENDENCIES:
+  - CocoaLumberjack
   - GoogleAnalytics-iOS-SDK (~> 3.10)
   - NSDate+Helper (~> 1.0)
   - PBWebViewController
   - Reveal-iOS-SDK
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: 205769c032b5fef85b92472046bcc8b7e7c8a817
   GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
   NSDate+Helper: ebde22e90dc7ae5e9b49179a0c32e550f7a9cd57
   PBWebViewController: 0a36bbd0f82741d9457177c9c37f5ff747cba312

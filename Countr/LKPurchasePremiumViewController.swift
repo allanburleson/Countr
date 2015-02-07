@@ -109,7 +109,7 @@ class LKPurchasePremiumViewController: UIViewController {
     
     
     @IBAction func didClickBuyButton(sender: LKRoundBorderedButton) {
-        //println("Buy")
+        println("Buy")
         let title = NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.loading", comment: "")
         self.buyButton.setTitle(title, forState: .Normal)
         self.store.buy()
