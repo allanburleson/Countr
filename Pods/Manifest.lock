@@ -4,7 +4,7 @@ PODS:
   - GoogleAnalytics-iOS-SDK/Core (3.10)
   - NSDate+Helper (1.0.0)
   - PBWebViewController (0.3)
-  - Reveal-iOS-SDK (1.0.7)
+  - Reveal-iOS-SDK (1.5.0)
 
 DEPENDENCIES:
   - GoogleAnalytics-iOS-SDK (~> 3.10)
@@ -16,6 +16,6 @@ SPEC CHECKSUMS:
   GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
   NSDate+Helper: ebde22e90dc7ae5e9b49179a0c32e550f7a9cd57
   PBWebViewController: 0a36bbd0f82741d9457177c9c37f5ff747cba312
-  Reveal-iOS-SDK: 7ee5e9b37ef13dcd93ae1736c1b72c7c650da3e3
+  Reveal-iOS-SDK: b6d94eb78d84ebd2e3182063577975561cd6dbd9
 
 COCOAPODS: 0.35.0

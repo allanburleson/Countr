@@ -18,6 +18,7 @@ enum LKPurchaseViewControllerSender {
 class LKPurchasePremiumViewController: UIViewController {
     
     @IBOutlet weak var buyButton: LKRoundBorderedButton!
+    @IBOutlet weak var restoreButton: UIButton!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -63,6 +64,11 @@ class LKPurchasePremiumViewController: UIViewController {
             let title = NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.purchased", comment: "")
             self.buyButton.setTitle(title, forState: .Normal)
             self.buyButton.setTitleColor(UIColor.whiteColor(), forState: .Disabled)
+            self.restoreButton.hidden = true
+            self.restoreButton.setTitle(nil, forState: .Disabled)
+            self.restoreButton.enabled = false
+            self.restoreButton.frame.size.height = 0
+            self.updateViewConstraints() // This does not work (as it seems)
         } else {
             self.store.load()
         }
@@ -115,6 +121,9 @@ class LKPurchasePremiumViewController: UIViewController {
         self.store.buy()
     }
     
+    @IBAction func didTapRestoreButton(sender: UIButton) {
+        self.store.restore()
+    }
     
     func cancelButtonPressed() {
         // TODO: GA Tracking

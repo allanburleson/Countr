@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIi-Ts-t9l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIi-Ts-t9l">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -144,8 +144,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WZU-BP-h4s">
-                                <rect key="frame" x="16" y="175" width="568" height="367"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZU-BP-h4s">
+                                <rect key="frame" x="16" y="175" width="568" height="329"/>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,7 +153,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vB-Jz-Q9B" customClass="LKRoundBorderedButton" customModule="Countr" customModuleProvider="target">
-                                <rect key="frame" x="16" y="550" width="568" height="30"/>
+                                <rect key="frame" x="16" y="512" width="568" height="30"/>
                                 <state key="normal" title="Buy for $">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -166,33 +166,45 @@
                                     <action selector="didClickBuyButton:" destination="VDL-jm-Udu" eventType="touchUpInside" id="LlI-5r-6cv"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="App_Icon_png_export.png" translatesAutoresizingMaskIntoConstraints="NO" id="D5G-vX-bHp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_Icon_png_export.png" translatesAutoresizingMaskIntoConstraints="NO" id="D5G-vX-bHp">
                                 <rect key="frame" x="503" y="75" width="81" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="D5G-vX-bHp" secondAttribute="height" multiplier="1:1" id="Laf-l7-7UQ"/>
                                     <constraint firstAttribute="height" constant="81" id="d7N-fD-m9o"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoH-Nz-xh9">
+                                <rect key="frame" x="274" y="550" width="53" height="30"/>
+                                <state key="normal" title="Restore">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapRestoreButton:" destination="VDL-jm-Udu" eventType="touchUpInside" id="Jw7-0u-lsy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8vB-Jz-Q9B" firstAttribute="leading" secondItem="peF-AB-J5a" secondAttribute="leadingMargin" id="72R-Ca-HZK"/>
                             <constraint firstItem="8vB-Jz-Q9B" firstAttribute="trailing" secondItem="peF-AB-J5a" secondAttribute="trailingMargin" id="9Hu-tH-TIL"/>
                             <constraint firstItem="D5G-vX-bHp" firstAttribute="trailing" secondItem="peF-AB-J5a" secondAttribute="trailingMargin" id="AOR-IZ-BCW"/>
-                            <constraint firstItem="D5G-vX-bHp" firstAttribute="top" secondItem="FeA-QU-SyK" secondAttribute="bottom" constant="11" id="BdC-dQ-Lx3"/>
+                            <constraint firstItem="D5G-vX-bHp" firstAttribute="top" secondItem="FeA-QU-SyK" secondAttribute="bottom" constant="31" id="BdC-dQ-Lx3"/>
                             <constraint firstItem="D5G-vX-bHp" firstAttribute="leading" secondItem="IK9-6W-Qcl" secondAttribute="trailing" constant="8" id="BmQ-in-3Xp"/>
-                            <constraint firstItem="i6z-RD-rzm" firstAttribute="top" secondItem="8vB-Jz-Q9B" secondAttribute="bottom" constant="20" id="PxJ-VI-7ag"/>
+                            <constraint firstAttribute="centerX" secondItem="QoH-Nz-xh9" secondAttribute="centerX" id="EQH-Sp-CaO"/>
                             <constraint firstItem="WZU-BP-h4s" firstAttribute="trailing" secondItem="peF-AB-J5a" secondAttribute="trailingMargin" id="Qpg-Ii-6wP"/>
                             <constraint firstItem="8vB-Jz-Q9B" firstAttribute="top" secondItem="WZU-BP-h4s" secondAttribute="bottom" constant="8" id="Wrk-Fg-a5N"/>
                             <constraint firstItem="IK9-6W-Qcl" firstAttribute="top" secondItem="FeA-QU-SyK" secondAttribute="bottom" constant="11" id="pI0-g6-JkT"/>
                             <constraint firstItem="IK9-6W-Qcl" firstAttribute="leading" secondItem="peF-AB-J5a" secondAttribute="leadingMargin" id="qBQ-hN-0mJ"/>
                             <constraint firstItem="WZU-BP-h4s" firstAttribute="leading" secondItem="peF-AB-J5a" secondAttribute="leadingMargin" id="qc4-gG-Esj"/>
+                            <constraint firstItem="i6z-RD-rzm" firstAttribute="top" secondItem="QoH-Nz-xh9" secondAttribute="bottom" constant="20" id="sek-bd-H6d"/>
                             <constraint firstItem="WZU-BP-h4s" firstAttribute="top" secondItem="D5G-vX-bHp" secondAttribute="bottom" constant="19" id="wAu-Ix-MLi"/>
+                            <constraint firstItem="QoH-Nz-xh9" firstAttribute="top" secondItem="8vB-Jz-Q9B" secondAttribute="bottom" constant="8" id="z0v-vB-WrC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="buyButton" destination="8vB-Jz-Q9B" id="bVJ-Tm-zLZ"/>
                         <outlet property="descriptionTextView" destination="WZU-BP-h4s" id="Xnl-Nx-A50"/>
+                        <outlet property="restoreButton" destination="QoH-Nz-xh9" id="mDI-7g-mEF"/>
                         <outlet property="titleLabel" destination="IK9-6W-Qcl" id="H3F-5B-t9S"/>
                     </connections>
                 </viewController>
