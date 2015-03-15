@@ -67,10 +67,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func registerForiCloudNotifications() {
         //println("registerForiCloudNotifications")
         let notificationCenter = NSNotificationCenter.defaultCenter()
-        
+
+        // CoreData
         notificationCenter.addObserver(self, selector: "storesWillChange:", name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: self.model.persistentStoreCoordinator)
         notificationCenter.addObserver(self, selector: "storesDidChange:", name: NSPersistentStoreCoordinatorStoresDidChangeNotification, object: self.model.persistentStoreCoordinator)
         notificationCenter.addObserver(self, selector: "persistentStoreDidImportUbiquitousContentChanges:", name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: self.model.persistentStoreCoordinator)
+
+        // Key/Value storing
+        //notificationCenter.addObserver(self, selector: "", name: NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: NSUbiquitousKeyValueStore.defaultStore())
+
     }
     
     func storesWillChange(notification: NSNotification) {
@@ -84,6 +89,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func persistentStoreDidImportUbiquitousContentChanges(notification: NSNotification) {
         self.model.persistentStoreDidImportUbiquitousContentChanges(notification)
     }
+
+    /*func handleUbiquitousKeyValueStoreChanges(notification: NSNotification) {
+
+        let userInfo = notification.userInfo
+        let reason: NSInteger = userInfo[NSUbiquitousKeyValueStoreChangeReasonKey] as NSInteger
+
+        switch reason {
+            case NSUbiquitousKeyValueStoreServerChange:
+                // Updated values
+                break
+            case NSUbiquitousKeyValueStoreInitialSyncChange:
+                // First launch
+                break
+            case NSUbiquitousKeyValueStoreQuotaViolationChange:
+                // No free space
+                break
+            case NSUbiquitousKeyValueStoreAccountChange:
+                // iCloud accound changed
+                break
+        }
+    }*/
     
     func refreshUI() {
         NSNotificationCenter.defaultCenter().postNotificationName(refreshUIKey, object: nil)

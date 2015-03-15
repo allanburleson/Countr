@@ -26,8 +26,7 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     
     class var didPurchase: Bool {
         get {
-            //return true
-            let purchased = NSUserDefaults.standardUserDefaults().boolForKey(didPurchasePremiumFeaturesKey)
+            let purchased = NSUbiquitousKeyValueStore.defaultStore().boolForKey(didPurchasePremiumFeaturesKey)
             println("did purchase: \(purchased)")
             return purchased
         }
@@ -127,15 +126,15 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
         println("didFinishPurchaseWithStatus")
         switch status {
         case .Purchased:
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: didPurchasePremiumFeaturesKey)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            NSUbiquitousKeyValueStore.defaultStore().setBool(true, forKey: didPurchasePremiumFeaturesKey)
+            NSUbiquitousKeyValueStore.defaultStore().synchronize()
             NSNotificationCenter.defaultCenter().postNotificationName(didPurchasePremiumFeaturesNotificationKey, object: nil)
             self.didFinishBuyingProductCompletionHandler(status: status)
             
             //tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_Manager_did_finish_purchase_key, label: purchase_manager_did_purchase_key, value: self.recivedProduct[0].price).build())
         case .Restored:
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: didPurchasePremiumFeaturesKey)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            NSUbiquitousKeyValueStore.defaultStore().setBool(true, forKey: didPurchasePremiumFeaturesKey)
+            NSUbiquitousKeyValueStore.defaultStore().synchronize()
             NSNotificationCenter.defaultCenter().postNotificationName(didPurchasePremiumFeaturesNotificationKey, object: nil)
             self.didFinishBuyingProductCompletionHandler(status: status)
             //tracker.send(GAIDictionaryBuilder.createEventWithCategory(purchase_manager_key, action: purchase_Manager_did_finish_purchase_key, label: purchase_manager_did_restore_key, value: self.recivedProduct[0].price).build())
