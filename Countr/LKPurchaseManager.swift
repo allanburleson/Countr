@@ -26,6 +26,7 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     
     class var didPurchase: Bool {
         get {
+            //return true
             let purchased = NSUserDefaults.standardUserDefaults().boolForKey(didPurchasePremiumFeaturesKey)
             println("did purchase: \(purchased)")
             return purchased

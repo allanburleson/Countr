@@ -424,14 +424,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3K9-W3-JKg" firstAttribute="bottom" secondItem="HIf-Ul-Yhm" secondAttribute="top" id="2Xy-lT-oH9"/>
-                            <constraint firstAttribute="trailing" secondItem="3K9-W3-JKg" secondAttribute="trailing" id="ApZ-Yh-Q0t"/>
-                            <constraint firstItem="3K9-W3-JKg" firstAttribute="leading" secondItem="eeI-yG-HBR" secondAttribute="leading" id="HqO-WR-Utc"/>
-                            <constraint firstAttribute="width" secondItem="3K9-W3-JKg" secondAttribute="width" id="QuO-Ib-HVT"/>
-                            <constraint firstAttribute="height" secondItem="3K9-W3-JKg" secondAttribute="height" id="fQA-Ei-PbZ"/>
+                            <constraint firstItem="HIf-Ul-Yhm" firstAttribute="top" secondItem="3K9-W3-JKg" secondAttribute="bottom" id="E9S-cx-iQS"/>
+                            <constraint firstItem="3K9-W3-JKg" firstAttribute="leading" secondItem="eeI-yG-HBR" secondAttribute="leadingMargin" constant="-16" id="EQA-7c-dNe"/>
                             <constraint firstItem="HIf-Ul-Yhm" firstAttribute="top" secondItem="GXt-gD-5S4" secondAttribute="bottom" id="hOl-Q8-G9u"/>
                             <constraint firstAttribute="centerX" secondItem="GXt-gD-5S4" secondAttribute="centerX" id="jfl-lV-98w"/>
-                            <constraint firstItem="3K9-W3-JKg" firstAttribute="leading" secondItem="eeI-yG-HBR" secondAttribute="leadingMargin" constant="-16" id="ncF-5n-gQv"/>
+                            <constraint firstItem="3K9-W3-JKg" firstAttribute="top" secondItem="PXa-Fh-8B2" secondAttribute="bottom" constant="-64" id="s99-k4-fXU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3K9-W3-JKg" secondAttribute="trailing" constant="-16" id="wtg-Tb-gxJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zou-YS-eis">

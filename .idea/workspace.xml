@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9764292-d01d-4296-8f73-863827d264b0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Countr/UILabel+WhiteUIDatePickerLabels.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/Extensions.swift" afterPath="$PROJECT_DIR$/Countr/Extensions.swift" />
+    <list default="true" id="d9764292-d01d-4296-8f73-863827d264b0" name="Default" comment="UIDatePicker&#10;-  Switched back to UIDatePicker (From Custom LKDatePicker)&#10;-  Implemented the Text Color by some method swizzling (from SO)&#10;-  The Delete all Items action sheet now displays at least the buttons with Avenir">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/GAI.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/GAIEcommerceFields.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/GAIEcommerceProduct.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/GAIEcommerceProductAction.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/GAIEcommercePromotion.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/GAIFields.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/GAILogger.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/GAITrackedViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/GAITracker.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/TAGContainer.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/TAGContainerOpener.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/TAGDataLayer.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/TAGLogger.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/GoogleAnalytics-iOS-SDK/TAGManager.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/NSDate+Helper/NSDate+Helper.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Build/PBWebViewController/PBWebViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/Pods-Reveal-iOS-SDK.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Reveal-iOS-SDK/Reveal-Framework-1.5.0/Reveal.framework/Headers" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Reveal-iOS-SDK/Reveal-Framework-1.5.0/Reveal.framework/Reveal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Reveal-iOS-SDK/Reveal-Framework-1.5.0/Reveal.framework/Versions/A/Headers/IBANetServiceTypes.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Reveal-iOS-SDK/Reveal-Framework-1.5.0/Reveal.framework/Versions/A/Headers/IBARevealLoader.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Reveal-iOS-SDK/Reveal-Framework-1.5.0/Reveal.framework/Versions/A/Headers/IBARevealLogger.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Reveal-iOS-SDK/Reveal-Framework-1.5.0/Reveal.framework/Versions/A/Headers/Reveal.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Reveal-iOS-SDK/Reveal-Framework-1.5.0/Reveal.framework/Versions/A/Reveal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Reveal-iOS-SDK/Reveal-Framework-1.5.0/Reveal.framework/Versions/Current" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Reveal-iOS-SDK/Pods-Reveal-iOS-SDK-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Reveal-iOS-SDK/Pods-Reveal-iOS-SDK-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Reveal-iOS-SDK/Pods-Reveal-iOS-SDK-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Reveal-iOS-SDK/Pods-Reveal-iOS-SDK.xcconfig" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/AppDelegate.swift" afterPath="$PROJECT_DIR$/Countr/AppDelegate.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/LKAddItemViewController.swift" afterPath="$PROJECT_DIR$/Countr/LKAddItemViewController.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/LKCountdown.swift" afterPath="$PROJECT_DIR$/Countr/LKCountdown.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/LKMainCollectionViewController.swift" afterPath="$PROJECT_DIR$/Countr/LKMainCollectionViewController.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/LKMainViewController.swift" afterPath="$PROJECT_DIR$/Countr/LKMainViewController.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/LKPurchaseManager.swift" afterPath="$PROJECT_DIR$/Countr/LKPurchaseManager.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/Countr/Base.lproj/Main.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Countr.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/NSDate_Playground.playground/section-1.swift" afterPath="$PROJECT_DIR$/Countr/NSDate_Playground.playground/section-1.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/NSDate_Playground.playground/timeline.xctimeline" afterPath="$PROJECT_DIR$/Countr/NSDate_Playground.playground/timeline.xctimeline" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Manifest.lock" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile.lock" afterPath="$PROJECT_DIR$/Podfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-GoogleAnalytics-iOS-SDK/Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-GoogleAnalytics-iOS-SDK/Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/Pods-GoogleAnalytics-iOS-SDK.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/Pods-GoogleAnalytics-iOS-SDK.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NSDate+Helper/Pods-NSDate+Helper-Private.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-NSDate+Helper/Pods-NSDate+Helper-Private.xcconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/Pods-NSDate+Helper.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/Pods-NSDate+Helper.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-PBWebViewController/Pods-PBWebViewController-Private.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-PBWebViewController/Pods-PBWebViewController-Private.xcconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/Pods-PBWebViewController.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/Pods-PBWebViewController.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods/Pods-environment.h" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods/Pods-environment.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods/Pods-resources.sh" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods/Pods-resources.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods/Pods.debug.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods/Pods.debug.xcconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods/Pods.release.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods/Pods.release.xcconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/Pods.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/Pods.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Countr/UILabel+WhiteUIDatePickerLabels.m" afterPath="$PROJECT_DIR$/Countr/UILabel+WhiteUIDatePickerLabels.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/xcode.xml" afterPath="$PROJECT_DIR$/.idea/xcode.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lukaskollmer.xcuserdatad/xcschemes/xcschememanagement.plist" />
     </list>
     <ignored path="Countr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,51 +79,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Extensions.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Countr/Extensions.swift">
+      <file leaf-file-name="LKMainViewController.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Countr/LKMainViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="2805">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1380">
+              <caret line="49" column="10" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UIKit.UIFont.swift" pinned="false" current-in-tab="false">
-        <entry file="mock:///UIKit.UIFont.swift">
+      <file leaf-file-name="LKPurchaseManager.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Countr/LKPurchaseManager.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.0" vertical-offset="204" max-vertical-offset="990">
-              <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2490">
+              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UIKit.UILabel.swift" pinned="false" current-in-tab="false">
-        <entry file="mock:///UIKit.UILabel.swift">
+      <file leaf-file-name="LKMainCollectionViewController.swift" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Countr/LKMainCollectionViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
-              <caret line="15" column="64" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UILabel+WhiteUIDatePickerLabels.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Countr/UILabel+WhiteUIDatePickerLabels.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LKAddItemViewController.swift" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Countr/LKAddItemViewController.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3321976" vertical-offset="330" max-vertical-offset="2355">
-              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.70187396" vertical-offset="1958" max-vertical-offset="6090">
+              <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -98,16 +123,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Countr/NSDate+Helper.m" />
-        <option value="$PROJECT_DIR$/Countr/LKCountdown.swift" />
         <option value="$PROJECT_DIR$/Countr/LKDatePicker.swift" />
         <option value="$PROJECT_DIR$/Countr/Countr-Bridging-Header.h" />
         <option value="$PROJECT_DIR$/Countr/PBWebViewController.m" />
-        <option value="$PROJECT_DIR$/Countr/LKMainCollectionViewController.swift" />
         <option value="$PROJECT_DIR$/Countr/LKInfoViewController.swift" />
-        <option value="$PROJECT_DIR$/Countr/AppDelegate.swift" />
         <option value="$PROJECT_DIR$/Countr/Extensions.swift" />
         <option value="$PROJECT_DIR$/Countr/UILabel+WhiteUIDatePickerLabels.m" />
+        <option value="$PROJECT_DIR$/Countr/LKCountdown.swift" />
+        <option value="$PROJECT_DIR$/Countr/AppDelegate.swift" />
         <option value="$PROJECT_DIR$/Countr/LKAddItemViewController.swift" />
+        <option value="$PROJECT_DIR$/Countr/LKMainViewController.swift" />
+        <option value="$PROJECT_DIR$/Countr/LKPurchaseManager.swift" />
+        <option value="$PROJECT_DIR$/Countr/LKMainCollectionViewController.swift" />
       </list>
     </option>
   </component>
@@ -181,7 +208,7 @@
   <component name="PropertiesComponent">
     <property name="FullScreen" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="SearchEverywhereHistoryKey" value="add&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Cocoa(Touch)/Countr/Countr/LKAddItemViewController.swift&#10;info&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKInfoViewController.swift&#10;collect&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKMainCollectionViewController.swift&#10;addIte&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKAddItemViewController.swift&#10;lkin&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKInfoViewController.swift&#10;exten&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/Extensions.swift" />
+    <property name="SearchEverywhereHistoryKey" value="coll&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Cocoa(Touch)/Countr/Countr/LKMainCollectionViewController.swift&#10;pur&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Cocoa(Touch)/Countr/Countr/LKPurchaseManager.swift&#10;purch&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Cocoa(Touch)/Countr/Countr/LKPurchaseManager.swift&#10;add&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Cocoa(Touch)/Countr/Countr/LKAddItemViewController.swift&#10;pod&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Cocoa(Touch)/Countr/Podfile&#10;info&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKInfoViewController.swift&#10;collect&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKMainCollectionViewController.swift&#10;addIte&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKAddItemViewController.swift&#10;lkin&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/LKInfoViewController.swift&#10;exten&#9;FILE&#9;file:///Users/lukaskollmer/Developer/Countr/Countr/Extensions.swift" />
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="Countr" />
     <property name="options.lastSelected" value="XcodeSettings" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -232,13 +259,6 @@
       </EXTENSION>
       <method />
     </configuration>
-    <configuration default="false" name="Pods-Reveal-iOS-SDK" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="Pods-Reveal-iOS-SDK" CONFIG_NAME="Debug" SCHEME_NAME="Pods-Reveal-iOS-SDK" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
     <configuration default="false" name="Pods" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="Pods" CONFIG_NAME="Debug" SCHEME_NAME="Pods" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
       <envs />
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
@@ -246,14 +266,13 @@
       </EXTENSION>
       <method />
     </configuration>
-    <list size="7">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Countr" />
       <item index="1" class="java.lang.String" itemvalue="Application.TodayExtension" />
       <item index="2" class="java.lang.String" itemvalue="Application.Pods-GoogleAnalytics-iOS-SDK" />
       <item index="3" class="java.lang.String" itemvalue="Application.Pods-NSDate+Helper" />
       <item index="4" class="java.lang.String" itemvalue="Application.Pods-PBWebViewController" />
-      <item index="5" class="java.lang.String" itemvalue="Application.Pods-Reveal-iOS-SDK" />
-      <item index="6" class="java.lang.String" itemvalue="Application.Pods" />
+      <item index="5" class="java.lang.String" itemvalue="Application.Pods" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -327,7 +346,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422701316422</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="UIDatePicker&#10;-  Switched back to UIDatePicker (From Custom LKDatePicker)&#10;-  Implemented the Text Color by some method swizzling (from SO)&#10;-  The Delete all Items action sheet now displays at least the buttons with Avenir">
+      <created>1426412139232</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1426412139232</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -357,7 +382,8 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29277107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10361446" sideWeight="0.5003524" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -370,7 +396,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -402,7 +427,8 @@
     <MESSAGE value="-  The wrong font in the doneBarButton of the infoViewController is now fixed: The font is det for UIControlstates .Normal, .Highlithed and .Disabled&#10;-  The &quot;not items added yet&quot; message is now shown correctly and removed correctly" />
     <MESSAGE value="-  Sending Email works now&#10;-  The SegmentedControl has the fight font set" />
     <MESSAGE value="-  Sending Email works now&#10;-  The SegmentedControl has the right font set" />
-    <option name="LAST_COMMIT_MESSAGE" value="-  Sending Email works now&#10;-  The SegmentedControl has the right font set" />
+    <MESSAGE value="UIDatePicker&#10;-  Switched back to UIDatePicker (From Custom LKDatePicker)&#10;-  Implemented the Text Color by some method swizzling (from SO)&#10;-  The Delete all Items action sheet now displays at least the buttons with Avenir" />
+    <option name="LAST_COMMIT_MESSAGE" value="UIDatePicker&#10;-  Switched back to UIDatePicker (From Custom LKDatePicker)&#10;-  Implemented the Text Color by some method swizzling (from SO)&#10;-  The Delete all Items action sheet now displays at least the buttons with Avenir" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -440,25 +466,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Countr/LKCountdown.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9315643" vertical-offset="2903" max-vertical-offset="3705">
-          <caret line="238" column="5" selection-start-line="238" selection-start-column="5" selection-end-line="238" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Countr/Countr-Bridging-Header.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12569833" vertical-offset="0" max-vertical-offset="716">
           <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Countr/LKMainCollectionViewController.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6643952" vertical-offset="0" max-vertical-offset="3840">
-          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -485,34 +496,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Countr/AppDelegate.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1950">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/objc/runtime.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.8909711" vertical-offset="1110" max-vertical-offset="24765">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Countr/UILabel+WhiteUIDatePickerLabels.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Countr/Extensions.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="2805">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -525,10 +512,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Countr/UILabel+WhiteUIDatePickerLabels.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17887564" vertical-offset="0" max-vertical-offset="1230">
+          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+          <folding>
+            <element signature="e#169#183#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Podfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Countr/LKCountdown.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2948" max-vertical-offset="4500">
+          <caret line="213" column="112" selection-start-line="213" selection-start-column="112" selection-end-line="213" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Countr/Extensions.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.078364566" vertical-offset="901" max-vertical-offset="2805">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Countr/LKAddItemViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321976" vertical-offset="330" max-vertical-offset="2355">
-          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.9710392" vertical-offset="0" max-vertical-offset="2370">
+          <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Countr/AppDelegate.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1950">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Countr/LKPurchaseManager.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2490">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Countr/LKMainViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1380">
+          <caret line="49" column="10" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Countr/LKMainCollectionViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70187396" vertical-offset="1958" max-vertical-offset="6090">
+          <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
           <folding />
         </state>
       </provider>

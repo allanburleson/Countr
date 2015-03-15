@@ -2,6 +2,11 @@
 // Created by Lukas Kollmer on 3/15/15.
 // Copyright (c) 2015 Lukas Kollmer. All rights reserved.
 //
+
+
+/**
+* Code from http://stackoverflow.com/a/21084227/2513803
+*/
 @import UIKit;
 #import <objc/runtime.h>
 

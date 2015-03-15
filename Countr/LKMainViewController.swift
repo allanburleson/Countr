@@ -26,11 +26,14 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
         if LKPurchaseManager.didPurchase {
             self.adBannerView.removeFromSuperview()
             self.adBannerView.delegate = nil
+            self.adjustViewForAdBannerVisible(false)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // set initial content inset
+        //self.collectionViewController?.collectionView?.contentInset = UIEdgeInsetsMake(21, 0, 0, 0)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -43,16 +46,16 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
     }
     
     func adjustViewForAdBannerVisible(visible: Bool) {
+
+        //self.collectionViewController?.collectionView?.contentInset = UIEdgeInsetsMake(75, 0, 20, 0)
         if visible {
             self.adBannerView.hidden = false
-            let top = self.collectionViewController?.collectionView?.contentInset.top
-            self.collectionViewController?.collectionView?.contentInset = UIEdgeInsetsMake(top!, 0, 55, 0)
-            self.collectionViewController?.collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(top!, 0, 55, 0)
+            //self.collectionViewController?.collectionView?.contentInset = UIEdgeInsetsMake(200, 0, 55, 0)
+            //self.collectionViewController?.collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(200, 0, 55, 0)
         } else {
             self.adBannerView.hidden = true
-            let top = self.collectionViewController?.collectionView?.contentInset.top
-            self.collectionViewController?.collectionView?.contentInset = UIEdgeInsetsMake(top!, 0, 0, 0)
-            self.collectionViewController?.collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(top!, 0, 0, 0)
+            //self.collectionViewController?.collectionView?.contentInset = UIEdgeInsetsMake(200, 0, 30, 0)
+            //self.collectionViewController?.collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(200, 0, 30, 0)
         }
     }
     

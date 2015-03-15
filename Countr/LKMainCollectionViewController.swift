@@ -23,15 +23,25 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     override func loadView() {
         super.loadView()
-        
+
+
         /*
-        NOTE: The default contentInset is 64. If you want to get more than 64 (in this case 85), you have to set the difference (85-64=11) as the "new" contentInsetn
+            NOTE: The default contentInset is 64. If you want to get more than 64 (in this case 85), you have to set the difference (85-64=21) as the "new" contentInsetn
         */
-        self.collectionView?.contentInset = UIEdgeInsetsMake(21, 0, 0, 0)
+        //self.collectionView?.contentInset = UIEdgeInsetsMake(21, 0, 0, 0)
+        //self.collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(18, 0, 10, 0)
+
+        /*
+        NOTE: The default scrollIndicatorInsets is -5. If you want to get 10 , you have to set the new inset + 5
+        */
+        //if LKPurchaseManager.didPurchase {
+        //    self.collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(18, 0, 10, 0)
+        //} else {
+        //    self.collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(18, 0, 62, 0)
+        //}
+        adjustInsets()
         self.collectionView?.indicatorStyle = .White
-        
-//        self.collectionView?.delegate = self
-//        self.collectionView?.dataSource = self
+
         
         
         self.refreshControl.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
@@ -72,7 +82,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             self.collectionView?.reloadData()
             self.disableAddButtonIfNeeded()
         }
-        
+
         self.countdownManager.startUpdates()
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
@@ -365,13 +375,26 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     func modelDidLoadItems() {
         //println("modelDidLoadItems")
         self.refresh()
+        adjustInsets()
     }
     
     
     func didPurchasePremiumFeatures() {
         self.refresh()
+        adjustInsets()
     }
-    
+
+    func adjustInsets() {
+        if LKPurchaseManager.didPurchase {
+            self.collectionView?.contentInset = UIEdgeInsetsMake(21, 0, 15, 0)
+            self.collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(21, 0, 15, 0)
+        } else {
+            self.collectionView?.contentInset = UIEdgeInsetsMake(21, 0, 75, 0)
+            self.collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(21, 0, 70, 0)
+        }
+        
+        
+    }
     
     
 }
