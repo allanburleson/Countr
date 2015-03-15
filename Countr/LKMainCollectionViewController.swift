@@ -295,19 +295,24 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             self.countdownManager.endUpdates()
             
             let indexPath = collectionView.indexPathForCell(cell)!
-            let alertController = LKAlertController.actionSheetWithTitle("Delete Item", message: "Do you really want to delete the countdown \(self.countdownManager.items()[indexPath.item].name)")
+
+            let alertTitle = NSLocalizedString("me.kollmer.countr.deleteItemAlert.title", comment: "")
+            let alertMessage = NSString(format: NSLocalizedString("me.kollmer.countr.deleteItemAlert.message", comment: ""), self.countdownManager.items()[indexPath.item].name)
+            let alertDelete = NSLocalizedString("me.kollmer.countr.deleteItemAlert.delete", comment: "")
+            let alertCancel = NSLocalizedString("me.kollmer.countr.deleteItemAlert.cancel", comment: "")
+            let alertController = LKAlertController.actionSheetWithTitle(alertTitle, message: alertMessage)
             alertController.popoverPresentationController?.sourceView = cell
             alertController.popoverPresentationController?.sourceRect = cell.bounds
             //println("cell.frame: \(cell.frame)")
             //println("alertController.popoverPresentationController?.sourceRect: \(alertController.popoverPresentationController?.sourceRect)")
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            let cancelAction = UIAlertAction(title: alertCancel, style: .Cancel) { (action) in
                 //println(action)
                 self.countdownManager.startUpdates()
             }
             
             
-            let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action) in
+            let deleteAction = UIAlertAction(title: alertDelete, style: .Destructive) { (action) in
                 //println(action)
                 self.countdownManager.deleteCountdownItem(self.countdownManager.items()[indexPath.item])
                 

@@ -22,23 +22,34 @@
 "me.kollmer.countr.infoView.deleteAllDataLabel" = "Delete All Data";
 "me.kollmer.countr.infoView.copyrightLabel" = "© 2015, Lukas Kollmer";
 
-"me.kollmer.countr.infoView.deleteAlert.title" = "Delete All items";
-"me.kollmer.countr.infoView.deleteAlert.message" = "Are you sure you want to delete all items?";
-"me.kollmer.countr.infoView.deleteAlert.deleteButton.title" = "Delete";
-"me.kollmer.countr.infoView.deleteAlert.cancelButton.title" = "Cancel";
+
+
+/*
+ Delete All Items Alert
+ */
+"me.kollmer.countr.infoView.deleteAllAlert.title" = "Delete All items";
+"me.kollmer.countr.infoView.deleteAllAlert.message" = "Are you sure you want to delete all items?";
+"me.kollmer.countr.infoView.deleteAllAlert.deleteButton.title" = "Delete";
+"me.kollmer.countr.infoView.deleteAllAlert.cancelButton.title" = "Cancel";
 
 
 
 /*
  Add Item View Controller
  */
-
-
 "me.kollmer.countr.addItemView.itemTitlePlaceholderString" = "Enter a title for the item (eg: Christmas)";
 "me.kollmer.countr.addItem.segmentedControl.titleAtIndex.0" = "Date";
 "me.kollmer.countr.addItem.segmentedControl.titleAtIndex.1" = "Date & Time";
 
 
+
+/*
+ Delete Item Alert
+ */
+"me.kollmer.countr.deleteItemAlert.title" = "Delete Item";
+"me.kollmer.countr.deleteItemAlert.message" = "Do you really want to delete %@?";
+"me.kollmer.countr.deleteItemAlert.delete" = "Delete";
+"me.kollmer.countr.deleteItemAlert.cancel" = "Cancel";
 
 /*
  Purchase View Controller

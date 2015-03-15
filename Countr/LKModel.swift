@@ -57,7 +57,7 @@ class LKModel {
     
     init() {
         
-        self.loadLocalData()
+        self.loadData(completionHandler: nil)
         
         //self.privateDatabase = CKContainer.defaultContainer().privateCloudDatabase
         
@@ -74,7 +74,7 @@ class LKModel {
 
     
     
-    func loadLocalData() {
+    private func loadData(completionHandler _completionHandler: (() -> Void)?) {
         
         let managedObjectContext: NSManagedObjectContext = self.managedObjectContext!
         let fetchRequest: NSFetchRequest = NSFetchRequest()
@@ -101,6 +101,8 @@ class LKModel {
             
             //println("the local data: \(self.items)")
         }
+
+        _completionHandler?()
     }
     
     func sortArray() {
@@ -153,11 +155,11 @@ class LKModel {
     }
 
     func reloadItems() {
-        self.loadLocalData()
+        self.loadData(completionHandler: nil)
     }
     
     
-    func deleteAllItems(completionHandler: () -> ()) {
+    func deleteAllItems(completionHandler _completionHandler: () -> ()) {
         let moc = self.managedObjectContext!
         for object in self.rawItems {
             moc.deleteObject(object)
@@ -165,14 +167,14 @@ class LKModel {
         let error: NSErrorPointer = NSErrorPointer()
         if moc.save(error) {
             //println("Sucessfully deleted all items")
-            completionHandler()
+            _completionHandler()
         } else {
             //println("Error: \(error.debugDescription)")
         }
     }
     
     
-    // MARK: - CoreData + iCloud (from AppDelegate
+    // MARK: - CoreData + iCloud (from AppDelegate)
     
     // MARK: iCloud support
     func iCloudPersistentStoreOptions() -> [NSObject : AnyObject] {
@@ -288,6 +290,33 @@ class LKModel {
                 abort()
             }
         }
+    }
+
+
+    func migrateLocalStoreToCloud(sender _sender: AnyObject) {
+        println("sender: \(_stdlib_getDemangledTypeName(_sender))")
+
+        assert(_stdlib_getDemangledTypeName(_sender) == "Countr.LKPurchaseManager", "Called from the wrong class")
+
+        assert(LKPurchaseManager.didPurchase == true, "Did not finish purchase")
+        return
+
+        let _tempOldLocalObjects: [NSManagedObject] = self.rawItems
+        assert(_tempOldLocalObjects.count == self.rawItems.count, "Not all local objects are copied to the temp array")
+
+        self.deleteAllItems(completionHandler: {
+            self.loadData(completionHandler: {
+                for _object in _tempOldLocalObjects {
+                    let item = LKCountdownItem(object: _object)
+                    self.saveNewItem(item)
+                }
+            })
+
+            self.refreshUI()
+        })
+
+
+
     }
     
     /*

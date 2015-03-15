@@ -144,10 +144,10 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     }
     
     func deleteAllData() {
-        let alertTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.title", comment: "")
-        let alertMessage = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.message", comment: "")
-        let alertButtonDeleteTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.deleteButton.title", comment: "")
-        let alertButtonCancelTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.cancelButton.title", comment: "")
+        let alertTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAllAlert.title", comment: "")
+        let alertMessage = NSLocalizedString("me.kollmer.countr.infoView.deleteAllAlert.message", comment: "")
+        let alertButtonDeleteTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAllAlert.deleteButton.title", comment: "")
+        let alertButtonCancelTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAllAlert.cancelButton.title", comment: "")
 
 
         //let attributedTitle: NSAttributedString = NSAttributedString(string: alertTitle, attributes: [NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 14)!, NSForegroundColorAttributeName: UIColor.grayColor()])
