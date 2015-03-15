@@ -2,6 +2,15 @@
 
 import UIKit
 
+// UIFonts
+let fontFamilies: [String] = UIFont.familyNames() as [String]
+
+var fontNamesForFamilyName: [String: AnyObject] = Dictionary()
+
+for familyName: String in fontFamilies {
+    fontNamesForFamilyName[familyName] = UIFont.fontNamesForFamilyName(familyName)
+}
+
 
 // App version
 //UIApplication.sharedApplication().version

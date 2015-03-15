@@ -17,7 +17,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var countdownModeSegmentedControl: UISegmentedControl!
     
-    @IBOutlet weak var datePicker: LKDatePicker!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     let notification = CWStatusBarNotification()
     
@@ -31,6 +31,8 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         self.doneBarButtonItem.enabled = false
         
         self.nameTextField.delegate = self
+
+        self.datePicker.datePickerMode = .Date
         
         
         self.tableView.backgroundColor = UIColor(rgba: "#232323")
@@ -69,7 +71,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         self.nameTextField.becomeFirstResponder()
 
-        self.datePicker.viewDidAppear()
+        //self.datePicker.viewDidAppear()
         
         self.notification.notificationAnimationInStyle = .Top
         self.notification.notificationAnimationOutStyle = .Top
@@ -82,11 +84,11 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         switch self.countdownModeSegmentedControl.selectedSegmentIndex {
         case 0:
             // Mode Day
-            self.datePicker.pickerMode = LKDatePickerMode.Date
+            self.datePicker.datePickerMode = UIDatePickerMode.Date
             break
         case 1:
             // Mode Day & Time
-            self.datePicker.pickerMode = UIDatePickerMode.DateAndTime
+            self.datePicker.datePickerMode = UIDatePickerMode.DateAndTime
             break
             /* Disabled because there is not enough spage on screen for a 3rd segment
         case 2:
@@ -125,8 +127,8 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         let countdownManager = LKCountdownManager.sharedInstance
         
         
-        let item = LKCountdownItem(name: self.nameTextField.text, date: self.datePicker.date, mode: self.datePicker.pickerMode)
-        countdownManager.saveNewCountdownItem(item,countdownMode: self.datePicker.pickerMode, completionHandler: {
+        let item = LKCountdownItem(name: self.nameTextField.text, date: self.datePicker.date, mode: self.datePicker.datePickerMode)
+        countdownManager.saveNewCountdownItem(item,countdownMode: self.datePicker.datePickerMode, completionHandler: {
             self.dismissViewControllerAnimated(true, completion: nil)
         })
     }

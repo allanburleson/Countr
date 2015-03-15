@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIi-Ts-t9l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIi-Ts-t9l">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -82,15 +82,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PQN-iy-KiO" id="LBn-OF-dvl">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GiS-8P-nUN" customClass="LKDatePicker" customModule="Countr" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="162"/>
-                                                </pickerView>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hzk-8v-Pge">
+                                                    <rect key="frame" x="0.0" y="-1" width="600" height="162"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="448101945.11254799">
+                                                        <!--2015-03-15 08:45:45 +0000-->
+                                                    </date>
+                                                </datePicker>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="GiS-8P-nUN" secondAttribute="bottom" constant="-9" id="YP1-a8-9wO"/>
-                                                <constraint firstItem="GiS-8P-nUN" firstAttribute="leading" secondItem="LBn-OF-dvl" secondAttribute="leadingMargin" constant="-8" id="gGt-9h-J1K"/>
-                                                <constraint firstItem="GiS-8P-nUN" firstAttribute="top" secondItem="LBn-OF-dvl" secondAttribute="topMargin" constant="-8" id="hau-O5-tAY"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="GiS-8P-nUN" secondAttribute="trailing" constant="-8" id="uaK-Ji-vb2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hzk-8v-Pge" secondAttribute="trailing" constant="-8" id="Dx0-em-gxN"/>
+                                                <constraint firstItem="hzk-8v-Pge" firstAttribute="leading" secondItem="LBn-OF-dvl" secondAttribute="leadingMargin" constant="-8" id="UXa-Gl-WBF"/>
+                                                <constraint firstItem="hzk-8v-Pge" firstAttribute="top" secondItem="LBn-OF-dvl" secondAttribute="topMargin" constant="-9" id="i7U-RN-9gr"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hzk-8v-Pge" secondAttribute="bottom" constant="-8" id="jba-ts-IZU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -117,7 +120,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="countdownModeSegmentedControl" destination="VwF-q7-5AS" id="Dvf-5Q-JEf"/>
-                        <outlet property="datePicker" destination="GiS-8P-nUN" id="mfN-bw-4dl"/>
+                        <outlet property="datePicker" destination="hzk-8v-Pge" id="fg5-25-65m"/>
                         <outlet property="doneBarButtonItem" destination="zav-Rr-vpq" id="eoc-Wg-SBD"/>
                         <outlet property="nameTextField" destination="tCU-BB-gQb" id="Vb3-fW-9Up"/>
                     </connections>
@@ -144,7 +147,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZU-BP-h4s">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WZU-BP-h4s">
                                 <rect key="frame" x="16" y="175" width="568" height="329"/>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -152,7 +155,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vB-Jz-Q9B" customClass="LKRoundBorderedButton" customModule="Countr" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vB-Jz-Q9B" customClass="LKRoundBorderedButton" customModule="Countr" customModuleProvider="target">
                                 <rect key="frame" x="16" y="512" width="568" height="30"/>
                                 <state key="normal" title="Buy for $">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,7 +176,7 @@
                                     <constraint firstAttribute="height" constant="81" id="d7N-fD-m9o"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoH-Nz-xh9">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoH-Nz-xh9">
                                 <rect key="frame" x="274" y="550" width="53" height="30"/>
                                 <state key="normal" title="Restore">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

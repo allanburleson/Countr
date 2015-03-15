@@ -56,6 +56,30 @@ extension LKCountdownItem {
     }
 }
 
+
+
+extension UIFont {
+    class func systemFontOfSize(fontSize: CGFloat) -> UIFont {
+        println("called the overridden systemFontOfSize function")
+        return UIFont(name: "Avenir-Book", size: fontSize)!
+    }
+
+    class func boldSystemFontOfSize(fontSize: CGFloat) -> UIFont {
+        println("called the overridden boldSystemFontOfSize function")
+        return UIFont(name: "Avenir-Heavy", size: fontSize)!
+    }
+    class func italicSystemFontOfSize(fontSize: CGFloat) -> UIFont {
+        println("called the overridden italicSystemFontOfSize function")
+        return UIFont(name: "Avenir-BookOblique", size: fontSize)!
+    }
+
+    class func systemFontOfSize(fontSize: CGFloat, weight: CGFloat) -> UIFont! {
+        println("called the overridden systemFontOfSize, weight function")
+        return UIFont(name: "Avenir-Book", size: fontSize)!
+    }
+
+}
+
 extension UIColor {
     class func backgroundColor() -> UIColor {
         return UIColor(rgba: "#232323")
