@@ -150,12 +150,11 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         let alertButtonCancelTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.cancelButton.title", comment: "")
 
 
-        let attributedTitle: NSAttributedString = NSAttributedString(string: alertTitle, attributes: [NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 14)!, NSForegroundColorAttributeName: UIColor.grayColor()])
-        let attributedMessage: NSAttributedString = NSAttributedString(string: alertMessage, attributes: [NSFontAttributeName: UIFont(name: "Avenir-Roman", size: 14)!, NSForegroundColorAttributeName: UIColor.grayColor()])
+        //let attributedTitle: NSAttributedString = NSAttributedString(string: alertTitle, attributes: [NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 14)!, NSForegroundColorAttributeName: UIColor.grayColor()])
+        //let attributedMessage: NSAttributedString = NSAttributedString(string: alertMessage, attributes: [NSFontAttributeName: UIFont(name: "Avenir-Roman", size: 14)!, NSForegroundColorAttributeName: UIColor.grayColor()])
 
-        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .ActionSheet)
-        alertController.setValue(attributedTitle, forKey: "attributedTitle")
-        alertController.setValue(attributedMessage, forKey: "attributedMessage")
+
+        let alertController = LKAlertController.actionSheetWithTitle(alertTitle, message: alertMessage)
 
         let deleteAction = UIAlertAction(title: alertButtonDeleteTitle, style: .Destructive, handler: {(action) in
             //println("delete")

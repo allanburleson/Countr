@@ -295,7 +295,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             self.countdownManager.endUpdates()
             
             let indexPath = collectionView.indexPathForCell(cell)!
-            let alertController = UIAlertController(title: "Delete Item", message: "Do you really want to delete the countdown \(self.countdownManager.items()[indexPath.item].name)", preferredStyle: UIAlertControllerStyle.ActionSheet)
+            let alertController = LKAlertController.actionSheetWithTitle("Delete Item", message: "Do you really want to delete the countdown \(self.countdownManager.items()[indexPath.item].name)")
             alertController.popoverPresentationController?.sourceView = cell
             alertController.popoverPresentationController?.sourceRect = cell.bounds
             //println("cell.frame: \(cell.frame)")

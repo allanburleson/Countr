@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		066A32AD2BF22D51716F9342 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FCE20DDEA76DB63F5B519B /* libPods.a */; };
+		1E0849CF750855CF383B62D5 /* LKAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0844671895D6654A100B73 /* LKAlertController.swift */; };
 		1E084B951BC9E569F33EE8FE /* UILabel+WhiteUIDatePickerLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E084B79BD97DE0D385BB98E /* UILabel+WhiteUIDatePickerLabels.m */; };
 		5D0A9D5E1A790DF30040C100 /* UITextField_ClearButton_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A9D5D1A790DF30040C100 /* UITextField_ClearButton_White.png */; };
 		5D0A9D621A79132A0040C100 /* LKDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A9D611A79132A0040C100 /* LKDatePicker.swift */; };
@@ -85,6 +86,7 @@
 
 /* Begin PBXFileReference section */
 		18FB7CFE6B3582DD12EF9318 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1E0844671895D6654A100B73 /* LKAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKAlertController.swift; sourceTree = "<group>"; };
 		1E084B79BD97DE0D385BB98E /* UILabel+WhiteUIDatePickerLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+WhiteUIDatePickerLabels.m"; sourceTree = "<group>"; };
 		5D0A9D5D1A790DF30040C100 /* UITextField_ClearButton_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITextField_ClearButton_White.png; sourceTree = "<group>"; };
 		5D0A9D611A79132A0040C100 /* LKDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKDatePicker.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -257,6 +259,7 @@
 				5D56C2051A77F160000E0FE3 /* Countr-Bridging-Header.h */,
 				5DE435E21A7D1B190034327A /* LKRoundBorderedButton.swift */,
 				1E084B79BD97DE0D385BB98E /* UILabel+WhiteUIDatePickerLabels.m */,
+				1E0844671895D6654A100B73 /* LKAlertController.swift */,
 			);
 			path = Countr;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				5DE0732E1A79394500A1071E /* CWStatusBarNotification.swift in Sources */,
 				5D33343C1A6A8BD6007D9A4B /* LKInfoViewController.swift in Sources */,
 				1E084B951BC9E569F33EE8FE /* UILabel+WhiteUIDatePickerLabels.m in Sources */,
+				1E0849CF750855CF383B62D5 /* LKAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
