@@ -148,7 +148,15 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         let alertMessage = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.message", comment: "")
         let alertButtonDeleteTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.deleteButton.title", comment: "")
         let alertButtonCancelTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAlert.cancelButton.title", comment: "")
+
+
+        let attributedTitle: NSAttributedString = NSAttributedString(string: alertTitle, attributes: [NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 14)!, NSForegroundColorAttributeName: UIColor.grayColor()])
+        let attributedMessage: NSAttributedString = NSAttributedString(string: alertMessage, attributes: [NSFontAttributeName: UIFont(name: "Avenir-Roman", size: 14)!, NSForegroundColorAttributeName: UIColor.grayColor()])
+
         let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .ActionSheet)
+        alertController.setValue(attributedTitle, forKey: "attributedTitle")
+        alertController.setValue(attributedMessage, forKey: "attributedMessage")
+
         let deleteAction = UIAlertAction(title: alertButtonDeleteTitle, style: .Destructive, handler: {(action) in
             //println("delete")
             let countdownManager = LKCountdownManager.sharedInstance
