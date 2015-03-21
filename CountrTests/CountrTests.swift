@@ -59,9 +59,17 @@ class CountrTests: XCTestCase {
         var extensionDataManager = LKSharedExtensionDataManager()
         extensionDataManager.saveCountdownItemsToExtension(items)
         
-        let itemsReadByExtension = extensionDataManager.loadCountdownItemsForExtension()
+        let itemsReadByExtension: [LKCountdownItem] = extensionDataManager.loadCountdownItemsForExtension()
         println("The arrays: saved: \(items), loaded: \(itemsReadByExtension)")
         
-        XCTAssert(items == itemsReadByExtension, "Items saved are equal to items read")
+        XCTAssert(items.count == itemsReadByExtension.count, "Items saved are equal to items read")
+        for item in itemsReadByExtension {
+            let index: Int = find(itemsReadByExtension, item)!
+
+            XCTAssert(items[index].name == itemsReadByExtension[index].name, "name not equal")
+            XCTAssert(items[index].date == itemsReadByExtension[index].date, "date not equal")
+            XCTAssert(items[index].id == itemsReadByExtension[index].id, "id not equal")
+            XCTAssert(items[index].countdownMode == itemsReadByExtension[index].countdownMode, "mode not equal")
+        }
     }
 }

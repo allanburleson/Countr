@@ -18,9 +18,18 @@ private typealias LKExtensionData = [[String : AnyObject]]
 
 class LKSharedExtensionDataManager {
     
-    private let filePathForDocumentsDirectory: String = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String).stringByAppendingPathComponent("extensionData.plist")
+    func filePathForDocumentsDirectory() -> String {
+        let fileManager = NSFileManager.defaultManager()
+        let containerURL = fileManager.containerURLForSecurityApplicationGroupIdentifier("group.me.kollmer.Countr")!
+        let containerURLPath = containerURL.path!
+        let filePath = containerURLPath.stringByAppendingPathComponent("extensionData.plist")
+        
+        return filePath
+    }
 
-    private let filePathForApplicationBundle = NSBundle.mainBundle().pathForResource("extensionData", ofType: "plist")!
+    func filePathForApplicationBundle() -> String {
+        return NSBundle.mainBundle().pathForResource("extensionData", ofType: "plist")!
+    }
     init() {
         copyRessourceFileToDocumentdDirectory()
     }
@@ -50,33 +59,48 @@ class LKSharedExtensionDataManager {
     }
     
     func saveCountdownItemsToExtension(items: [LKCountdownItem]) {
-        var itemsForExtension: [LKCountdownItem]
+        var itemsForExtension: [LKCountdownItem] = []
+        println("0")
         if items.count < 3 {
+            println("1")
             itemsForExtension = items
+            println("2")
         } else {
-            itemsForExtension = Array(items[0...3])
+            println("3")
+            itemsForExtension = Array(items[0...2])
+            println("4")
         }
+        println("5")
         
         var extensionData: LKExtensionData = []
+        println("6")
         for item in itemsForExtension {
+            println("7")
             extensionData.append([
                 title_key : item.name,
                 date_key : item.date,
                 id_key : item.id,
                 mode_key : item.countdownMode.toString()
                 ])
+            println("8")
         }
-        
+        println("9")
+
+        println("10")
         println("array for today extension: \(itemsForExtension)")
+        println("11")
         println("sorted data for today extension: \(extensionData)")
-        
+        println("12")
+
+        println("13")
         saveDataToExtensionDataFile(extensionData)
+        println("14")
     }
     
     
     
     private func loadDataFromExtensionDataFile() -> LKExtensionData {
-        let _arrayBridgedToNSArray: NSArray = NSArray(contentsOfFile: filePathForDocumentsDirectory)!
+        let _arrayBridgedToNSArray: NSArray = NSArray(contentsOfFile: filePathForDocumentsDirectory())!
         
         println("array read from file: \(_arrayBridgedToNSArray)")
         
@@ -84,9 +108,13 @@ class LKSharedExtensionDataManager {
     }
     
     private func saveDataToExtensionDataFile(data: LKExtensionData) {
+
+        println("15")
         let _arrayBridgedToNSArray: NSArray = NSArray(array: data)
-        
-        _arrayBridgedToNSArray.writeToFile(filePathForDocumentsDirectory, atomically: true)
+
+        println("16")
+        _arrayBridgedToNSArray.writeToFile(filePathForDocumentsDirectory(), atomically: true)
+        println("17")
     }
     
     
@@ -98,9 +126,9 @@ class LKSharedExtensionDataManager {
         
         var error: NSErrorPointer = nil
         
-        if !NSFileManager.defaultManager().fileExistsAtPath(filePathForDocumentsDirectory) {
+        if !NSFileManager.defaultManager().fileExistsAtPath(filePathForDocumentsDirectory()) {
             println("file dies not exist, copy")
-            NSFileManager.defaultManager().copyItemAtPath(filePathForApplicationBundle, toPath:filePathForDocumentsDirectory, error: error)
+            NSFileManager.defaultManager().copyItemAtPath(filePathForApplicationBundle(), toPath:filePathForDocumentsDirectory(), error: error)
             
             println("did copy file. error: \(error.debugDescription)")
         }

@@ -50,12 +50,18 @@ class LKModel {
     private(set) var items: [LKCountdownItem] = []
     private var rawItems: [NSManagedObject] = []
     
+    private var modelChangedAction: () -> () = {}
+    
     //private(set) var managedObjectContext: NSManagedObjectContext
     
     
     
     
     init() {
+
+        self.modelChangedAction = {
+            self.saveDataForExtension()
+        }
         
         self.loadData(completionHandler: nil)
         
@@ -102,7 +108,7 @@ class LKModel {
             //println("the local data: \(self.items)")
         }
 
-        saveCopyForExtension()
+        modelChangedAction()
         completionHandler?()
     }
     
@@ -128,6 +134,7 @@ class LKModel {
             self.items.append(item)
             self.rawItems.append(object)
             self.sortArray()
+            modelChangedAction()
             
         } else {
             //println("error saving locally")
@@ -153,6 +160,7 @@ class LKModel {
         }
         
         reloadItems()
+        modelChangedAction()
     }
 
     func reloadItems() {
@@ -168,6 +176,7 @@ class LKModel {
         let error: NSErrorPointer = NSErrorPointer()
         if moc.save(error) {
             //println("Sucessfully deleted all items")
+            modelChangedAction()
             completionHandler()
         } else {
             //println("Error: \(error.debugDescription)")
@@ -293,7 +302,7 @@ class LKModel {
     }
     
     
-    func saveCopyForExtension() {
+    func saveDataForExtension() {
         let extensionDataManager = LKSharedExtensionDataManager()
         extensionDataManager.saveCountdownItemsToExtension(self.items)
         
