@@ -29,7 +29,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //TODO: What is this?
     @IBOutlet weak var deleteAllDataLabel: UILabel!
     
-    let webViewController = PBWebViewController()
+    //let webViewController = PBWebViewController()
     var webViewControllerNavigationController: UINavigationController!
     
     
@@ -75,7 +75,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
                 break
             case 1:
                 // Support (-> Website)
-                showWebsite()
+                //showWebsite()
                 break
             default:
                 break
@@ -114,6 +114,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         }
     }
     
+    /*
     func showWebsite() {
         let url = NSURL(string: "http://kollmer.me/countr")!
         
@@ -135,12 +136,13 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
 
 
     }
+    */
     
     func doneButtonPressed(sender: AnyObject) {
         //println("\(sender)")
         let barButton: UIBarButtonItem = sender as UIBarButtonItem
         
-        self.webViewController.dismissViewControllerAnimated(true, completion: nil)
+        //self.webViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func deleteAllData() {

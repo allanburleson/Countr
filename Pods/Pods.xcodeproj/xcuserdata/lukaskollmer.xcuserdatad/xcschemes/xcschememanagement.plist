@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-PBWebViewController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9DA36246C81B7958BF36F924</key>
+		<key>49637D6B0C43C3FEFA733C32</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A54D8654A01562EACC8B4014</key>
+		<key>4DE62BF446AB5FE6C0FAFD3D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DB5879AE9294467523D2F29B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E875288B202C9507D2B47E6B</key>
+		<key>8386A9C6D0E84B2F5883628D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -170,13 +170,12 @@ class LKCountdownItem: NSObject, Printable {
         private(set) var asString: String = "000 : 00 : 00 : 00"
     }
     
-    init(name: String, date: NSDate, mode: LKCountdownMode) {
+    init(name: String, date: NSDate, mode: LKCountdownMode, id: NSUUID = NSUUID()) {
         self.name = name
         self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: nil)
         //self.date = date
-        let uuid = NSUUID().UUIDString
         //println("uuid used for saving: \(uuid)")
-        self.id = uuid
+        self.id = id.UUIDString
         self.countdownMode = mode
     }
     

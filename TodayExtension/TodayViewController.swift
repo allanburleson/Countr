@@ -12,7 +12,8 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
-    let countdownManager = LKCountdownManager.sharedInstance
+    //let countdownManager = LKCountdownManager.sharedInstance
+    let extensionDataManager = LKSharedExtensionDataManager()
     
     var timer: NSTimer?
     
@@ -43,6 +44,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         self.preferredContentSize = CGSizeMake(320, 246)
         
+        self.itemsCached = self.extensionDataManager.loadCountdownItemsForExtension()
+        
     }
         
     override func viewDidLoad() {
@@ -62,7 +65,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.countdownManager.reload()
         
         //println("data loaded in extension: \(self.countdownManager.items())")
         //println("number of items loaded in teh \(self.countdownManager.items().count)")
@@ -107,7 +109,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         self.messageLabel.hidden = true
         
-        switch self.countdownManager.numberOfItems {
+        switch self.itemsCached.count {
         case 0:
             //println("0 items")
             for label in self.allLabels {
@@ -127,8 +129,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         case 1:
             //println("1 items")
             
-            let allItems = self.countdownManager.items()
-            self.itemsCached.append(allItems[0])
             
             /*
             self.backgroundViews[1].hidden = true
@@ -162,9 +162,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             
             //println("2 items")
             
-            let allItems = self.countdownManager.items()
-            self.itemsCached.append(allItems[0])
-            self.itemsCached.append(allItems[1])
             
             for label in self.itemThreeLabels {
                 label.hidden = true
@@ -182,11 +179,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             startTimer()
             break
         case 3:
-            
-            let allItems = self.countdownManager.items()
-            self.itemsCached.append(allItems[0])
-            self.itemsCached.append(allItems[1])
-            self.itemsCached.append(allItems[2])
             startTimer()
             break
         default:

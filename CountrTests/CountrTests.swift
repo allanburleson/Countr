@@ -49,4 +49,19 @@ class CountrTests: XCTestCase {
         }
     }
     
+    func testSaveDataToFileForExtension() {
+        let testItemOne   = LKCountdownItem(name: "test item #1", date: NSDate().dateByAddingTimeInterval(100), mode: .Date)
+        let testItemTwo   = LKCountdownItem(name: "test item #2", date: NSDate().dateByAddingTimeInterval(200), mode: .Date)
+        let testItemThree = LKCountdownItem(name: "test item #3", date: NSDate().dateByAddingTimeInterval(300), mode: .Date)
+        
+        let items: [LKCountdownItem] = [testItemOne, testItemTwo, testItemThree]
+        
+        var extensionDataManager = LKSharedExtensionDataManager()
+        extensionDataManager.saveCountdownItemsToExtension(items)
+        
+        let itemsReadByExtension = extensionDataManager.loadCountdownItemsForExtension()
+        println("The arrays: saved: \(items), loaded: \(itemsReadByExtension)")
+        
+        XCTAssert(items == itemsReadByExtension, "Items saved are equal to items read")
+    }
 }

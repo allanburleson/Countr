@@ -61,6 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //GAI.sharedInstance().logger.logLevel = GAILogLevel.Verbose
         GAI.sharedInstance().trackerWithTrackingId("UA-49744076-4")
         
+        
+        
         return true
     }
     
@@ -72,7 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notificationCenter.addObserver(self, selector: "storesWillChange:", name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: self.model.persistentStoreCoordinator)
         notificationCenter.addObserver(self, selector: "storesDidChange:", name: NSPersistentStoreCoordinatorStoresDidChangeNotification, object: self.model.persistentStoreCoordinator)
         notificationCenter.addObserver(self, selector: "persistentStoreDidImportUbiquitousContentChanges:", name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: self.model.persistentStoreCoordinator)
-
         // Key/Value storing
         //notificationCenter.addObserver(self, selector: "", name: NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: NSUbiquitousKeyValueStore.defaultStore())
 

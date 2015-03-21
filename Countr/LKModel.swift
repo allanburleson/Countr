@@ -74,7 +74,7 @@ class LKModel {
 
     
     
-    private func loadData(completionHandler _completionHandler: (() -> Void)?) {
+    private func loadData(#completionHandler: (() -> Void)?) {
         
         let managedObjectContext: NSManagedObjectContext = self.managedObjectContext!
         let fetchRequest: NSFetchRequest = NSFetchRequest()
@@ -102,7 +102,8 @@ class LKModel {
             //println("the local data: \(self.items)")
         }
 
-        _completionHandler?()
+        saveCopyForExtension()
+        completionHandler?()
     }
     
     func sortArray() {
@@ -159,7 +160,7 @@ class LKModel {
     }
     
     
-    func deleteAllItems(completionHandler _completionHandler: () -> ()) {
+    func deleteAllItems(#completionHandler: () -> ()) {
         let moc = self.managedObjectContext!
         for object in self.rawItems {
             moc.deleteObject(object)
@@ -167,7 +168,7 @@ class LKModel {
         let error: NSErrorPointer = NSErrorPointer()
         if moc.save(error) {
             //println("Sucessfully deleted all items")
-            _completionHandler()
+            completionHandler()
         } else {
             //println("Error: \(error.debugDescription)")
         }
@@ -246,9 +247,8 @@ class LKModel {
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         var options: [NSObject : AnyObject]? = nil
-        if LKPurchaseManager.didPurchase {
-            options = self.iCloudPersistentStoreOptions()
-        }
+        options = self.iCloudPersistentStoreOptions()
+        
         println("did purchase sync: \(LKPurchaseManager.didPurchase), options: \(options)")
         if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options, error: &error) == nil {
             coordinator = nil
@@ -291,12 +291,21 @@ class LKModel {
             }
         }
     }
+    
+    
+    func saveCopyForExtension() {
+        let extensionDataManager = LKSharedExtensionDataManager()
+        extensionDataManager.saveCountdownItemsToExtension(self.items)
+        
+        println("data saved to extension: \(self.items)")
+        println("data resd from extension: \(extensionDataManager.loadCountdownItemsForExtension())")
+    }
 
 
-    func migrateLocalStoreToCloud(sender _sender: AnyObject) {
-        println("sender: \(_stdlib_getDemangledTypeName(_sender))")
+    func migrateLocalStoreToCloud(#sender: AnyObject) {
+        println("sender: \(_stdlib_getDemangledTypeName(sender))")
 
-        assert(_stdlib_getDemangledTypeName(_sender) == "Countr.LKPurchaseManager", "Called from the wrong class")
+        assert(_stdlib_getDemangledTypeName(sender) == "Countr.LKPurchaseManager", "Called from the wrong class")
 
         assert(LKPurchaseManager.didPurchase == true, "Did not finish purchase")
         return

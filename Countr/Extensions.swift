@@ -115,6 +115,14 @@ extension UIDevice {
     }
 }
 
+extension Array {
+    func subarrayToIndex(index: Int) -> Array {
+        if index > self.count {
+            return self
+        }
+        return Array(self[0...index-1])
+    }
+}
 
 
 extension NSDate {
