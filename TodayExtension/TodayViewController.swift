@@ -45,6 +45,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         self.itemsCached = self.extensionDataManager.loadCountdownItemsForExtension()
         
+        if !self.itemsCached.isEmpty {
+            startTimer()
+        }
+        
     }
         
     override func viewDidLoad() {
@@ -71,7 +75,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         //println("number of items loaded in teh \(self.countdownManager.items().count)")
         
         configureViewForCountdownItems()
-        let _tempTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "log_view", userInfo: nil, repeats: false)
+        
+        //let _tempTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "log_view", userInfo: nil, repeats: false)
     }
     
     func log_view() {
@@ -169,7 +174,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             }
             
             self.preferredContentSize = CGSizeMake(0, 82)
-            startTimer()
             break
         case 2:
             for label in self.itemThreeLabels {
@@ -182,10 +186,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             }
             
             self.preferredContentSize = CGSizeMake(0, 164)
-            startTimer()
             break
         case 3:
-            startTimer()
             break
         default:
             // More than 3 items

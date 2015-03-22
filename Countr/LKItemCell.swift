@@ -64,12 +64,13 @@ class LKItemCell: UICollectionViewCell {
         self.addGestureRecognizer(self.longPressGestureRecognizer)
     }
     
-    private func didLongPress() {
+    // DO NOT MAKE THESE FUNCTIONS PRIVATE, THEY ARE CALLED BY ANOTHER CLASS VIA A SELECTOR PARAMETER
+    func didLongPress() {
         //println("didLongPressOnCell")
         self.longPressAction()
     }
     
-    private func didTap() {
+    func didTap() {
         self.shortPressAction()
     }
 
