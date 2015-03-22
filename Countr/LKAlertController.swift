@@ -32,5 +32,17 @@ class LKAlertController: UIAlertController {
 
         return alertController
     }
+    
+    class func alertViewWithTitle(title: String, message: String) -> LKAlertController {
+        let alertController = LKAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        let attributedTitle: NSAttributedString = NSAttributedString(string: "\(title)\n", attributes: [NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 17)!, NSForegroundColorAttributeName: UIColor.blackColor()])
+        let attributedMessage: NSAttributedString = NSAttributedString(string: message, attributes: [NSFontAttributeName: UIFont(name: "Avenir-Roman", size: 15)!, NSForegroundColorAttributeName: UIColor.blackColor()])
+        
+        alertController.setValue(attributedTitle, forKey: "attributedTitle")
+        alertController.setValue(attributedMessage, forKey: "attributedMessage")
+        
+        return alertController
+    }
 
 }

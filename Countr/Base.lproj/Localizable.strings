@@ -40,6 +40,11 @@
 "me.kollmer.countr.addItemView.itemTitlePlaceholderString" = "Enter a title for the item (eg: Christmas)";
 "me.kollmer.countr.addItem.segmentedControl.titleAtIndex.0" = "Date";
 "me.kollmer.countr.addItem.segmentedControl.titleAtIndex.1" = "Date & Time";
+"me.kollmer.countr.addItem.noTitleAlert.message" = "No Title entered!";
+"me.kollmer.countr.addItem.dateInPastAlert.title" = "Date is in past";
+"me.kollmer.countr.addItem.dateInPastAlert.message" = "The date you selected is in the past.";
+"me.kollmer.countr.addItem.dateInPastAlert.cancel" = "Cancel";
+"me.kollmer.countr.addItem.dateInPastAlert.continue" = "Continue";
 
 
 

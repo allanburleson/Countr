@@ -12,7 +12,7 @@ import UIKit
 // ---- [ constants ] ---------------------------------------------------------
 
 let STATUS_BAR_ANIMATION_LENGTH : Double = 0.25
-let FONT_SIZE : CGFloat = 12.0
+let FONT_SIZE : CGFloat = 17.0
 let PADDING : CGFloat = 10.0
 let SCROLL_SPEED : CGFloat = 40.0
 let SCROLL_DELAY : CGFloat = 1.0

@@ -187,6 +187,12 @@ extension Array {
 
 
 extension NSDate {
+    
+    var isPast: Bool {
+        return self.timeIntervalSinceNow < 0.0
+    }
+    
+    
     var descriptiveStringForDatePicker: String {
         get {
             var fullDateString :String

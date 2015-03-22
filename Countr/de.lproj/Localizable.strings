@@ -22,6 +22,11 @@
 "me.kollmer.countr.infoView.deleteAllDataLabel" = "Alles Löschen";
 "me.kollmer.countr.infoView.copyrightLabel" = "© 2015, Lukas Kollmer";
 
+
+
+/*
+ Delete All Items Alert
+ */
 "me.kollmer.countr.infoView.deleteAllAlert.title" = "Alles Löschen";
 "me.kollmer.countr.infoView.deleteAllAlert.message" = "Möchten Sie wirklich alles Löschen?";
 "me.kollmer.countr.infoView.deleteAllAlert.deleteButton.title" = "Löschen";
@@ -35,6 +40,11 @@
 "me.kollmer.countr.addItemView.itemTitlePlaceholderString" = "Name für den Countdown (z.B. Weihnachten)";
 "me.kollmer.countr.addItem.segmentedControl.titleAtIndex.0" = "Datum";
 "me.kollmer.countr.addItem.segmentedControl.titleAtIndex.1" = "Datum & Zeit";
+"me.kollmer.countr.addItem.noTitleAlert.message" = "Kein Title angegeben!";
+"me.kollmer.countr.addItem.dateInPastAlert.title" = "Zeit ist in Vergangenheit";
+"me.kollmer.countr.addItem.dateInPastAlert.message" = "Der ausgewählte Zeitpunkt liegt in der Vergangenheit.";
+"me.kollmer.countr.addItem.dateInPastAlert.cancel" = "Abbrechen";
+"me.kollmer.countr.addItem.dateInPastAlert.continue" = "Weiter";
 
 
 

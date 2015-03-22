@@ -28,7 +28,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     override func loadView() {
         super.loadView()
         
-        self.doneBarButtonItem.enabled = false
+        //self.doneBarButtonItem.enabled = false
         
         self.nameTextField.delegate = self
 
@@ -104,7 +104,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     
     
     func textFieldTextChanged() {
-        self.doneBarButtonItem.enabled = !self.nameTextField.text.isEmpty
+        //self.doneBarButtonItem.enabled = !self.nameTextField.text.isEmpty
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -124,7 +124,18 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         
         if self.nameTextField.text.isEmpty {
             self.showNotificationForError(.NoTitleEntered)
+            return
         }
+        
+        if self.datePicker.date.isPast {
+            self.showNotificationForError(.DateIsPast)
+            return
+        }
+        
+        saveItem()
+    }
+    
+    func saveItem() {
         let countdownManager = LKCountdownManager.sharedInstance
         
         
@@ -138,9 +149,23 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     func showNotificationForError(error: LKAddCountdownError) {
         switch error {
         case .NoTitleEntered:
-            self.notification.displayNotificationWithMessage("You have to enter a title", duration: 2)
-        case .DateIsInPast:
-            self.notification.displayNotificationWithMessage("The entered date is in the past", duration: 2) //TODO: Use an UIalertController, allowing teh user to continue
+            self.notification.displayNotificationWithMessage(NSLocalizedString("me.kollmer.countr.addItem.noTitleAlert.message", comment: ""), duration: 1.5)
+        case .DateIsPast:
+            let alertController = LKAlertController.actionSheetWithTitle(NSLocalizedString("me.kollmer.countr.addItem.dateInPastAlert.title", comment: ""), message: NSLocalizedString("me.kollmer.countr.addItem.dateInPastAlert.message", comment: ""))
+            let cancelAction = UIAlertAction(title: NSLocalizedString("me.kollmer.countr.addItem.dateInPastAlert.cancel", comment: ""), style: .Destructive) {(action) in
+                alertController.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
+            let continueAction = UIAlertAction(title: NSLocalizedString("me.kollmer.countr.addItem.dateInPastAlert.continue", comment: ""), style: .Default) {(action) in
+                alertController.dismissViewControllerAnimated(true, completion: nil)
+                self.saveItem()
+            }
+
+            alertController.addAction(cancelAction)
+            alertController.addAction(continueAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            //self.notification.displayNotificationWithMessage("The entered date is in the past", duration: 2) //TODO: Use an UIalertController, allowing teh user to continue
         }
     }
 }
@@ -148,5 +173,5 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
 
 enum LKAddCountdownError {
     case NoTitleEntered
-    case DateIsInPast
+    case DateIsPast
 }

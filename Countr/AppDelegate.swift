@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /////////////////////////////////
         
         // TODO: Remove this before submission
-        let startDate = NSDate()
+        //let startDate = NSDate()
         
         
         /////////////////////////////////
