@@ -59,6 +59,15 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     }
     
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow() {
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+    }
+    
+    
     
     @IBAction func doneButtonClicked() {
         self.dismissViewControllerAnimated(true, completion: {
@@ -70,13 +79,13 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         return UITableViewAutomaticDimension
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if indexPath.section == 1 {
             switch indexPath.row {
             case 0:
                 // Send Feedback
                 sendFeedback()
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 break
             case 1:
                 // Support (-> Website)
