@@ -45,8 +45,8 @@ func functionThatTakesTwoParamaters(param1: String, param2: String) {
 }
 
 func aFunction(param1: String, param2: String, param3: String = "default") {
-    println("params: param1: \(param1), param2: \(param2), param3: \(param3)")
+    //println("params: param1: \(param1), param2: \(param2), param3: \(param3)")
     
 }
 
-aFunction("hi", "ho", "hhooo")
+aFunction("hi", "ho", "hhooo"

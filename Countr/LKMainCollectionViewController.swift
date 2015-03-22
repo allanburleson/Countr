@@ -335,13 +335,13 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
 
         }
         
-        ////println(cell)
+        //println(cell)
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        ////println("did select cell at indexpath\(indexPath)")
-        ////println("did select cell in section \(indexPath.section) and item \(indexPath.item)")
+        //println("did select cell at indexpath\(indexPath)")
+        //println("did select cell in section \(indexPath.section) and item \(indexPath.item)")
         /*
         self.countdownManager.endUpdates()
         

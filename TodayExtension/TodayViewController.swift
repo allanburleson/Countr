@@ -68,7 +68,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        println("viewDidAppear")
+        //println("viewDidAppear")
         self.view.updateConstraints()
         
         //println("data loaded in extension: \(self.countdownManager.items())")
@@ -80,21 +80,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func log_view() {
-        println("\n\n\n")
-        println("------Section 1------")
-        println("**countdownLabel** \nText: \(self.countdownRemainingLabels[0].text), \nframe: \(self.countdownRemainingLabels[0].frame), \nhidden: \(self.countdownRemainingLabels[0].hidden), \nlayoutConstraints: \(self.countdownRemainingLabels[0].constraints())")
-        println("\n")
-        println("**titleLabel** \nText: \(self.countdownTitleLabels[0].text), \nframe: \(self.countdownTitleLabels[0].frame), \nhidden: \(self.countdownTitleLabels[0].hidden), \nlayoutConstraints: \(self.countdownTitleLabels[0].constraints())")
-        println("\n\n")
-        println("------Section 2------")
-        println("**countdownLabel** \nText: \(self.countdownRemainingLabels[1].text), \nframe: \(self.countdownRemainingLabels[1].frame), \nhidden: \(self.countdownRemainingLabels[1].hidden), \nlayoutConstraints: \(self.countdownRemainingLabels[1].constraints())")
-        println("\n")
-        println("**titleLabel** \nText: \(self.countdownTitleLabels[1].text), \nframe: \(self.countdownTitleLabels[1].frame), \nhidden: \(self.countdownTitleLabels[1].hidden), \nlayoutConstraints: \(self.countdownTitleLabels[1].constraints())")
-        println("\n\n")
-        println("------Section 3------")
-        println("**countdownLabel** \nText: \(self.countdownRemainingLabels[2].text), \nframe: \(self.countdownRemainingLabels[2].frame), \nhidden: \(self.countdownRemainingLabels[2].hidden), \nlayoutConstraints: \(self.countdownRemainingLabels[2].constraints())")
-        println("\n")
-        println("**titleLabel** \nText: \(self.countdownTitleLabels[2].text), \nframe: \(self.countdownTitleLabels[2].frame), \nhidden: \(self.countdownTitleLabels[2].hidden), \nlayoutConstraints: \(self.countdownTitleLabels[2].constraints())")
+        //println("\n\n\n")
+        //println("------Section 1------")
+        //println("**countdownLabel** \nText: \(self.countdownRemainingLabels[0].text), \nframe: \(self.countdownRemainingLabels[0].frame), \nhidden: \(self.countdownRemainingLabels[0].hidden), \nlayoutConstraints: \(self.countdownRemainingLabels[0].constraints())")
+        //println("\n")
+        //println("**titleLabel** \nText: \(self.countdownTitleLabels[0].text), \nframe: \(self.countdownTitleLabels[0].frame), \nhidden: \(self.countdownTitleLabels[0].hidden), \nlayoutConstraints: \(self.countdownTitleLabels[0].constraints())")
+        //println("\n\n")
+        //println("------Section 2------")
+        //println("**countdownLabel** \nText: \(self.countdownRemainingLabels[1].text), \nframe: \(self.countdownRemainingLabels[1].frame), \nhidden: \(self.countdownRemainingLabels[1].hidden), \nlayoutConstraints: \(self.countdownRemainingLabels[1].constraints())")
+        //println("\n")
+        //println("**titleLabel** \nText: \(self.countdownTitleLabels[1].text), \nframe: \(self.countdownTitleLabels[1].frame), \nhidden: \(self.countdownTitleLabels[1].hidden), \nlayoutConstraints: \(self.countdownTitleLabels[1].constraints())")
+        //println("\n\n")
+        //println("------Section 3------")
+        //println("**countdownLabel** \nText: \(self.countdownRemainingLabels[2].text), \nframe: \(self.countdownRemainingLabels[2].frame), \nhidden: \(self.countdownRemainingLabels[2].hidden), \nlayoutConstraints: \(self.countdownRemainingLabels[2].constraints())")
+        //println("\n")
+        //println("**titleLabel** \nText: \(self.countdownTitleLabels[2].text), \nframe: \(self.countdownTitleLabels[2].frame), \nhidden: \(self.countdownTitleLabels[2].hidden), \nlayoutConstraints: \(self.countdownTitleLabels[2].constraints())")
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -249,7 +249,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 */
     
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-        println("default edge insets: top: \(defaultMarginInsets.top), left: \(defaultMarginInsets.left), bottom: \(defaultMarginInsets.bottom), right: \(defaultMarginInsets.right)")
+        //println("default edge insets: top: \(defaultMarginInsets.top), left: \(defaultMarginInsets.left), bottom: \(defaultMarginInsets.bottom), right: \(defaultMarginInsets.right)")
         return UIEdgeInsetsMake(0, 47, 0, 0)
     }
     

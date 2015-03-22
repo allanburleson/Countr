@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
-        println("application(application:, performFetchWithCompletionHandler")
+        //println("application(application:, performFetchWithCompletionHandler")
         
         /////////////////////////////////
         //      Duration Counting      //
@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let numberOfItemsDueToday = countdownManager.itemsDueToday().count
         UIApplication.sharedApplication().applicationIconBadgeNumber = numberOfItemsDueToday
         
-        println("abckgroundFetchEnded. Duration: \(startDate.timeIntervalSinceNow.positive) seconds")
+        //println("abckgroundFetchEnded. Duration: \(startDate.timeIntervalSinceNow.positive) seconds")
         
         
         completionHandler(UIBackgroundFetchResult.NewData)

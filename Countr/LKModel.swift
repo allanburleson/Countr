@@ -108,7 +108,7 @@ class LKModel {
             self.rawItems = []
             for object in _rawItems {
                 let managedObject: NSManagedObject = object as NSManagedObject
-                ////println("the managedobject that will be used for adding to the local data meant for being displayed: \(managedObject)")
+                //println("the managedobject that will be used for adding to the local data meant for being displayed: \(managedObject)")
                 let cdItem = LKCountdownItem(object: managedObject)
                 self.items.append(cdItem)
                 
@@ -316,7 +316,7 @@ class LKModel {
         var options: [NSObject : AnyObject]? = nil
         options = self.iCloudPersistentStoreOptions()
         
-        println("did purchase sync: \(LKPurchaseManager.didPurchase), options: \(options)")
+        //println("did purchase sync: \(LKPurchaseManager.didPurchase), options: \(options)")
         if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options, error: &error) == nil {
             coordinator = nil
             // Report any error we got.
@@ -372,8 +372,8 @@ class LKModel {
         let extensionDataManager = LKSharedExtensionDataManager()
         extensionDataManager.saveCountdownItemsToExtension(self.items)
         
-        println("data saved to extension: \(self.items)")
-        println("data resd from extension: \(extensionDataManager.loadCountdownItemsForExtension())")
+        //println("data saved to extension: \(self.items)")
+        //println("data resd from extension: \(extensionDataManager.loadCountdownItemsForExtension())")
     }    
     
 }

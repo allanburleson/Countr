@@ -110,13 +110,13 @@
 		5D56C2061A77F161000E0FE3 /* UIAppearance+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
 		5D56C2071A77F161000E0FE3 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		5D57D4961A481F770030EF9C /* Countr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Countr.entitlements; sourceTree = "<group>"; };
-		5D57D4991A48219E0030EF9C /* LKModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKModel.swift; sourceTree = "<group>"; };
+		5D57D4991A48219E0030EF9C /* LKModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKItemCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKItemCell.xib; sourceTree = "<group>"; };
 		5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKPurchasePremiumCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D8721001A7D64C200F6C527 /* LKPurchasePremiumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKPurchasePremiumCell.xib; sourceTree = "<group>"; };
 		5D97BC0B1A4960B700C685A4 /* LocalData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LocalData.plist; sourceTree = "<group>"; };
-		5D9DAA071A7BD3E400CED935 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5D9DAA071A7BD3E400CED935 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Extensions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D9DAA0C1A7BE19A00CED935 /* NSDate_Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NSDate_Playground.playground; sourceTree = "<group>"; };
 		5DAA33891A2B19EB006DDB65 /* Countr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAA338D1A2B19EB006DDB65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };

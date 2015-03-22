@@ -79,4 +79,4 @@ for index in 1...10 {
 
 let _dateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitHour|NSCalendarUnit.CalendarUnitMinute|NSCalendarUnit.CalendarUnitDay|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitYear, fromDate: NSDate())
 
-//println("\(dateComponents.hour)"
+////println("\(dateComponents.hour)
