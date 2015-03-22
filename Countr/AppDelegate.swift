@@ -37,24 +37,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = titleTextAttributes
         let segmentedControlTitleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName : UIFont(name: "Avenir-Book", size: 13)!]
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlTitleTextAttributes, forState: UIControlState.Normal)
-        //UILabel.appearance().textAlignment = NSTextAlignment.Center
         
         application.registerForRemoteNotifications()
         
         
-        /*
-        // Register for local notifications
+
         let localNotificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil)
         application.registerUserNotificationSettings(localNotificationSettings)
         
-        //println("current local notifications: \(application.scheduledLocalNotifications.count)")
-        */
         
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         
         self.registerForiCloudNotifications()
         
-        //println("Device is 12hr format: \(UIDevice.currentDevice().is12HourFormat)")
+        
         
         // Setup Google Analytics
         GAI.sharedInstance().trackUncaughtExceptions = true
@@ -62,8 +58,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GAI.sharedInstance().trackerWithTrackingId("UA-49744076-4")
         
         
+        // Setup background fetch
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
+        
         
         return true
+    }
+    
+    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        let startDate = NSDate()
+        println("application(application:, performFetchWithCompletionHandler")
+        let model = LKModel.sharedInstance
+        model.saveDataForExtension()
+        
+        println("abckgroundFetchEnded. Duration: \(startDate.timeIntervalSinceNow.positive) seconds")
+        completionHandler(UIBackgroundFetchResult.NewData)
+        
     }
     
     func registerForiCloudNotifications() {

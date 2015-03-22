@@ -141,7 +141,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Countr Premium Features" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK9-6W-Qcl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countr Premium Features" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK9-6W-Qcl">
                                 <rect key="frame" x="16" y="75" width="479" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -260,7 +260,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JvY-x7-HSN">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="JvY-x7-HSN">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JvY-x7-HSN" id="Izl-8v-pXY">
@@ -303,27 +303,6 @@
                                                 <constraint firstItem="StU-Cc-TdA" firstAttribute="top" secondItem="LuT-ly-WoG" secondAttribute="topMargin" constant="3" id="SeF-A9-O9a"/>
                                                 <constraint firstItem="StU-Cc-TdA" firstAttribute="trailing" secondItem="LuT-ly-WoG" secondAttribute="trailingMargin" id="UeL-CE-pNl"/>
                                                 <constraint firstItem="StU-Cc-TdA" firstAttribute="leading" secondItem="LuT-ly-WoG" secondAttribute="leading" constant="16" id="j9M-a9-aq9"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="azA-Fz-6Vb">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="azA-Fz-6Vb" id="mID-fi-oi9">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udG-OD-yGS">
-                                                    <rect key="frame" x="16" y="11" width="576" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="udG-OD-yGS" firstAttribute="trailing" secondItem="mID-fi-oi9" secondAttribute="trailingMargin" id="csd-Zo-21N"/>
-                                                <constraint firstItem="udG-OD-yGS" firstAttribute="top" secondItem="mID-fi-oi9" secondAttribute="topMargin" constant="3" id="gdS-NZ-nVi"/>
-                                                <constraint firstItem="udG-OD-yGS" firstAttribute="leading" secondItem="mID-fi-oi9" secondAttribute="leadingMargin" constant="8" id="yBW-Bq-vVL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -398,7 +377,6 @@
                         <outlet property="premiumFeaturesTextLabel" destination="rpr-ZO-t5h" id="Ihe-fr-VEO"/>
                         <outlet property="sendFeedbackCell" destination="Ca3-84-OZb" id="NnA-aV-Tcd"/>
                         <outlet property="sendFeedbackTextLabel" destination="StU-Cc-TdA" id="gjh-Vq-L5U"/>
-                        <outlet property="supportTextLabel" destination="udG-OD-yGS" id="uiv-wL-cVF"/>
                         <outlet property="versionNumberLabel" destination="1dt-CC-ODz" id="rcH-oy-WI9"/>
                         <outlet property="versionTextLabel" destination="NZf-r4-utw" id="U7W-cP-Tty"/>
                     </connections>

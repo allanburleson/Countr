@@ -26,7 +26,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     @IBOutlet weak var copyrightLabel: UILabel!
     @IBOutlet weak var deleteAllDataTextLabel: UILabel!
     @IBOutlet weak var sendFeedbackCell: UITableViewCell!
-    @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //TODO: What is this?
+    @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //This is the dont bar button in the upper left corner
     @IBOutlet weak var deleteAllDataLabel: UILabel!
     
     //let webViewController = PBWebViewController()
@@ -42,7 +42,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         self.versionTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.versionTextLabel", comment: "")
         self.premiumFeaturesTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.unlockEverything", comment: "")
         self.sendFeedbackTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.feedbackLabel", comment: "")
-        self.supportTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.supportLabel", comment: "")
+        //self.supportTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.supportLabel", comment: "")
         self.deleteAllDataTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.deleteAllDataLabel", comment: "")
         self.copyrightLabel.text = NSLocalizedString("me.kollmer.countr.infoView.copyrightLabel", comment: "")
         

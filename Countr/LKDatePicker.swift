@@ -60,7 +60,6 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
                 return NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
             default:
                 return NSDate()
-                break
             }
 
         }

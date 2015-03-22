@@ -292,11 +292,3 @@ extension NSDate {
 
 
 }
-
-extension Int {
-    var positive: Int {
-        get {
-            return abs(self)
-        }
-    }
-}

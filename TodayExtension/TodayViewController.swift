@@ -28,6 +28,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet var itemOneLabels: [UILabel]!
     @IBOutlet var itemTwoLabels: [UILabel]!
     @IBOutlet var itemThreeLabels: [UILabel]!
+    @IBOutlet var itemTwoLayoutConstraints: [NSLayoutConstraint]!
+    @IBOutlet var itemThreeLayoutConstraints: [NSLayoutConstraint]!
     
     @IBOutlet weak var messageLabel: UILabel!
     
@@ -40,9 +42,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             view.frame = CGRectZero
             view.removeFromSuperview()
         }
-        
-        
-        self.preferredContentSize = CGSizeMake(320, 246)
         
         self.itemsCached = self.extensionDataManager.loadCountdownItemsForExtension()
         
@@ -65,11 +64,32 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        println("viewDidAppear")
+        self.view.updateConstraints()
         
         //println("data loaded in extension: \(self.countdownManager.items())")
         //println("number of items loaded in teh \(self.countdownManager.items().count)")
         
         configureViewForCountdownItems()
+        let _tempTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "log_view", userInfo: nil, repeats: false)
+    }
+    
+    func log_view() {
+        println("\n\n\n")
+        println("------Section 1------")
+        println("**countdownLabel** \nText: \(self.countdownRemainingLabels[0].text), \nframe: \(self.countdownRemainingLabels[0].frame), \nhidden: \(self.countdownRemainingLabels[0].hidden), \nlayoutConstraints: \(self.countdownRemainingLabels[0].constraints())")
+        println("\n")
+        println("**titleLabel** \nText: \(self.countdownTitleLabels[0].text), \nframe: \(self.countdownTitleLabels[0].frame), \nhidden: \(self.countdownTitleLabels[0].hidden), \nlayoutConstraints: \(self.countdownTitleLabels[0].constraints())")
+        println("\n\n")
+        println("------Section 2------")
+        println("**countdownLabel** \nText: \(self.countdownRemainingLabels[1].text), \nframe: \(self.countdownRemainingLabels[1].frame), \nhidden: \(self.countdownRemainingLabels[1].hidden), \nlayoutConstraints: \(self.countdownRemainingLabels[1].constraints())")
+        println("\n")
+        println("**titleLabel** \nText: \(self.countdownTitleLabels[1].text), \nframe: \(self.countdownTitleLabels[1].frame), \nhidden: \(self.countdownTitleLabels[1].hidden), \nlayoutConstraints: \(self.countdownTitleLabels[1].constraints())")
+        println("\n\n")
+        println("------Section 3------")
+        println("**countdownLabel** \nText: \(self.countdownRemainingLabels[2].text), \nframe: \(self.countdownRemainingLabels[2].frame), \nhidden: \(self.countdownRemainingLabels[2].hidden), \nlayoutConstraints: \(self.countdownRemainingLabels[2].constraints())")
+        println("\n")
+        println("**titleLabel** \nText: \(self.countdownTitleLabels[2].text), \nframe: \(self.countdownTitleLabels[2].frame), \nhidden: \(self.countdownTitleLabels[2].hidden), \nlayoutConstraints: \(self.countdownTitleLabels[2].constraints())")
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -111,12 +131,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         switch self.itemsCached.count {
         case 0:
-            //println("0 items")
             for label in self.allLabels {
                 label.hidden = true
                 label.text = nil
                 label.frame = CGRectZero
-                self.preferredContentSize = CGSizeMake(0, 40)
             }
             
             for view in self.backgroundViews {
@@ -125,23 +143,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 view.removeFromSuperview()
             }
             self.messageLabel.hidden = false
+            
+            self.preferredContentSize = CGSizeMake(0, 82)
             break
         case 1:
-            //println("1 items")
-            
-            
-            /*
-            self.backgroundViews[1].hidden = true
-            self.backgroundViews[1].frame = CGRectZero
-            self.backgroundViews[1].removeFromSuperview()
-            
-            self.backgroundViews[2].hidden = true
-            self.backgroundViews[2].frame = CGRectZero
-            self.backgroundViews[2].removeFromSuperview()
-            */
-            
-            
-
             
             for label in self.itemTwoLabels {
                 label.hidden = true
@@ -155,27 +160,28 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 label.frame = CGRectZero
             }
             
-            self.preferredContentSize = CGSizeMake(0, 70)
+            for constraint in self.itemTwoLayoutConstraints {
+                constraint.constant = 0
+            }
+            
+            for constraint in self.itemThreeLayoutConstraints {
+                constraint.constant = 0
+            }
+            
+            self.preferredContentSize = CGSizeMake(0, 82)
             startTimer()
             break
         case 2:
-            
-            //println("2 items")
-            
-            
             for label in self.itemThreeLabels {
                 label.hidden = true
                 label.text = nil
                 label.frame = CGRectZero
             }
+            for constraint in self.itemThreeLayoutConstraints {
+                constraint.constant = 0
+            }
             
-            /*
-            self.backgroundViews[2].hidden = true
-            self.backgroundViews[2].frame = CGRectZero
-            self.backgroundViews[2].removeFromSuperview()
-            */
-            
-            self.preferredContentSize = CGSizeMake(0, 135)
+            self.preferredContentSize = CGSizeMake(0, 164)
             startTimer()
             break
         case 3:
@@ -192,6 +198,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             let index = find(self.itemsCached, item)!
             self.countdownTitleLabels[index].text = item.name
         }
+        
+        self.updateViewConstraints()
 
     }
     
@@ -237,6 +245,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
 */
+    
+    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
+        println("default edge insets: top: \(defaultMarginInsets.top), left: \(defaultMarginInsets.left), bottom: \(defaultMarginInsets.bottom), right: \(defaultMarginInsets.right)")
+        return UIEdgeInsetsMake(0, 47, 0, 0)
+    }
     
     
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="M4Y-Lb-cyx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -22,25 +22,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="yZi-qK-j4J" appends="YES" id="Bcl-38-vnc"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cD9-J8-SSP">
                                 <rect key="frame" x="0.0" y="82" width="320" height="82"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="2ww-7o-mOh" appends="YES" id="pTL-Zw-Rtb"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wyi-Uo-F7t">
                                 <rect key="frame" x="0.0" y="164" width="320" height="82"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="vqG-7a-Nfj" appends="YES" id="Zfb-Ag-piV"/>
-                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vm-nC-Eqq">
                                 <rect key="frame" x="16" y="8" width="288" height="30"/>
@@ -124,7 +115,6 @@
                             <constraint firstItem="cnC-NG-t9Q" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="j65-aD-oFF"/>
                             <constraint firstItem="28F-ml-dxg" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="maW-Eg-5hc"/>
                             <constraint firstItem="ru6-xu-ced" firstAttribute="top" secondItem="28F-ml-dxg" secondAttribute="bottom" constant="8" id="pKv-BM-em5"/>
-                            <constraint firstItem="gJp-d9-Tcv" firstAttribute="top" secondItem="6vQ-dU-dVc" secondAttribute="bottom" constant="8" id="ptc-4K-5xh"/>
                             <constraint firstItem="ru6-xu-ced" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="vbt-mn-MRH"/>
                             <constraint firstItem="6vQ-dU-dVc" firstAttribute="top" secondItem="ru6-xu-ced" secondAttribute="bottom" constant="23" id="wph-bN-gT3"/>
                             <constraint firstItem="28F-ml-dxg" firstAttribute="top" secondItem="Xlk-cu-Bv8" secondAttribute="bottom" constant="23" id="yax-oV-90Y"/>
@@ -137,32 +127,37 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="246"/>
                     <connections>
-                        <outlet property="messageLabel" destination="ghl-cq-CZ8" id="O4b-a2-3Jq"/>
+                        <outlet property="messageLabel" destination="ghl-cq-CZ8" id="761-Xl-WaS"/>
                         <outlet property="view" destination="S3S-Oj-5AN" id="upn-SX-4or"/>
-                        <outletCollection property="countdownTitleLabels" destination="Xlk-cu-Bv8" collectionClass="NSMutableArray" id="VXU-jx-Mlz"/>
-                        <outletCollection property="countdownTitleLabels" destination="ru6-xu-ced" collectionClass="NSMutableArray" id="TX7-q8-tBa"/>
-                        <outletCollection property="countdownTitleLabels" destination="gJp-d9-Tcv" collectionClass="NSMutableArray" id="eJX-0A-L9z"/>
-                        <outletCollection property="countdownRemainingLabels" destination="5Vm-nC-Eqq" collectionClass="NSMutableArray" id="bDM-dR-Wg2"/>
-                        <outletCollection property="countdownRemainingLabels" destination="28F-ml-dxg" collectionClass="NSMutableArray" id="EqF-Mq-Jv5"/>
-                        <outletCollection property="countdownRemainingLabels" destination="6vQ-dU-dVc" collectionClass="NSMutableArray" id="EBO-Oq-DPC"/>
-                        <outletCollection property="allLabels" destination="5Vm-nC-Eqq" collectionClass="NSMutableArray" id="vZx-BN-HNW"/>
-                        <outletCollection property="allLabels" destination="Xlk-cu-Bv8" collectionClass="NSMutableArray" id="zc0-gb-IlC"/>
-                        <outletCollection property="allLabels" destination="28F-ml-dxg" collectionClass="NSMutableArray" id="j8G-x9-d3g"/>
-                        <outletCollection property="allLabels" destination="ru6-xu-ced" collectionClass="NSMutableArray" id="sQK-sQ-Sme"/>
-                        <outletCollection property="allLabels" destination="6vQ-dU-dVc" collectionClass="NSMutableArray" id="zP5-vs-40h"/>
-                        <outletCollection property="allLabels" destination="gJp-d9-Tcv" collectionClass="NSMutableArray" id="eKx-SD-b2V"/>
-                        <outletCollection property="itemOneLabels" destination="5Vm-nC-Eqq" collectionClass="NSMutableArray" id="b71-oM-81Z"/>
-                        <outletCollection property="itemOneLabels" destination="Xlk-cu-Bv8" collectionClass="NSMutableArray" id="cu4-B8-RT7"/>
-                        <outletCollection property="itemTwoLabels" destination="28F-ml-dxg" collectionClass="NSMutableArray" id="Hye-7d-fVe"/>
-                        <outletCollection property="itemTwoLabels" destination="ru6-xu-ced" collectionClass="NSMutableArray" id="VVI-ns-cuW"/>
-                        <outletCollection property="itemThreeLabels" destination="6vQ-dU-dVc" collectionClass="NSMutableArray" id="I6z-oQ-JCQ"/>
-                        <outletCollection property="itemThreeLabels" destination="gJp-d9-Tcv" collectionClass="NSMutableArray" id="JNB-BI-tQb"/>
-                        <outletCollection property="backgroundViews" destination="cnC-NG-t9Q" collectionClass="NSMutableArray" id="1Yt-Ho-8g3"/>
-                        <outletCollection property="backgroundViews" destination="cD9-J8-SSP" collectionClass="NSMutableArray" id="hdx-Yn-gIM"/>
-                        <outletCollection property="backgroundViews" destination="Wyi-Uo-F7t" collectionClass="NSMutableArray" id="dA0-4f-QK7"/>
                         <outletCollection property="gestureRecognizer" destination="yZi-qK-j4J" collectionClass="NSMutableArray" id="xcA-u8-bgb"/>
                         <outletCollection property="gestureRecognizer" destination="2ww-7o-mOh" collectionClass="NSMutableArray" id="M6g-fQ-2vi"/>
                         <outletCollection property="gestureRecognizer" destination="vqG-7a-Nfj" collectionClass="NSMutableArray" id="oHg-ZF-XKG"/>
+                        <outletCollection property="backgroundViews" destination="cnC-NG-t9Q" collectionClass="NSMutableArray" id="zIv-pJ-f3q"/>
+                        <outletCollection property="backgroundViews" destination="cD9-J8-SSP" collectionClass="NSMutableArray" id="e0Q-kO-f96"/>
+                        <outletCollection property="backgroundViews" destination="Wyi-Uo-F7t" collectionClass="NSMutableArray" id="8uY-6a-30Q"/>
+                        <outletCollection property="allLabels" destination="5Vm-nC-Eqq" collectionClass="NSMutableArray" id="iC1-Bs-CV1"/>
+                        <outletCollection property="allLabels" destination="Xlk-cu-Bv8" collectionClass="NSMutableArray" id="RMv-pn-NqD"/>
+                        <outletCollection property="allLabels" destination="28F-ml-dxg" collectionClass="NSMutableArray" id="xcX-A4-CoL"/>
+                        <outletCollection property="allLabels" destination="ru6-xu-ced" collectionClass="NSMutableArray" id="RB8-OF-A0x"/>
+                        <outletCollection property="allLabels" destination="6vQ-dU-dVc" collectionClass="NSMutableArray" id="wgv-Om-Ung"/>
+                        <outletCollection property="allLabels" destination="gJp-d9-Tcv" collectionClass="NSMutableArray" id="eq1-eb-iop"/>
+                        <outletCollection property="countdownRemainingLabels" destination="5Vm-nC-Eqq" collectionClass="NSMutableArray" id="0w6-ZQ-x1x"/>
+                        <outletCollection property="countdownRemainingLabels" destination="28F-ml-dxg" collectionClass="NSMutableArray" id="Uvg-bo-dqn"/>
+                        <outletCollection property="countdownRemainingLabels" destination="6vQ-dU-dVc" collectionClass="NSMutableArray" id="eWx-fe-8Ag"/>
+                        <outletCollection property="countdownTitleLabels" destination="Xlk-cu-Bv8" collectionClass="NSMutableArray" id="BNI-Uy-UdV"/>
+                        <outletCollection property="countdownTitleLabels" destination="ru6-xu-ced" collectionClass="NSMutableArray" id="RKl-o3-7sQ"/>
+                        <outletCollection property="countdownTitleLabels" destination="gJp-d9-Tcv" collectionClass="NSMutableArray" id="xHg-Ac-YbM"/>
+                        <outletCollection property="itemOneLabels" destination="5Vm-nC-Eqq" collectionClass="NSMutableArray" id="An1-fF-11N"/>
+                        <outletCollection property="itemOneLabels" destination="Xlk-cu-Bv8" collectionClass="NSMutableArray" id="LiZ-RV-850"/>
+                        <outletCollection property="itemTwoLabels" destination="28F-ml-dxg" collectionClass="NSMutableArray" id="SVW-kq-dlQ"/>
+                        <outletCollection property="itemTwoLabels" destination="ru6-xu-ced" collectionClass="NSMutableArray" id="gCs-du-D9X"/>
+                        <outletCollection property="itemThreeLabels" destination="6vQ-dU-dVc" collectionClass="NSMutableArray" id="90i-7g-FXc"/>
+                        <outletCollection property="itemThreeLabels" destination="gJp-d9-Tcv" collectionClass="NSMutableArray" id="GH9-dq-uYV"/>
+                        <outletCollection property="itemTwoLayoutConstraints" destination="yax-oV-90Y" collectionClass="NSMutableArray" id="eno-Ph-RUw"/>
+                        <outletCollection property="itemTwoLayoutConstraints" destination="pKv-BM-em5" collectionClass="NSMutableArray" id="GY0-vz-UNz"/>
+                        <outletCollection property="itemThreeLayoutConstraints" destination="wph-bN-gT3" collectionClass="NSMutableArray" id="2ph-OB-mK2"/>
+                        <outletCollection property="itemThreeLayoutConstraints" destination="eU7-sp-gyx" collectionClass="NSMutableArray" id="XAt-gS-Uqn"/>
+                        <outletCollection property="itemThreeLayoutConstraints" destination="AuZ-kd-NgE" collectionClass="NSMutableArray" id="goc-tr-6fU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

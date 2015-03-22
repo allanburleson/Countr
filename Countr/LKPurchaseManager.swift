@@ -124,7 +124,6 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     
     private func didFinishPurchaseWithStatus(status: LKPurchaseStatus) {
         let model = LKModel.sharedInstance
-        model.migrateLocalStoreToCloud(sender: self)
         println("didFinishPurchaseWithStatus")
         switch status {
         case .Purchased:

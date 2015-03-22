@@ -308,42 +308,7 @@ class LKModel {
         
         println("data saved to extension: \(self.items)")
         println("data resd from extension: \(extensionDataManager.loadCountdownItemsForExtension())")
-    }
-
-
-    func migrateLocalStoreToCloud(#sender: AnyObject) {
-        println("sender: \(_stdlib_getDemangledTypeName(sender))")
-
-        assert(_stdlib_getDemangledTypeName(sender) == "Countr.LKPurchaseManager", "Called from the wrong class")
-
-        assert(LKPurchaseManager.didPurchase == true, "Did not finish purchase")
-        return
-
-        let _tempOldLocalObjects: [NSManagedObject] = self.rawItems
-        assert(_tempOldLocalObjects.count == self.rawItems.count, "Not all local objects are copied to the temp array")
-
-        self.deleteAllItems(completionHandler: {
-            self.loadData(completionHandler: {
-                for _object in _tempOldLocalObjects {
-                    let item = LKCountdownItem(object: _object)
-                    self.saveNewItem(item)
-                }
-            })
-
-            self.refreshUI()
-        })
-
-
-
-    }
-    
-    /*
-    
-    - 2015-01-17 16:48:58.408 TodayExtension[19400:836253] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](808): CoreData: Ubiquity:  nobody~simC0D80D01-2C3F-511F-A8E9-56C7D8509B7E:CountrStore
-    2015-01-17 16:50:11.137 Countr[19435:839207]           -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](808): CoreData: Ubiquity:  nobody~simC0D80D01-2C3F-511F-A8E9-56C7D8509B7E:CountrStore
-
-*/
-    
+    }    
     
 }
 
