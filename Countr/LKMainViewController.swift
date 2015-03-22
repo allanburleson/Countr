@@ -20,6 +20,8 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
     override func loadView() {
         super.loadView()
         
+        self.view.backgroundColor = UIColor.backgroundColor()
+        
         self.adBannerView.delegate = self
         self.adBannerView.hidden = true
         
@@ -38,7 +40,7 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "embedCollectionView" {
-            self.collectionViewController = segue.destinationViewController as LKMainCollectionViewController
+            self.collectionViewController = segue.destinationViewController as? LKMainCollectionViewController
             //println("self.bounds: \(self.view.bounds)")
             self.collectionViewController?.collectionView?.bounds = self.view.bounds
             //println("collectionView.bounds: \(self.collectionViewController?.collectionView?.bounds)")

@@ -1,0 +1,27 @@
+PODS:
+  - GoogleAnalytics-iOS-SDK (3.10):
+    - GoogleAnalytics-iOS-SDK/Core (= 3.10)
+  - GoogleAnalytics-iOS-SDK/Core (3.10)
+  - NSDate+Helper (1.0.0)
+  - Reveal-iOS-SDK (1.5.1)
+
+DEPENDENCIES:
+  - GoogleAnalytics-iOS-SDK (~> 3.10)
+  - NSDate+Helper (from `https://github.com/lukaskollmer/nsdate-helper.git`)
+  - Reveal-iOS-SDK
+
+EXTERNAL SOURCES:
+  NSDate+Helper:
+    :git: https://github.com/lukaskollmer/nsdate-helper.git
+
+CHECKOUT OPTIONS:
+  NSDate+Helper:
+    :commit: 7faf6421403cadfa2215bdebd1ec3ff8b16abfd5
+    :git: https://github.com/lukaskollmer/nsdate-helper.git
+
+SPEC CHECKSUMS:
+  GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
+  NSDate+Helper: 38676f1c2bd50fcebcebf8fc281276e1f18df18c
+  Reveal-iOS-SDK: dcfeb671c7da222c85f18f866da2ce88de075524
+
+COCOAPODS: 0.36.0
