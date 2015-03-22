@@ -71,7 +71,7 @@ class LKCountdownManager: NSObject {
         return self.model.items
     }
     
-    func itemsDueToday() -> [LKCountdownItem] {
+    private func itemsDueToday() -> [LKCountdownItem] {
         let allItems = self.model.items
         let today = NSDate()
         var _todayItems: [LKCountdownItem] = []
@@ -162,6 +162,11 @@ class LKCountdownManager: NSObject {
     
     func saveDataForExtension() {
         self.model.saveDataForExtension()
+    }
+    
+    func updateApplicationBadgeToNumberOfItemsDueToday() {
+        let numberOfItemsDueToday = itemsDueToday().count
+        UIApplication.sharedApplication().applicationIconBadgeNumber = numberOfItemsDueToday
     }
     
     
