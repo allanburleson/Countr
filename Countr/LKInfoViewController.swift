@@ -18,6 +18,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     @IBOutlet weak var versionTextLabel: UILabel!
     @IBOutlet weak var versionNumberLabel: UILabel!
     @IBOutlet weak var premiumFeaturesTextLabel: UILabel!
+    @IBOutlet weak var unlockEverythingCell: UITableViewCell!
     
     @IBOutlet weak var sendFeedbackTextLabel: UILabel!
     
@@ -49,6 +50,10 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         // Google Analytics
         tracker.set(kGAIScreenName, value: "Info")
         tracker.send(GAIDictionaryBuilder.createScreenView().build())
+        
+        if LKPurchaseManager.didPurchase {
+            unlockEverythingCell.accessoryType = .Checkmark
+        }
 
         
     }

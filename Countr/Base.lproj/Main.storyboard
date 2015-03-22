@@ -184,6 +184,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7M6-ki-brY"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
                                 <state key="normal" title="Restore">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -377,6 +378,7 @@
                         <outlet property="premiumFeaturesTextLabel" destination="rpr-ZO-t5h" id="Ihe-fr-VEO"/>
                         <outlet property="sendFeedbackCell" destination="Ca3-84-OZb" id="NnA-aV-Tcd"/>
                         <outlet property="sendFeedbackTextLabel" destination="StU-Cc-TdA" id="gjh-Vq-L5U"/>
+                        <outlet property="unlockEverythingCell" destination="JvY-x7-HSN" id="Thu-6E-doG"/>
                         <outlet property="versionNumberLabel" destination="1dt-CC-ODz" id="rcH-oy-WI9"/>
                         <outlet property="versionTextLabel" destination="NZf-r4-utw" id="U7W-cP-Tty"/>
                     </connections>

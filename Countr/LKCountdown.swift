@@ -136,7 +136,7 @@ class LKCountdownManager: NSObject {
     }
     
     
-    private func update() {
+    func update() {
         
         for item in self.items() {
             
