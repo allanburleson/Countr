@@ -22,8 +22,11 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     var didFinishLoadingCompletionHandler: () -> () = {}
     var didFinishBuyingProductCompletionHandler: (status: LKPurchaseStatus) -> ()
     
-    lazy var tracker = GAI.sharedInstance().defaultTracker
+    lazy private var tracker = GAI.sharedInstance().defaultTracker
     
+    /**
+    A Bool indicating if the user has already purchased the premium features
+    */
     class var didPurchase: Bool {
         get {
             let purchased = NSUbiquitousKeyValueStore.defaultStore().boolForKey(didPurchasePremiumFeaturesKey)
@@ -38,6 +41,9 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
         super.init()
     }
     
+    /**
+    Load the products from the store
+    */
     func load() {
         if SKPaymentQueue.canMakePayments() {
             println("The pyment queue can make paymants, will continue")
@@ -52,10 +58,16 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
         }
     }
     
+    /**
+    Buy the premium features IAP
+    */
     func buy() {
         self.makePurchase(self.recivedProduct[0])
     }
     
+    /**
+    Restore a previously made IAP
+    */
     func restore() {
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
@@ -151,6 +163,14 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
 
 }
 
+/**
+An Enum representing the possible values of a purchase.
+
+-  Purchased
+-  Restored
+-  Cancelled
+-  Failed
+*/
 enum LKPurchaseStatus {
     case Purchased
     case Restored

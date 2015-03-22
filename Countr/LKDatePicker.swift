@@ -11,6 +11,9 @@ import UIKit
 
 typealias LKDatePickerMode = UIDatePickerMode
 
+/**
+A UIPicker subclass that behaves like the default UIDatePicker, but uses Avenir
+*/
 class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     /*
@@ -22,6 +25,9 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
     */
     
     
+    /**
+    The mode of the date picker
+    */
     var pickerMode: LKDatePickerMode = .Date {
         didSet {
             self.reloadAllComponents()
@@ -29,6 +35,9 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
     
+    /**
+    The date displayed by the picker
+    */
     var date: NSDate {
         get {
             switch self.pickerMode {
@@ -82,7 +91,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         commonInit()
     }
 
-    func commonInit() {
+    private func commonInit() {
         self.delegate = self
         self.dataSource = self
         
@@ -96,7 +105,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     
-    func setSelectedRows() {
+    private func setSelectedRows() {
         let dateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitHour|NSCalendarUnit.CalendarUnitMinute, fromDate: NSDate())
         
         if UIDevice.currentDevice().is12HourFormat && dateComponents.hour > 12 {
@@ -121,11 +130,11 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
     // MARK: UIPickerView DataSource & Delegate
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    internal func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return self.pickerData.componentWithForMode(self.pickerMode).count // The numner of componentWidth information varies
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    internal func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch self.pickerMode {
         case .Date:
             switch component {
@@ -164,7 +173,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
+    internal func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
         let label = UILabel()
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
@@ -201,13 +210,13 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         return label
     }
     
-    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+    internal func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return self.pickerData.componentWithForMode(self.pickerMode)[component]
     }
 }
 
 
-class LKPickerData {
+private class LKPickerData {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 

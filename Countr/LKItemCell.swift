@@ -16,11 +16,21 @@ class LKItemCell: UICollectionViewCell {
     @IBOutlet weak private var titleLabel: UILabel!
     
     private var tapGestureRecognizer: UITapGestureRecognizer!
-    private(set) var longPressGestureRecognizer: UILongPressGestureRecognizer!
+    private var longPressGestureRecognizer: UILongPressGestureRecognizer!
     
+    /**
+    The action to be executed when the user taps the cell
+    */
     var shortPressAction: () -> () = {}
+    
+    /**
+    The action to be executed when the user long-presses the cell
+    */
     var longPressAction: () -> () = {}
     
+    /**
+    The countdown item to be displayed in the cell
+    */
     var countdownItem: LKCountdownItem! {
         didSet {
             self.titleLabel.text = self.countdownItem.name
@@ -28,6 +38,9 @@ class LKItemCell: UICollectionViewCell {
         }
     }
     
+    /**
+    Updates the label displaying the time remaining
+    */
     func updateTimeRemainignLabel() {
         self.countdownLabel.text = self.countdownItem.remaining.asString
     }
@@ -51,12 +64,12 @@ class LKItemCell: UICollectionViewCell {
         self.addGestureRecognizer(self.longPressGestureRecognizer)
     }
     
-    func didLongPress() {
+    private func didLongPress() {
         //println("didLongPressOnCell")
         self.longPressAction()
     }
     
-    func didTap() {
+    private func didTap() {
         self.shortPressAction()
     }
 

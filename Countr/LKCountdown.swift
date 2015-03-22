@@ -13,9 +13,20 @@ import CoreData
 
 public let didDeleteAllItemsKey = "didDeleteAllItems"
 
+/**
+The modes a countdown can have
+
+Possible modes are: 
+
+-  Date
+-  DateAndTime
+
+*/
 typealias LKCountdownMode = UIDatePickerMode
 
-
+/**
+The Main class for managing the countdown Items
+*/
 class LKCountdownManager: NSObject {
     
     class var sharedInstance : LKCountdownManager {
@@ -38,12 +49,24 @@ class LKCountdownManager: NSObject {
     var didDeleteItemCompletionClosure: (item: LKCountdownItem) -> ()
     var didDeleteAllItemsCompletionClosure: () -> ()
     
+    /**
+    The number of countdown items
+    
+    :returns: The number of items as an Int object
+    */
     var numberOfItems: Int {
         get {
             return self.items().count
         }
     }
     
+    /**
+    Indicates if the user currently can add new countdown items
+    
+    :returns: A bool indicating if the user can add new countdwown items
+    
+    
+    */
     var canAddCountdowns: Bool {
         get {
             //println("self.items.count = \(self.numberOfItems)")
@@ -66,12 +89,19 @@ class LKCountdownManager: NSObject {
         super.init()
     }
     
+    /**
+    All countdown items
     
+    :returns: An Array of LKCountdownItem objects
+
+    */
     func items() -> [LKCountdownItem]! {
         return self.model.items
     }
-    
-    private func itemsDueToday() -> [LKCountdownItem] {
+    /**
+    All Countdown items where the data equals todays date
+    */
+    func itemsDueToday() -> [LKCountdownItem] {
         let allItems = self.model.items
         let today = NSDate()
         var _todayItems: [LKCountdownItem] = []
@@ -84,23 +114,29 @@ class LKCountdownManager: NSObject {
         
         return _todayItems
     }
-    
+    /**
+    Reload the countdown items from the CoreData model
+    */
     func reload() {
         self.model.reloadItems()
     }
-    
+    /**
+    Start updating the timeRemaining property of all countdown items in self.items
+    */
     func startUpdates() {
         self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
     
-    
+    /**
+    Stop updating the timeRemaining property of all countdown items in self.items
+    */
     func endUpdates() {
         self.updateTimer?.invalidate()
         self.updateTimer = nil
     }
     
     
-    func update() {
+    private func update() {
         
         for item in self.items() {
             
@@ -112,11 +148,22 @@ class LKCountdownManager: NSObject {
 
     }
     
+    /**
+    Update the remaining time property of the countown item at a certain indexPath
+    
+    :param: item The item var of the items indexPath
+    */
     func updateCellAtItem(item: Int) {
         self.items()[item].updateTimeRemaining()
     }
     
+    /**
+    Save a new countdown item
     
+    :param: item The item to be saved
+    :param: countdownMode The Mode of the item (either Date or DateAndTime)
+    :param: completionHandler A closure which is executed when the item was sucessfully saved
+    */
     func saveNewCountdownItem(item: LKCountdownItem, countdownMode: LKCountdownMode, completionHandler: () -> Void) {
         var adaptedItem: LKCountdownItem!
         
@@ -142,7 +189,11 @@ class LKCountdownManager: NSObject {
         self.didAddNewItemCompletionClosure(item: item)
 
     }
+    /**
+    Delete a countdown item
     
+    :param: item The item to be deleted
+    */
     func deleteCountdownItem(item: LKCountdownItem) {
         self.model.deleteItem(item)
         
@@ -153,26 +204,59 @@ class LKCountdownManager: NSObject {
             self.endUpdates()
         }
     }
+    /**
+    Delete all countdown items
     
+    :param: completionHandler A closure which is executed when all items were sucessfully deleted
+    */
     func deleteAllItems(completionHandler: () -> ()) {
         self.model.deleteAllItems(completionHandler)
         self.didDeleteAllItemsCompletionClosure()
     }
     
-    
+    /**
+    Save the countdown items to the Today Extension
+    */
     func saveDataForExtension() {
         self.model.saveDataForExtension()
     }
     
-    func updateApplicationBadgeToNumberOfItemsDueToday() {
-        let numberOfItemsDueToday = itemsDueToday().count
-        UIApplication.sharedApplication().applicationIconBadgeNumber = numberOfItemsDueToday
-    }
-    
-    
     
 }
 
+/**
+A struct representing the time remaining to a certain date
+
+Available properties are (all readonly):
+
+- days: (Int)
+- hours: (Int)
+- minutes: (Int)
+- seconds: (Int)
+*/
+public struct TimeRemaining {
+    /**
+    The number of days left to a certain date
+    */
+    private(set) var days: Int = 0
+    /**
+    The number of hours left to a certain date
+    */
+    private(set) var hours: Int = 0
+    /**
+    The number of minutes left to a certain date
+    */
+    private(set) var minutes: Int = 0
+    /**
+    The number of seconds left to a certain date
+    */
+    private(set) var seconds: Int = 0
+    private(set) var asString: String = "000 : 00 : 00 : 00"
+}
+
+/**
+A countdown item
+*/
 class LKCountdownItem: NSObject, Printable {
     
     let name: String!
@@ -180,20 +264,30 @@ class LKCountdownItem: NSObject, Printable {
     let id: String!
     let countdownMode: LKCountdownMode!
     
+    /**
+    The managedObject of which the countdownItem was created
+    */
     let managedObject: NSManagedObject!
     
+    /**
+    A Closure which is executed every time the remaining time of the countdown item was updated
+    */
     var timeUpdatedClosure: () -> () = {}
     
+    /**
+    The time remaining to the reference date
+    */
     private(set) var remaining: TimeRemaining = TimeRemaining()
     
-    struct TimeRemaining {
-        private(set) var days: Int = 0
-        private(set) var hours: Int = 0
-        private(set) var minutes: Int = 0
-        private(set) var seconds: Int = 0
-        private(set) var asString: String = "000 : 00 : 00 : 00"
-    }
     
+    /**
+    Create a new Countdown Item manually
+    
+    :param: name The title of the item
+    :param: date The date to which the item counts
+    :param: mode The countdown mode (either Date or DateAndTime)
+    :param: id default the UUID of th eitem. Can be omitted when creating new countdown items. Only used in today extension
+    */
     init(name: String, date: NSDate, mode: LKCountdownMode, id: NSUUID = NSUUID()) {
         self.name = name
         self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: nil)
@@ -203,6 +297,11 @@ class LKCountdownItem: NSObject, Printable {
         self.countdownMode = mode
     }
     
+    /**
+    Create a new countdown item from an NSManagedObject
+    
+    :param: object The NSManagedObject to use when the item is created
+    */
     init(object: NSManagedObject) {
         self.name = object.valueForKey(coreDataNameKey) as String
         self.date = object.valueForKey(coreDataDateKey) as NSDate
@@ -212,6 +311,11 @@ class LKCountdownItem: NSObject, Printable {
         self.managedObject = object
     }
     
+    /**
+    Create a new countdown item from an CKRecord
+    
+    :param: cloudRecord The CKReckord to use when the item is created
+    */
     init(cloudRecord: CKRecord) {
         //println("input cloudRecord: \(cloudRecord)")
         
@@ -220,7 +324,9 @@ class LKCountdownItem: NSObject, Printable {
         self.id = cloudRecord.valueForKey(countdownItemRecordIdKey) as String
     }
     
-    
+    /**
+    Update the remaining property
+    */
     func updateTimeRemaining() {
         
         //println("updateTimeRemaining")
@@ -250,12 +356,24 @@ class LKCountdownItem: NSObject, Printable {
 }
 
 extension LKCountdownItem {
+    
+    /**
+    Delete all countdown items
+    
+    :param: item The countdown item to compare the current item with
+    */
     func isEqualToCountdownItem(item: LKCountdownItem) -> Bool {
         return self.id == item.id
     }
 }
 
 extension LKCountdownMode {
+    
+    /**
+    Init a new LKCountdownMode object from a string
+    
+    :param: string The String to be used for creating the LKCountdownMode object
+    */
     init(string: String) {
         if string == coreDataKindDateKey {
             self = .Date
@@ -270,6 +388,11 @@ extension LKCountdownMode {
         self = .Date
     }
     
+    /**
+    Get a string representation of the countdown mode
+    
+    :returns: A string object describing the Countdown mode
+    */
     func toString() -> String {
         switch self {
         case .Date:

@@ -10,9 +10,16 @@ import Foundation
 import UIKit
 
 // TODO: add a bool allowing to disable interaction (eg: loading the price from the itunes store: the button is not grayed out but has no (user) interaction enabled
+
+/**
+A subclass of UIButton which is designed to imitate the look of teh buttons used in App/iTunes Store on iOS
+*/
 @IBDesignable
 class LKRoundBorderedButton: UIButton {
     
+    /**
+    A boolean value that determines wheter a plus icon is visible in the top left corner of the button
+    */
     @IBInspectable var plusIconVisible: Bool = false {
         didSet {
             self.setNeedsDisplay()
@@ -69,7 +76,7 @@ class LKRoundBorderedButton: UIButton {
     }
     
     
-    func commonInit() {
+    private func commonInit() {
         self.tintColor = super.tintColor
         self.setTitleColor(self.tintColor, forState: .Normal)
         self.setTitleColor(UIColor(rgba: "#232323"), forState: .Highlighted)
@@ -85,7 +92,7 @@ class LKRoundBorderedButton: UIButton {
     }
     
     
-    func refreshBorderColor() {
+    private func refreshBorderColor() {
         self.layer.borderColor = self.enabled ? self.tintColor?.CGColor : UIColor.grayColor().CGColor
     }
     

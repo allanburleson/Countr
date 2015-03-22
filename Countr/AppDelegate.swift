@@ -47,7 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let countdownManager = LKCountdownManager.sharedInstance
-        countdownManager.updateApplicationBadgeToNumberOfItemsDueToday()
+        let numberOfItemsDueToday = countdownManager.itemsDueToday().count
+        UIApplication.sharedApplication().applicationIconBadgeNumber = numberOfItemsDueToday
         
         self.registerForiCloudNotifications()
         
@@ -90,7 +91,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //  Update Application Badge   //
         /////////////////////////////////
         
-        countdownManager.updateApplicationBadgeToNumberOfItemsDueToday()
+        let numberOfItemsDueToday = countdownManager.itemsDueToday().count
+        UIApplication.sharedApplication().applicationIconBadgeNumber = numberOfItemsDueToday
         
         println("abckgroundFetchEnded. Duration: \(startDate.timeIntervalSinceNow.positive) seconds")
         
