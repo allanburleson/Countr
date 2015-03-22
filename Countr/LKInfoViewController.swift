@@ -80,12 +80,15 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        if !(indexPath.section == 0 && indexPath.row == 1) {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        
         if indexPath.section == 1 {
             switch indexPath.row {
             case 0:
                 // Send Feedback
                 sendFeedback()
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 break
             case 1:
                 // Support (-> Website)

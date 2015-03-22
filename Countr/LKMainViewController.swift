@@ -19,6 +19,7 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
     
     override func loadView() {
         super.loadView()
+        self.title = "Countr"
         
         self.view.backgroundColor = UIColor.backgroundColor()
         
