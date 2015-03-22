@@ -33,7 +33,6 @@
 		5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */; };
 		5D8721011A7D64C200F6C527 /* LKPurchasePremiumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */; };
 		5D8721021A7D64C200F6C527 /* LKPurchasePremiumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8721001A7D64C200F6C527 /* LKPurchasePremiumCell.xib */; };
-		5D97BC0C1A4960B700C685A4 /* LocalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D97BC0B1A4960B700C685A4 /* LocalData.plist */; };
 		5D9DAA081A7BD3E400CED935 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
 		5DAA338F1A2B19EB006DDB65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */; };
 		5DAA33921A2B19EB006DDB65 /* Countr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33901A2B19EB006DDB65 /* Countr.xcdatamodeld */; };
@@ -115,7 +114,6 @@
 		5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKItemCell.xib; sourceTree = "<group>"; };
 		5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKPurchasePremiumCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D8721001A7D64C200F6C527 /* LKPurchasePremiumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKPurchasePremiumCell.xib; sourceTree = "<group>"; };
-		5D97BC0B1A4960B700C685A4 /* LocalData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LocalData.plist; sourceTree = "<group>"; };
 		5D9DAA071A7BD3E400CED935 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Extensions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D9DAA0C1A7BE19A00CED935 /* NSDate_Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NSDate_Playground.playground; sourceTree = "<group>"; };
 		5DAA33891A2B19EB006DDB65 /* Countr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,7 +236,6 @@
 				5D57D4991A48219E0030EF9C /* LKModel.swift */,
 				5D52D6C91ABD84CA0081F0D8 /* extensionData.plist */,
 				5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */,
-				5D97BC0B1A4960B700C685A4 /* LocalData.plist */,
 				5DAA33B71A2B4026006DDB65 /* LKAddItemViewController.swift */,
 				5DAA33951A2B19EB006DDB65 /* Main.storyboard */,
 				5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */,
@@ -449,7 +446,6 @@
 				5DAA33971A2B19EB006DDB65 /* Main.storyboard in Resources */,
 				5DE435E71A7D31870034327A /* App_Icon_png_export.png in Resources */,
 				5D52D6CA1ABD84CA0081F0D8 /* extensionData.plist in Resources */,
-				5D97BC0C1A4960B700C685A4 /* LocalData.plist in Resources */,
 				5D8721021A7D64C200F6C527 /* LKPurchasePremiumCell.xib in Resources */,
 				5DF32FF81A7E831100063FAC /* Localizable.strings in Resources */,
 				5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */,

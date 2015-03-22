@@ -43,6 +43,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             view.removeFromSuperview()
         }
         
+        self.messageLabel.font = UIFont(name: "Avenir-Book", size: 17)
+        
+        for label in allLabels {
+            label.text = ""
+        }
+        
         self.itemsCached = self.extensionDataManager.loadCountdownItemsForExtension()
         
         if !self.itemsCached.isEmpty {
