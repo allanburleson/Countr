@@ -67,12 +67,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        let startDate = NSDate()
+        
         println("application(application:, performFetchWithCompletionHandler")
-        let model = LKModel.sharedInstance
-        model.saveDataForExtension()
+        
+        /////////////////////////////////
+        //      Duration Counting      //
+        /////////////////////////////////
+        
+        // TODO: Remove this before submission
+        let startDate = NSDate()
+        
+        
+        /////////////////////////////////
+        // Save Data for the Extension //
+        /////////////////////////////////
+        
+        let countdownManager = LKCountdownManager.sharedInstance
+        countdownManager.saveDataForExtension()
+        
+        /////////////////////////////////
+        //  Update Application Badge   //
+        /////////////////////////////////
+        
+        let numberOfItemsDueToday = countdownManager.itemsDueToday().count
+        application.applicationIconBadgeNumber = numberOfItemsDueToday
+        
         
         println("abckgroundFetchEnded. Duration: \(startDate.timeIntervalSinceNow.positive) seconds")
+        
+        
         completionHandler(UIBackgroundFetchResult.NewData)
         
     }

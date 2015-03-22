@@ -71,6 +71,20 @@ class LKCountdownManager: NSObject {
         return self.model.items
     }
     
+    func itemsDueToday() -> [LKCountdownItem] {
+        let allItems = self.model.items
+        let today = NSDate()
+        var _todayItems: [LKCountdownItem] = []
+        
+        for item in allItems {
+            if item.date.isEqualToDate(today) {
+                _todayItems.append(item)
+            }
+        }
+        
+        return _todayItems
+    }
+    
     func reload() {
         self.model.reloadItems()
     }
@@ -143,6 +157,11 @@ class LKCountdownManager: NSObject {
     func deleteAllItems(completionHandler: () -> ()) {
         self.model.deleteAllItems(completionHandler)
         self.didDeleteAllItemsCompletionClosure()
+    }
+    
+    
+    func saveDataForExtension() {
+        self.model.saveDataForExtension()
     }
     
     
