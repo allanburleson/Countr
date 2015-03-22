@@ -152,13 +152,13 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
             self.notification.displayNotificationWithMessage(NSLocalizedString("me.kollmer.countr.addItem.noTitleAlert.message", comment: ""), duration: 1.5)
         case .DateIsPast:
             let alertController = LKAlertController.actionSheetWithTitle(NSLocalizedString("me.kollmer.countr.addItem.dateInPastAlert.title", comment: ""), message: NSLocalizedString("me.kollmer.countr.addItem.dateInPastAlert.message", comment: ""))
-            let cancelAction = UIAlertAction(title: NSLocalizedString("me.kollmer.countr.addItem.dateInPastAlert.cancel", comment: ""), style: .Destructive) {(action) in
-                alertController.dismissViewControllerAnimated(true, completion: nil)
-            }
-            
-            let continueAction = UIAlertAction(title: NSLocalizedString("me.kollmer.countr.addItem.dateInPastAlert.continue", comment: ""), style: .Default) {(action) in
+            let cancelAction = UIAlertAction(title: NSLocalizedString("me.kollmer.countr.addItem.dateInPastAlert.continue", comment: ""), style: .Destructive) {(action) in
                 alertController.dismissViewControllerAnimated(true, completion: nil)
                 self.saveItem()
+            }
+            
+            let continueAction = UIAlertAction(title: NSLocalizedString("me.kollmer.countr.addItem.dateInPastAlert.cancel", comment: ""), style: .Default) {(action) in
+                alertController.dismissViewControllerAnimated(true, completion: nil)
             }
 
             alertController.addAction(cancelAction)

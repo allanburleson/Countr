@@ -58,9 +58,10 @@
 
 /*
  Purchase View Controller
+ // Deleted from the features description:  \n\n• Apple Watch: View all your countdowns on your brand-new apple watch
  */
 "me.kollmer.countr.purchaseView.titleLabel" = "Countr Premium Features";
-"me.kollmer.countr.purchaseView.descriptionTextView" = "• Multiple Countdowns: Add more than 2 countdowns \n\n• Remove Ads: Use the whole app without the banner ad at the bottom of the screen \n\n\n\n• Available soon: (Free update for everyone who has purchased the Premium Features)\n\n• Notifications: Get notifications when a countdown is about to be finished \n\n• Apple Watch: View all your countdowns on your brand-new apple watch";
+"me.kollmer.countr.purchaseView.descriptionTextView" = "• Multiple Countdowns: Add more than 2 countdowns \n\n• Remove Ads: Use the whole app without the banner ad at the bottom of the screen \n\n\n\n• Available soon: (Free update for everyone who has purchased the Premium Features)\n\n• Notifications: Get notifications when a countdown is about to be finished";
 "me.kollmer.countr.purchaseView.buyButton.loading" = "Loading …";
 "me.kollmer.countr.purchaseView.buyButton.purchased" = "Purchased";
 "me.kollmer.countr.purchaseView.buyButton.price" = "Buy for %@";
