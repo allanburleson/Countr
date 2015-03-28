@@ -49,7 +49,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             label.text = ""
         }
         
-        self.itemsCached = self.extensionDataManager.loadCountdownItemsForExtension()
+        self.itemsCached = self.extensionDataManager.loadCountdownItemsForExtensionWithType(.TodayExtension)
         
         if !self.itemsCached.isEmpty {
             startTimer()

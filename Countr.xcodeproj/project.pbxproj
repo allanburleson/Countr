@@ -46,7 +46,7 @@
 		5DAB38121ABDD5BC001DBB71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
 		5DAB38131ABDD5C6001DBB71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
 		5DE0732E1A79394500A1071E /* CWStatusBarNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0732D1A79394500A1071E /* CWStatusBarNotification.swift */; };
-		5DE1A4531AC6E2BF005BF8D4 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4521AC6E2BF005BF8D4 /* InterfaceController.swift */; };
+		5DE1A4531AC6E2BF005BF8D4 /* MainTableInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4521AC6E2BF005BF8D4 /* MainTableInterfaceController.swift */; };
 		5DE1A4551AC6E2BF005BF8D4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4541AC6E2BF005BF8D4 /* NotificationController.swift */; };
 		5DE1A4571AC6E2BF005BF8D4 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4561AC6E2BF005BF8D4 /* GlanceController.swift */; };
 		5DE1A4591AC6E2BF005BF8D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE1A4581AC6E2BF005BF8D4 /* Images.xcassets */; };
@@ -54,6 +54,12 @@
 		5DE1A4651AC6E2BF005BF8D4 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE1A4631AC6E2BF005BF8D4 /* Interface.storyboard */; };
 		5DE1A4671AC6E2BF005BF8D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE1A4661AC6E2BF005BF8D4 /* Images.xcassets */; };
 		5DE1A46A1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5DE1A44D1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5DE1A4721AC6E38D005BF8D4 /* LKSharedExtensionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */; };
+		5DE1A4731AC6E391005BF8D4 /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
+		5DE1A4741AC6E395005BF8D4 /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
+		5DE1A4751AC6E3B1005BF8D4 /* LKPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */; };
+		5DE1A4761AC6E3F0005BF8D4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
+		5DE1A4781AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4771AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift */; };
 		5DE435E31A7D1B190034327A /* LKRoundBorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE435E21A7D1B190034327A /* LKRoundBorderedButton.swift */; };
 		5DE435E51A7D250D0034327A /* LKPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */; };
 		5DE435E71A7D31870034327A /* App_Icon_png_export.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DE435E61A7D31870034327A /* App_Icon_png_export.png */; };
@@ -156,7 +162,7 @@
 		5DE1A44D1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Countr WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE1A4501AC6E2BF005BF8D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DE1A4511AC6E2BF005BF8D4 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		5DE1A4521AC6E2BF005BF8D4 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		5DE1A4521AC6E2BF005BF8D4 /* MainTableInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableInterfaceController.swift; sourceTree = "<group>"; };
 		5DE1A4541AC6E2BF005BF8D4 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		5DE1A4561AC6E2BF005BF8D4 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		5DE1A4581AC6E2BF005BF8D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -164,6 +170,8 @@
 		5DE1A4621AC6E2BF005BF8D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DE1A4641AC6E2BF005BF8D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		5DE1A4661AC6E2BF005BF8D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5DE1A4711AC6E374005BF8D4 /* Countr WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Countr WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		5DE1A4771AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownItemDetailInterfaceController.swift; sourceTree = "<group>"; };
 		5DE435E21A7D1B190034327A /* LKRoundBorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKRoundBorderedButton.swift; sourceTree = "<group>"; };
 		5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKPurchaseManager.swift; sourceTree = "<group>"; };
 		5DE435E61A7D31870034327A /* App_Icon_png_export.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_Icon_png_export.png; sourceTree = "<group>"; };
@@ -342,7 +350,9 @@
 		5DE1A44E1AC6E2BF005BF8D4 /* Countr WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				5DE1A4521AC6E2BF005BF8D4 /* InterfaceController.swift */,
+				5DE1A4711AC6E374005BF8D4 /* Countr WatchKit Extension.entitlements */,
+				5DE1A4521AC6E2BF005BF8D4 /* MainTableInterfaceController.swift */,
+				5DE1A4771AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift */,
 				5DE1A4541AC6E2BF005BF8D4 /* NotificationController.swift */,
 				5DE1A4561AC6E2BF005BF8D4 /* GlanceController.swift */,
 				5DE1A4581AC6E2BF005BF8D4 /* Images.xcassets */,
@@ -528,6 +538,11 @@
 					5DE1A44C1AC6E2BF005BF8D4 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = WL6ZJ4C8V3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					5DE1A45B1AC6E2BF005BF8D4 = {
 						CreatedOnToolsVersion = 6.2;
@@ -731,8 +746,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DE1A4551AC6E2BF005BF8D4 /* NotificationController.swift in Sources */,
-				5DE1A4531AC6E2BF005BF8D4 /* InterfaceController.swift in Sources */,
+				5DE1A4721AC6E38D005BF8D4 /* LKSharedExtensionDataManager.swift in Sources */,
+				5DE1A4741AC6E395005BF8D4 /* LKCountdown.swift in Sources */,
+				5DE1A4761AC6E3F0005BF8D4 /* Extensions.swift in Sources */,
+				5DE1A4531AC6E2BF005BF8D4 /* MainTableInterfaceController.swift in Sources */,
 				5DE1A4571AC6E2BF005BF8D4 /* GlanceController.swift in Sources */,
+				5DE1A4731AC6E391005BF8D4 /* LKModel.swift in Sources */,
+				5DE1A4781AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift in Sources */,
+				5DE1A4751AC6E3B1005BF8D4 /* LKPurchaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,8 +1065,10 @@
 		};
 		5DE1A46F1AC6E2C0005BF8D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3DBA926475D472657B32222 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Stefan Kollmer (JF72348LUT)";
+				CODE_SIGN_ENTITLEMENTS = "Countr WatchKit Extension/Countr WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1055,21 +1078,27 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		5DE1A4701AC6E2C0005BF8D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18FB7CFE6B3582DD12EF9318 /* Pods.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Stefan Kollmer (JF72348LUT)";
+				CODE_SIGN_ENTITLEMENTS = "Countr WatchKit Extension/Countr WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = "Countr WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -1119,6 +1148,7 @@
 				5DE1A46D1AC6E2C0005BF8D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DE1A46E1AC6E2C0005BF8D4 /* Build configuration list for PBXNativeTarget "Countr WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -1127,6 +1157,7 @@
 				5DE1A4701AC6E2C0005BF8D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

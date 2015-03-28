@@ -16,6 +16,38 @@ private let mode_key  = "mode"  // LKCountdownMode: the mode used by the countdo
 private typealias LKExtensionData = [[String : AnyObject]]
 
 /**
+An enum representing the four kinds of extensions that could access data from the shared container
+
+Available values are:
+
+-  TodayExtension
+-  WatchApp
+-  WatchGlance
+-  WatchNotification
+*/
+enum LKExtensionType {
+    /**
+    The extension type Today Widget
+    */
+    case TodayExtension
+    
+    /**
+    The extension type Watch App
+    */
+    case WatchApp
+    
+    /**
+    The extension type Watch Glance
+    */
+    case WatchGlance
+    
+    /**
+    The extension type Watch Notification
+    */
+    case WatchNotification
+}
+
+/**
 The class that manages the countdown data which is shared between the main app and the extension
 */
 class LKSharedExtensionDataManager {
@@ -52,9 +84,12 @@ class LKSharedExtensionDataManager {
     /**
     Load the countdown data for the extension
     
-    :returns: An Array containing 0-3 countdown items
+    :param: type A value of LKExtensionType representing the extension requesting the items
+    
+    :returns: An Array containing either 0-3 items (for today extension), two items (for watch glance) or all items (for watch app)
     */
-    func loadCountdownItemsForExtension() -> [LKCountdownItem] {
+    func loadCountdownItemsForExtensionWithType(type: LKExtensionType) -> [LKCountdownItem] {
+        
         let data: LKExtensionData = self.loadDataFromExtensionDataFile()
         
         var countdownItems: [LKCountdownItem] = []
@@ -73,6 +108,17 @@ class LKSharedExtensionDataManager {
             countdownItems.append(countdownItem)
         }
         
+        var itemsForExtension: [LKCountdownItem] = []
+        
+        if type == .TodayExtension {
+            if countdownItems.count < 3 {
+                return countdownItems
+            } else {
+                return Array(countdownItems[0...2]) as [LKCountdownItem]
+            }
+        }
+        
+        
         return countdownItems
     }
     
@@ -83,41 +129,24 @@ class LKSharedExtensionDataManager {
     */
     func saveCountdownItemsToExtension(items: [LKCountdownItem]) {
         var itemsForExtension: [LKCountdownItem] = []
-        //println("0")
-        if items.count < 3 {
-            //println("1")
-            itemsForExtension = items
-            //println("2")
-        } else {
-            //println("3")
-            itemsForExtension = Array(items[0...2])
-            //println("4")
-        }
-        //println("5")
+        
+        itemsForExtension = items
+        
         
         var extensionData: LKExtensionData = []
-        //println("6")
+        
         for item in itemsForExtension {
-            //println("7")
             extensionData.append([
                 title_key : item.name,
                 date_key : item.date,
                 id_key : item.id,
                 mode_key : item.countdownMode.toString()
                 ])
-            //println("8")
         }
-        //println("9")
 
-        //println("10")
         //println("array for today extension: \(itemsForExtension)")
-        //println("11")
         //println("sorted data for today extension: \(extensionData)")
-        //println("12")
-
-        //println("13")
         saveDataToExtensionDataFile(extensionData)
-        //println("14")
     }
     
     
