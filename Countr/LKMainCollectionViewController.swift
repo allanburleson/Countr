@@ -264,6 +264,10 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             cell.tag = purchase_cell_tag
             
             cell.shortPressAction = {
+                
+                // Google Analytics
+                self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: select_collection_view_cell_short_press_key, label: nil, value: nil).build())
+                
                 let purchasePremiumViewController: LKPurchasePremiumViewController = self.storyboard?.instantiateViewControllerWithIdentifier("purchasePremiumViewController") as LKPurchasePremiumViewController
                 let navigationController = UINavigationController(rootViewController: purchasePremiumViewController)
                 purchasePremiumViewController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
@@ -293,6 +297,8 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         cell.longPressAction = {
             self.countdownManager.endUpdates()
+            
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: select_collection_view_cell_long_press_key, value: nil).build())
             
             let indexPath = collectionView.indexPathForCell(cell)!
 
@@ -371,9 +377,6 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         self.presentViewController(alertController, animated: true, completion: nil)
 */
-        
-        // Google Analytics
-        tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: select_collection_view_cell_key, label: nil, value: nil).build())
     
     }
     

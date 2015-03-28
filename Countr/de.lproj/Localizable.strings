@@ -10,7 +10,7 @@
 /*
  Main Collection View Controller
  */
-"me.kollmer.countr.mainView.noDataAddedYetLabel" = "Bisher nichts hinzugefügt";
+"me.kollmer.countr.mainView.noDataAddedYetLabel" = "Nichts hinzugefügt";
 
 /*
  Info View Controller

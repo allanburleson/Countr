@@ -118,6 +118,9 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             mailComposer.setToRecipients(["lukas@kollmer.me"])
             mailComposer.setMessageBody("", isHTML: false) //TODO: Add some default text?
             mailComposer.mailComposeDelegate = self
+            let font = UIFont(name: "Avenir-Book", size: 17)!
+            let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.blackColor()]
+            mailComposer.navigationBar.titleTextAttributes = titleTextAttributes
             self.presentViewController(mailComposer, animated: true, completion: nil)
         } else {
             //println("No Mail accounts configured")

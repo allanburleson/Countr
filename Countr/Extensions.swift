@@ -17,14 +17,15 @@ let purchase_cell_tag = 1
 // Google Analytics strings
 
 let ui_action_key = "ui_action"
-let select_collection_view_cell_key = "select_collection_view_cell"
+let select_collection_view_cell_short_press_key = "select_collection_view_cell_short_press"
+let select_collection_view_cell_long_press_key = "select_collection_view_cell_long_press"
 let button_press_key = "button_press"
 let add_new_item_button_key = "add_new_item_button"
-let cancel_button_key = "cancel_button"
-let done_button_key = "done_button"
+let cancel_button_key = "cancel_save_item_button"
+let done_button_key = "done_info_view_button"
 let show_website_key = "show_website"
 let write_email_key = "write_email"
-let delete_all_data_button_key = "delete_all_date_button"
+let delete_all_data_button_key = "delete_all_data_button"
 
 let countdown_manager_key = "countdown_manager"
 let did_add_new_item_key = "did_add_new_item"
