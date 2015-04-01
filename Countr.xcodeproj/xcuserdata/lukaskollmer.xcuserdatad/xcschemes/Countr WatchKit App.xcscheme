@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0620"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5DE1A45B1AC6E2BF005BF8D4"
+               BuildableName = "Countr WatchKit App.app"
+               BlueprintName = "Countr WatchKit App"
+               ReferencedContainer = "container:Countr.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5DE1A44C1AC6E2BF005BF8D4"
+               BuildableName = "Countr WatchKit Extension.appex"
+               BlueprintName = "Countr WatchKit Extension"
+               ReferencedContainer = "container:Countr.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
@@ -20,20 +48,6 @@
                ReferencedContainer = "container:Countr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5DAA33A01A2B19EB006DDB65"
-               BuildableName = "CountrTests.xctest"
-               BlueprintName = "CountrTests"
-               ReferencedContainer = "container:Countr.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -42,23 +56,13 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5DAA33A01A2B19EB006DDB65"
-               BuildableName = "CountrTests.xctest"
-               BlueprintName = "CountrTests"
-               ReferencedContainer = "container:Countr.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5DAA33881A2B19EB006DDB65"
-            BuildableName = "Countr.app"
-            BlueprintName = "Countr"
+            BlueprintIdentifier = "5DE1A45B1AC6E2BF005BF8D4"
+            BuildableName = "Countr WatchKit App.app"
+            BlueprintName = "Countr WatchKit App"
             ReferencedContainer = "container:Countr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -72,16 +76,27 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard"
+         RemotePath = "/Countr">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5DAA33881A2B19EB006DDB65"
-            BuildableName = "Countr.app"
-            BlueprintName = "Countr"
+            BlueprintIdentifier = "5DE1A45B1AC6E2BF005BF8D4"
+            BuildableName = "Countr WatchKit App.app"
+            BlueprintName = "Countr WatchKit App"
             ReferencedContainer = "container:Countr.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5DE1A45B1AC6E2BF005BF8D4"
+            BuildableName = "Countr WatchKit App.app"
+            BlueprintName = "Countr WatchKit App"
+            ReferencedContainer = "container:Countr.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -91,16 +106,27 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard"
+         RemotePath = "/Countr">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5DAA33881A2B19EB006DDB65"
-            BuildableName = "Countr.app"
-            BlueprintName = "Countr"
+            BlueprintIdentifier = "5DE1A45B1AC6E2BF005BF8D4"
+            BuildableName = "Countr WatchKit App.app"
+            BlueprintName = "Countr WatchKit App"
             ReferencedContainer = "container:Countr.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5DE1A45B1AC6E2BF005BF8D4"
+            BuildableName = "Countr WatchKit App.app"
+            BlueprintName = "Countr WatchKit App"
+            ReferencedContainer = "container:Countr.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

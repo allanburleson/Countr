@@ -4,10 +4,30 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Countr Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Countr WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>Countr.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>Glance - Countr WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Notification - Countr WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>TodayExtension.xcscheme</key>
 		<dict>
@@ -28,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>5DAA33A01A2B19EB006DDB65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5DE1A45B1AC6E2BF005BF8D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
