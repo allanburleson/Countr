@@ -29,11 +29,13 @@
 		5D52D6D11ABD97540081F0D8 /* LKPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */; };
 		5D56C2081A77F161000E0FE3 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D56C2071A77F161000E0FE3 /* UIAppearance+Swift.m */; };
 		5D57D49A1A48219E0030EF9C /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
+		5D80F0281AC70EC200878924 /* LKSelectDayInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80F0271AC70EC200878924 /* LKSelectDayInterfaceController.swift */; };
 		5D83B1491A2B4E2000BB17E3 /* LKItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */; };
 		5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */; };
 		5D8721011A7D64C200F6C527 /* LKPurchasePremiumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */; };
 		5D8721021A7D64C200F6C527 /* LKPurchasePremiumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8721001A7D64C200F6C527 /* LKPurchasePremiumCell.xib */; };
 		5D9DAA081A7BD3E400CED935 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
+		5DA85E6D1AC704EB00D1BB31 /* LKAddItemInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA85E6C1AC704EB00D1BB31 /* LKAddItemInterfaceController.swift */; };
 		5DAA338F1A2B19EB006DDB65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */; };
 		5DAA33921A2B19EB006DDB65 /* Countr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33901A2B19EB006DDB65 /* Countr.xcdatamodeld */; };
 		5DAA33971A2B19EB006DDB65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA33951A2B19EB006DDB65 /* Main.storyboard */; };
@@ -139,12 +141,14 @@
 		5D56C2071A77F161000E0FE3 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		5D57D4961A481F770030EF9C /* Countr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Countr.entitlements; sourceTree = "<group>"; };
 		5D57D4991A48219E0030EF9C /* LKModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		5D80F0271AC70EC200878924 /* LKSelectDayInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKSelectDayInterfaceController.swift; sourceTree = "<group>"; };
 		5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKItemCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKItemCell.xib; sourceTree = "<group>"; };
 		5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKPurchasePremiumCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D8721001A7D64C200F6C527 /* LKPurchasePremiumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKPurchasePremiumCell.xib; sourceTree = "<group>"; };
 		5D9DAA071A7BD3E400CED935 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Extensions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D9DAA0C1A7BE19A00CED935 /* NSDate_Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NSDate_Playground.playground; sourceTree = "<group>"; };
+		5DA85E6C1AC704EB00D1BB31 /* LKAddItemInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKAddItemInterfaceController.swift; sourceTree = "<group>"; };
 		5DAA33891A2B19EB006DDB65 /* Countr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAA338D1A2B19EB006DDB65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -352,6 +356,8 @@
 			children = (
 				5DE1A4711AC6E374005BF8D4 /* Countr WatchKit Extension.entitlements */,
 				5DE1A4521AC6E2BF005BF8D4 /* MainTableInterfaceController.swift */,
+				5DA85E6C1AC704EB00D1BB31 /* LKAddItemInterfaceController.swift */,
+				5D80F0271AC70EC200878924 /* LKSelectDayInterfaceController.swift */,
 				5DE1A4771AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift */,
 				5DE1A4541AC6E2BF005BF8D4 /* NotificationController.swift */,
 				5DE1A4561AC6E2BF005BF8D4 /* GlanceController.swift */,
@@ -752,7 +758,9 @@
 				5DE1A4531AC6E2BF005BF8D4 /* MainTableInterfaceController.swift in Sources */,
 				5DE1A4571AC6E2BF005BF8D4 /* GlanceController.swift in Sources */,
 				5DE1A4731AC6E391005BF8D4 /* LKModel.swift in Sources */,
+				5DA85E6D1AC704EB00D1BB31 /* LKAddItemInterfaceController.swift in Sources */,
 				5DE1A4781AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift in Sources */,
+				5D80F0281AC70EC200878924 /* LKSelectDayInterfaceController.swift in Sources */,
 				5DE1A4751AC6E3B1005BF8D4 /* LKPurchaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

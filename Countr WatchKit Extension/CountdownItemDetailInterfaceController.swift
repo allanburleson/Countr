@@ -23,7 +23,6 @@ class CountdownItemDetailInterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         println("CountdownItemDetailInterfaceController: awakeWithContext: \(context)")
         
-        self.setTitle("Countr")
         
         // Load the passed countdownObject
         self.countdownItem = context as LKCountdownItem
@@ -36,11 +35,13 @@ class CountdownItemDetailInterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        self.countdownTimer.start()
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        self.countdownTimer.stop()
     }
 
 }
