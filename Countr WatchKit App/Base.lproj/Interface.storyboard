@@ -26,9 +26,11 @@
                                     <group key="rootItem" width="1" alignment="left" layout="vertical" id="VAC-hV-APb">
                                         <items>
                                             <label alignment="center" text="Label" id="7U6-WK-jcT">
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </label>
                                             <timer alignment="center" verticalAlignment="bottom" id="aZ2-bO-n7K">
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                                 <calendarUnit key="units" day="YES" hour="YES" minute="YES" second="YES"/>
                                             </timer>
                                         </items>
@@ -40,7 +42,7 @@
                                 </tableRow>
                             </items>
                         </table>
-                        <label alignment="center" verticalAlignment="center" text="Label" numberOfLines="0" id="Hgb-Qz-Fz6"/>
+                        <label width="0.0" alignment="center" verticalAlignment="center" text="Label" numberOfLines="0" id="Hgb-Qz-Fz6"/>
                     </items>
                     <connections>
                         <outlet property="countdownItemsTable" destination="jRB-Bx-hsi" id="DPS-On-p9g"/>
@@ -50,12 +52,15 @@
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
         </scene>
-        <!--Item-->
+        <!--Countr-->
         <scene sceneID="HjH-Ei-19a">
             <objects>
-                <controller identifier="CountdownItemDetailInterfaceController" title="Item" id="pQ5-w1-ibo" customClass="CountdownItemDetailInterfaceController" customModule="Countr_WatchKit_Extension">
+                <controller identifier="CountdownItemDetailInterfaceController" title="Countr" id="pQ5-w1-ibo" customClass="CountdownItemDetailInterfaceController" customModule="Countr_WatchKit_Extension">
                     <items>
-                        <timer width="136" height="55" alignment="center" textAlignment="center" id="qSl-ug-yry"/>
+                        <timer width="136" height="55" alignment="center" textAlignment="center" id="qSl-ug-yry">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                            <calendarUnit key="units" day="YES" hour="YES" minute="YES" second="YES"/>
+                        </timer>
                         <label width="136" height="89" alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" numberOfLines="0" id="aXY-dF-h4g"/>
                     </items>
                     <connections>
@@ -99,48 +104,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="429" y="584"/>
-        </scene>
-        <!--LKSelectDayInterfaceController-->
-        <scene sceneID="35h-Ip-jX0">
-            <objects>
-                <controller identifier="LKSelectDayInterfaceController" id="ibc-lp-2Wr" customClass="LKSelectDayInterfaceController" customModule="Countr_WatchKit_Extension">
-                    <items>
-                        <label alignment="center" text="Label" id="1B8-8Z-5z4"/>
-                        <slider width="1" alignment="left" verticalAlignment="bottom" value="1" maximum="3" steps="3" id="2Kt-qL-Jr1">
-                            <connections>
-                                <action selector="numberSelectionSliderChanged:" destination="ibc-lp-2Wr" id="yPs-Xz-FOP"/>
-                            </connections>
-                        </slider>
-                    </items>
-                    <connections>
-                        <outlet property="numberSelectionSlider" destination="2Kt-qL-Jr1" id="sPE-hn-205"/>
-                        <outlet property="selectedNumberLabel" destination="1B8-8Z-5z4" id="f5B-ao-UkQ"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="790" y="371"/>
-        </scene>
-        <!--Interface Controller-->
-        <scene sceneID="CVh-rU-64A">
-            <objects>
-                <controller id="iOp-8y-kGG">
-                    <items>
-                        <group width="1" alignment="left" id="Erf-qh-jod">
-                            <items>
-                                <button width="0.50000000000000011" alignment="left" id="e0A-HM-Q0L"/>
-                                <button width="0.50000000000000011" alignment="left" title="Day" id="hk2-8K-kv7"/>
-                            </items>
-                        </group>
-                        <group width="1" alignment="left" id="vbo-v6-2Fl">
-                            <items>
-                                <button width="0.50000000000000011" alignment="left" title="Month" id="FK9-Ff-4v8"/>
-                                <button width="0.50000000000000011" alignment="left" title="Year" id="DrW-BP-tFP"/>
-                            </items>
-                        </group>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="626" y="584"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

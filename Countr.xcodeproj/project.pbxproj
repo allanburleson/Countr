@@ -12,6 +12,8 @@
 		1E084B951BC9E569F33EE8FE /* UILabel+WhiteUIDatePickerLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E084B79BD97DE0D385BB98E /* UILabel+WhiteUIDatePickerLabels.m */; };
 		5D0A9D5E1A790DF30040C100 /* UITextField_ClearButton_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A9D5D1A790DF30040C100 /* UITextField_ClearButton_White.png */; };
 		5D0A9D621A79132A0040C100 /* LKDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A9D611A79132A0040C100 /* LKDatePicker.swift */; };
+		5D3329DF1ACBE0B6003C89BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DF32FFA1A7E831100063FAC /* Localizable.strings */; };
+		5D3329E01ACBE116003C89BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DF32FFA1A7E831100063FAC /* Localizable.strings */; };
 		5D33343C1A6A8BD6007D9A4B /* LKInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */; };
 		5D33885D1A6AB63F0068C37C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D33885C1A6AB63F0068C37C /* NotificationCenter.framework */; };
 		5D3388621A6AB63F0068C37C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3388611A6AB63F0068C37C /* TodayViewController.swift */; };
@@ -29,7 +31,6 @@
 		5D52D6D11ABD97540081F0D8 /* LKPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */; };
 		5D56C2081A77F161000E0FE3 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D56C2071A77F161000E0FE3 /* UIAppearance+Swift.m */; };
 		5D57D49A1A48219E0030EF9C /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
-		5D80F0281AC70EC200878924 /* LKSelectDayInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80F0271AC70EC200878924 /* LKSelectDayInterfaceController.swift */; };
 		5D83B1491A2B4E2000BB17E3 /* LKItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */; };
 		5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */; };
 		5D8721011A7D64C200F6C527 /* LKPurchasePremiumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */; };
@@ -141,7 +142,6 @@
 		5D56C2071A77F161000E0FE3 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		5D57D4961A481F770030EF9C /* Countr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Countr.entitlements; sourceTree = "<group>"; };
 		5D57D4991A48219E0030EF9C /* LKModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		5D80F0271AC70EC200878924 /* LKSelectDayInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKSelectDayInterfaceController.swift; sourceTree = "<group>"; };
 		5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKItemCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKItemCell.xib; sourceTree = "<group>"; };
 		5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKPurchasePremiumCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -357,7 +357,6 @@
 				5DE1A4711AC6E374005BF8D4 /* Countr WatchKit Extension.entitlements */,
 				5DE1A4521AC6E2BF005BF8D4 /* MainTableInterfaceController.swift */,
 				5DA85E6C1AC704EB00D1BB31 /* LKAddItemInterfaceController.swift */,
-				5D80F0271AC70EC200878924 /* LKSelectDayInterfaceController.swift */,
 				5DE1A4771AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift */,
 				5DE1A4541AC6E2BF005BF8D4 /* NotificationController.swift */,
 				5DE1A4561AC6E2BF005BF8D4 /* GlanceController.swift */,
@@ -584,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D3388641A6AB63F0068C37C /* MainInterface.storyboard in Resources */,
+				5D3329E01ACBE116003C89BE /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DE1A4651AC6E2BF005BF8D4 /* Interface.storyboard in Resources */,
+				5D3329DF1ACBE0B6003C89BE /* Localizable.strings in Resources */,
 				5DE1A4671AC6E2BF005BF8D4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -760,7 +761,6 @@
 				5DE1A4731AC6E391005BF8D4 /* LKModel.swift in Sources */,
 				5DA85E6D1AC704EB00D1BB31 /* LKAddItemInterfaceController.swift in Sources */,
 				5DE1A4781AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift in Sources */,
-				5D80F0281AC70EC200878924 /* LKSelectDayInterfaceController.swift in Sources */,
 				5DE1A4751AC6E3B1005BF8D4 /* LKPurchaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -73,3 +73,17 @@
  */
 "me.kollmer.countr.purchaseCell.titleLabel" = "Premium Features";
 "me.kollmer.countr.purchaseCell.descriptionLabel" = "Purchase Premium features to get more items, sync, no ads and notifications";
+
+
+
+/*
+ Notification Center Today Widget
+ */
+"me.kollmer.countr.todayExtension.emptyTableMessage" = "No countdowns added yet";
+
+
+
+/*
+ WatchKit App
+ */
+"me.kollmer.countr.watch.emptyTableMessage" = "No items added yet\n\nYou can add items in the Countr iOS app";

@@ -33,57 +33,50 @@ class LKMainTableInterfaceController: WKInterfaceController {
     /**
     A value determining wheter the UI should display buttons for adding new items
     */
-    var shouldDiaplayAddItemButton: Bool {
+    var shouldDisplayAddItemButton: Bool {
         return false
     }
+
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        self.messageLabel.setHidden(true)
         println("awakeWithContext: \(context)")
         
         //self.addMenuItemWithItemIcon(.Add, title: "Add", action: "addNewItem")
         // Configure interface objects here.
         self.setTitle("Countr")
         countdownItems = extensionDataManager.loadCountdownItemsForExtensionWithType(.WatchApp)
-        println("did finish loading items from extensuin data manager")
+        println("items loeded from extension manager: \(countdownItems)")
         
         if !countdownItems.isEmpty {
-            var rowTypes = ["LKAddItemRowController"]
+            var rowTypes: [String] = [] // Add row:  = ["LKAddItemRowController"]
             for item in self.countdownItems {
                 rowTypes.append("LKCountdownItemRowController")
             }
             self.countdownItemsTable.setRowTypes(rowTypes)
-            //self.countdownItemsTable.setNumberOfRows(1, withRowType: "LKAddItemRowController")
-            //self.countdownItemsTable.setNumberOfRows(countdownItems.count, withRowType: "LKCountdownItemRowController")
             
             let rowCount = self.countdownItemsTable.numberOfRows
             
             // Iterate over the rows and set the label for each one.
             for (var index = 0; index < rowCount; index++) {
-                if index == 0 {
-                    // The Add item row
-                    let rowController: LKAddItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as LKAddItemRowController
-                }
                 
-                if index != 0 {
-                    // The countdown item rows
-                    
-                    let rowController: LKCountdownItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as LKCountdownItemRowController
-                    rowController.item = self.countdownItems[index-1]
-                }
+                let rowController: LKCountdownItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as LKCountdownItemRowController
+                rowController.item = self.countdownItems[index]
             }
 
         } else {
             // The countdownItems array is empty
             self.countdownItemsTable.setHidden(true)
-            self.messageLabel.setText("No items added yet.\n\nYou can add items in the Countr iOS app")
+            self.messageLabel.setText(NSLocalizedString("me.kollmer.countr.watch.emptyTableMessage", comment: "")) //TODO: Localize this
             self.messageLabel.setHidden(false)
         }
         
     }
     func addNewItem() {
         println("add new item function called")
-        self.pushControllerWithName("LKAddItemInterfaceController", context: nil)
+        WKInterfaceController.openParentApplication([wk_action_key : wk_action_addNewItem_key], reply: nil)
+        //self.pushControllerWithName("LKAddItemInterfaceController", context: nil)
     }
 
     override func willActivate() {
@@ -94,8 +87,8 @@ class LKMainTableInterfaceController: WKInterfaceController {
         // Start all timers when the view appears
         let rowCount = self.countdownItemsTable.numberOfRows
         
-        // Iterate over the rows and set the label for each one.
-        for (var index = 1; index < rowCount; index++) {
+        // Iterate over the rows and start all timers.
+        for (var index = 0; index < rowCount; index++) {
             let rowController: LKCountdownItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as LKCountdownItemRowController
             rowController.countdownTimer.start()
         }
@@ -110,8 +103,8 @@ class LKMainTableInterfaceController: WKInterfaceController {
         // Stop all timers when the view disappears
         let rowCount = self.countdownItemsTable.numberOfRows
         
-        // Iterate over the rows and set the label for each one.
-        for (var index = 1; index < rowCount; index++) {
+        // Iterate over the rows and stop all timers.
+        for (var index = 0; index < rowCount; index++) {
             let rowController: LKCountdownItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as LKCountdownItemRowController
             rowController.countdownTimer.stop()
         }
@@ -121,13 +114,9 @@ class LKMainTableInterfaceController: WKInterfaceController {
     override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
         println("tableDidSelectRowAtIndex: \(rowIndex)")
         
-        if rowIndex == 0 {
-            addNewItem()
-        }
         
-        if rowIndex != 0 {
-            self.pushControllerWithName("CountdownItemDetailInterfaceController", context: self.countdownItems[rowIndex-1])
-        }
+        
+        self.pushControllerWithName("CountdownItemDetailInterfaceController", context: self.countdownItems[rowIndex])
     }
 
 }
@@ -151,4 +140,3 @@ class LKCountdownItemRowController: NSObject {
 class LKAddItemRowController: NSObject {
     @IBOutlet weak var imageView: WKInterfaceImage!
 }
-

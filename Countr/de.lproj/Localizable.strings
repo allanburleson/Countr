@@ -73,4 +73,18 @@
  Purchase Premium Features Collection View Cell
  */
 "me.kollmer.countr.purchaseCell.titleLabel" = "Premium Features";
-"me.kollmer.countr.purchaseCell.descriptionLabel" = "Premium Features kaufen";
+"me.kollmer.countr.purchaseCell.descriptionLabel" = "Mehr Countdowns, keine Werbung";
+
+
+
+/*
+ Notification Center Today Wiget
+ */
+"me.kollmer.countr.todayExtension.emptyTableMessage" = "Bisher nichts hinzugefügt";
+
+
+
+/*
+ WatchKit App
+ */
+"me.kollmer.countr.watch.emptyTableMessage" = "Bisher nichts hinzugefügt\n\nCountdowns können in der iOS app erstellt werden";

@@ -13,6 +13,9 @@ import UIKit
 let countdown_cell_tag = 0
 let purchase_cell_tag = 1
 
+// WatchKit Host App integration
+let wk_action_key = "wk_action"
+let wk_action_addNewItem_key = "wk_action_addNewItem"
 
 // Google Analytics strings
 
