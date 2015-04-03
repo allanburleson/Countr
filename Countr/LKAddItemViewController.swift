@@ -139,7 +139,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         let countdownManager = LKCountdownManager.sharedInstance
         
         
-        let item = LKCountdownItem(name: self.nameTextField.text, date: self.datePicker.date, mode: self.datePicker.datePickerMode)
+        let item = LKCountdownItem(title: self.nameTextField.text, date: self.datePicker.date, mode: self.datePicker.datePickerMode)
         countdownManager.saveNewCountdownItem(item,countdownMode: self.datePicker.datePickerMode, completionHandler: {
             self.dismissViewControllerAnimated(true, completion: nil)
         })

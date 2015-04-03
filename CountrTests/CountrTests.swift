@@ -50,9 +50,9 @@ class CountrTests: XCTestCase {
     }
     
     func testSaveDataToFileForTodayExtension() {
-        let testItemOne   = LKCountdownItem(name: "test item #1", date: NSDate().dateByAddingTimeInterval(100), mode: .Date)
-        let testItemTwo   = LKCountdownItem(name: "test item #2", date: NSDate().dateByAddingTimeInterval(200), mode: .Date)
-        let testItemThree = LKCountdownItem(name: "test item #3", date: NSDate().dateByAddingTimeInterval(300), mode: .Date)
+        let testItemOne   = LKCountdownItem(title: "test item #1", date: NSDate().dateByAddingTimeInterval(100), mode: .Date)
+        let testItemTwo   = LKCountdownItem(title: "test item #2", date: NSDate().dateByAddingTimeInterval(200), mode: .Date)
+        let testItemThree = LKCountdownItem(title: "test item #3", date: NSDate().dateByAddingTimeInterval(300), mode: .Date)
         
         let items: [LKCountdownItem] = [testItemOne, testItemTwo, testItemThree]
         
@@ -66,7 +66,7 @@ class CountrTests: XCTestCase {
         for item in itemsReadByExtension {
             let index: Int = find(itemsReadByExtension, item)!
 
-            XCTAssert(items[index].name == itemsReadByExtension[index].name, "name not equal")
+            XCTAssert(items[index].title == itemsReadByExtension[index].title, "name not equal")
             XCTAssert(items[index].date == itemsReadByExtension[index].date, "date not equal")
             XCTAssert(items[index].id == itemsReadByExtension[index].id, "id not equal")
             XCTAssert(items[index].countdownMode == itemsReadByExtension[index].countdownMode, "mode not equal")

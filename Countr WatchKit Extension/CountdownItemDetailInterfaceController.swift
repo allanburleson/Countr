@@ -29,7 +29,7 @@ class CountdownItemDetailInterfaceController: WKInterfaceController {
         
         // Configure interface objects here.
         self.countdownTimer.setDate(self.countdownItem.date)
-        self.countdownTitleLabel.setText(self.countdownItem.name)
+        self.countdownTitleLabel.setText(self.countdownItem.title)
     }
 
     override func willActivate() {
@@ -43,5 +43,6 @@ class CountdownItemDetailInterfaceController: WKInterfaceController {
         super.didDeactivate()
         self.countdownTimer.stop()
     }
+    
 
 }

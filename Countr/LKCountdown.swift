@@ -98,6 +98,7 @@ class LKCountdownManager: NSObject {
     func items() -> [LKCountdownItem]! {
         return self.model.items
     }
+    
     /**
     All Countdown items where the data equals todays date
     */
@@ -114,12 +115,30 @@ class LKCountdownManager: NSObject {
         
         return _todayItems
     }
+    
+    /**
+    Get the countdown item with the provided id
+    
+    :param: itemID The UUID of the item you want to recive (As String)
+    :returns: The countdownItem with the provided id
+    */
+    func itemWithID(itemID: String) -> LKCountdownItem? {
+        for item in self.items() {
+            if item.id == itemID {
+                return item
+            }
+        }
+        
+        return nil
+    }
+    
     /**
     Reload the countdown items from the CoreData model
     */
     func reload() {
         self.model.reloadItems()
     }
+    
     /**
     Start updating the timeRemaining property of all countdown items in self.items
     */
@@ -251,7 +270,12 @@ public struct TimeRemaining {
     The number of seconds left to a certain date
     */
     private(set) var seconds: Int = 0
-    private(set) var asString: String = "000 : 00 : 00 : 00"
+    /**
+    The time Remaining to a certain date, as a string 
+    
+    Example: "150 : 21 : 27 : 45" (days : hrs : mins : secs)
+    */
+    private(set) var asString: String = ""
 }
 
 /**
@@ -259,7 +283,7 @@ A countdown item
 */
 class LKCountdownItem: NSObject, Printable {
     
-    let name: String!
+    let title: String!
     let date: NSDate!
     let id: String!
     let countdownMode: LKCountdownMode!
@@ -288,8 +312,8 @@ class LKCountdownItem: NSObject, Printable {
     :param: mode The countdown mode (either Date or DateAndTime)
     :param: id default the UUID of th eitem. Can be omitted when creating new countdown items. Only used in today extension
     */
-    init(name: String, date: NSDate, mode: LKCountdownMode, id: NSUUID = NSUUID()) {
-        self.name = name
+    init(title: String, date: NSDate, mode: LKCountdownMode, id: NSUUID = NSUUID()) {
+        self.title = title
         self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: nil)
         //self.date = date
         //println("uuid used for saving: \(uuid)")
@@ -303,7 +327,7 @@ class LKCountdownItem: NSObject, Printable {
     :param: object The NSManagedObject to use when the item is created
     */
     init(object: NSManagedObject) {
-        self.name = object.valueForKey(coreDataNameKey) as String
+        self.title = object.valueForKey(coreDataNameKey) as String
         self.date = object.valueForKey(coreDataDateKey) as NSDate
         self.id = object.valueForKey(coreDataIdKey) as String
         //println("countdownmode: \(object.valueForKey(coreDataKindKey) as String)")
@@ -319,7 +343,7 @@ class LKCountdownItem: NSObject, Printable {
     init(cloudRecord: CKRecord) {
         //println("input cloudRecord: \(cloudRecord)")
         
-        self.name = cloudRecord.valueForKey(countdownItemRecordNameKey) as String
+        self.title = cloudRecord.valueForKey(countdownItemRecordNameKey) as String
         self.date = cloudRecord.valueForKey(countdownItemRecordDateKey) as NSDate
         self.id = cloudRecord.valueForKey(countdownItemRecordIdKey) as String
     }
@@ -348,7 +372,7 @@ class LKCountdownItem: NSObject, Printable {
     override var description: String {
         get {
             //return "LKCountdownItem: Name: \(self.name), Reference date: \(self.date))"
-            return "LKCountdownItem: Name: \(self.name), Reference date: \(self.date), uuid: \(self.id), countdownMode: \(self.countdownMode.toString())"
+            return "LKCountdownItem: Name: \(self.title), Reference date: \(self.date), uuid: \(self.id), countdownMode: \(self.countdownMode.toString())"
         }
     }
     

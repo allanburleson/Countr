@@ -126,7 +126,7 @@ class LKCountdownItemRowController: NSObject {
     
     var item: LKCountdownItem! {
         didSet {
-            self.titleLabel.setText(self.item.name)
+            self.titleLabel.setText(self.item.title)
             self.countdownTimer.setDate(self.item.date)
             self.countdownTimer.start()
         }

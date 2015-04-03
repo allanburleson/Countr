@@ -303,7 +303,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             let indexPath = collectionView.indexPathForCell(cell)!
 
             let alertTitle = NSLocalizedString("me.kollmer.countr.deleteItemAlert.title", comment: "")
-            let alertMessage = NSString(format: NSLocalizedString("me.kollmer.countr.deleteItemAlert.message", comment: ""), self.countdownManager.items()[indexPath.item].name)
+            let alertMessage = NSString(format: NSLocalizedString("me.kollmer.countr.deleteItemAlert.message", comment: ""), self.countdownManager.items()[indexPath.item].title)
             let alertDelete = NSLocalizedString("me.kollmer.countr.deleteItemAlert.delete", comment: "")
             let alertCancel = NSLocalizedString("me.kollmer.countr.deleteItemAlert.cancel", comment: "")
             let alertController = LKAlertController.actionSheetWithTitle(alertTitle, message: alertMessage)

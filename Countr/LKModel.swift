@@ -142,7 +142,7 @@ class LKModel {
         
         let context = self.managedObjectContext!
         let object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(coreDataEnitiyNameKey, inManagedObjectContext: context) as NSManagedObject
-        object.setValue(item.name, forKey: coreDataNameKey)
+        object.setValue(item.title, forKey: coreDataNameKey)
         object.setValue(item.date, forKey: coreDataDateKey)
         object.setValue(item.id, forKey: coreDataIdKey)
         object.setValue(item.countdownMode.toString(), forKey: coreDataKindKey)
@@ -392,7 +392,7 @@ extension CKRecord {
     */
     class func recordFromCountdownItem(item: LKCountdownItem) -> CKRecord {
         let record = CKRecord(recordType: countdownItemRecordType)
-        record.setValue(item.name, forKey: countdownItemRecordNameKey)
+        record.setValue(item.title, forKey: countdownItemRecordNameKey)
         record.setValue(item.date, forKey: countdownItemRecordDateKey)
         record.setValue(item.id, forKey: countdownItemRecordIdKey)
         

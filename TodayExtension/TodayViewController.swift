@@ -204,7 +204,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Set the titles
         for item in self.itemsCached {
             let index = find(self.itemsCached, item)!
-            self.countdownTitleLabels[index].text = item.name
+            self.countdownTitleLabels[index].text = item.title
         }
         
         self.updateViewConstraints()

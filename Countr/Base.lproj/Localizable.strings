@@ -52,7 +52,7 @@
  Delete Item Alert
  */
 "me.kollmer.countr.deleteItemAlert.title" = "Delete Item";
-"me.kollmer.countr.deleteItemAlert.message" = "Do you really want to delete %@?";
+"me.kollmer.countr.deleteItemAlert.message" = "Are you sure you want to delete \"%@\"?";
 "me.kollmer.countr.deleteItemAlert.delete" = "Delete";
 "me.kollmer.countr.deleteItemAlert.cancel" = "Cancel";
 

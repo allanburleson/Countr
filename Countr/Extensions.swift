@@ -9,16 +9,29 @@
 import Foundation
 import UIKit
 
+//
 // Cell identification
+//
+
 let countdown_cell_tag = 0
 let purchase_cell_tag = 1
 
+
+//
 // WatchKit Host App integration
+//
+
 let wk_action_key = "wk_action"
+let wk_item_id_key = "wk_item_id"
 let wk_action_addNewItem_key = "wk_action_addNewItem"
+let wk_action_deleteItem_key = "wk_action_deleteItem"
 
+
+//
 // Google Analytics strings
+//
 
+// UI
 let ui_action_key = "ui_action"
 let select_collection_view_cell_short_press_key = "select_collection_view_cell_short_press"
 let select_collection_view_cell_long_press_key = "select_collection_view_cell_long_press"
@@ -30,10 +43,18 @@ let show_website_key = "show_website"
 let write_email_key = "write_email"
 let delete_all_data_button_key = "delete_all_data_button"
 
+//iAd
+let did_display_ad_key = "did_display_ad"
+let did_fail_to_display_ad_key = "did_fail_to_display_ad"
+let did_tap_on_ad_key = "did_tap_on_ad"
+
+// CountdownManager
+let ad_key = "ad"
 let countdown_manager_key = "countdown_manager"
 let did_add_new_item_key = "did_add_new_item"
 let did_delete_item_key = "did_delete_item"
 
+// Purchase Manager
 let purchase_manager_key = "purchase_manager"
 let purchase_manager_load_products_key = "purchase_manager_load_products"
 let purchase_Manager_did_finish_purchase_key = "purchase_Manager_did_finish_purchase"

@@ -33,7 +33,7 @@ class LKItemCell: UICollectionViewCell {
     */
     var countdownItem: LKCountdownItem! {
         didSet {
-            self.titleLabel.text = self.countdownItem.name
+            self.titleLabel.text = self.countdownItem.title
             self.countdownLabel.text = self.countdownItem.remaining.asString
         }
     }

@@ -103,7 +103,7 @@ class LKSharedExtensionDataManager {
             let mode = LKCountdownMode(string: modeAsString)
             let uuid = NSUUID(UUIDString: id)!
             
-            let countdownItem = LKCountdownItem(name: title, date: date, mode: mode, id: uuid)
+            let countdownItem = LKCountdownItem(title: title, date: date, mode: mode, id: uuid)
             
             countdownItems.append(countdownItem)
         }
@@ -137,7 +137,7 @@ class LKSharedExtensionDataManager {
         
         for item in itemsForExtension {
             extensionData.append([
-                title_key : item.name,
+                title_key : item.title,
                 date_key : item.date,
                 id_key : item.id,
                 mode_key : item.countdownMode.toString()

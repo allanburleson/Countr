@@ -17,6 +17,8 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
     
     var collectionViewController: LKMainCollectionViewController?
     
+    lazy private var tracker = GAI.sharedInstance().defaultTracker
+    
     override func loadView() {
         super.loadView()
         self.title = "Countr"
@@ -71,10 +73,12 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
     func bannerViewDidLoadAd(banner: ADBannerView!) {
         //println("bannerViewDidLoadAd")
         adjustViewForAdBannerVisible(true)
+        self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ad_key, action: did_display_ad_key, label: nil, value: nil).build())
     }
     
     func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool {
         //println("bannerViewActionShouldBegin")
+        self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ad_key, action: did_tap_on_ad_key, label: nil, value: nil).build())
         return true
     }
     
@@ -86,5 +90,6 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
         //println("bannerViewDidFailToReceiveAdWithError")
         //println("error: \(error.debugDescription)")
         adjustViewForAdBannerVisible(false)
+        self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ad_key, action: did_fail_to_display_ad_key, label: nil, value: nil).build())
     }
 }
