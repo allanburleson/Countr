@@ -80,6 +80,12 @@
                         <group alignment="left" id="uCw-4Q-Ouw"/>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="item0Timer" destination="WDv-Up-Ojw" id="kqJ-9A-aJ9"/>
+                        <outlet property="item0TitleLabel" destination="qvN-PW-aoO" id="tj7-z4-xlh"/>
+                        <outlet property="item1Timer" destination="1pw-TL-s3i" id="Y4N-b2-hkD"/>
+                        <outlet property="item1TitleLabel" destination="4R9-S4-QPO" id="CUv-6F-naf"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="235" y="672"/>

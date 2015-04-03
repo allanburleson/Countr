@@ -118,6 +118,14 @@ class LKSharedExtensionDataManager {
             }
         }
         
+        if type == .WatchGlance {
+            if countdownItems.count < 2 {
+                return countdownItems
+            } else {
+                return Array(countdownItems[0...1]) as [LKCountdownItem]
+            }
+        }
+        
         
         return countdownItems
     }

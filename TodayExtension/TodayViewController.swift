@@ -44,6 +44,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         
         self.messageLabel.font = UIFont(name: "Avenir-Book", size: 17)
+        self.messageLabel.text = NSLocalizedString("me.kollmer.countr.todayExtension.emptyTableMessage", comment: "")
         
         for label in allLabels {
             label.text = ""

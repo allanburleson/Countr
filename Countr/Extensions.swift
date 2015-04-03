@@ -182,10 +182,19 @@ extension UIColor {
 
 
 extension UIApplication {
+    
+    /**
+    The version of the App (eg 1.2)
+    */
     var version: String {
-        get {
-            return NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as String
-        }
+        return NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as String
+    }
+    
+    /**
+    The build number of the app (eg 12)
+    */
+    var build: String {
+        return NSBundle.mainBundle().infoDictionary?[kCFBundleVersionKey] as String
     }
 }
 
