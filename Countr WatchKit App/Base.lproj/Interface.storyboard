@@ -76,8 +76,35 @@
             <objects>
                 <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="Countr_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="t8f-Gd-c4y"/>
-                        <group alignment="left" id="uCw-4Q-Ouw"/>
+                        <group alignment="left" id="t8f-Gd-c4y">
+                            <items>
+                                <label alignment="left" text="Countr" id="kWw-lK-UFQ">
+                                    <fontDescription key="font" type="system" pointSize="22"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group alignment="left" layout="vertical" id="uCw-4Q-Ouw">
+                            <items>
+                                <group width="1" height="0.5" alignment="center" layout="vertical" id="ipO-fA-GxY">
+                                    <items>
+                                        <label alignment="center" text="Label" id="qvN-PW-aoO"/>
+                                        <timer alignment="center" id="WDv-Up-Ojw">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                        </timer>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.5" alignment="center" verticalAlignment="bottom" layout="vertical" id="hgj-oV-ANS">
+                                    <items>
+                                        <label alignment="center" text="Label" id="4R9-S4-QPO"/>
+                                        <timer alignment="center" id="1pw-TL-s3i">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                        </timer>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                     <connections>
