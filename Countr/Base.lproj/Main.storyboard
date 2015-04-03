@@ -286,6 +286,74 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Settings" footerTitle="Appp Badge will display the number of items due today" id="GoK-hE-fEP">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Jmz-nw-Emm">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jmz-nw-Emm" id="uZU-ZU-bZ6">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-bH-qVd">
+                                                    <rect key="frame" x="446" y="8" width="146" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="146" id="pyf-lh-7zV"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="Name"/>
+                                                        <segment title="Date"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="sortBySegmentedControlChanged:" destination="1X9-vU-3ly" eventType="valueChanged" id="YnG-1m-t0k"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort by" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRz-Od-SZy">
+                                                    <rect key="frame" x="16" y="11" width="422" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zFp-bH-qVd" firstAttribute="top" secondItem="uZU-ZU-bZ6" secondAttribute="topMargin" id="4sD-Gf-RtO"/>
+                                                <constraint firstItem="zFp-bH-qVd" firstAttribute="leading" secondItem="oRz-Od-SZy" secondAttribute="trailing" constant="8" id="EI6-oz-KYG"/>
+                                                <constraint firstItem="zFp-bH-qVd" firstAttribute="trailing" secondItem="uZU-ZU-bZ6" secondAttribute="trailingMargin" id="Ih3-vV-3xa"/>
+                                                <constraint firstItem="zFp-bH-qVd" firstAttribute="leading" secondItem="oRz-Od-SZy" secondAttribute="trailing" constant="8" id="QiD-Ok-Yxx"/>
+                                                <constraint firstItem="oRz-Od-SZy" firstAttribute="top" secondItem="uZU-ZU-bZ6" secondAttribute="topMargin" constant="3" id="Rtg-av-0PT"/>
+                                                <constraint firstItem="oRz-Od-SZy" firstAttribute="leading" secondItem="uZU-ZU-bZ6" secondAttribute="leading" constant="16" id="fXF-4p-W8y"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="O8t-w8-G7O">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O8t-w8-G7O" id="fZY-6K-92s">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sfR-8a-I9R">
+                                                    <rect key="frame" x="543" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="appBadgeSwitchChanged:" destination="1X9-vU-3ly" eventType="valueChanged" id="7or-FN-y06"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Badge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80p-Kx-1qi">
+                                                    <rect key="frame" x="16" y="11" width="519" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sfR-8a-I9R" firstAttribute="top" secondItem="fZY-6K-92s" secondAttribute="topMargin" constant="-2" id="Yhp-oN-mHC"/>
+                                                <constraint firstItem="sfR-8a-I9R" firstAttribute="leading" secondItem="80p-Kx-1qi" secondAttribute="trailing" constant="8" id="gFo-jU-DBS"/>
+                                                <constraint firstItem="80p-Kx-1qi" firstAttribute="leading" secondItem="fZY-6K-92s" secondAttribute="leading" constant="16" id="h9Y-AH-DK9"/>
+                                                <constraint firstItem="sfR-8a-I9R" firstAttribute="trailing" secondItem="fZY-6K-92s" secondAttribute="trailingMargin" id="heS-dc-Q5L"/>
+                                                <constraint firstItem="80p-Kx-1qi" firstAttribute="top" secondItem="fZY-6K-92s" secondAttribute="topMargin" constant="3" id="wFU-9D-8dg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection id="X8I-hi-e80">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ca3-84-OZb">
@@ -371,6 +439,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="appBadgeLabel" destination="80p-Kx-1qi" id="A3H-MX-2ui"/>
+                        <outlet property="appBadgeSwitch" destination="sfR-8a-I9R" id="ecB-5G-X2z"/>
                         <outlet property="copyrightLabel" destination="wTW-IE-4RE" id="kA3-0K-JtB"/>
                         <outlet property="deleteAllDataLabel" destination="rBO-ga-OHI" id="8hv-Fo-ppl"/>
                         <outlet property="deleteAllDataTextLabel" destination="rBO-ga-OHI" id="lVP-o1-H8P"/>
@@ -378,6 +448,8 @@
                         <outlet property="premiumFeaturesTextLabel" destination="rpr-ZO-t5h" id="Ihe-fr-VEO"/>
                         <outlet property="sendFeedbackCell" destination="Ca3-84-OZb" id="NnA-aV-Tcd"/>
                         <outlet property="sendFeedbackTextLabel" destination="StU-Cc-TdA" id="gjh-Vq-L5U"/>
+                        <outlet property="sortByLabel" destination="oRz-Od-SZy" id="une-pk-tP3"/>
+                        <outlet property="sortBySegmentedControl" destination="zFp-bH-qVd" id="QgD-v7-41P"/>
                         <outlet property="unlockEverythingCell" destination="JvY-x7-HSN" id="Thu-6E-doG"/>
                         <outlet property="versionNumberLabel" destination="1dt-CC-ODz" id="rcH-oy-WI9"/>
                         <outlet property="versionTextLabel" destination="NZf-r4-utw" id="U7W-cP-Tty"/>
@@ -385,7 +457,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Byf-C8-CES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616" y="349"/>
+            <point key="canvasLocation" x="2616" y="344"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="So3-UR-1dJ">

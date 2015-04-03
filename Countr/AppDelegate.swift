@@ -38,6 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let segmentedControlTitleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName : UIFont(name: "Avenir-Book", size: 13)!]
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlTitleTextAttributes, forState: UIControlState.Normal)
         
+        // UISwitch
+        UISwitch.appearance().tintColor = UIColor.whiteColor()
+        UISwitch.appearance().onTintColor = UIColor.whiteColor()
+        UISwitch.appearance().thumbTintColor = UIColor.grayColor()
+        
         application.registerForRemoteNotifications()
         
         
@@ -45,10 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let localNotificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil)
         application.registerUserNotificationSettings(localNotificationSettings)
         
+        setAppBadge()
         
-        let countdownManager = LKCountdownManager.sharedInstance
-        let numberOfItemsDueToday = countdownManager.itemsDueToday().count
-        UIApplication.sharedApplication().applicationIconBadgeNumber = numberOfItemsDueToday
         
         self.registerForiCloudNotifications()
         
@@ -66,6 +69,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         return true
+    }
+    
+    func setAppBadge() {
+        if LKSettingsManager.sharedInstance.appBadgeEnabled {
+            let countdownManager = LKCountdownManager.sharedInstance
+            let numberOfItemsDueToday = countdownManager.itemsDueToday().count
+            println("numberOfItemsDueToday: \(numberOfItemsDueToday)")
+            UIApplication.sharedApplication().applicationIconBadgeNumber = numberOfItemsDueToday
+        }
     }
     
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
@@ -91,8 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //  Update Application Badge   //
         /////////////////////////////////
         
-        let numberOfItemsDueToday = countdownManager.itemsDueToday().count
-        UIApplication.sharedApplication().applicationIconBadgeNumber = numberOfItemsDueToday
+        setAppBadge()
         
         //println("abckgroundFetchEnded. Duration: \(startDate.timeIntervalSinceNow.positive) seconds")
         

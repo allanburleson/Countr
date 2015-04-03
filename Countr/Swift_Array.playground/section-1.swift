@@ -5,6 +5,23 @@ import UIKit
 
 var str = "Hello, playground"
 
+///////////////////////////////////
+////       Array Sorting       ////
+///////////////////////////////////
+let unsortedTestArray = ["d", "c", "a", "b"]
+let sortedArray = unsortedTestArray.sorted { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+println(sortedArray)
+
+var names = [ "Alpha", "alpha", "bravo"]
+var sortedNames = names.sorted { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+
+
+
+
+///////////////////////////////////
+////        Array Slice        ////
+///////////////////////////////////
+
 extension Array {
     func subarrayToIndex(index: Int) -> Array {
         if index > self.count {
@@ -49,4 +66,4 @@ func aFunction(param1: String, param2: String, param3: String = "default") {
     
 }
 
-aFunction("hi", "ho", "hhooo"
+//aFunction("hi", "ho", "hhooo"

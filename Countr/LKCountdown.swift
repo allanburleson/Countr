@@ -104,11 +104,10 @@ class LKCountdownManager: NSObject {
     */
     func itemsDueToday() -> [LKCountdownItem] {
         let allItems = self.model.items
-        let today = NSDate()
         var _todayItems: [LKCountdownItem] = []
         
         for item in allItems {
-            if item.date.isEqualToDate(today) {
+            if item.date.isToday {
                 _todayItems.append(item)
             }
         }
@@ -327,7 +326,7 @@ class LKCountdownItem: NSObject, Printable {
     :param: object The NSManagedObject to use when the item is created
     */
     init(object: NSManagedObject) {
-        self.title = object.valueForKey(coreDataNameKey) as String
+        self.title = object.valueForKey(coreDataTitleKey) as String
         self.date = object.valueForKey(coreDataDateKey) as NSDate
         self.id = object.valueForKey(coreDataIdKey) as String
         //println("countdownmode: \(object.valueForKey(coreDataKindKey) as String)")

@@ -15,10 +15,20 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     // Google analytics
     lazy var tracker = GAI.sharedInstance().defaultTracker
     
+    let settingsManager = LKSettingsManager.sharedInstance
+    
+    // UI
     @IBOutlet weak var versionTextLabel: UILabel!
     @IBOutlet weak var versionNumberLabel: UILabel!
     @IBOutlet weak var premiumFeaturesTextLabel: UILabel!
     @IBOutlet weak var unlockEverythingCell: UITableViewCell!
+    
+    @IBOutlet weak var sortByLabel: UILabel!
+    @IBOutlet weak var sortBySegmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var appBadgeLabel: UILabel!
+    @IBOutlet weak var appBadgeSwitch: UISwitch!
+    
     
     @IBOutlet weak var sendFeedbackTextLabel: UILabel!
     
@@ -27,7 +37,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     @IBOutlet weak var copyrightLabel: UILabel!
     @IBOutlet weak var deleteAllDataTextLabel: UILabel!
     @IBOutlet weak var sendFeedbackCell: UITableViewCell!
-    @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //This is the dont bar button in the upper left corner
+    @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //This is the done bar button in the upper left corner
     @IBOutlet weak var deleteAllDataLabel: UILabel!
     
     //let webViewController = PBWebViewController()
@@ -54,6 +64,12 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         if LKPurchaseManager.didPurchase {
             unlockEverythingCell.accessoryType = .Checkmark
         }
+        
+        
+        // Settings
+        self.sortBySegmentedControl.selectedSegmentIndex = settingsManager.sortingStyle.toIndex()
+        self.appBadgeSwitch.on = settingsManager.appBadgeEnabled
+        
 
         
     }
@@ -67,13 +83,31 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         }
     }
     
-    
+    // MARK: UI Actions
     
     @IBAction func doneButtonClicked() {
         self.dismissViewControllerAnimated(true, completion: {
             self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: done_button_key, value: nil).build())
         })
     }
+    
+    @IBAction func sortBySegmentedControlChanged(sender: UISegmentedControl) {
+        println("sortBySegmentedControlChanged")
+        self.settingsManager.setSortingStyle(LKSortingStyle(index: self.sortBySegmentedControl.selectedSegmentIndex))
+    }
+    
+    @IBAction func appBadgeSwitchChanged(sender: UISwitch) {
+        println("appBadgeSwitchChanged")
+        self.settingsManager.setAppBadgeOn(self.appBadgeSwitch.on)
+        if !self.appBadgeSwitch.on {
+            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        } else {
+            UIApplication.sharedApplication().applicationIconBadgeNumber = LKCountdownManager.sharedInstance.itemsDueToday().count
+        }
+    }
+    
+    
+    // TableView
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
@@ -84,7 +118,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
         
-        if indexPath.section == 1 {
+        if indexPath.section == 2 {
             switch indexPath.row {
             case 0:
                 // Send Feedback
@@ -99,7 +133,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             }
         }
         
-        if indexPath.section == 2 {
+        if indexPath.section == 3 {
             // Delete all Data
             deleteAllData()
         }

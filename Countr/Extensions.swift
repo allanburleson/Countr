@@ -222,6 +222,17 @@ extension Array {
 
 extension NSDate {
     
+    var isToday: Bool {
+        let calendar = NSCalendar.currentCalendar()
+        let unitFlags: NSCalendarUnit =  .CalendarUnitEra | .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay
+        var dateComponents = calendar.components(unitFlags, fromDate: NSDate())
+        let today = calendar.dateFromComponents(dateComponents)!
+        dateComponents = calendar.components(unitFlags, fromDate: self)
+        let referenceDate = calendar.dateFromComponents(dateComponents)!
+        
+        return today.isEqualToDate(referenceDate)
+    }
+    
     var isPast: Bool {
         return self.timeIntervalSinceNow < 0.0
     }

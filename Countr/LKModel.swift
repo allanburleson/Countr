@@ -19,7 +19,7 @@ let countdownItemRecordIdKey = "id"
 
 
 let coreDataEnitiyNameKey = "Item"
-let coreDataNameKey = "name"
+let coreDataTitleKey = "name"
 let coreDataDateKey = "date"
 let coreDataIdKey = "id"
 let coreDataKindKey = "kind"
@@ -128,8 +128,14 @@ class LKModel {
     Sorts both arrays (self.items and self.rawItems) by the timeInterval since the reference date (the newest items are on top)
     */
     private func sortArray() {
-        self.items.sort({$0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow})
-        self.rawItems.sort({($0.valueForKey(coreDataDateKey) as NSDate).timeIntervalSinceNow < ($1.valueForKey(coreDataDateKey) as NSDate).timeIntervalSinceNow})
+        switch LKSettingsManager.sharedInstance.sortingStyle {
+        case .Date:
+            self.items.sort    { $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow}
+            self.rawItems.sort { ($0.valueForKey(coreDataDateKey) as NSDate).timeIntervalSinceNow < ($1.valueForKey(coreDataDateKey) as NSDate).timeIntervalSinceNow}
+        case .Title:
+            self.items.sort    { $0.title.localizedCaseInsensitiveCompare($1.title) == NSComparisonResult.OrderedAscending }
+            self.rawItems.sort { ($0.valueForKey(coreDataTitleKey) as String).localizedCaseInsensitiveCompare(($1.valueForKey(coreDataTitleKey) as String)) == NSComparisonResult.OrderedAscending}
+        }
     }
 
     
@@ -142,7 +148,7 @@ class LKModel {
         
         let context = self.managedObjectContext!
         let object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(coreDataEnitiyNameKey, inManagedObjectContext: context) as NSManagedObject
-        object.setValue(item.title, forKey: coreDataNameKey)
+        object.setValue(item.title, forKey: coreDataTitleKey)
         object.setValue(item.date, forKey: coreDataDateKey)
         object.setValue(item.id, forKey: coreDataIdKey)
         object.setValue(item.countdownMode.toString(), forKey: coreDataKindKey)

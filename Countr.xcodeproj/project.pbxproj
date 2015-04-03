@@ -12,6 +12,8 @@
 		1E084B951BC9E569F33EE8FE /* UILabel+WhiteUIDatePickerLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E084B79BD97DE0D385BB98E /* UILabel+WhiteUIDatePickerLabels.m */; };
 		5D0A9D5E1A790DF30040C100 /* UITextField_ClearButton_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A9D5D1A790DF30040C100 /* UITextField_ClearButton_White.png */; };
 		5D0A9D621A79132A0040C100 /* LKDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A9D611A79132A0040C100 /* LKDatePicker.swift */; };
+		5D1C84FC1ACEE75100EB2BBF /* LKSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C84FB1ACEE75100EB2BBF /* LKSettingsManager.swift */; };
+		5D1C84FE1ACEE79C00EB2BBF /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D1C84FD1ACEE79C00EB2BBF /* settings.plist */; };
 		5D3329DF1ACBE0B6003C89BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DF32FFA1A7E831100063FAC /* Localizable.strings */; };
 		5D3329E01ACBE116003C89BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DF32FFA1A7E831100063FAC /* Localizable.strings */; };
 		5D33343C1A6A8BD6007D9A4B /* LKInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */; };
@@ -35,6 +37,9 @@
 		5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */; };
 		5D8721011A7D64C200F6C527 /* LKPurchasePremiumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */; };
 		5D8721021A7D64C200F6C527 /* LKPurchasePremiumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8721001A7D64C200F6C527 /* LKPurchasePremiumCell.xib */; };
+		5D8928281ACF093F00E3EB1A /* LKSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C84FB1ACEE75100EB2BBF /* LKSettingsManager.swift */; };
+		5D8928291ACF094000E3EB1A /* LKSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C84FB1ACEE75100EB2BBF /* LKSettingsManager.swift */; };
+		5D89282A1ACF094300E3EB1A /* LKSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C84FB1ACEE75100EB2BBF /* LKSettingsManager.swift */; };
 		5D9DAA081A7BD3E400CED935 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
 		5DA85E6D1AC704EB00D1BB31 /* LKAddItemInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA85E6C1AC704EB00D1BB31 /* LKAddItemInterfaceController.swift */; };
 		5DAA338F1A2B19EB006DDB65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */; };
@@ -127,6 +132,8 @@
 		1E084B79BD97DE0D385BB98E /* UILabel+WhiteUIDatePickerLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+WhiteUIDatePickerLabels.m"; sourceTree = "<group>"; };
 		5D0A9D5D1A790DF30040C100 /* UITextField_ClearButton_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITextField_ClearButton_White.png; sourceTree = "<group>"; };
 		5D0A9D611A79132A0040C100 /* LKDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKDatePicker.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		5D1C84FB1ACEE75100EB2BBF /* LKSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKSettingsManager.swift; sourceTree = "<group>"; };
+		5D1C84FD1ACEE79C00EB2BBF /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKInfoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D33885A1A6AB63F0068C37C /* TodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D33885C1A6AB63F0068C37C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -134,7 +141,7 @@
 		5D3388611A6AB63F0068C37C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		5D3388631A6AB63F0068C37C /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		5D33886C1A6AB6810068C37C /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TodayExtension.entitlements; sourceTree = "<group>"; };
-		5D52D6C81ABD638F0081F0D8 /* Array_Slice.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Array_Slice.playground; sourceTree = "<group>"; };
+		5D52D6C81ABD638F0081F0D8 /* Swift_Array.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Swift_Array.playground; sourceTree = "<group>"; };
 		5D52D6C91ABD84CA0081F0D8 /* extensionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = extensionData.plist; sourceTree = "<group>"; };
 		5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKSharedExtensionDataManager.swift; sourceTree = "<group>"; };
 		5D56C2051A77F160000E0FE3 /* Countr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Countr-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -289,9 +296,11 @@
 			children = (
 				5D57D4961A481F770030EF9C /* Countr.entitlements */,
 				5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */,
+				5D1C84FB1ACEE75100EB2BBF /* LKSettingsManager.swift */,
 				5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */,
 				5D57D4991A48219E0030EF9C /* LKModel.swift */,
 				5D52D6C91ABD84CA0081F0D8 /* extensionData.plist */,
+				5D1C84FD1ACEE79C00EB2BBF /* settings.plist */,
 				5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */,
 				5DAA33B71A2B4026006DDB65 /* LKAddItemViewController.swift */,
 				5DAA33951A2B19EB006DDB65 /* Main.storyboard */,
@@ -313,7 +322,7 @@
 				5DE0732D1A79394500A1071E /* CWStatusBarNotification.swift */,
 				5D56C2061A77F161000E0FE3 /* UIAppearance+Swift.h */,
 				5D56C2071A77F161000E0FE3 /* UIAppearance+Swift.m */,
-				5D52D6C81ABD638F0081F0D8 /* Array_Slice.playground */,
+				5D52D6C81ABD638F0081F0D8 /* Swift_Array.playground */,
 				5D9DAA0C1A7BE19A00CED935 /* NSDate_Playground.playground */,
 				5DAA338C1A2B19EB006DDB65 /* Supporting Files */,
 				5D56C2051A77F160000E0FE3 /* Countr-Bridging-Header.h */,
@@ -600,6 +609,7 @@
 				5D0A9D5E1A790DF30040C100 /* UITextField_ClearButton_White.png in Resources */,
 				5DAA339C1A2B19EB006DDB65 /* LaunchScreen.xib in Resources */,
 				5DAA33991A2B19EB006DDB65 /* Images.xcassets in Resources */,
+				5D1C84FE1ACEE79C00EB2BBF /* settings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +713,7 @@
 				5DAB38121ABDD5BC001DBB71 /* Extensions.swift in Sources */,
 				5D52D6CD1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift in Sources */,
 				5D33886D1A6AB7320068C37C /* Countr.xcdatamodeld in Sources */,
+				5D8928291ACF094000E3EB1A /* LKSettingsManager.swift in Sources */,
 				5D3388621A6AB63F0068C37C /* TodayViewController.swift in Sources */,
 				5DF32FBB1A7E114600063FAC /* LKPurchaseManager.swift in Sources */,
 			);
@@ -729,6 +740,7 @@
 				5DE435E31A7D1B190034327A /* LKRoundBorderedButton.swift in Sources */,
 				5DAA33B21A2B1A7F006DDB65 /* LKCountdown.swift in Sources */,
 				5DE0732E1A79394500A1071E /* CWStatusBarNotification.swift in Sources */,
+				5D1C84FC1ACEE75100EB2BBF /* LKSettingsManager.swift in Sources */,
 				5D33343C1A6A8BD6007D9A4B /* LKInfoViewController.swift in Sources */,
 				1E084B951BC9E569F33EE8FE /* UILabel+WhiteUIDatePickerLabels.m in Sources */,
 				1E0849CF750855CF383B62D5 /* LKAlertController.swift in Sources */,
@@ -742,6 +754,7 @@
 				5D52D6D01ABD97430081F0D8 /* LKModel.swift in Sources */,
 				5DAB38131ABDD5C6001DBB71 /* Extensions.swift in Sources */,
 				5D52D6CF1ABD96250081F0D8 /* LKSharedExtensionDataManager.swift in Sources */,
+				5D8928281ACF093F00E3EB1A /* LKSettingsManager.swift in Sources */,
 				5D52D6CE1ABD96150081F0D8 /* LKCountdown.swift in Sources */,
 				5DAA33A81A2B19EB006DDB65 /* CountrTests.swift in Sources */,
 				5D52D6D11ABD97540081F0D8 /* LKPurchaseManager.swift in Sources */,
@@ -752,6 +765,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D89282A1ACF094300E3EB1A /* LKSettingsManager.swift in Sources */,
 				5DE1A4551AC6E2BF005BF8D4 /* NotificationController.swift in Sources */,
 				5DE1A4721AC6E38D005BF8D4 /* LKSharedExtensionDataManager.swift in Sources */,
 				5DE1A4741AC6E395005BF8D4 /* LKCountdown.swift in Sources */,
