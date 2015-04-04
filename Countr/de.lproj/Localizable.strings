@@ -32,12 +32,13 @@
 
 
 /*
- Delete All Items Alert
+ Delete All Items
  */
-"me.kollmer.countr.infoView.deleteAllAlert.title" = "Alles Löschen";
-"me.kollmer.countr.infoView.deleteAllAlert.message" = "Möchten Sie wirklich alles Löschen?";
-"me.kollmer.countr.infoView.deleteAllAlert.deleteButton.title" = "Löschen";
-"me.kollmer.countr.infoView.deleteAllAlert.cancelButton.title" = "Abbrechen";
+"me.kollmer.countr.infoView.deleteAllItems.alert.title" = "Alles Löschen";
+"me.kollmer.countr.infoView.deleteAllItems.alert.message" = "Möchten Sie wirklich alles Löschen?";
+"me.kollmer.countr.infoView.deleteAllItems.alert.deleteButton.title" = "Löschen";
+"me.kollmer.countr.infoView.deleteAllItems.alert.cancelButton.title" = "Abbrechen";
+"me.kollmer.countr.infoView.deleteAllItems.notification.message" = "%i Countdowns gelöscht";
 
 
 

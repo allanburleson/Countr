@@ -17,6 +17,8 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     let settingsManager = LKSettingsManager.sharedInstance
     
+    var notification = CWStatusBarNotification()
+    
     // UI
     @IBOutlet weak var versionTextLabel: UILabel!
     @IBOutlet weak var versionNumberLabel: UILabel!
@@ -101,6 +103,24 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.notification.notificationLabelBackgroundColor = UIColor.greenColor()
+        self.notification.notificationLabelTextColor = UIColor.blackColor()
+        self.notification.notificationStyle = .NavigationBarNotification
+        self.notification.notificationAnimationInStyle = .Top
+        self.notification.notificationAnimationOutStyle = .Top
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.notification.dismissNotification()
+        
+    }
+    
     
     // MARK: UI Actions
     
@@ -267,10 +287,10 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     }
     
     func deleteAllData() {
-        let alertTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAllAlert.title", comment: "")
-        let alertMessage = NSLocalizedString("me.kollmer.countr.infoView.deleteAllAlert.message", comment: "")
-        let alertButtonDeleteTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAllAlert.deleteButton.title", comment: "")
-        let alertButtonCancelTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAllAlert.cancelButton.title", comment: "")
+        let alertTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.alert.title", comment: "")
+        let alertMessage = NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.alert.message", comment: "")
+        let alertButtonDeleteTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.alert.deleteButton.title", comment: "")
+        let alertButtonCancelTitle = NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.alert.cancelButton.title", comment: "")
 
 
         //let attributedTitle: NSAttributedString = NSAttributedString(string: alertTitle, attributes: [NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 14)!, NSForegroundColorAttributeName: UIColor.grayColor()])
@@ -282,10 +302,15 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         let deleteAction = UIAlertAction(title: alertButtonDeleteTitle, style: .Destructive, handler: {(action) in
             //println("delete")
             let countdownManager = LKCountdownManager.sharedInstance
-            countdownManager.deleteAllItems({
-                NSNotificationCenter.defaultCenter().postNotificationName(didDeleteAllItemsKey, object: nil)
-                self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: true).build())
-            })
+            let numberOfItemsBeforeDeletion = countdownManager.numberOfItems
+            countdownManager.deleteAllItems { (success: Bool) in
+                if success {
+                    let notificationMassage = NSString(format: NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.notification.message", comment: ""), numberOfItemsBeforeDeletion)
+                    self.notification.displayNotificationWithMessage(notificationMassage, duration: 1.5)
+                    NSNotificationCenter.defaultCenter().postNotificationName(didDeleteAllItemsKey, object: nil)
+                    self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: true).build())
+                }
+            }
         })
         
         let cancelAction = UIAlertAction(title: alertButtonCancelTitle, style: .Cancel, handler: {(action) in

@@ -208,7 +208,7 @@ class LKModel {
     
     :param: completionHandler A closure which is executed when all items were deleted sucessfully
     */
-    func deleteAllItems(#completionHandler: () -> ()) {
+    func deleteAllItems(#completionHandler: (success: Bool) -> ()) {
         let moc = self.managedObjectContext!
         for object in self.rawItems {
             moc.deleteObject(object)
@@ -217,9 +217,10 @@ class LKModel {
         if moc.save(error) {
             //println("Sucessfully deleted all items")
             modelChangedAction()
-            completionHandler()
+            completionHandler(success: true)
         } else {
             //println("Error: \(error.debugDescription)")
+            completionHandler(success: false)
         }
     }
     

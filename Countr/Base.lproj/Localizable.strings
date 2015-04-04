@@ -19,7 +19,7 @@
 "me.kollmer.countr.infoView.versionTextLabel" = "Version";
 "me.kollmer.countr.infoView.unlockEverything" = "Unlock everything";
 "me.kollmer.countr.infoView.settingsSectionHeader" = "Settings";
-"me.kollmer.countr.infoView.sortingStyleText" = "";
+"me.kollmer.countr.infoView.sortingStyleText" = "Sort by";
 "me.kollmer.countr.infoView.sortingStyleText.Date" = "Date";
 "me.kollmer.countr.infoView.sortingStyleText.Title" = "Title";
 "me.kollmer.countr.infoView.appBadgeText" = "App Badge";
@@ -32,12 +32,13 @@
 
 
 /*
- Delete All Items Alert
+ Delete All Items
  */
-"me.kollmer.countr.infoView.deleteAllAlert.title" = "Delete All items";
-"me.kollmer.countr.infoView.deleteAllAlert.message" = "Are you sure you want to delete all items?";
-"me.kollmer.countr.infoView.deleteAllAlert.deleteButton.title" = "Delete";
-"me.kollmer.countr.infoView.deleteAllAlert.cancelButton.title" = "Cancel";
+"me.kollmer.countr.infoView.deleteAllItems.alert.title" = "Delete All items";
+"me.kollmer.countr.infoView.deleteAllItems.alert.message" = "Are you sure you want to delete all items?";
+"me.kollmer.countr.infoView.deleteAllItems.alert.deleteButton.title" = "Delete";
+"me.kollmer.countr.infoView.deleteAllItems.alert.cancelButton.title" = "Cancel";
+"me.kollmer.countr.infoView.deleteAllItems.notification.message" = "Deleted %i items";
 
 
 

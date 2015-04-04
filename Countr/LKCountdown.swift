@@ -227,7 +227,7 @@ class LKCountdownManager: NSObject {
     
     :param: completionHandler A closure which is executed when all items were sucessfully deleted
     */
-    func deleteAllItems(completionHandler: () -> ()) {
+    func deleteAllItems(completionHandler: (success: Bool) -> ()) {
         self.model.deleteAllItems(completionHandler)
         self.didDeleteAllItemsCompletionClosure()
     }
