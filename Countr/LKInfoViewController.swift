@@ -47,14 +47,33 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     override func loadView() {
         super.loadView()
         
+        self.title = NSLocalizedString("me.kollmer.countr.infoView.title", comment: "")
+        
         self.tableView.backgroundColor = UIColor.backgroundColor()
         
+        // Section 0 - About/Info
         self.versionNumberLabel.text = UIApplication.sharedApplication().version
         self.versionTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.versionTextLabel", comment: "")
         self.premiumFeaturesTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.unlockEverything", comment: "")
+        
+        // Section 1 - Settings
+        self.sortByLabel.text = NSLocalizedString("me.kollmer.countr.infoView.sortingStyleText", comment: "")
+        self.appBadgeLabel.text = NSLocalizedString("me.kollmer.countr.infoView.appBadgeText", comment: "")
+        let segmentedControlTitles = [
+            NSLocalizedString("me.kollmer.countr.infoView.sortingStyleText.Title", comment: ""),
+            NSLocalizedString("me.kollmer.countr.infoView.sortingStyleText.Date", comment: "")
+        ]
+        self.sortBySegmentedControl.setTitle(segmentedControlTitles[0], forSegmentAtIndex: 0)
+        self.sortBySegmentedControl.setTitle(segmentedControlTitles[1], forSegmentAtIndex: 1)
+        
+        // Section 2 – Feedback
         self.sendFeedbackTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.feedbackLabel", comment: "")
         //self.supportTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.supportLabel", comment: "")
+        
+        // Section 3 - Delete All Data
         self.deleteAllDataTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.deleteAllDataLabel", comment: "")
+        
+        // Section 4 - Copyright
         self.copyrightLabel.text = NSLocalizedString("me.kollmer.countr.infoView.copyrightLabel", comment: "")
         
         // Google Analytics
@@ -108,6 +127,54 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     
     // TableView
+
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return [nil, NSLocalizedString("me.kollmer.countr.infoView.settingsSectionHeader", comment: "") as String?, nil, nil, nil][section]
+    }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return [nil, NSLocalizedString("me.kollmer.countr.infoView.appBadgeExplanationFooter", comment: "") as String?, nil, nil, nil][section]
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.frame = CGRectMake(16, 13, 320, 17)
+        label.font = UIFont.boldSystemFontOfSize(14)
+        label.textColor = UIColor.whiteColor()
+        
+        label.text = self.tableView(tableView, titleForHeaderInSection: section)?.uppercaseString
+        
+        let headerView = UIView()
+        headerView.addSubview(label)
+        
+        return headerView
+    }
+    
+    
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let label = UILabel()
+        let labelWidth = UIScreen.mainScreen().bounds.width - 21 // 21 = 16 (the x inset) + 5 (keep some free space at the right screen bezel)
+        label.frame = CGRectMake(16, 8, labelWidth, 40)
+        label.font = UIFont.systemFontOfSize(14)
+        label.textColor = UIColor.whiteColor()
+        label.numberOfLines = 0
+        
+        label.text = self.tableView(tableView, titleForFooterInSection: section)
+        
+        let footerView = UIView()
+        footerView.addSubview(label)
+        
+        return footerView
+    }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return 55
+        } else {
+            return UITableViewAutomaticDimension
+        }
+    }
+
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension

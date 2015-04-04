@@ -15,8 +15,15 @@
 /*
  Info View Controller
  */
+"me.kollmer.countr.infoView.title" = "About";
 "me.kollmer.countr.infoView.versionTextLabel" = "Version";
 "me.kollmer.countr.infoView.unlockEverything" = "Unlock everything";
+"me.kollmer.countr.infoView.settingsSectionHeader" = "Settings";
+"me.kollmer.countr.infoView.sortingStyleText" = "";
+"me.kollmer.countr.infoView.sortingStyleText.Date" = "Date";
+"me.kollmer.countr.infoView.sortingStyleText.Title" = "Title";
+"me.kollmer.countr.infoView.appBadgeText" = "App Badge";
+"me.kollmer.countr.infoView.appBadgeExplanationFooter" = "App badge will display the number of items due today";
 "me.kollmer.countr.infoView.feedbackLabel" = "Feedback";
 "me.kollmer.countr.infoView.supportLabel" = "Support";
 "me.kollmer.countr.infoView.deleteAllDataLabel" = "Delete All Data";

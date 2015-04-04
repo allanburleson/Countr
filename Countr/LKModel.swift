@@ -125,7 +125,10 @@ class LKModel {
     }
     
     /**
-    Sorts both arrays (self.items and self.rawItems) by the timeInterval since the reference date (the newest items are on top)
+    Sorts both arrays (self.items and self.rawItems) by the sorting style selected in settings
+    
+    -  Date: Sort by timeInterval since the reference date (the newest items are on top)
+    -  Title: Sort by the title of the countdownItem (alphabetically)
     */
     private func sortArray() {
         switch LKSettingsManager.sharedInstance.sortingStyle {
@@ -137,7 +140,7 @@ class LKModel {
             self.rawItems.sort { ($0.valueForKey(coreDataTitleKey) as String).localizedCaseInsensitiveCompare(($1.valueForKey(coreDataTitleKey) as String)) == NSComparisonResult.OrderedAscending}
         }
     }
-
+    
     
     /**
     Save a new countdown item to the model

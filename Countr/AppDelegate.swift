@@ -21,20 +21,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         let font = UIFont(name: "Avenir-Book", size: 17)!
+        let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        // UILabel
         UILabel.appearance().font = font
+        
+        // UIButton
         UIButton.appearance().titleLabel?.font = UIFont(name: "Avenir-Book", size: 15)
-        //UITextField.appearance().backgroundColor = UIColor.foregroundColor()
+        
+        // UITableViewCell
         UITableViewCell.appearance().backgroundColor = UIColor.foregroundColor()
+        
+        // UICollectionView
         UICollectionView.appearance().backgroundColor = UIColor.backgroundColor()
+        
+        // UINavigationBar
         UINavigationBar.appearance().barStyle = .Black
+        UINavigationBar.appearance().titleTextAttributes = titleTextAttributes
+        
+        // UIToolbar
         UIToolbar.appearance().barStyle = .Black
         UIToolbar.appearance().tintColor = UIColor.whiteColor()
+        
+        // UITextField
         UITextField.appearance().tintColor = UIColor.whiteColor()
-        let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        // UIBarButtonItem
         UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Normal)
         UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Highlighted)
         UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Disabled)
-        UINavigationBar.appearance().titleTextAttributes = titleTextAttributes
+        
+        // UISegmentedControl
         let segmentedControlTitleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName : UIFont(name: "Avenir-Book", size: 13)!]
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlTitleTextAttributes, forState: UIControlState.Normal)
         
@@ -42,6 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UISwitch.appearance().tintColor = UIColor.whiteColor()
         UISwitch.appearance().onTintColor = UIColor.whiteColor()
         UISwitch.appearance().thumbTintColor = UIColor.grayColor()
+        
+        // UIScrollView
+        UIScrollView.appearance().indicatorStyle = .White
         
         application.registerForRemoteNotifications()
         

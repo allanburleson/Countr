@@ -15,8 +15,15 @@
 /*
  Info View Controller
  */
+"me.kollmer.countr.infoView.title" = "Über";
 "me.kollmer.countr.infoView.versionTextLabel" = "Version";
 "me.kollmer.countr.infoView.unlockEverything" = "Alles entsperren";
+"me.kollmer.countr.infoView.settingsSectionHeader" = "Einstellungen";
+"me.kollmer.countr.infoView.sortingStyleText" = "Sortieren";
+"me.kollmer.countr.infoView.sortingStyleText.Date" = "Datum";
+"me.kollmer.countr.infoView.sortingStyleText.Title" = "Titel";
+"me.kollmer.countr.infoView.appBadgeText" = "Kennzeichensymbol";
+"me.kollmer.countr.infoView.appBadgeExplanationFooter" = "Das Kennzeichensymbol zeigt die Nummer von Countdowns for heute an";
 "me.kollmer.countr.infoView.feedbackLabel" = "Feedback";
 "me.kollmer.countr.infoView.supportLabel" = "Support";
 "me.kollmer.countr.infoView.deleteAllDataLabel" = "Alles Löschen";

@@ -126,6 +126,15 @@ class LKSharedExtensionDataManager {
             }
         }
         
+        if type == .WatchApp {
+            switch LKSettingsManager.sharedInstance.sortingStyle {
+            case .Date:
+                return countdownItems.sorted {$0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow}
+            case .Title:
+                return countdownItems.sorted {$0.title.localizedCaseInsensitiveCompare($1.title) == NSComparisonResult.OrderedAscending}
+            }
+        }
+        
         
         return countdownItems
     }
