@@ -13,6 +13,7 @@ import UIKit
 
 let STATUS_BAR_ANIMATION_LENGTH : Double = 0.25
 let FONT_SIZE : CGFloat = 17.0
+let FONT_SIZE_SMALL: CGFloat = 12.0
 let PADDING : CGFloat = 10.0
 let SCROLL_SPEED : CGFloat = 40.0
 let SCROLL_DELAY : CGFloat = 1.0
@@ -165,6 +166,8 @@ class CWStatusBarNotification : NSObject {
     var multiline : Bool = false
     var statusBarView : UIView!
     var notificationTappedClosure : () -> () = {}
+    var notificationDidDisplayClosure: () -> () = {}
+    var notificationWillDismissClosure: () -> () = {}
     var notificationStyle : CWNotificationStyle = .StatusBarNotification
     var notificationAnimationInStyle : CWNotificationAnimationStyle = .Bottom
     var notificationAnimationOutStyle : CWNotificationAnimationStyle = .Bottom
@@ -271,7 +274,11 @@ class CWStatusBarNotification : NSObject {
         self.notificationLabel.text = message
         self.notificationLabel.textAlignment = .Center
         self.notificationLabel.adjustsFontSizeToFitWidth = false
-        self.notificationLabel.font = UIFont(name: "Avenir-Book", size: FONT_SIZE)
+        if self.notificationStyle == .NavigationBarNotification {
+            self.notificationLabel.font = UIFont(name: "Avenir-Book", size: FONT_SIZE)
+        } else {
+            self.notificationLabel.font = UIFont(name: "Avenir-Book", size: FONT_SIZE_SMALL)
+        }
         self.notificationLabel.backgroundColor = self.notificationLabelBackgroundColor
         self.notificationLabel.textColor = self.notificationLabelTextColor
         self.notificationLabel.clipsToBounds = true
@@ -384,6 +391,7 @@ class CWStatusBarNotification : NSObject {
                     performClosureAfterDelay(delayInSeconds, {
                         if let completion = completion {
                             completion()
+                            self.notificationDidDisplayClosure()
                         }
                     })
                 })
@@ -392,6 +400,7 @@ class CWStatusBarNotification : NSObject {
     
     func dismissNotification() {
         if self.notificationIsShowing {
+            self.notificationWillDismissClosure()
             cancelDelayedClosure(self.dismissHandle)
             self.notificationIsDismissing = true
             self.secondFrameChange()

@@ -53,6 +53,8 @@
 		5DAA33BA1A2B42B8006DDB65 /* LKMainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B91A2B42B8006DDB65 /* LKMainCollectionViewController.swift */; };
 		5DAB38121ABDD5BC001DBB71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
 		5DAB38131ABDD5C6001DBB71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
+		5DB05DCD1ACFE91E00E11144 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D1C84FD1ACEE79C00EB2BBF /* settings.plist */; };
+		5DB05DCE1ACFE91F00E11144 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D1C84FD1ACEE79C00EB2BBF /* settings.plist */; };
 		5DE0732E1A79394500A1071E /* CWStatusBarNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0732D1A79394500A1071E /* CWStatusBarNotification.swift */; };
 		5DE1A4531AC6E2BF005BF8D4 /* MainTableInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4521AC6E2BF005BF8D4 /* MainTableInterfaceController.swift */; };
 		5DE1A4551AC6E2BF005BF8D4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4541AC6E2BF005BF8D4 /* NotificationController.swift */; };
@@ -592,6 +594,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D3388641A6AB63F0068C37C /* MainInterface.storyboard in Resources */,
+				5DB05DCE1ACFE91F00E11144 /* settings.plist in Resources */,
 				5D3329E01ACBE116003C89BE /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,6 +628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DE1A4591AC6E2BF005BF8D4 /* Images.xcassets in Resources */,
+				5DB05DCD1ACFE91E00E11144 /* settings.plist in Resources */,
 				5DE1A45D1AC6E2BF005BF8D4 /* Countr WatchKit App.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

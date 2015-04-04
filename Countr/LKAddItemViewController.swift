@@ -79,6 +79,17 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         self.notification.notificationLabelTextColor = UIColor.whiteColor()
         self.notification.notificationLabelBackgroundColor = UIColor.redColor()
         self.notification.notificationStyle = .NavigationBarNotification
+        
+        self.notification.notificationDidDisplayClosure = {
+            println("self.notification.notificationDidDisplayClosure")
+            self.navigationItem.leftBarButtonItem?.enabled = false
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
+        self.notification.notificationWillDismissClosure = {
+            println("self.notification.notificationWillDismissClosure")
+            self.navigationItem.leftBarButtonItem?.enabled = true
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        }
     }
     
     @IBAction func countdownModeChanged(sender: UISegmentedControl) {

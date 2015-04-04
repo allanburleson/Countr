@@ -28,10 +28,15 @@ class LKSettingsManager {
     }
     
 
-    var documentsDirFilePath: String {
-        let documentsDirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        return documentsDirPath.stringByAppendingPathComponent("settings.plist")
+    var filePathForSharedContainer: String {
+        let fileManager = NSFileManager.defaultManager()
+        let containerURL = fileManager.containerURLForSecurityApplicationGroupIdentifier("group.me.kollmer.Countr")!
+        let containerURLPath = containerURL.path!
+        let filePath = containerURLPath.stringByAppendingPathComponent("settings.plist")
+        
+        return filePath
     }
+
     
     
     private(set) var sortingStyle: LKSortingStyle = .Date
@@ -88,7 +93,7 @@ class LKSettingsManager {
     */
     private func loadSettingsConfigurationRawDataFromFile() -> LKSettingsConfiguration {
         
-        return NSDictionary(contentsOfFile: documentsDirFilePath)! as LKSettingsConfiguration
+        return NSDictionary(contentsOfFile: filePathForSharedContainer)! as LKSettingsConfiguration
     }
     
     // MARK: Save settings
@@ -96,7 +101,7 @@ class LKSettingsManager {
     private func saveSettingsConfigurationToFile(data: LKSettingsConfiguration) {
         
         
-        NSDictionary(dictionary: data).writeToFile(documentsDirFilePath, atomically: true)
+        NSDictionary(dictionary: data).writeToFile(filePathForSharedContainer, atomically: true)
     }
 
     
@@ -113,12 +118,12 @@ class LKSettingsManager {
         var error: NSErrorPointer = nil
         
         println("bundle dir: \(localFilePath)")
-        println("documents dir \(documentsDirFilePath)")
+        println("documents dir \(filePathForSharedContainer)")
         
         
-        if !NSFileManager.defaultManager().fileExistsAtPath(documentsDirFilePath) {
+        if !NSFileManager.defaultManager().fileExistsAtPath(filePathForSharedContainer) {
             //println("file dies not exist, copy")
-            NSFileManager.defaultManager().copyItemAtPath(localFilePath, toPath:documentsDirFilePath, error: error)
+            NSFileManager.defaultManager().copyItemAtPath(localFilePath, toPath:filePathForSharedContainer, error: error)
             
             //println("did copy file. error: \(error.debugDescription)")
         }

@@ -63,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // UIScrollView
         UIScrollView.appearance().indicatorStyle = .White
         
+        
+        
         application.registerForRemoteNotifications()
         
         

@@ -107,11 +107,15 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.notification.notificationLabelBackgroundColor = UIColor.greenColor()
+        self.notification.notificationLabelBackgroundColor = UIColor.redColor()
         self.notification.notificationLabelTextColor = UIColor.blackColor()
-        self.notification.notificationStyle = .NavigationBarNotification
+        self.notification.notificationStyle = .StatusBarNotification //.NavigationBarNotification
         self.notification.notificationAnimationInStyle = .Top
         self.notification.notificationAnimationOutStyle = .Top
+        self.notification.notificationTappedClosure = {
+            NSLog("***********************************NOTIFICATION_TAPPED***********************************")
+            self.notification.dismissNotification()
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
