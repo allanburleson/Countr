@@ -109,13 +109,19 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         
         self.notification.notificationLabelBackgroundColor = UIColor.redColor()
         self.notification.notificationLabelTextColor = UIColor.blackColor()
-        self.notification.notificationStyle = .StatusBarNotification //.NavigationBarNotification
+        self.notification.notificationStyle = .NavigationBarNotification //.StatusBarNotification
         self.notification.notificationAnimationInStyle = .Top
         self.notification.notificationAnimationOutStyle = .Top
-        self.notification.notificationTappedClosure = {
-            NSLog("***********************************NOTIFICATION_TAPPED***********************************")
-            self.notification.dismissNotification()
+        self.notification.notificationDidDisplayClosure = {
+            self.infoBarButtonItem.enabled = false
         }
+        self.notification.notificationWillDismissClosure = {
+            self.infoBarButtonItem.enabled = true
+        }
+        //self.notification.notificationTappedClosure = {
+        //    NSLog("***********************************NOTIFICATION_TAPPED***********************************")
+        //    self.notification.dismissNotification()
+        //}
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -248,13 +254,19 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             mailComposer.navigationBar.titleTextAttributes = titleTextAttributes
             self.presentViewController(mailComposer, animated: true, completion: nil)
         } else {
+            /*
             //println("No Mail accounts configured")
-            let alertController = UIAlertController(title: "Error", message: "No Mail accounts configured", preferredStyle: .Alert)
-            let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: {(action) in
+            //let alertController = UIAlertController(title: "Error", message: "No Mail accounts configured", preferredStyle: .Alert)
+            let alertController = LKAlertController.alertViewWithTitle("Error", message: "No Mail accounts configured")
+            let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel, handler: {(action) in
                 alertController.dismissViewControllerAnimated(true, completion: nil)
             })
             alertController.addAction(dismissAction)
             self.presentViewController(alertController, animated: true, completion: nil)
+            */
+            
+            let notificationTitle = NSLocalizedString("me.kollmer.infoView.noMailConfigured.notification.message", comment: "")
+            self.notification.displayNotificationWithMessage(notificationTitle, duration: 1.5)
 
         }
     }
