@@ -121,9 +121,6 @@ class LKSettingsManager {
         
         var error: NSErrorPointer = nil
         
-        println("bundle dir: \(localFilePath)")
-        println("documents dir \(filePathForSharedContainer)")
-        
         
         if !NSFileManager.defaultManager().fileExistsAtPath(filePathForSharedContainer) {
             //println("file dies not exist, copy")
