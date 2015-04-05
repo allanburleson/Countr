@@ -41,13 +41,13 @@ class LKMainTableInterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         self.messageLabel.setHidden(true)
-        println("awakeWithContext: \(context)")
+        //println("awakeWithContext: \(context)")
         
         //self.addMenuItemWithItemIcon(.Add, title: "Add", action: "addNewItem")
         // Configure interface objects here.
         self.setTitle("Countr")
         countdownItems = extensionDataManager.loadCountdownItemsForExtensionWithType(.WatchApp)
-        println("items loeded from extension manager: \(countdownItems)")
+        //println("items loeded from extension manager: \(countdownItems)")
         
         if !countdownItems.isEmpty {
             var rowTypes: [String] = [] // Add row:  = ["LKAddItemRowController"]
@@ -74,7 +74,7 @@ class LKMainTableInterfaceController: WKInterfaceController {
         
     }
     func addNewItem() {
-        println("add new item function called")
+        //println("add new item function called")
         WKInterfaceController.openParentApplication([wk_action_key : wk_action_addNewItem_key], reply: nil)
         //self.pushControllerWithName("LKAddItemInterfaceController", context: nil)
     }
@@ -82,6 +82,7 @@ class LKMainTableInterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        //println("willActivate")
         
         
         // Start all timers when the view appears
@@ -112,7 +113,7 @@ class LKMainTableInterfaceController: WKInterfaceController {
     }
     
     override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
-        println("tableDidSelectRowAtIndex: \(rowIndex)")
+        //println("tableDidSelectRowAtIndex: \(rowIndex)")
         
         
         

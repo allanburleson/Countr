@@ -8,7 +8,9 @@
 
 import Foundation
 
-public let settingsDidChangeNotficationKey = "settingsDidChangeNotification"
+public let LKSettingsSettingsDidChangeNotfication = "LKSettingsDidChangeNotfication"
+public let LKSettingsAppBadgeSettingDidChangeNotification = "LKSettingsAppBadgeSettingDidChangeNotification"
+public let LKSettingsSortingStyleSettingDidChange = "LKSettingsSortingStyleSettingDidChange"
 
 internal typealias LKSettingsConfiguration = [String : AnyObject]
 
@@ -65,12 +67,14 @@ class LKSettingsManager {
     
     func setSortingStyle(sortingStyle: LKSortingStyle) {
         self.sortingStyle = sortingStyle
+        NSNotificationCenter.defaultCenter().postNotificationName(LKSettingsSortingStyleSettingDidChange, object: nil)
         
         settingsChanged()
     }
     
     func setAppBadgeOn(badgeOn: Bool) {
         self.appBadgeEnabled = badgeOn
+        NSNotificationCenter.defaultCenter().postNotificationName(LKSettingsAppBadgeSettingDidChangeNotification, object: nil)
         
         settingsChanged()
     }
@@ -81,7 +85,7 @@ class LKSettingsManager {
             sortingStyleKey : self.sortingStyle.toString()
         ]
         self.saveSettingsConfigurationToFile(settingsConfiguration)
-        NSNotificationCenter.defaultCenter().postNotificationName(settingsDidChangeNotficationKey, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(LKSettingsSettingsDidChangeNotfication, object: nil)
     }
     
     // MARK: Load settings

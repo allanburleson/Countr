@@ -30,7 +30,7 @@ class LKAddItemInterfaceController: WKInterfaceController {
 
     @IBAction func setTitleButtonPressed() {
         self.presentTextInputControllerWithSuggestions(nil, allowedInputMode: WKTextInputMode.Plain) { (dictatedText) in
-            println("dictatedText: \(dictatedText)")
+            //println("dictatedText: \(dictatedText)")
         }
     }
     

@@ -21,7 +21,7 @@ class CountdownItemDetailInterfaceController: WKInterfaceController {
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        println("CountdownItemDetailInterfaceController: awakeWithContext: \(context)")
+        //println("CountdownItemDetailInterfaceController: awakeWithContext: \(context)")
         
         
         // Load the passed countdownObject

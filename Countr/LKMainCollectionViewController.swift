@@ -91,7 +91,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         notificationCenter.addObserver(self, selector: "refresh", name: refreshUIKey, object: nil)
         notificationCenter.addObserver(self, selector: "refresh", name: didDeleteAllItemsKey, object: nil)
         notificationCenter.addObserver(self, selector: "didPurchasePremiumFeatures", name: didPurchasePremiumFeaturesNotificationKey, object: nil)
-        notificationCenter.addObserver(self, selector: "settingsChanged", name: settingsDidChangeNotficationKey, object: nil)
+        notificationCenter.addObserver(self, selector: "sortingStyleSettingChanged", name: LKSettingsSortingStyleSettingDidChange, object: nil)
         
 
     }
@@ -381,7 +381,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     }
     
-    func settingsChanged() {
+    func sortingStyleSettingChanged() {
         self.refresh()
     }
     

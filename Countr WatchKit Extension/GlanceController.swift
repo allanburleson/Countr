@@ -39,7 +39,7 @@ class GlanceController: WKInterfaceController {
         // Configure interface objects here.
         
         self.countdownItems = self.extensionDataManager.loadCountdownItemsForExtensionWithType(.WatchGlance)
-        println("self.countdownItems: \(self.countdownItems)")
+        //println("self.countdownItems: \(self.countdownItems)")
         
         self.item0TitleLabel.setHidden(true)
         self.item0Timer.setHidden(true)
@@ -49,12 +49,12 @@ class GlanceController: WKInterfaceController {
         
         switch self.countdownItems.count {
         case 0:
-            println("case 0:")
+            //println("case 0:")
             
             self.item0TitleLabel.setText("No items added yet. Youn can add items in the Countr iOS app.")
             
         case 1:
-            println("case 1:")
+            //println("case 1:")
             self.item0TitleLabel.setText(self.countdownItems[0].title)
             self.item0Timer.setDate(self.countdownItems[0].date)
             self.item0Timer.start()
@@ -63,7 +63,7 @@ class GlanceController: WKInterfaceController {
             self.item0Timer.setHidden(false)
             
         case 2:
-            println("case 2:")
+            //println("case 2:")
             self.item0TitleLabel.setText(self.countdownItems[0].title)
             self.item0Timer.setDate(self.countdownItems[0].date)
             self.item0Timer.start()
@@ -79,7 +79,7 @@ class GlanceController: WKInterfaceController {
             self.item1Timer.setHidden(false)
 
         default:
-            println("default:")
+            //println("default:")
             break
         }
         

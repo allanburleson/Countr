@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if LKSettingsManager.sharedInstance.appBadgeEnabled {
             let countdownManager = LKCountdownManager.sharedInstance
             let numberOfItemsDueToday = countdownManager.itemsDueToday().count
-            println("numberOfItemsDueToday: \(numberOfItemsDueToday)")
+            //println("numberOfItemsDueToday: \(numberOfItemsDueToday)")
             UIApplication.sharedApplication().applicationIconBadgeNumber = numberOfItemsDueToday
         }
     }

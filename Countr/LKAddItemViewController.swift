@@ -81,12 +81,12 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         self.notification.notificationStyle = .NavigationBarNotification
         
         self.notification.notificationDidDisplayClosure = {
-            println("self.notification.notificationDidDisplayClosure")
+            //println("self.notification.notificationDidDisplayClosure")
             self.navigationItem.leftBarButtonItem?.enabled = false
             self.navigationItem.rightBarButtonItem?.enabled = false
         }
         self.notification.notificationWillDismissClosure = {
-            println("self.notification.notificationWillDismissClosure")
+            //println("self.notification.notificationWillDismissClosure")
             self.navigationItem.leftBarButtonItem?.enabled = true
             self.navigationItem.rightBarButtonItem?.enabled = true
         }

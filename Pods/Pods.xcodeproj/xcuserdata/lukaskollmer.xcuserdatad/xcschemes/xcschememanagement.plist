@@ -8,37 +8,31 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-NSDate+Helper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0F64CE8C975D7EDB543793AB</key>
+		<key>9BDBAFAD3B11FF75028CFE48</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>374E1A827D486DD506923CFC</key>
+		<key>A87422D49F59F68F62A61A0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EF48D6FB578F1E59F38B742D</key>
+		<key>D81AA5D942A36551E9BC3C69</key>
 		<dict>
 			<key>primary</key>
 			<true/>

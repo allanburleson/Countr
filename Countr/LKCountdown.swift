@@ -142,7 +142,7 @@ class LKCountdownManager: NSObject {
     Start updating the timeRemaining property of all countdown items in self.items
     */
     func startUpdates() {
-        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
     
     /**
