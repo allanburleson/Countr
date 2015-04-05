@@ -264,7 +264,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             self.presentViewController(alertController, animated: true, completion: nil)
             */
             
-            let notificationTitle = NSLocalizedString("me.kollmer.infoView.noMailConfigured.notification.message", comment: "")
+            let notificationTitle = NSLocalizedString("me.kollmer.countr.infoView.noMailConfigured.notification.message", comment: "")
             self.notification.displayNotificationWithMessage(notificationTitle, duration: 1.5)
 
         }

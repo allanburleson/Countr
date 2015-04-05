@@ -25,7 +25,7 @@
 "me.kollmer.countr.infoView.appBadgeText" = "App Badge";
 "me.kollmer.countr.infoView.appBadgeExplanationFooter" = "App badge will display the number of items due today";
 "me.kollmer.countr.infoView.feedbackLabel" = "Feedback";
-"me.kollmer.infoView.noMailConfigured.notification.message" = "No Mail Accounts cononfigures";
+"me.kollmer.countr.infoView.noMailConfigured.notification.message" = "No Mail Accounts cononfigures";
 "me.kollmer.countr.infoView.supportLabel" = "Support";
 "me.kollmer.countr.infoView.deleteAllDataLabel" = "Delete All Data";
 "me.kollmer.countr.infoView.copyrightLabel" = "© 2015, Lukas Kollmer";

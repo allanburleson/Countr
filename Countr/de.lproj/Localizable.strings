@@ -23,9 +23,9 @@
 "me.kollmer.countr.infoView.sortingStyleText.Date" = "Datum";
 "me.kollmer.countr.infoView.sortingStyleText.Title" = "Titel";
 "me.kollmer.countr.infoView.appBadgeText" = "Kennzeichensymbol";
-"me.kollmer.countr.infoView.appBadgeExplanationFooter" = "Das Kennzeichensymbol zeigt die Nummer von Countdowns for heute an";
+"me.kollmer.countr.infoView.appBadgeExplanationFooter" = "Das Kennzeichensymbol zeigt die Nummer von Countdowns für heute an";
 "me.kollmer.countr.infoView.feedbackLabel" = "Feedback";
-"me.kollmer.infoView.noMailConfigured.notification.message" = "Keine Mail-Accounts eingerichtet";
+"me.kollmer.countr.infoView.noMailConfigured.notification.message" = "Keine Mail-Accounts eingerichtet";
 "me.kollmer.countr.infoView.supportLabel" = "Support";
 "me.kollmer.countr.infoView.deleteAllDataLabel" = "Alles Löschen";
 "me.kollmer.countr.infoView.copyrightLabel" = "© 2015, Lukas Kollmer";
@@ -61,7 +61,7 @@
 /*
  Delete Item Alert
  */
-"me.kollmer.countr.deleteItemAlert.title" = "Item Löschen?";
+"me.kollmer.countr.deleteItemAlert.title" = "Countdown Löschen?";
 "me.kollmer.countr.deleteItemAlert.message" = "Möchten Sie %@ wirklich löschen?";
 "me.kollmer.countr.deleteItemAlert.delete" = "Löschen";
 "me.kollmer.countr.deleteItemAlert.cancel" = "Abbrechen";
