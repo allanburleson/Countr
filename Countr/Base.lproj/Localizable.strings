@@ -39,7 +39,8 @@
 "me.kollmer.countr.infoView.deleteAllItems.alert.message" = "Are you sure you want to delete all items?";
 "me.kollmer.countr.infoView.deleteAllItems.alert.deleteButton.title" = "Delete";
 "me.kollmer.countr.infoView.deleteAllItems.alert.cancelButton.title" = "Cancel";
-"me.kollmer.countr.infoView.deleteAllItems.notification.message" = "Deleted %i items";
+"me.kollmer.countr.infoView.deleteAllItems.notification.message.singleItem" = "Deleted %i item";
+"me.kollmer.countr.infoView.deleteAllItems.notification.message.multipleItems" = "Deleted %i items";
 
 
 

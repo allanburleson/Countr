@@ -19,7 +19,28 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    let notification = CWStatusBarNotification()
+    private lazy var notification: CWStatusBarNotification = {
+        let _notification = CWStatusBarNotification()
+        _notification.notificationAnimationInStyle = .Top
+        _notification.notificationAnimationOutStyle = .Top
+        _notification.notificationLabelTextColor = UIColor.whiteColor()
+        _notification.notificationLabelBackgroundColor = UIColor.redColor()
+        _notification.notificationStyle = .NavigationBarNotification
+        
+        _notification.notificationDidDisplayClosure = {
+            //println("self.notification.notificationDidDisplayClosure")
+            self.navigationItem.leftBarButtonItem?.enabled = false
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
+        _notification.notificationWillDismissClosure = {
+            //println("self.notification.notificationWillDismissClosure")
+            self.navigationItem.leftBarButtonItem?.enabled = true
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        }
+        
+        return _notification
+
+    }()
     
     lazy var tracker = GAI.sharedInstance().defaultTracker
     
@@ -74,22 +95,6 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
 
         //self.datePicker.viewDidAppear()
         
-        self.notification.notificationAnimationInStyle = .Top
-        self.notification.notificationAnimationOutStyle = .Top
-        self.notification.notificationLabelTextColor = UIColor.whiteColor()
-        self.notification.notificationLabelBackgroundColor = UIColor.redColor()
-        self.notification.notificationStyle = .NavigationBarNotification
-        
-        self.notification.notificationDidDisplayClosure = {
-            //println("self.notification.notificationDidDisplayClosure")
-            self.navigationItem.leftBarButtonItem?.enabled = false
-            self.navigationItem.rightBarButtonItem?.enabled = false
-        }
-        self.notification.notificationWillDismissClosure = {
-            //println("self.notification.notificationWillDismissClosure")
-            self.navigationItem.leftBarButtonItem?.enabled = true
-            self.navigationItem.rightBarButtonItem?.enabled = true
-        }
     }
     
     @IBAction func countdownModeChanged(sender: UISegmentedControl) {

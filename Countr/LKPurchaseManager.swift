@@ -15,8 +15,8 @@ let didPurchasePremiumFeaturesNotificationKey = "didPurchasePremiumFeaturesNotif
 
 class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
-    let productIdentifier = "countr.premiumfeatures"
-    let products: NSSet
+    private let productIdentifier = "countr.premiumfeatures"
+    private let products: NSSet
     var recivedProduct: [SKProduct] = []
     
     var didFinishLoadingCompletionHandler: () -> () = {}

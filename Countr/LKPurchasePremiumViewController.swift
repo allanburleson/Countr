@@ -23,7 +23,7 @@ class LKPurchasePremiumViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    let store = LKPurchaseManager()
+    lazy var store = LKPurchaseManager()
     
     lazy var tracker = GAI.sharedInstance().defaultTracker
     

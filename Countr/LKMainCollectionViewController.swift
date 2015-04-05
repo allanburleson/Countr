@@ -15,7 +15,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     lazy var tracker = GAI.sharedInstance().defaultTracker
     
-    var refreshControl = UIRefreshControl()
+    lazy var refreshControl = UIRefreshControl()
     
     
     

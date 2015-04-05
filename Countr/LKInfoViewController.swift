@@ -13,11 +13,27 @@ import MessageUI
 class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     // Google analytics
-    lazy var tracker = GAI.sharedInstance().defaultTracker
+    private lazy var tracker = GAI.sharedInstance().defaultTracker
     
-    let settingsManager = LKSettingsManager.sharedInstance
+    private let settingsManager = LKSettingsManager.sharedInstance
     
-    var notification = CWStatusBarNotification()
+    lazy var notification: CWStatusBarNotification = {
+        let _notification = CWStatusBarNotification()
+        _notification.notificationLabelBackgroundColor = UIColor.redColor()
+        _notification.notificationLabelTextColor = UIColor.blackColor()
+        _notification.notificationStyle = .NavigationBarNotification //.StatusBarNotification
+        _notification.notificationAnimationInStyle = .Top
+        _notification.notificationAnimationOutStyle = .Top
+        _notification.notificationDidDisplayClosure = {
+            self.infoBarButtonItem.enabled = false
+        }
+        _notification.notificationWillDismissClosure = {
+            self.infoBarButtonItem.enabled = true
+        }
+        
+        return _notification
+
+    }()
     
     // UI
     @IBOutlet weak var versionTextLabel: UILabel!
@@ -42,8 +58,6 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //This is the done bar button in the upper left corner
     @IBOutlet weak var deleteAllDataLabel: UILabel!
     
-    //let webViewController = PBWebViewController()
-    var webViewControllerNavigationController: UINavigationController!
     
     
     override func loadView() {
@@ -107,21 +121,6 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.notification.notificationLabelBackgroundColor = UIColor.redColor()
-        self.notification.notificationLabelTextColor = UIColor.blackColor()
-        self.notification.notificationStyle = .NavigationBarNotification //.StatusBarNotification
-        self.notification.notificationAnimationInStyle = .Top
-        self.notification.notificationAnimationOutStyle = .Top
-        self.notification.notificationDidDisplayClosure = {
-            self.infoBarButtonItem.enabled = false
-        }
-        self.notification.notificationWillDismissClosure = {
-            self.infoBarButtonItem.enabled = true
-        }
-        //self.notification.notificationTappedClosure = {
-        //    NSLog("***********************************NOTIFICATION_TAPPED***********************************")
-        //    self.notification.dismissNotification()
-        //}
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -321,7 +320,12 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             let numberOfItemsBeforeDeletion = countdownManager.numberOfItems
             countdownManager.deleteAllItems { (success: Bool) in
                 if success {
-                    let notificationMassage = NSString(format: NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.notification.message", comment: ""), numberOfItemsBeforeDeletion)
+                    var notificationMassage: String
+                    if numberOfItemsBeforeDeletion == 1 {
+                        notificationMassage = NSString(format: NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.notification.message.singleItem", comment: ""), numberOfItemsBeforeDeletion)
+                    } else {
+                        notificationMassage = NSString(format: NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.notification.message.multipleItems", comment: ""), numberOfItemsBeforeDeletion)
+                    }
                     self.notification.displayNotificationWithMessage(notificationMassage, duration: 1.5)
                     NSNotificationCenter.defaultCenter().postNotificationName(didDeleteAllItemsKey, object: nil)
                     self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: true).build())
