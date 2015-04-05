@@ -182,7 +182,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()
-        let labelWidth = UIScreen.mainScreen().bounds.width - 21 // 21 = 16 (the x inset) + 5 (keep some free space at the right screen bezel)
+        let labelWidth: CGFloat = self.tableView.frame.width - 21 // 21 = 16 (the x inset) + 5 (keep some free space at the right screen bezel)
         label.frame = CGRectMake(16, 8, labelWidth, 40)
         label.font = UIFont.systemFontOfSize(14)
         label.textColor = UIColor.whiteColor()
