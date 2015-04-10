@@ -10,7 +10,6 @@
 
 
 @implementation UIFont (MySystemFont)
-
 + (UIFont *)systemFontOfSize:(CGFloat)fontSize {
     return [UIFont fontWithName:@"Avenir-Book" size:fontSize];
 }
