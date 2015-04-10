@@ -8,6 +8,16 @@
 
 #import "objc_Extensions.h"
 
+/**
+ Ignore the warnings for overriding the following methods
+ 
+ The clang warning code is "[-Wobjc-protocol-method-implementation]"
+ */
+
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
+
 
 @implementation UIFont (MySystemFont)
 + (UIFont *)systemFontOfSize:(CGFloat)fontSize {
@@ -27,3 +37,4 @@
 }
 
 @end
+#pragma clang diagnostic pop
