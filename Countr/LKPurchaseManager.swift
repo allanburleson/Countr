@@ -48,7 +48,7 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
         if SKPaymentQueue.canMakePayments() {
             //println("The pyment queue can make paymants, will continue")
             
-            var productsRequest = SKProductsRequest(productIdentifiers: self.products)
+            var productsRequest = SKProductsRequest(productIdentifiers: self.products as Set<NSObject>)
             productsRequest.delegate = self
             productsRequest.start()
             //println("fetching products")
@@ -85,7 +85,7 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
         //println("got the request from Apple")
         var count : Int = response.products.count
         if (count>0) {
-            var product: SKProduct = response.products[0] as SKProduct
+            var product: SKProduct = response.products[0] as! SKProduct
             if (product.productIdentifier == self.productIdentifier){
                 //println("recived product: \(product)")
                 self.recivedProduct = []
@@ -105,12 +105,12 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
                 switch trans.transactionState {
                 case .Purchased:
                     //println("Product Purchased")
-                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as SKPaymentTransaction)
+                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     self.didFinishPurchaseWithStatus(.Purchased)
                     break
                 case .Failed:
                     //println("Purchased Failed")
-                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as SKPaymentTransaction)
+                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     self.didFinishPurchaseWithStatus(.Failed)
                         break;
                 case .Restored:

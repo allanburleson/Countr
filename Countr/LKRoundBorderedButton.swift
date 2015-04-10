@@ -57,9 +57,8 @@ class LKRoundBorderedButton: UIButton {
     }
     
     
-    override init() {
-        super.init()
-        
+    init() {
+        super.init(frame: CGRectZero)
         commonInit()
     }
     

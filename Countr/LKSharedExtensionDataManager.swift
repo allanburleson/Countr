@@ -95,10 +95,10 @@ class LKSharedExtensionDataManager {
         var countdownItems: [LKCountdownItem] = []
         
         for item in data {
-            let title:        String = item[title_key] as String
-            let date:         NSDate = item[date_key]  as NSDate
-            let id:           String = item[id_key]    as String
-            let modeAsString: String = item[mode_key]  as String
+            let title:        String = item[title_key] as! String
+            let date:         NSDate = item[date_key]  as! NSDate
+            let id:           String = item[id_key]    as! String
+            let modeAsString: String = item[mode_key]  as! String
             
             let mode = LKCountdownMode(string: modeAsString)
             let uuid = NSUUID(UUIDString: id)!
@@ -177,7 +177,7 @@ class LKSharedExtensionDataManager {
         
         //println("array read from file: \(_arrayBridgedToNSArray)")
         
-        return _arrayBridgedToNSArray.objectEnumerator().allObjects as LKExtensionData
+        return _arrayBridgedToNSArray.objectEnumerator().allObjects as! LKExtensionData
     }
     
     /**

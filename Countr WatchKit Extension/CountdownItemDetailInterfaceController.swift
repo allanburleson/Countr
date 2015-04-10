@@ -25,7 +25,7 @@ class CountdownItemDetailInterfaceController: WKInterfaceController {
         
         
         // Load the passed countdownObject
-        self.countdownItem = context as LKCountdownItem
+        self.countdownItem = context as! LKCountdownItem
         
         // Configure interface objects here.
         self.countdownTimer.setDate(self.countdownItem.date)

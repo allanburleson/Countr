@@ -75,7 +75,7 @@ class LKPurchasePremiumViewController: UIViewController {
         
         // Google Analytics
         tracker.set(kGAIScreenName, value: "PurchasePremium")
-        tracker.send(GAIDictionaryBuilder.createScreenView().build())
+        tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject])
 
     }
     
@@ -96,7 +96,7 @@ class LKPurchasePremiumViewController: UIViewController {
             
             
             let buttonTitle = NSString(format: NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.price", comment: ""), formattedPrice)
-            self.buyButton.setTitle(buttonTitle, forState: .Normal)
+            self.buyButton.setTitle(buttonTitle as String, forState: .Normal)
         }
         
         self.store.didFinishBuyingProductCompletionHandler = {(status: LKPurchaseStatus) in

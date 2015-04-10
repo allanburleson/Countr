@@ -61,7 +61,7 @@ class LKMainTableInterfaceController: WKInterfaceController {
             // Iterate over the rows and set the label for each one.
             for (var index = 0; index < rowCount; index++) {
                 
-                let rowController: LKCountdownItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as LKCountdownItemRowController
+                let rowController: LKCountdownItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as! LKCountdownItemRowController
                 rowController.item = self.countdownItems[index]
             }
 
@@ -90,7 +90,7 @@ class LKMainTableInterfaceController: WKInterfaceController {
         
         // Iterate over the rows and start all timers.
         for (var index = 0; index < rowCount; index++) {
-            let rowController: LKCountdownItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as LKCountdownItemRowController
+            let rowController: LKCountdownItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as! LKCountdownItemRowController
             rowController.countdownTimer.start()
         }
         
@@ -106,7 +106,7 @@ class LKMainTableInterfaceController: WKInterfaceController {
         
         // Iterate over the rows and stop all timers.
         for (var index = 0; index < rowCount; index++) {
-            let rowController: LKCountdownItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as LKCountdownItemRowController
+            let rowController: LKCountdownItemRowController = self.countdownItemsTable.rowControllerAtIndex(index) as! LKCountdownItemRowController
             rowController.countdownTimer.stop()
         }
         

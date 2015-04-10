@@ -58,7 +58,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             self.disableAddButtonIfNeeded()
             self.startUpdates()
             
-            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_add_new_item_key, label: "", value: nil).build()) // TODO: set the item kind
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_add_new_item_key, label: "", value: nil).build() as [NSObject : AnyObject]) // TODO: set the item kind
             
         }
         
@@ -120,7 +120,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         // Google Analytics
         tracker.set(kGAIScreenName, value: "MainCollectionView")
-        tracker.send(GAIDictionaryBuilder.createScreenView().build())
+        tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject])
         
         
     
@@ -149,10 +149,10 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         if !self.countdownManager.canAddCountdowns {
             //println("at limit. Add button will be disabled")
             //self.addButton.enabled = false
-            (self.parentViewController as LKMainViewController).addButton.enabled = false
+            (self.parentViewController as! LKMainViewController).addButton.enabled = false
         } else {
             //self.addButton.enabled = true
-            (self.parentViewController as LKMainViewController).addButton.enabled = true
+            (self.parentViewController as! LKMainViewController).addButton.enabled = true
         }
 
     }
@@ -185,13 +185,13 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             //println("visiblecells: \(visible)")
             for object in visible {
                 //println("in the for loop")
-                let indexPath: NSIndexPath = object as NSIndexPath
+                let indexPath: NSIndexPath = object as! NSIndexPath
                 //println("Will update item \(indexPath.item) in section: \(indexPath.section)")
                 let cell = self.collectionView?.cellForItemAtIndexPath(indexPath)
                 //println("cell.tag: \(cell?.tag)")
                 if cell?.tag == countdown_cell_tag {
                     self.countdownManager.updateCellAtItem(indexPath.item)
-                    (self.collectionView?.cellForItemAtIndexPath(indexPath) as LKItemCell).updateTimeRemainignLabel()
+                    (self.collectionView?.cellForItemAtIndexPath(indexPath) as! LKItemCell).updateTimeRemainignLabel()
                 }
             }
         }
@@ -221,7 +221,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "addNewItem" {
             //println("addNewItem")
-            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: add_new_item_button_key, value: nil).build())
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: add_new_item_button_key, value: nil).build() as [NSObject : AnyObject])
         }
     }
     
@@ -260,16 +260,16 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             collectionView.registerClass(LKPurchasePremiumCell.self, forCellWithReuseIdentifier: "purchasePremiumCell")
             collectionView.registerNib(nib, forCellWithReuseIdentifier: "purchasePremiumCell")
             
-            let cell: LKPurchasePremiumCell = collectionView.dequeueReusableCellWithReuseIdentifier("purchasePremiumCell", forIndexPath: indexPath) as LKPurchasePremiumCell
+            let cell: LKPurchasePremiumCell = collectionView.dequeueReusableCellWithReuseIdentifier("purchasePremiumCell", forIndexPath: indexPath) as! LKPurchasePremiumCell
             
             cell.tag = purchase_cell_tag
             
             cell.shortPressAction = {
                 
                 // Google Analytics
-                self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: select_collection_view_cell_short_press_key, label: nil, value: nil).build())
+                self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: select_collection_view_cell_short_press_key, label: nil, value: nil).build() as [NSObject : AnyObject])
                 
-                let purchasePremiumViewController: LKPurchasePremiumViewController = self.storyboard?.instantiateViewControllerWithIdentifier("purchasePremiumViewController") as LKPurchasePremiumViewController
+                let purchasePremiumViewController: LKPurchasePremiumViewController = self.storyboard?.instantiateViewControllerWithIdentifier("purchasePremiumViewController") as! LKPurchasePremiumViewController
                 let navigationController = UINavigationController(rootViewController: purchasePremiumViewController)
                 purchasePremiumViewController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
                 navigationController.modalPresentationStyle = .FormSheet
@@ -289,7 +289,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         collectionView.registerClass(LKItemCell.self, forCellWithReuseIdentifier: "itemCell")
         collectionView.registerNib(nib, forCellWithReuseIdentifier: "itemCell")
         
-        let cell: LKItemCell = collectionView.dequeueReusableCellWithReuseIdentifier("itemCell", forIndexPath: indexPath) as LKItemCell
+        let cell: LKItemCell = collectionView.dequeueReusableCellWithReuseIdentifier("itemCell", forIndexPath: indexPath) as! LKItemCell
         
         cell.tag = countdown_cell_tag
         
@@ -299,7 +299,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         cell.longPressAction = {
             self.countdownManager.endUpdates()
             
-            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: select_collection_view_cell_long_press_key, value: nil).build())
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: select_collection_view_cell_long_press_key, value: nil).build() as [NSObject : AnyObject])
             
             let indexPath = collectionView.indexPathForCell(cell)!
 
@@ -307,7 +307,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             let alertMessage = NSString(format: NSLocalizedString("me.kollmer.countr.deleteItemAlert.message", comment: ""), self.countdownManager.items()[indexPath.item].title)
             let alertDelete = NSLocalizedString("me.kollmer.countr.deleteItemAlert.delete", comment: "")
             let alertCancel = NSLocalizedString("me.kollmer.countr.deleteItemAlert.cancel", comment: "")
-            let alertController = LKAlertController.actionSheetWithTitle(alertTitle, message: alertMessage)
+            let alertController = LKAlertController.actionSheetWithTitle(alertTitle, message: alertMessage as String)
             alertController.popoverPresentationController?.sourceView = cell
             alertController.popoverPresentationController?.sourceRect = cell.bounds
             //println("cell.frame: \(cell.frame)")
@@ -332,7 +332,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
                 self.disableAddButtonIfNeeded()
                 self.countdownManager.startUpdates()
                 
-                self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_delete_item_key, label: nil, value: nil).build())
+                self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_delete_item_key, label: nil, value: nil).build() as [NSObject : AnyObject])
             }
             
             alertController.addAction(cancelAction)

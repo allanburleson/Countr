@@ -97,7 +97,7 @@ class LKSettingsManager {
     */
     private func loadSettingsConfigurationRawDataFromFile() -> LKSettingsConfiguration {
         
-        return NSDictionary(contentsOfFile: filePathForSharedContainer)! as LKSettingsConfiguration
+        return NSDictionary(contentsOfFile: filePathForSharedContainer)! as! LKSettingsConfiguration
     }
     
     // MARK: Save settings

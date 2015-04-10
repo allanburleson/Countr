@@ -86,7 +86,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         
         // Google Analytics
         tracker.set(kGAIScreenName, value: "AddItem")
-        tracker.send(GAIDictionaryBuilder.createScreenView().build())
+        tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject])
 
     }
     
@@ -132,7 +132,7 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func cancelButtonClicked(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: {
             
-            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: cancel_button_key, value: nil).build())
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: cancel_button_key, value: nil).build() as [NSObject : AnyObject])
         })
     }
     

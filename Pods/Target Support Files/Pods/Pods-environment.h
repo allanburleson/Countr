@@ -18,12 +18,6 @@
 #define COCOAPODS_VERSION_MINOR_GoogleAnalytics_iOS_SDK_Core 10
 #define COCOAPODS_VERSION_PATCH_GoogleAnalytics_iOS_SDK_Core 0
 
-// NSDate+Helper
-#define COCOAPODS_POD_AVAILABLE_NSDate_Helper
-#define COCOAPODS_VERSION_MAJOR_NSDate_Helper 1
-#define COCOAPODS_VERSION_MINOR_NSDate_Helper 0
-#define COCOAPODS_VERSION_PATCH_NSDate_Helper 0
-
 // Debug build configuration
 #ifdef DEBUG
 

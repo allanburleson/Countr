@@ -94,7 +94,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         
         // Google Analytics
         tracker.set(kGAIScreenName, value: "Info")
-        tracker.send(GAIDictionaryBuilder.createScreenView().build())
+        tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject])
         
         if LKPurchaseManager.didPurchase {
             unlockEverythingCell.accessoryType = .Checkmark
@@ -135,7 +135,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     @IBAction func doneButtonClicked() {
         self.dismissViewControllerAnimated(true, completion: {
-            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: done_button_key, value: nil).build())
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: done_button_key, value: nil).build() as [NSObject : AnyObject])
         })
     }
     
@@ -238,7 +238,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     func sendFeedback() {
         //println("sendFeedback")
-        tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: write_email_key, value: nil).build())
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: write_email_key, value: nil).build() as [NSObject : AnyObject])
         
         if MFMailComposeViewController.canSendMail() {
 
@@ -296,7 +296,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     func doneButtonPressed(sender: AnyObject) {
         //println("\(sender)")
-        let barButton: UIBarButtonItem = sender as UIBarButtonItem
+        let barButton: UIBarButtonItem = sender as! UIBarButtonItem
         
         //self.webViewController.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -322,22 +322,20 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
                 if success {
                     var notificationMassage: String
                     if numberOfItemsBeforeDeletion == 1 {
-                        notificationMassage = NSString(format: NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.notification.message.singleItem", comment: ""), numberOfItemsBeforeDeletion)
+                        notificationMassage = NSString(format: NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.notification.message.singleItem", comment: ""), numberOfItemsBeforeDeletion) as String
                     } else {
-                        notificationMassage = NSString(format: NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.notification.message.multipleItems", comment: ""), numberOfItemsBeforeDeletion)
+                        notificationMassage = NSString(format: NSLocalizedString("me.kollmer.countr.infoView.deleteAllItems.notification.message.multipleItems", comment: ""), numberOfItemsBeforeDeletion) as String
                     }
                     self.notification.displayNotificationWithMessage(notificationMassage, duration: 1.5)
                     NSNotificationCenter.defaultCenter().postNotificationName(didDeleteAllItemsKey, object: nil)
-                    self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: true).build())
+                    self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: true).build() as [NSObject : AnyObject])
                 }
             }
         })
-        
-        let cancelAction = UIAlertAction(title: alertButtonCancelTitle, style: .Cancel, handler: {(action) in
-            //println("cancel")
-            
-            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: false).build())
-        })
+
+        let cancelAction = UIAlertAction(title: alertButtonCancelTitle, style: .Cancel) { (action) -> Void in
+            self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: false).build() as [NSObject : AnyObject])
+        }
         
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)

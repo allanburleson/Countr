@@ -100,28 +100,6 @@ extension Float {
 }
 
 
-extension UIFont {
-    class func systemFontOfSize(fontSize: CGFloat) -> UIFont {
-        //println("called the overridden systemFontOfSize function")
-        return UIFont(name: "Avenir-Book", size: fontSize)!
-    }
-
-    class func boldSystemFontOfSize(fontSize: CGFloat) -> UIFont {
-        //println("called the overridden boldSystemFontOfSize function")
-        return UIFont(name: "Avenir-Heavy", size: fontSize)!
-    }
-    class func italicSystemFontOfSize(fontSize: CGFloat) -> UIFont {
-        //println("called the overridden italicSystemFontOfSize function")
-        return UIFont(name: "Avenir-BookOblique", size: fontSize)!
-    }
-
-    class func systemFontOfSize(fontSize: CGFloat, weight: CGFloat) -> UIFont! {
-        //println("called the overridden systemFontOfSize, weight function")
-        return UIFont(name: "Avenir-Book", size: fontSize)!
-    }
-
-}
-
 extension UIColor {
     class func backgroundColor() -> UIColor {
         return UIColor(rgba: "#232323")
@@ -147,7 +125,7 @@ extension UIColor {
             let scanner = NSScanner(string: hex)
             var hexValue: CUnsignedLongLong = 0
             if scanner.scanHexLongLong(&hexValue) {
-                switch (countElements(hex)) {
+                switch (count(hex)) {
                 case 3:
                     red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
                     green = CGFloat((hexValue & 0x0F0) >> 4)       / 15.0
@@ -187,14 +165,14 @@ extension UIApplication {
     The version of the App (eg 1.2)
     */
     var version: String {
-        return NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as String
+        return NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as! String
     }
     
     /**
     The build number of the app (eg 12)
     */
     var build: String {
-        return NSBundle.mainBundle().infoDictionary?[kCFBundleVersionKey] as String
+        return NSBundle.mainBundle().infoDictionary?[kCFBundleVersionKey] as! String
     }
 }
 
@@ -263,40 +241,46 @@ extension NSDate {
 
     var dayInYear: Int {
         get {
-            return NSCalendar.currentCalendar().ordinalityOfUnit(NSCalendarUnit.DayCalendarUnit, inUnit: NSCalendarUnit.YearCalendarUnit, forDate: self)
+            return NSCalendar.currentCalendar().ordinalityOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitYear, forDate: self)
         }
     }
 
     var year: Int {
-        get {
-            return self.dateComponents.year
-
-        }
+        return self.dateComponents.year
     }
     var month: Int {
-        get {
-            return self.dateComponents.month
-        }
+        return self.dateComponents.month
     }
+    
     var day: Int {
-        get {
-            return self.dateComponents.day
-        }
+        return self.dateComponents.day
+    }
+    
+    var hour: Int {
+        return self.dateComponents.hour
+    }
+    
+    var minute: Int {
+        return self.dateComponents.minute
+    }
+    
+    var second: Int {
+        return self.dateComponents.second
     }
 
-
-
-
+    
+    
     private var dateComponents: NSDateComponents {
         get {
-            let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
-            let calendarUnits: NSCalendarUnit = (.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit | .HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit)
-
-
+            let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+            let calendarUnits: NSCalendarUnit = (NSCalendarUnit.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond)
+            
+            
             let dateComponents = calendar?.components( calendarUnits, fromDate: self)
-
+            
             return dateComponents!
         }
     }
-
+    
+    
 }

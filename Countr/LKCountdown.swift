@@ -228,7 +228,7 @@ class LKCountdownManager: NSObject {
     :param: completionHandler A closure which is executed when all items were sucessfully deleted
     */
     func deleteAllItems(completionHandler: (success: Bool) -> ()) {
-        self.model.deleteAllItems(completionHandler)
+        self.model.deleteAllItems(completionHandler: completionHandler)
         self.didDeleteAllItemsCompletionClosure()
     }
     
@@ -313,11 +313,12 @@ class LKCountdownItem: NSObject, Printable {
     */
     init(title: String, date: NSDate, mode: LKCountdownMode, id: NSUUID = NSUUID()) {
         self.title = title
-        self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: nil)
+        self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: nil) as NSDate!
         //self.date = date
         //println("uuid used for saving: \(uuid)")
         self.id = id.UUIDString
         self.countdownMode = mode
+        self.managedObject = nil
     }
     
     /**
@@ -326,25 +327,12 @@ class LKCountdownItem: NSObject, Printable {
     :param: object The NSManagedObject to use when the item is created
     */
     init(object: NSManagedObject) {
-        self.title = object.valueForKey(coreDataTitleKey) as String
-        self.date = object.valueForKey(coreDataDateKey) as NSDate
-        self.id = object.valueForKey(coreDataIdKey) as String
+        self.title = object.valueForKey(coreDataTitleKey) as! String
+        self.date = object.valueForKey(coreDataDateKey) as! NSDate
+        self.id = object.valueForKey(coreDataIdKey) as! String
         //println("countdownmode: \(object.valueForKey(coreDataKindKey) as String)")
-        self.countdownMode = LKCountdownMode(string: object.valueForKey(coreDataKindKey) as String)
+        self.countdownMode = LKCountdownMode(string: object.valueForKey(coreDataKindKey) as! String)
         self.managedObject = object
-    }
-    
-    /**
-    Create a new countdown item from an CKRecord
-    
-    :param: cloudRecord The CKReckord to use when the item is created
-    */
-    init(cloudRecord: CKRecord) {
-        //println("input cloudRecord: \(cloudRecord)")
-        
-        self.title = cloudRecord.valueForKey(countdownItemRecordNameKey) as String
-        self.date = cloudRecord.valueForKey(countdownItemRecordDateKey) as NSDate
-        self.id = cloudRecord.valueForKey(countdownItemRecordIdKey) as String
     }
     
     /**
@@ -356,7 +344,7 @@ class LKCountdownItem: NSObject, Printable {
         
         let calendar = NSCalendar.currentCalendar()
         
-        let unitFlags = NSCalendarUnit.DayCalendarUnit | NSCalendarUnit.HourCalendarUnit | NSCalendarUnit.MinuteCalendarUnit | NSCalendarUnit.SecondCalendarUnit
+        let unitFlags = NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond
         let components: NSDateComponents = calendar.components(unitFlags, fromDate: NSDate(), toDate: self.date, options: nil)
         
         self.remaining.days = components.day
@@ -426,39 +414,4 @@ extension LKCountdownMode {
             return coreDataKindUnknownKey
         }
     }
-}
-
-extension NSDate {
-    var hour: Int {
-        get {
-            return self.dateComponents.hour
-        }
-    }
-
-    var minute: Int {
-        get {
-            return self.dateComponents.minute
-        }
-    }
-
-    var second: Int {
-        get {
-            return self.dateComponents.second
-        }
-    }
-
-
-    private var dateComponents: NSDateComponents {
-        get {
-            let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
-            let calendarUnits: NSCalendarUnit = (.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit | .HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit)
-
-
-            let dateComponents = calendar?.components( calendarUnits, fromDate: self)
-
-            return dateComponents!
-        }
-    }
-
-
 }

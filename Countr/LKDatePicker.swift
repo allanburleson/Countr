@@ -78,9 +78,9 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     private let pickerData = LKPickerData()
-    override init() {
-        super.init()
-        
+    
+    init() {
+        super.init(frame: CGRectZero)
         commonInit()
     }
 

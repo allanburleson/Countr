@@ -107,7 +107,7 @@ class LKModel {
             self.items = [] // This is nexccessary in order to clear the array, otherwise, after each reload (eg after adding/deleting, there would be each item multiple times
             self.rawItems = []
             for object in _rawItems {
-                let managedObject: NSManagedObject = object as NSManagedObject
+                let managedObject: NSManagedObject = object as! NSManagedObject
                 //println("the managedobject that will be used for adding to the local data meant for being displayed: \(managedObject)")
                 let cdItem = LKCountdownItem(object: managedObject)
                 self.items.append(cdItem)
@@ -134,10 +134,10 @@ class LKModel {
         switch LKSettingsManager.sharedInstance.sortingStyle {
         case .Date:
             self.items.sort    { $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow}
-            self.rawItems.sort { ($0.valueForKey(coreDataDateKey) as NSDate).timeIntervalSinceNow < ($1.valueForKey(coreDataDateKey) as NSDate).timeIntervalSinceNow}
+            self.rawItems.sort { ($0.valueForKey(coreDataDateKey) as! NSDate).timeIntervalSinceNow < ($1.valueForKey(coreDataDateKey) as! NSDate).timeIntervalSinceNow}
         case .Title:
             self.items.sort    { $0.title.localizedCaseInsensitiveCompare($1.title) == NSComparisonResult.OrderedAscending }
-            self.rawItems.sort { ($0.valueForKey(coreDataTitleKey) as String).localizedCaseInsensitiveCompare(($1.valueForKey(coreDataTitleKey) as String)) == NSComparisonResult.OrderedAscending}
+            self.rawItems.sort { ($0.valueForKey(coreDataTitleKey) as! String).localizedCaseInsensitiveCompare(($1.valueForKey(coreDataTitleKey) as! String)) == NSComparisonResult.OrderedAscending}
         }
     }
     
@@ -150,7 +150,7 @@ class LKModel {
     func saveNewItem(item: LKCountdownItem) {
         
         let context = self.managedObjectContext!
-        let object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(coreDataEnitiyNameKey, inManagedObjectContext: context) as NSManagedObject
+        let object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(coreDataEnitiyNameKey, inManagedObjectContext: context) as! NSManagedObject
         object.setValue(item.title, forKey: coreDataTitleKey)
         object.setValue(item.date, forKey: coreDataDateKey)
         object.setValue(item.id, forKey: coreDataIdKey)
@@ -301,7 +301,7 @@ class LKModel {
     lazy private var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "WL6ZJ4C8V3.me.kollmer.Countr" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
         }()
     
     /**
@@ -334,7 +334,7 @@ class LKModel {
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
