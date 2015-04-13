@@ -1,0 +1,12 @@
+language: objective-c
+xcode_workspace: Countr
+xcode_scheme: Countr
+xcode_sdk: iphonesimulator8.3
+
+
+before_install:
+- export LANG=en_US.UTF-8
+- gem install cocoapods
+
+
+script: xctool -workspace Countr.xcworkspace -scheme Countr -sdk iphonesimulator test
