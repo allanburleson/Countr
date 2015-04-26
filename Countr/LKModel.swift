@@ -170,6 +170,21 @@ class LKModel {
         
     }
     
+    
+    /*//TODO: Add description*/
+    func updateItem(oldItem: LKCountdownItem, withItem newItem: LKCountdownItem, completionHandler: (() -> Void)?) {
+        
+        
+        self.deleteItem(oldItem)
+        self.saveNewItem(newItem)
+        
+        
+        saveContext()
+        
+        completionHandler?()
+
+    }
+    
     /**
     Delete a countdown Item
     
@@ -364,6 +379,8 @@ class LKModel {
     Save the current CoreData context
     */
     func saveContext () {
+        
+        modelChangedAction()
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
             if moc.hasChanges && !moc.save(&error) {

@@ -53,6 +53,7 @@ let ad_key = "ad"
 let countdown_manager_key = "countdown_manager"
 let did_add_new_item_key = "did_add_new_item"
 let did_delete_item_key = "did_delete_item"
+let did_delete_item_from_detail_view_controller_key = "did_delete_item_from_detail_view_controller"
 
 // Purchase Manager
 let purchase_manager_key = "purchase_manager"

@@ -12,6 +12,7 @@ import CloudKit
 import CoreData
 
 public let didDeleteAllItemsKey = "didDeleteAllItems"
+public let didDeleteAnItemKey = "didDeleteAnItem"
 
 /**
 The modes a countdown can have
@@ -46,6 +47,7 @@ class LKCountdownManager: NSObject {
     var updateCompletionClosure: () -> ()
     //var didAddNewItemConpletionClosure: () -> () = {}
     var didAddNewItemCompletionClosure: (item: LKCountdownItem) -> ()
+    var didEditItemConpletionClosure: (item: LKCountdownItem) -> ()
     var didDeleteItemCompletionClosure: (item: LKCountdownItem) -> ()
     var didDeleteAllItemsCompletionClosure: () -> ()
     
@@ -83,9 +85,11 @@ class LKCountdownManager: NSObject {
     
     override init() {
         self.updateCompletionClosure = {}
-        self.didAddNewItemCompletionClosure = {(item: LKCountdownItem) in}
-        self.didDeleteItemCompletionClosure = {(item: LKCountdownItem) in}
+        self.didAddNewItemCompletionClosure     = {(item: LKCountdownItem) in}
+        self.didEditItemConpletionClosure       = {(item: LKCountdownItem) in}
+        self.didDeleteItemCompletionClosure     = {(item: LKCountdownItem) in}
         self.didDeleteAllItemsCompletionClosure = {}
+        
         super.init()
     }
     
@@ -207,6 +211,14 @@ class LKCountdownManager: NSObject {
         self.didAddNewItemCompletionClosure(item: item)
 
     }
+    
+    // TODO: Add documentstaion
+    func updateCountdownItem(oldItem: LKCountdownItem, withCountdownItem newItem: LKCountdownItem) {
+        self.model.updateItem(oldItem, withItem: newItem) {
+            self.didEditItemConpletionClosure(item: newItem)
+        }
+    }
+    
     /**
     Delete a countdown item
     

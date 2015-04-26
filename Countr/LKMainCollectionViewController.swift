@@ -62,6 +62,11 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             
         }
         
+        countdownManager.didEditItemConpletionClosure = {(item: LKCountdownItem) in
+            self.collectionView?.reloadData()
+            self.startUpdates()
+        }
+        
         
         // NOTE: Not needed, use delete function in cellForItemAtIndexPath instead
         
@@ -89,6 +94,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         notificationCenter.addObserver(self, selector: "modelDidLoadItems", name: modelDidLoadItemsKey, object: nil)
         notificationCenter.addObserver(self, selector: "refresh", name: refreshUIKey, object: nil)
+        notificationCenter.addObserver(self, selector: "refresh", name: didDeleteAnItemKey, object: nil)
         notificationCenter.addObserver(self, selector: "refresh", name: didDeleteAllItemsKey, object: nil)
         notificationCenter.addObserver(self, selector: "didPurchasePremiumFeatures", name: didPurchasePremiumFeaturesNotificationKey, object: nil)
         notificationCenter.addObserver(self, selector: "sortingStyleSettingChanged", name: LKSettingsSortingStyleSettingDidChange, object: nil)
@@ -295,6 +301,19 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         
         //println("will load the item for the cell")
         cell.countdownItem = self.countdownManager.items()[indexPath.item]
+        
+        cell.shortPressAction = {
+            let detailViewController: LKItemDetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("me.kollmer.countr.itemdetailviewcontroller") as! LKItemDetailViewController
+            detailViewController.countdownItem = cell.countdownItem
+            
+            let navigationController = UINavigationController(rootViewController: detailViewController)
+            detailViewController.modalPresentationStyle = .FormSheet
+            navigationController.modalPresentationStyle = .FormSheet
+            
+            self.showDetailViewController(navigationController, sender: self)
+            
+            
+        }
         
         cell.longPressAction = {
             self.countdownManager.endUpdates()

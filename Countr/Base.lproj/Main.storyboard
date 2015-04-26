@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIi-Ts-t9l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIi-Ts-t9l">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Add Item View Controller-->
+        <!--Edit Item Properties View Controller-->
         <scene sceneID="SNU-BG-5PI">
             <objects>
-                <tableViewController id="NDr-WG-CxX" customClass="LKAddItemViewController" customModule="Countr" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="me.countr.editItemViewController" id="NDr-WG-CxX" customClass="LKEditItemPropertiesViewController" customModule="Countr" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bOw-Sl-ZzO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -603,6 +604,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MmH-71-ZUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2616" y="-987"/>
+        </scene>
+        <!--Item Detail View Controller-->
+        <scene sceneID="x7q-ti-4gH">
+            <objects>
+                <viewController storyboardIdentifier="me.kollmer.countr.itemdetailviewcontroller" id="NQf-Vh-BW0" customClass="LKItemDetailViewController" customModule="Countr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wVi-fk-bKZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Vj-h4-XE4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tWV-bk-OvC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000d : 00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqi-NZ-8os">
+                                <rect key="frame" x="16" y="28" width="568" height="300"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="32"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXJ-5C-mJE">
+                                <rect key="frame" x="16" y="336" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jl-Vw-ZcW">
+                                <rect key="frame" x="16" y="475" width="40" height="30"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareButtonTapped:" destination="NQf-Vh-BW0" eventType="touchUpInside" id="m0D-iB-Y6u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEF-53-z73">
+                                <rect key="frame" x="285" y="475" width="30" height="30"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editButtonTapped:" destination="NQf-Vh-BW0" eventType="touchUpInside" id="op9-pp-FUi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnk-fr-QTR">
+                                <rect key="frame" x="540" y="475" width="44" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="NQf-Vh-BW0" eventType="touchUpInside" id="xn1-IB-fSf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gnk-fr-QTR" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="3wE-aq-Nnv"/>
+                            <constraint firstItem="ZXJ-5C-mJE" firstAttribute="top" secondItem="mqi-NZ-8os" secondAttribute="bottom" constant="8" id="A1K-qd-8t1"/>
+                            <constraint firstAttribute="height" secondItem="mqi-NZ-8os" secondAttribute="height" multiplier="2" id="Baj-pj-4ix"/>
+                            <constraint firstItem="5Vj-h4-XE4" firstAttribute="top" secondItem="0jl-Vw-ZcW" secondAttribute="bottom" constant="95" id="CwT-Su-kAV"/>
+                            <constraint firstItem="0jl-Vw-ZcW" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="Pn3-PU-Axu"/>
+                            <constraint firstItem="ZXJ-5C-mJE" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="VvG-Ej-7Yc"/>
+                            <constraint firstItem="ZXJ-5C-mJE" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="XM9-3y-38n"/>
+                            <constraint firstAttribute="centerX" secondItem="DEF-53-z73" secondAttribute="centerX" id="ZFd-OM-6q4"/>
+                            <constraint firstItem="5Vj-h4-XE4" firstAttribute="top" secondItem="Gnk-fr-QTR" secondAttribute="bottom" constant="95" id="bKF-pJ-eBY"/>
+                            <constraint firstItem="mqi-NZ-8os" firstAttribute="top" secondItem="wVi-fk-bKZ" secondAttribute="bottom" constant="8" id="ie8-FF-fgI"/>
+                            <constraint firstItem="mqi-NZ-8os" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="pdb-bu-DMO"/>
+                            <constraint firstItem="5Vj-h4-XE4" firstAttribute="top" secondItem="DEF-53-z73" secondAttribute="bottom" constant="95" id="vTa-uK-i5C"/>
+                            <constraint firstItem="mqi-NZ-8os" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="znV-Ph-0fa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countdownLabel" destination="mqi-NZ-8os" id="Bch-cO-Rxh"/>
+                        <outlet property="countdownTitleLabel" destination="ZXJ-5C-mJE" id="sgt-We-xgM"/>
+                        <outlet property="deleteButton" destination="Gnk-fr-QTR" id="ZNa-xN-gWc"/>
+                        <outlet property="editButton" destination="DEF-53-z73" id="dbC-k3-13I"/>
+                        <outlet property="shareButton" destination="0jl-Vw-ZcW" id="brN-9V-AQx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wTD-ye-CIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3245" y="-986"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vnK-W9-y8e">

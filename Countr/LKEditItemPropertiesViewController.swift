@@ -1,5 +1,5 @@
 //
-//  LKAddItemViewController.swift
+//  LKEditItemPropertiesViewController.swift
 //  Countr
 //
 //  Created by Lukas Kollmer on 30/11/14.
@@ -9,15 +9,21 @@
 import Foundation
 import UIKit
 
-class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
+
+enum LKEditItemPropertiesViewControllerMode {
+    case CreateNewEntry
+    case EditExistingEntry
+}
+
+class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
+    @IBOutlet private weak var doneBarButtonItem: UIBarButtonItem!
     
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet private weak var nameTextField: UITextField!
     
-    @IBOutlet weak var countdownModeSegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var countdownModeSegmentedControl: UISegmentedControl!
     
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var datePicker: UIDatePicker!
     
     private lazy var notification: CWStatusBarNotification = {
         let _notification = CWStatusBarNotification()
@@ -42,8 +48,15 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
 
     }()
     
-    lazy var tracker = GAI.sharedInstance().defaultTracker
+    lazy private var tracker = GAI.sharedInstance().defaultTracker
     
+    var item: LKCountdownItem?
+    
+    var mode: LKEditItemPropertiesViewControllerMode = .CreateNewEntry
+    
+    var didFinishEditingHandler: (item: LKCountdownItem) -> () = {(item) in}
+    
+
     
     
     override func loadView() {
@@ -87,6 +100,18 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
         // Google Analytics
         tracker.set(kGAIScreenName, value: "AddItem")
         tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject])
+        
+        
+        
+        
+        // Set the passed countdownItem (if mode is .Edit)
+        if mode == .EditExistingEntry {
+            if let item = self.item {
+                self.nameTextField.text = item.title
+                self.datePicker.datePickerMode = item.countdownMode
+                self.datePicker.setDate(item.date, animated: false)
+            }
+        }
 
     }
     
@@ -152,13 +177,25 @@ class LKAddItemViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func saveItem() {
-        let countdownManager = LKCountdownManager.sharedInstance
-        
-        
-        let item = LKCountdownItem(title: self.nameTextField.text, date: self.datePicker.date, mode: self.datePicker.datePickerMode)
-        countdownManager.saveNewCountdownItem(item,countdownMode: self.datePicker.datePickerMode, completionHandler: {
+        if self.mode == .CreateNewEntry {
+            let countdownManager = LKCountdownManager.sharedInstance
+            
+            
+            let item = LKCountdownItem(title: self.nameTextField.text, date: self.datePicker.date, mode: self.datePicker.datePickerMode)
+            countdownManager.saveNewCountdownItem(item,countdownMode: self.datePicker.datePickerMode, completionHandler: {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+        }
+        if self.mode == .EditExistingEntry {
+            let editedItem = LKCountdownItem(
+                title: self.nameTextField.text,
+                date: self.datePicker.date,
+                mode: self.datePicker.datePickerMode,
+                id: NSUUID(UUIDString: self.item!.id)!)
+            
+            self.didFinishEditingHandler(item: editedItem)
             self.dismissViewControllerAnimated(true, completion: nil)
-        })
+        }
     }
     
     
