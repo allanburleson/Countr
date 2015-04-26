@@ -351,7 +351,7 @@ class LKCountdownItem: NSObject, Printable {
         self.remaining.hours = components.hour
         self.remaining.minutes = components.minute
         self.remaining.seconds = components.second
-        self.remaining.asString = "\(self.remaining.days.positive) : \(self.remaining.hours.positive) : \(self.remaining.minutes.positive) : \(self.remaining.seconds.positive)"
+        self.remaining.asString = "\(self.remaining.days.positive)d : \(self.remaining.hours.positive) : \(self.remaining.minutes.positive) : \(self.remaining.seconds.positive)"
         
     }
     
