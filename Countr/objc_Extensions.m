@@ -8,6 +8,21 @@
 
 #import "objc_Extensions.h"
 
+/*
+ Disable rotation on iPhone only
+ */
+@implementation UIViewController (NoRotation)
+
+- (NSUInteger)supportedInterfaceOrientations {
+    if (self.traitCollection.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        return UIInterfaceOrientationMaskAll;
+    } else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+}
+
+@end
+
 /**
  Ignore the warnings for overriding the following methods
  

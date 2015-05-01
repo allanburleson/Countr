@@ -12,7 +12,34 @@ import MessageUI
 
 class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
-    // Google analytics
+    
+    // UI
+    @IBOutlet weak var versionTextLabel: UILabel!
+    @IBOutlet weak var versionNumberLabel: UILabel!
+    @IBOutlet weak var premiumFeaturesTextLabel: UILabel!
+    @IBOutlet weak var unlockEverythingCell: UITableViewCell!
+    
+    @IBOutlet weak var sortByLabel: UILabel!
+    @IBOutlet weak var sortBySegmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var appBadgeLabel: UILabel!
+    @IBOutlet weak var appBadgeSwitch: UISwitch!
+    
+    private var sectionFooterDescriptionLabel: UILabel!
+    
+    
+    @IBOutlet weak var sendFeedbackTextLabel: UILabel!
+    
+    @IBOutlet weak var supportTextLabel: UILabel!
+    
+    @IBOutlet weak var copyrightLabel: UILabel!
+    @IBOutlet weak var deleteAllDataTextLabel: UILabel!
+    @IBOutlet weak var sendFeedbackCell: UITableViewCell!
+    @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //This is the done bar button in the upper left corner
+    @IBOutlet weak var deleteAllDataLabel: UILabel!
+    
+    
+    // Instance vars
     private lazy var tracker = GAI.sharedInstance().defaultTracker
     
     private let settingsManager = LKSettingsManager.sharedInstance
@@ -32,31 +59,9 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         }
         
         return _notification
+        
+        }()
 
-    }()
-    
-    // UI
-    @IBOutlet weak var versionTextLabel: UILabel!
-    @IBOutlet weak var versionNumberLabel: UILabel!
-    @IBOutlet weak var premiumFeaturesTextLabel: UILabel!
-    @IBOutlet weak var unlockEverythingCell: UITableViewCell!
-    
-    @IBOutlet weak var sortByLabel: UILabel!
-    @IBOutlet weak var sortBySegmentedControl: UISegmentedControl!
-    
-    @IBOutlet weak var appBadgeLabel: UILabel!
-    @IBOutlet weak var appBadgeSwitch: UISwitch!
-    
-    
-    @IBOutlet weak var sendFeedbackTextLabel: UILabel!
-    
-    @IBOutlet weak var supportTextLabel: UILabel!
-    
-    @IBOutlet weak var copyrightLabel: UILabel!
-    @IBOutlet weak var deleteAllDataTextLabel: UILabel!
-    @IBOutlet weak var sendFeedbackCell: UITableViewCell!
-    @IBOutlet weak var infoBarButtonItem: UIBarButtonItem! //This is the done bar button in the upper left corner
-    @IBOutlet weak var deleteAllDataLabel: UILabel!
     
     
     
@@ -181,6 +186,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        println("tableView.viewForFooterInSection: \(section)")
         let label = UILabel()
         let labelWidth: CGFloat = self.tableView.frame.width - 21 // 21 = 16 (the x inset) + 5 (keep some free space at the right screen bezel)
         label.frame = CGRectMake(16, 8, labelWidth, 40)
@@ -370,4 +376,6 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         break
         }
     }
+    
+    
 }
