@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MessageUI
+import Crashlytics
 
 class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
@@ -125,7 +126,6 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
     
     override func viewWillDisappear(animated: Bool) {

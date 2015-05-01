@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Countr/AppDelegate.swift"
-            timestampString = "452187978.166253"
+            timestampString = "452193050.931391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "application(_:handleOpenURL:)"
             landmarkType = "5">
          </BreakpointContent>

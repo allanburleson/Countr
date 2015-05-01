@@ -25,6 +25,7 @@
 		5D33886D1A6AB7320068C37C /* Countr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33901A2B19EB006DDB65 /* Countr.xcdatamodeld */; };
 		5D3388701A6AB8660068C37C /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
 		5D3388711A6AB9E80068C37C /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
+		5D35E9731AF3EAB900335A13 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D35E9721AF3EAB900335A13 /* Crashlytics.framework */; };
 		5D4157F61AF3BC64005FEC8D /* LKURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4157F51AF3BC64005FEC8D /* LKURLParser.m */; };
 		5D52D6CA1ABD84CA0081F0D8 /* extensionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D52D6C91ABD84CA0081F0D8 /* extensionData.plist */; };
 		5D52D6CC1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */; };
@@ -147,6 +148,7 @@
 		5D3388611A6AB63F0068C37C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		5D3388631A6AB63F0068C37C /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		5D33886C1A6AB6810068C37C /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TodayExtension.entitlements; sourceTree = "<group>"; };
+		5D35E9721AF3EAB900335A13 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		5D4157F31AF3B71D005FEC8D /* url_parsing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = url_parsing.playground; sourceTree = "<group>"; };
 		5D4157F41AF3BC64005FEC8D /* LKURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKURLParser.h; sourceTree = "<group>"; };
 		5D4157F51AF3BC64005FEC8D /* LKURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKURLParser.m; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			files = (
 				5DF32FC31A7E23DC00063FAC /* StoreKit.framework in Frameworks */,
 				5DF32FC11A7E236E00063FAC /* iAd.framework in Frameworks */,
+				5D35E9731AF3EAB900335A13 /* Crashlytics.framework in Frameworks */,
 				066A32AD2BF22D51716F9342 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +358,7 @@
 			children = (
 				5D57D4961A481F770030EF9C /* Countr.entitlements */,
 				5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */,
+				5D35E9721AF3EAB900335A13 /* Crashlytics.framework */,
 				5D4157F21AF366FA005FEC8D /* Model */,
 				5D9B9EBA1AECCD0000BDA2E0 /* UI */,
 				5DF32FBE1A7E222A00063FAC /* LKMainViewController.swift */,
@@ -490,6 +494,7 @@
 				5DAA33871A2B19EB006DDB65 /* Resources */,
 				5D33886B1A6AB6400068C37C /* Embed App Extensions */,
 				1036446A50168306062A5590 /* Copy Pods Resources */,
+				5D35E9711AF3EA4200335A13 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -722,6 +727,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		5D35E9711AF3EA4200335A13 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 6d7126e3ca886ba0d9bf374db95cdcbbb0282302 96237ebccf0271baf8cf4be5c6fd78f3c36a9914f75b26e179fdfcd01fdfe2f5\n";
 		};
 		5DF32FC61A7E45D300063FAC /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1030,6 +1049,7 @@
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Countr",
 				);
 				INFOPLIST_FILE = Countr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1059,6 +1079,7 @@
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Countr",
 				);
 				INFOPLIST_FILE = Countr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

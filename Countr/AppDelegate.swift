@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CloudKit
+import Crashlytics
 
 
 @UIApplicationMain
@@ -88,7 +89,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setup background fetch
         UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
-        
+        // Setup crashlytics
+        Crashlytics.startWithAPIKey("6d7126e3ca886ba0d9bf374db95cdcbbb0282302")
         
         return true
     }
