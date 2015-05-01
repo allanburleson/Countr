@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 
+
 //
 // Cell identification
 //
 
-let countdown_cell_tag = 0
+var countdown_cell_tag = 0
+
 let purchase_cell_tag = 1
 
 
@@ -69,18 +71,13 @@ let notification_userInfo_item_id_key = "notification_userInfo_item_id"
 let notification_userInfo_item_name_key = "notification_userInfo_item_name"
 
 
+// MARK: Getting class names
 
 public func nameOfClass(_class: AnyObject) -> String {
     return _stdlib_getDemangledTypeName(_class)
 }
 
-extension LKCountdownItem {
-    var itemKind: String {
-        get {
-            return ""
-        }
-    }
-}
+// MARK: Int, Double, Float: Positive Value
 
 extension Int {
     var positive: Int {
@@ -100,6 +97,15 @@ extension Float {
     }
 }
 
+// MARK: NSAttributedString
+
+extension NSAttributedString {
+    class func attributedStringWithString(string: String, font: UIFont) -> NSAttributedString {
+        return NSAttributedString(string: string, attributes: [NSFontAttributeName : font])
+    }
+}
+
+// MARK: UIColor
 
 extension UIColor {
     class func backgroundColor() -> UIColor {
@@ -158,7 +164,7 @@ extension UIColor {
     }
 }
 
-
+// MARK: UIApplication
 
 extension UIApplication {
     
@@ -177,6 +183,9 @@ extension UIApplication {
     }
 }
 
+
+// MARK: UIApplication
+
 extension UIDevice {
     var is12HourFormat: Bool { // This shit works
         get {
@@ -189,6 +198,7 @@ extension UIDevice {
     }
 }
 
+// MARK: Array
 extension Array {
     func subarrayToIndex(index: Int) -> Array {
         if index > self.count {
@@ -198,6 +208,7 @@ extension Array {
     }
 }
 
+// MARK: NSDate
 
 extension NSDate {
     

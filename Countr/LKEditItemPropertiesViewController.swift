@@ -53,7 +53,7 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
     var item: LKCountdownItem?
     
     var mode: LKEditItemPropertiesViewControllerMode = .CreateNewEntry
-    
+
     var didFinishEditingHandler: (item: LKCountdownItem) -> () = {(item) in}
     
 
@@ -183,7 +183,7 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
             
             let item = LKCountdownItem(title: self.nameTextField.text, date: date, mode: self.datePicker.datePickerMode)
             
-            countdownManager.saveNewCountdownItem(item,countdownMode: self.datePicker.datePickerMode, completionHandler: {
+            countdownManager.saveNewCountdownItem(item, completionHandler: {
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         }

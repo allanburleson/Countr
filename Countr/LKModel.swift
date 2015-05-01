@@ -141,6 +141,12 @@ class LKModel {
         }
     }
     
+    /*
+    Share an item
+    
+    */
+    func shareItem(item: LKCountdownItem, completionHandler: ((shareText: String, fileURL: NSURL) -> Void)?) {
+    }
     
     /**
     Save a new countdown item to the model

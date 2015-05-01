@@ -186,30 +186,41 @@ class LKCountdownManager: NSObject {
     :param: countdownMode The Mode of the item (either Date or DateAndTime)
     :param: completionHandler A closure which is executed when the item was sucessfully saved
     */
-    func saveNewCountdownItem(item: LKCountdownItem, countdownMode: LKCountdownMode, completionHandler: () -> Void) {
-        var adaptedItem: LKCountdownItem!
+    func saveNewCountdownItem(item: LKCountdownItem, completionHandler: (() -> Void)?) {
         
-        /*
-        switch countdownMode {
-        case .Date:
-            let date: NSDate = NSCalendar.currentCalendar().dateBySettingHour(0, minute: 0, second: 0, ofDate: item.date, options: nil)!
-            adaptedItem = LKCountdownItem(name: item.name, date: date)
-            break
-        case .DateAndTime:
-            let date: NSDate = NSCalendar.currentCalendar().dateBySettingHour(item.date.hour, minute: item.date.minute, second: 0, ofDate: item.date, options: nil)!
-            adaptedItem = LKCountdownItem(name: item.name, date: date)
-            break
-        default:
-            break
-        }
-*/
         
-        //self.model.saveNewItem(adaptedItem)
         self.model.saveNewItem(item)
-        //println("did succed saving the item")
-        completionHandler()
+        completionHandler?()
         self.didAddNewItemCompletionClosure(item: item)
 
+    }
+    
+    /*
+    Share a countdownItem
+    
+    :param: item The LKCountdownItem to be shared
+    :param: sender The ViewController to present the share sheet from. If this parameter is nil, the sender has to present the share sheet
+    */
+    func shareCountdownItem(item: LKCountdownItem, sender: UIViewController?) -> (shareURL: NSURL, shareHTMLBody: String) {
+        // Create the share string
+        let _example_string = "countr://add?title=Hello%20World&date=1430491533.436371&mode=dateAndTime"
+        
+        let encodedTitle: String = item.title.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let dateInterval: String = String(stringInterpolationSegment: item.date.timeIntervalSince1970)
+        let countdownMode: String = item.countdownMode.toString()
+        let urlString: String = "countr://add?title=" + encodedTitle + "&date=" + dateInterval + "&mode=" + countdownMode
+        
+        let url = NSURL(string: urlString)!
+        
+        if let _sender = sender {
+            let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            
+            _sender.presentViewController(activityViewController, animated: true, completion: nil)
+        }
+        
+        
+        return (url, "html share body")
+        
     }
     
     // TODO: Add documentstaion
@@ -425,5 +436,9 @@ extension LKCountdownMode {
         default:
             return coreDataKindUnknownKey
         }
+    }
+    
+    func description() -> String {
+        return self.toString()
     }
 }

@@ -324,6 +324,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
 
             let alertTitle = NSLocalizedString("me.kollmer.countr.deleteItemAlert.title", comment: "")
             let alertMessage = NSString(format: NSLocalizedString("me.kollmer.countr.deleteItemAlert.message", comment: ""), self.countdownManager.items()[indexPath.item].title)
+            let alertShare = NSLocalizedString("me.kollmer.countr.deleteItemAlert.share", comment: "")
             let alertDelete = NSLocalizedString("me.kollmer.countr.deleteItemAlert.delete", comment: "")
             let alertCancel = NSLocalizedString("me.kollmer.countr.deleteItemAlert.cancel", comment: "")
             let alertController = LKAlertController.actionSheetWithTitle(alertTitle, message: alertMessage as String)
@@ -337,6 +338,9 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
                 self.countdownManager.startUpdates()
             }
             
+            let shareAction = UIAlertAction(title: alertShare, style: .Default) { (action) in
+                self.countdownManager.shareCountdownItem(self.countdownManager.items()[indexPath.row], sender: self)
+            }
             
             let deleteAction = UIAlertAction(title: alertDelete, style: .Destructive) { (action) in
                 //println(action)
@@ -354,8 +358,10 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
                 self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(countdown_manager_key, action: did_delete_item_key, label: nil, value: nil).build() as [NSObject : AnyObject])
             }
             
-            alertController.addAction(cancelAction)
+            
+            alertController.addAction(shareAction)
             alertController.addAction(deleteAction)
+            alertController.addAction(cancelAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
 

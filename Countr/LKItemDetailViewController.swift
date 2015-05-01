@@ -28,6 +28,7 @@ class LKItemDetailViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
+        
         self.view.backgroundColor = UIColor.backgroundColor()
         self.countdownLabel.textColor = UIColor.whiteColor()
         self.countdownTitleLabel.textColor = UIColor.whiteColor()
@@ -39,10 +40,18 @@ class LKItemDetailViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = doneBarButtonItem // TODO: ???Left or right???
         
+        // Set the font of the buttons
+        let buttonTitles = ["Share", "Edit", "Delete"]
+        let buttons = [self.shareButton!, self.editButton!, self.deleteButton!]
+        for button in buttons {
+            let index = find(buttons, button)!
+            button.setAttributedTitle(NSAttributedString.attributedStringWithString(buttonTitles[index], font: UIFont(name: "Avenir", size: 15)!), forState: .Normal)
+        }
         
         
         if let countdownItem = self.countdownItem {
             self.countdownTitleLabel.text = self.countdownItem.title
+            update()
             self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "update", userInfo: nil, repeats: true)
         }
     }
@@ -59,11 +68,12 @@ class LKItemDetailViewController: UIViewController {
     
     @IBAction func shareButtonTapped(sender: UIButton) {
         // TODO: Implement share
+        
+        let shareData = LKCountdownManager.sharedInstance.shareCountdownItem(self.countdownItem, sender: self)
     }
     
     
     @IBAction func editButtonTapped(sender: UIButton) {
-        // TODO: Implement edit
         
         let editViewController: LKEditItemPropertiesViewController = self.storyboard?.instantiateViewControllerWithIdentifier("me.countr.editItemViewController") as! LKEditItemPropertiesViewController
         let navigationController = UINavigationController(rootViewController: editViewController)

@@ -188,6 +188,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
     }
+    
+    
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        
+        if url.scheme == "countr" {
+            if url.host == "add" {
+                let urlParser = LKURLParser(URL: url)
+                
+                let title: String = urlParser.valueForVariable("title").stringByRemovingPercentEncoding!
+                let date: NSDate = NSDate(timeIntervalSince1970: ((urlParser.valueForVariable("date") as NSString).doubleValue))
+                let mode: LKCountdownMode = LKCountdownMode(string: urlParser.valueForVariable("mode"))
+                
+                
+                let countdownItem = LKCountdownItem(title: title, date: date, mode: mode)
+                
+
+                LKCountdownManager.sharedInstance.saveNewCountdownItem(countdownItem, completionHandler: nil)
+                
+                
+                println("title: \(title)")
+                println("date: \(date)")
+                println("mode: \(mode.toString())")
+                
+                
+            }
+        }
+        
+        return true
+    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
