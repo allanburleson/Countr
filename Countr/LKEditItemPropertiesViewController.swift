@@ -102,8 +102,6 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
         tracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject])
         
         
-        
-        
         // Set the passed countdownItem (if mode is .Edit)
         if mode == .EditExistingEntry {
             if let item = self.item {
@@ -181,7 +179,10 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
             let countdownManager = LKCountdownManager.sharedInstance
             
             
-            let item = LKCountdownItem(title: self.nameTextField.text, date: self.datePicker.date, mode: self.datePicker.datePickerMode)
+            let date = NSDate.dateFromDatePicker(self.datePicker)
+            
+            let item = LKCountdownItem(title: self.nameTextField.text, date: date, mode: self.datePicker.datePickerMode)
+            
             countdownManager.saveNewCountdownItem(item,countdownMode: self.datePicker.datePickerMode, completionHandler: {
                 self.dismissViewControllerAnimated(true, completion: nil)
             })

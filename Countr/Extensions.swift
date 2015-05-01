@@ -201,6 +201,31 @@ extension Array {
 
 extension NSDate {
     
+    class func dateFromDatePicker(datePicker: UIDatePicker) -> NSDate {
+        let dateComponents = NSDateComponents()
+        
+        dateComponents.year = datePicker.date.year
+        dateComponents.month = datePicker.date.month
+        dateComponents.day = datePicker.date.day
+        dateComponents.hour = datePicker.date.hour
+        dateComponents.minute = datePicker.date.minute
+        dateComponents.second = 0
+        dateComponents.nanosecond = 0
+        
+        if datePicker.datePickerMode == .Date {
+            
+            // Reset all values for datePickerMode .Date (hour, minute, second, nanosecond)
+            dateComponents.hour = 0
+            dateComponents.minute = 0
+            dateComponents.second = 0
+            dateComponents.nanosecond = 0
+
+        }
+        
+        return NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
+
+    }
+    
     var isToday: Bool {
         let calendar = NSCalendar.currentCalendar()
         let unitFlags: NSCalendarUnit =  .CalendarUnitEra | .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay
@@ -267,6 +292,10 @@ extension NSDate {
     
     var second: Int {
         return self.dateComponents.second
+    }
+    
+    var nanosecond: Int {
+        return self.dateComponents.nanosecond
     }
 
     

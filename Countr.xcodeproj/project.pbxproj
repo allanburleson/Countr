@@ -271,6 +271,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5D4157F21AF366FA005FEC8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D1C84FB1ACEE75100EB2BBF /* LKSettingsManager.swift */,
+				5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */,
+				5D57D4991A48219E0030EF9C /* LKModel.swift */,
+				5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */,
+				5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		5D9B9EBA1AECCD0000BDA2E0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,16 +346,12 @@
 				5D57D4961A481F770030EF9C /* Countr.entitlements */,
 				5DAA338E1A2B19EB006DDB65 /* AppDelegate.swift */,
 				5D9B9EBD1AECCDDE00BDA2E0 /* LKItemDetailViewController.swift */,
-				5D1C84FB1ACEE75100EB2BBF /* LKSettingsManager.swift */,
-				5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */,
-				5D57D4991A48219E0030EF9C /* LKModel.swift */,
+				5D4157F21AF366FA005FEC8D /* Model */,
 				5D52D6C91ABD84CA0081F0D8 /* extensionData.plist */,
 				5D1C84FD1ACEE79C00EB2BBF /* settings.plist */,
 				5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */,
 				5DAA33B71A2B4026006DDB65 /* LKEditItemPropertiesViewController.swift */,
 				5D9B9EBA1AECCD0000BDA2E0 /* UI */,
-				5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */,
-				5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */,
 				5DF32FBC1A7E128200063FAC /* LKPurchasePremiumViewController.swift */,
 				5DAA33B91A2B42B8006DDB65 /* LKMainCollectionViewController.swift */,
 				5D0A9D611A79132A0040C100 /* LKDatePicker.swift */,
