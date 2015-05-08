@@ -71,9 +71,27 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
         
         self.tableView.backgroundColor = UIColor.backgroundColor()
         self.nameTextField.backgroundColor = UIColor.foregroundColor()
-        
+        let textFieldFont = UIFont(name: "Avenir-Book", size: 16)!
         let placeholderString = NSLocalizedString("me.kollmer.countr.addItemView.itemTitlePlaceholderString", comment: "")
-        self.nameTextField.attributedPlaceholder = NSAttributedString(string: placeholderString, attributes: [NSForegroundColorAttributeName : UIColor(rgba: "#D9D9D9"), NSFontAttributeName: UIFont(name: "Avenir-Book", size: 15)!])
+        self.nameTextField.attributedPlaceholder = NSAttributedString(string: placeholderString, attributes: [NSForegroundColorAttributeName : UIColor(rgba: "#D9D9D9"), NSFontAttributeName: textFieldFont])
+        
+        self.nameTextField.font = textFieldFont
+        self.nameTextField.adjustsFontSizeToFitWidth = false
+        self.nameTextField.minimumFontSize = 16
+        
+        // This works!
+        /*
+        The code below accesses the label used for displaying teh initial text in a UITextField and sets the font property to the same font used for actually editing the text
+        
+        Explanation: 
+        A UITextField has multiple labels: One of them (An UITextFieldLabel *_displayLabel) is used for tisplaying text when editing is disabled. The UITextFieldLabel class inherits from UILabel.
+        
+        The first valueForKey loads the label used for displaying the text.
+        The second ond (this time setValueForKey) is used to set the font attribute of the UILabel base class of the UITextFieldLabel
+        
+        NOTE: This works in iOS 8.3. MAY STOP WORKING IN THE FUTURE
+        */
+        self.nameTextField.valueForKey("_displayLabel")?.setValue(textFieldFont, forKey: "font")
         
         self.countdownModeSegmentedControl.setTitle(NSLocalizedString("me.kollmer.countr.addItem.segmentedControl.titleAtIndex.0", comment: ""), forSegmentAtIndex: 0)
         self.countdownModeSegmentedControl.setTitle(NSLocalizedString("me.kollmer.countr.addItem.segmentedControl.titleAtIndex.1", comment: ""), forSegmentAtIndex: 1)

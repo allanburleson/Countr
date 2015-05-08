@@ -23,23 +23,22 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hCi-Xk-pkl" id="mvm-uE-nlp">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tCU-BB-gQb">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="tCU-BB-gQb">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="WCH-ri-BhP"/>
-                                                    </constraints>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerX" secondItem="tCU-BB-gQb" secondAttribute="centerX" id="1PC-Tx-4ce"/>
+                                                <constraint firstItem="tCU-BB-gQb" firstAttribute="top" secondItem="mvm-uE-nlp" secondAttribute="topMargin" constant="-1" id="6lB-It-J2r"/>
                                                 <constraint firstItem="tCU-BB-gQb" firstAttribute="trailing" secondItem="mvm-uE-nlp" secondAttribute="trailingMargin" id="Jvs-OQ-ZIG"/>
                                                 <constraint firstAttribute="centerY" secondItem="tCU-BB-gQb" secondAttribute="centerY" id="Mlt-Nj-xFv"/>
                                                 <constraint firstItem="tCU-BB-gQb" firstAttribute="leading" secondItem="mvm-uE-nlp" secondAttribute="leadingMargin" id="X0k-m9-uou"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tCU-BB-gQb" secondAttribute="bottom" constant="-2" id="eLA-6h-Qu1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.14509803921568629" green="0.14509803921568629" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -54,7 +53,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VwF-q7-5AS">
-                                                    <rect key="frame" x="8" y="10" width="584" height="29"/>
+                                                    <rect key="frame" x="8" y="8" width="584" height="29"/>
                                                     <segments>
                                                         <segment title="Date"/>
                                                         <segment title="Date &amp; Time"/>
@@ -66,7 +65,7 @@
                                             </subviews>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="VwF-q7-5AS" secondAttribute="centerY" constant="-2" id="Ief-Zf-1yB"/>
+                                                <constraint firstAttribute="centerY" secondItem="VwF-q7-5AS" secondAttribute="centerY" constant="-0.5" id="Ief-Zf-1yB"/>
                                                 <constraint firstItem="VwF-q7-5AS" firstAttribute="leading" secondItem="2bq-RW-5kh" secondAttribute="leadingMargin" id="JC5-yl-YeG"/>
                                                 <constraint firstItem="VwF-q7-5AS" firstAttribute="trailing" secondItem="2bq-RW-5kh" secondAttribute="trailingMargin" id="RU2-mK-4pB"/>
                                                 <constraint firstAttribute="centerX" secondItem="VwF-q7-5AS" secondAttribute="centerX" constant="-0.5" id="Xb6-8p-kBI"/>
