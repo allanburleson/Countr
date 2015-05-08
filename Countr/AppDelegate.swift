@@ -206,15 +206,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 let countdownItem = LKCountdownItem(title: title, date: date, mode: mode)
                 
-
                 LKCountdownManager.sharedInstance.saveNewCountdownItem(countdownItem, completionHandler: nil)
-                
-                
-                println("title: \(title)")
-                println("date: \(date)")
-                println("mode: \(mode.toString())")
-                
-                
             }
         }
         
