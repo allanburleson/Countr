@@ -7,18 +7,61 @@
 //
 
 #import "objc_Extensions.h"
+#import "Countr-Swift.h"
+
 
 /*
- Disable rotation on iPhone only
+ Returns the UIInterfaceOrientation masks foe each ViewController
+ */
+NSUInteger interfaceOrientationsForClass(id _class) {
+    
+    NSLog(@"_class: %@", _class);
+    
+    // LKMainViewController
+    if ([_class isKindOfClass: [LKMainViewController class]]) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    
+    // LKMainViewController
+    if ([_class isKindOfClass: [LKInfoViewController class]]) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    
+    // LKMainViewController
+    if ([_class isKindOfClass: [LKEditItemPropertiesViewController class]]) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    
+    // LKMainViewController
+    if ([_class isKindOfClass: [LKItemDetailViewController class]]) {
+        return UIInterfaceOrientationMaskAll; // TODO: Adapt for .All
+    }
+    
+    // LKMainViewController
+    if ([_class isKindOfClass: [LKPurchasePremiumViewController class]]) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    
+    /*
+     Sometimes (eg: the infoViewController), the ViewController is embedded in an UINavigationController. This if clause checks if the viewController is an UINavigationController. If this is true, it will call this very function with the navigationControllers topViewController as parameter.
+     
+     @discussion: This actually works!!!
+     */
+    if ([_class isKindOfClass:[UINavigationController class]]) {
+        return interfaceOrientationsForClass([(UINavigationController *)_class topViewController]);
+    }
+    
+    NSLog(@"else");
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+/*
+Disable rotation based on the current ViewController class
  */
 @implementation UIViewController (NoRotation)
 
 - (NSUInteger)supportedInterfaceOrientations {
-    if (self.traitCollection.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        return UIInterfaceOrientationMaskAll;
-    } else {
-        return UIInterfaceOrientationMaskPortrait;
-    }
+    return interfaceOrientationsForClass(self);
 }
 
 @end
