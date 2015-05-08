@@ -629,31 +629,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jl-Vw-ZcW">
-                                <rect key="frame" x="16" y="475" width="40" height="30"/>
-                                <state key="normal" title="Share">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareButtonTapped:" destination="NQf-Vh-BW0" eventType="touchUpInside" id="m0D-iB-Y6u"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEF-53-z73">
-                                <rect key="frame" x="285" y="475" width="30" height="30"/>
-                                <state key="normal" title="Edit">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="editButtonTapped:" destination="NQf-Vh-BW0" eventType="touchUpInside" id="op9-pp-FUi"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnk-fr-QTR">
-                                <rect key="frame" x="540" y="475" width="44" height="30"/>
+                                <rect key="frame" x="540" y="385" width="44" height="30"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="deleteButtonTapped:" destination="NQf-Vh-BW0" eventType="touchUpInside" id="xn1-IB-fSf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEF-53-z73">
+                                <rect key="frame" x="16" y="385" width="30" height="30"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editButtonTapped:" destination="NQf-Vh-BW0" eventType="touchUpInside" id="op9-pp-FUi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -662,15 +653,13 @@
                             <constraint firstItem="Gnk-fr-QTR" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="3wE-aq-Nnv"/>
                             <constraint firstItem="ZXJ-5C-mJE" firstAttribute="top" secondItem="mqi-NZ-8os" secondAttribute="bottom" constant="8" id="A1K-qd-8t1"/>
                             <constraint firstAttribute="height" secondItem="mqi-NZ-8os" secondAttribute="height" multiplier="2" id="Baj-pj-4ix"/>
-                            <constraint firstItem="5Vj-h4-XE4" firstAttribute="top" secondItem="0jl-Vw-ZcW" secondAttribute="bottom" constant="95" id="CwT-Su-kAV"/>
-                            <constraint firstItem="0jl-Vw-ZcW" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="Pn3-PU-Axu"/>
+                            <constraint firstItem="DEF-53-z73" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="HAB-hq-gjz"/>
+                            <constraint firstItem="DEF-53-z73" firstAttribute="top" secondItem="ZXJ-5C-mJE" secondAttribute="bottom" constant="28" id="Qen-B7-X5x"/>
                             <constraint firstItem="ZXJ-5C-mJE" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="VvG-Ej-7Yc"/>
                             <constraint firstItem="ZXJ-5C-mJE" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="XM9-3y-38n"/>
-                            <constraint firstAttribute="centerX" secondItem="DEF-53-z73" secondAttribute="centerX" id="ZFd-OM-6q4"/>
-                            <constraint firstItem="5Vj-h4-XE4" firstAttribute="top" secondItem="Gnk-fr-QTR" secondAttribute="bottom" constant="95" id="bKF-pJ-eBY"/>
                             <constraint firstItem="mqi-NZ-8os" firstAttribute="top" secondItem="wVi-fk-bKZ" secondAttribute="bottom" constant="8" id="ie8-FF-fgI"/>
                             <constraint firstItem="mqi-NZ-8os" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="pdb-bu-DMO"/>
-                            <constraint firstItem="5Vj-h4-XE4" firstAttribute="top" secondItem="DEF-53-z73" secondAttribute="bottom" constant="95" id="vTa-uK-i5C"/>
+                            <constraint firstItem="Gnk-fr-QTR" firstAttribute="top" secondItem="ZXJ-5C-mJE" secondAttribute="bottom" constant="28" id="xFe-o4-vS7"/>
                             <constraint firstItem="mqi-NZ-8os" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="znV-Ph-0fa"/>
                         </constraints>
                     </view>
@@ -679,7 +668,6 @@
                         <outlet property="countdownTitleLabel" destination="ZXJ-5C-mJE" id="sgt-We-xgM"/>
                         <outlet property="deleteButton" destination="Gnk-fr-QTR" id="ZNa-xN-gWc"/>
                         <outlet property="editButton" destination="DEF-53-z73" id="dbC-k3-13I"/>
-                        <outlet property="shareButton" destination="0jl-Vw-ZcW" id="brN-9V-AQx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTD-ye-CIY" userLabel="First Responder" sceneMemberID="firstResponder"/>

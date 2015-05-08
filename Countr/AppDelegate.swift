@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // UINavigationBar
         UINavigationBar.appearance().barStyle = .Black
         UINavigationBar.appearance().titleTextAttributes = titleTextAttributes
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         // UIToolbar
         UIToolbar.appearance().barStyle = .Black

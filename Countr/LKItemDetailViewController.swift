@@ -13,7 +13,6 @@ class LKItemDetailViewController: UIViewController {
     
     @IBOutlet weak private var countdownLabel: UILabel!
     @IBOutlet weak private var countdownTitleLabel: UILabel!
-    @IBOutlet weak private var shareButton: UIButton!
     @IBOutlet weak private var editButton: UIButton!
     @IBOutlet weak private var deleteButton: UIButton!
     
@@ -36,13 +35,16 @@ class LKItemDetailViewController: UIViewController {
         self.countdownLabel.font = UIFont(name: "Avenir-Heavy", size: 50)!
         self.countdownLabel.adjustsFontSizeToFitWidth = true
         
-        let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done")
+        let doneBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done")
+        let shareBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share")
+        shareBarButtonItem.tintColor = UIColor.whiteColor()
         
-        self.navigationItem.leftBarButtonItem = doneBarButtonItem // TODO: ???Left or right???
+        self.navigationItem.leftBarButtonItem = doneBarButtonItem
+        self.navigationItem.rightBarButtonItem = shareBarButtonItem
         
         // Set the font of the buttons
-        let buttonTitles = ["Share", "Edit", "Delete"]
-        let buttons = [self.shareButton!, self.editButton!, self.deleteButton!]
+        let buttonTitles = ["Edit", "Delete"]
+        let buttons = [self.editButton!, self.deleteButton!]
         for button in buttons {
             let index = find(buttons, button)!
             button.setAttributedTitle(NSAttributedString.attributedStringWithString(buttonTitles[index], font: UIFont(name: "Avenir", size: 15)!), forState: .Normal)
@@ -65,10 +67,7 @@ class LKItemDetailViewController: UIViewController {
     }
     
     
-    
-    @IBAction func shareButtonTapped(sender: UIButton) {
-        // TODO: Implement share
-        
+    func share() {
         let shareData = LKCountdownManager.sharedInstance.shareCountdownItem(self.countdownItem, sender: self)
     }
     
