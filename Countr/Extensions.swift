@@ -155,7 +155,7 @@ extension UIColor {
                     print("Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8")
                 }
             } else {
-                //println("Scan hex error")
+                println("Scan hex error")
             }
         } else {
             print("Invalid RGB string, missing '#' as prefix")

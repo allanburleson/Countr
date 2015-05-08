@@ -15,8 +15,6 @@
  */
 NSUInteger interfaceOrientationsForClass(id _class) {
     
-    NSLog(@"_class: %@", _class);
-    
     // LKMainViewController
     if ([_class isKindOfClass: [LKMainViewController class]]) {
         return UIInterfaceOrientationMaskPortrait;
@@ -51,7 +49,7 @@ NSUInteger interfaceOrientationsForClass(id _class) {
         return interfaceOrientationsForClass([(UINavigationController *)_class topViewController]);
     }
     
-    NSLog(@"else");
+    
     return UIInterfaceOrientationMaskPortrait;
 }
 
