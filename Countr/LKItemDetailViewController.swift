@@ -29,11 +29,14 @@ class LKItemDetailViewController: UIViewController {
         
         
         self.view.backgroundColor = UIColor.backgroundColor()
-        self.countdownLabel.textColor = UIColor.whiteColor()
-        self.countdownTitleLabel.textColor = UIColor.whiteColor()
         
+        self.countdownLabel.textColor = UIColor.whiteColor()
         self.countdownLabel.font = UIFont(name: "Avenir-Heavy", size: 50)!
         self.countdownLabel.adjustsFontSizeToFitWidth = true
+        
+        self.countdownTitleLabel.textColor = UIColor.whiteColor()
+        self.countdownTitleLabel.font = UIFont(name: "Avenir-Medium", size: 19)!
+        
         
         let doneBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done")
         let shareBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share")

@@ -630,7 +630,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnk-fr-QTR">
-                                <rect key="frame" x="540" y="385" width="44" height="30"/>
+                                <rect key="frame" x="540" y="395" width="44" height="30"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -639,7 +639,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEF-53-z73">
-                                <rect key="frame" x="16" y="385" width="30" height="30"/>
+                                <rect key="frame" x="16" y="395" width="30" height="30"/>
                                 <state key="normal" title="Edit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -654,12 +654,12 @@
                             <constraint firstItem="ZXJ-5C-mJE" firstAttribute="top" secondItem="mqi-NZ-8os" secondAttribute="bottom" constant="8" id="A1K-qd-8t1"/>
                             <constraint firstAttribute="height" secondItem="mqi-NZ-8os" secondAttribute="height" multiplier="2" id="Baj-pj-4ix"/>
                             <constraint firstItem="DEF-53-z73" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="HAB-hq-gjz"/>
-                            <constraint firstItem="DEF-53-z73" firstAttribute="top" secondItem="ZXJ-5C-mJE" secondAttribute="bottom" constant="28" id="Qen-B7-X5x"/>
+                            <constraint firstItem="DEF-53-z73" firstAttribute="top" secondItem="ZXJ-5C-mJE" secondAttribute="bottom" constant="38" id="Qen-B7-X5x"/>
                             <constraint firstItem="ZXJ-5C-mJE" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="VvG-Ej-7Yc"/>
                             <constraint firstItem="ZXJ-5C-mJE" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="XM9-3y-38n"/>
                             <constraint firstItem="mqi-NZ-8os" firstAttribute="top" secondItem="wVi-fk-bKZ" secondAttribute="bottom" constant="8" id="ie8-FF-fgI"/>
                             <constraint firstItem="mqi-NZ-8os" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="pdb-bu-DMO"/>
-                            <constraint firstItem="Gnk-fr-QTR" firstAttribute="top" secondItem="ZXJ-5C-mJE" secondAttribute="bottom" constant="28" id="xFe-o4-vS7"/>
+                            <constraint firstItem="Gnk-fr-QTR" firstAttribute="top" secondItem="ZXJ-5C-mJE" secondAttribute="bottom" constant="38" id="xFe-o4-vS7"/>
                             <constraint firstItem="mqi-NZ-8os" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="znV-Ph-0fa"/>
                         </constraints>
                     </view>
