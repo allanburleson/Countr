@@ -296,10 +296,8 @@
 		5D9B9EBA1AECCD0000BDA2E0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				5DAA33951A2B19EB006DDB65 /* Main.storyboard */,
-				5D8721001A7D64C200F6C527 /* LKPurchasePremiumCell.xib */,
-				5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */,
-				5DAA339A1A2B19EB006DDB65 /* LaunchScreen.xib */,
+				5DC550D41AFD2D7300AC4DDD /* ViewControllers */,
+				5DC550D51AFD2D8B00AC4DDD /* IB */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -361,15 +359,6 @@
 				5D35E9721AF3EAB900335A13 /* Crashlytics.framework */,
 				5D4157F21AF366FA005FEC8D /* Model */,
 				5D9B9EBA1AECCD0000BDA2E0 /* UI */,
-				5DF32FBE1A7E222A00063FAC /* LKMainViewController.swift */,
-				5DAA33B91A2B42B8006DDB65 /* LKMainCollectionViewController.swift */,
-				5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */,
-				5DAA33B71A2B4026006DDB65 /* LKEditItemPropertiesViewController.swift */,
-				5D9B9EBD1AECCDDE00BDA2E0 /* LKItemDetailViewController.swift */,
-				5DF32FBC1A7E128200063FAC /* LKPurchasePremiumViewController.swift */,
-				5D0A9D611A79132A0040C100 /* LKDatePicker.swift */,
-				5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */,
-				5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */,
 				5DF32FFA1A7E831100063FAC /* Localizable.strings */,
 				5DAA33981A2B19EB006DDB65 /* Images.xcassets */,
 				5D9DAA071A7BD3E400CED935 /* Extensions.swift */,
@@ -409,6 +398,33 @@
 				5DAA33A61A2B19EB006DDB65 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5DC550D41AFD2D7300AC4DDD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5DF32FBE1A7E222A00063FAC /* LKMainViewController.swift */,
+				5DAA33B91A2B42B8006DDB65 /* LKMainCollectionViewController.swift */,
+				5D33343B1A6A8BD6007D9A4B /* LKInfoViewController.swift */,
+				5DAA33B71A2B4026006DDB65 /* LKEditItemPropertiesViewController.swift */,
+				5D9B9EBD1AECCDDE00BDA2E0 /* LKItemDetailViewController.swift */,
+				5DF32FBC1A7E128200063FAC /* LKPurchasePremiumViewController.swift */,
+				5D0A9D611A79132A0040C100 /* LKDatePicker.swift */,
+				5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */,
+				5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5DC550D51AFD2D8B00AC4DDD /* IB */ = {
+			isa = PBXGroup;
+			children = (
+				5DAA33951A2B19EB006DDB65 /* Main.storyboard */,
+				5D8721001A7D64C200F6C527 /* LKPurchasePremiumCell.xib */,
+				5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */,
+				5DAA339A1A2B19EB006DDB65 /* LaunchScreen.xib */,
+			);
+			name = IB;
 			sourceTree = "<group>";
 		};
 		5DE1A44E1AC6E2BF005BF8D4 /* Countr WatchKit Extension */ = {
