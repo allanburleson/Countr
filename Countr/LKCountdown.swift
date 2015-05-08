@@ -210,10 +210,11 @@ class LKCountdownManager: NSObject {
         let countdownMode: String = item.countdownMode.toString()
         let urlString: String = "countr://add?title=" + encodedTitle + "&date=" + dateInterval + "&mode=" + countdownMode
         
+        let text = item.shareDescription
         let url = NSURL(string: urlString)!
         
         if let _sender = sender {
-            let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            let activityViewController = UIActivityViewController(activityItems: [text, url], applicationActivities: nil)
             
             _sender.presentViewController(activityViewController, animated: true, completion: nil)
         }
@@ -324,6 +325,33 @@ class LKCountdownItem: NSObject, Printable {
     The time remaining to the reference date
     */
     private(set) var remaining: TimeRemaining = TimeRemaining()
+    
+    
+    /*
+    Returns a description that can be used for sharing
+    Example: "Only 30 days 3 hours 7 minutes left to WWDC '15"
+    */
+    var shareDescription: String {
+        var shareString = ""
+        
+        if !self.date.isPast {
+            shareString += "Only "
+        }
+        if self.remaining.days != 0 {
+            shareString += "\(self.remaining.days.positive) days " // Add days
+        }
+        shareString += "\(self.remaining.hours.positive) hours \(self.remaining.minutes.positive) minutes " // add hours + minutes
+        
+        if self.date.isPast {
+            shareString += "since "
+        } else {
+            shareString += "left to "
+        }
+        
+        shareString += "\(self.title)"
+        
+        return shareString
+    }
     
     
     /**
