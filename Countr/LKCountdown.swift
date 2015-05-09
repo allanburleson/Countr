@@ -330,22 +330,27 @@ class LKCountdownItem: NSObject, Printable {
     /*
     Returns a description that can be used for sharing
     Example: "Only 30 days 3 hours 7 minutes left to WWDC '15"
+    
+    // TODO: Localize this!
     */
     var shareDescription: String {
         var shareString = ""
+        var onlyString   = NSLocalizedString("me.kollemer.coumtr.shareItem.only", comment: "")
+        var sinceString  = NSLocalizedString("me.kollmer.countr.shareItem.since", comment: "")
+        var leftToString = NSLocalizedString("me.kollmer.countr.shareItem.leftTo", comment: "")
         
         if !self.date.isPast {
-            shareString += "Only "
+            shareString += "\(onlyString) "
         }
         if self.remaining.days != 0 {
-            shareString += "\(self.remaining.days.positive) days " // Add days
+            shareString += "\(self.remaining.days.positive)d " // Add days
         }
-        shareString += "\(self.remaining.hours.positive) hours \(self.remaining.minutes.positive) minutes " // add hours + minutes
+        shareString += "\(self.remaining.hours.positive)h \(self.remaining.minutes.positive)m " // add hours + minutes
         
         if self.date.isPast {
-            shareString += "since "
+            shareString += "\(sinceString) "
         } else {
-            shareString += "left to "
+            shareString += "\(leftToString) "
         }
         
         shareString += "\(self.title)"

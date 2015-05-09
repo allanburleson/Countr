@@ -80,6 +80,23 @@
 
 
 /*
+ Share item description
+ */
+"me.kollmer.countr.shareItem.shareButtonTitle" = "Teilen";
+"me.kollmer.countr.shareItem.only" = "Nue";
+"me.kollmer.countr.shareItem.since" = "seit";
+"me.kollmer.countr.shareItem.leftTo" = "bis";
+
+"me.kollmer.countr.shareItem.day" = "Tag";
+"me.kollmer.countr.shareItem.days" = "Tage";
+"me.kollmer.countr.shareItem.hour" = "Stunde";
+"me.kollmer.countr.shareItem.hours" = "Stunden";
+"me.kollmer.countr.shareItem.minute" = "Minute";
+"me.kollmer.countr.shareItem.minutes" = "Minuten";
+
+
+
+/*
  Purchase Premium Features Collection View Cell
  */
 "me.kollmer.countr.purchaseCell.titleLabel" = "Premium Features";

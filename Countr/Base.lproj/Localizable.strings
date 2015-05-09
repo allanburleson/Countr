@@ -66,6 +66,25 @@
 "me.kollmer.countr.deleteItemAlert.delete" = "Delete";
 "me.kollmer.countr.deleteItemAlert.cancel" = "Cancel";
 
+
+
+/*
+ Share item description
+ */
+"me.kollmer.countr.shareItem.shareButtonTitle" = "Share";
+"me.kollmer.countr.shareItem.only" = "Only";
+"me.kollmer.countr.shareItem.since" = "since";
+"me.kollmer.countr.shareItem.leftTo" = "left to";
+
+"me.kollmer.countr.shareItem.day" = "day";
+"me.kollmer.countr.shareItem.days" = "days";
+"me.kollmer.countr.shareItem.hour" = "hour";
+"me.kollmer.countr.shareItem.hours" = "hours";
+"me.kollmer.countr.shareItem.minute" = "minute";
+"me.kollmer.countr.shareItem.minutes" = "minutes";
+
+
+
 /*
  Purchase View Controller
  // Deleted from the features description:  \n\n• Apple Watch: View all your countdowns on your brand-new apple watch
