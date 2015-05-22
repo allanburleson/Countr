@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // UILabel
         UILabel.appearance().font = font
+        UILabel.appearance().textColor = UIColor.whiteColor()
         
         // UIButton
         UIButton.appearance().titleLabel?.font = UIFont(name: "Avenir-Book", size: 15)
