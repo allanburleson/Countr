@@ -92,7 +92,7 @@
  Share item description
  */
 "me.kollmer.countr.shareItem.shareButtonTitle" = "Teilen";
-"me.kollmer.countr.shareItem.only" = "Nue";
+"me.kollmer.countr.shareItem.only" = "Nur";
 "me.kollmer.countr.shareItem.since" = "seit";
 "me.kollmer.countr.shareItem.leftTo" = "bis";
 

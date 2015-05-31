@@ -335,7 +335,7 @@ class LKCountdownItem: NSObject, Printable {
     */
     var shareDescription: String {
         var shareString = ""
-        var onlyString   = NSLocalizedString("me.kollemer.coumtr.shareItem.only", comment: "")
+        var onlyString   = NSLocalizedString("me.kollmer.countr.shareItem.only", comment: "")
         var sinceString  = NSLocalizedString("me.kollmer.countr.shareItem.since", comment: "")
         var leftToString = NSLocalizedString("me.kollmer.countr.shareItem.leftTo", comment: "")
         
