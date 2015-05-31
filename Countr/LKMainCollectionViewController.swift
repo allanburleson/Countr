@@ -23,6 +23,9 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
     
     override func loadView() {
         super.loadView()
+        
+        
+        self.navigationController?.navigationBar.titleTextAttributes = LKNavigationBarTitleAttributes()
 
 
         /*

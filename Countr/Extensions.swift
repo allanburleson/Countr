@@ -71,6 +71,16 @@ let notification_userInfo_item_id_key = "notification_userInfo_item_id"
 let notification_userInfo_item_name_key = "notification_userInfo_item_name"
 
 
+// MARK: Appearance
+public func LKNavigationBarTitleAttributes() -> [NSObject : AnyObject] {
+    let font = UIFont(name: "Avenir-Book", size: 17)!
+    let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
+    
+    return titleTextAttributes
+}
+
+
+
 // MARK: Getting class names
 
 public func nameOfClass(_class: AnyObject) -> String {

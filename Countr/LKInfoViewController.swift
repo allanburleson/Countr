@@ -69,6 +69,9 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     override func loadView() {
         super.loadView()
         
+        
+        self.navigationController?.navigationBar.titleTextAttributes = LKNavigationBarTitleAttributes()
+        
         self.title = NSLocalizedString("me.kollmer.countr.infoView.title", comment: "")
         
         self.tableView.backgroundColor = UIColor.backgroundColor()

@@ -24,22 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let font = UIFont(name: "Avenir-Book", size: 17)!
         let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
         
+        
         // UILabel
         UILabel.appearance().font = font
-        UILabel.appearance().textColor = UIColor.whiteColor()
+        //UILabel.appearance().textColor = UIColor.whiteColor()
         
         // UIButton
         UIButton.appearance().titleLabel?.font = UIFont(name: "Avenir-Book", size: 15)
         
-        // UITableViewCell
-        UITableViewCell.appearance().backgroundColor = UIColor.foregroundColor()
+        // UITableViewCell - Disabled as it riuns the UI of share extension which are using a tableview for selecting contacts (eg: mail, messages)
+        //UITableViewCell.appearance().backgroundColor = UIColor.foregroundColor()
         
         // UICollectionView
         UICollectionView.appearance().backgroundColor = UIColor.backgroundColor()
         
         // UINavigationBar
         UINavigationBar.appearance().barStyle = .Black
-        UINavigationBar.appearance().titleTextAttributes = titleTextAttributes
+        //UINavigationBar.appearance().titleTextAttributes = titleTextAttributes
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         // UIToolbar

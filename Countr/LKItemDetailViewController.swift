@@ -29,6 +29,9 @@ class LKItemDetailViewController: UIViewController {
         super.loadView()
         
         
+        self.navigationController?.navigationBar.titleTextAttributes = LKNavigationBarTitleAttributes()
+        
+        
         self.view.backgroundColor = UIColor.backgroundColor()
         
         self.countdownLabel.textColor = UIColor.whiteColor()

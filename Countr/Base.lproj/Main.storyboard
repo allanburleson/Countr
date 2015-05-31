@@ -123,6 +123,9 @@
                         <outlet property="datePicker" destination="hzk-8v-Pge" id="fg5-25-65m"/>
                         <outlet property="doneBarButtonItem" destination="zav-Rr-vpq" id="eoc-Wg-SBD"/>
                         <outlet property="nameTextField" destination="tCU-BB-gQb" id="Vb3-fW-9Up"/>
+                        <outletCollection property="allCells" destination="hCi-Xk-pkl" collectionClass="NSMutableArray" id="3IT-pK-0jP"/>
+                        <outletCollection property="allCells" destination="UvW-Fa-aMB" collectionClass="NSMutableArray" id="G0k-gN-6PJ"/>
+                        <outletCollection property="allCells" destination="PQN-iy-KiO" collectionClass="NSMutableArray" id="icm-eC-4wD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fT5-Uc-hNf" userLabel="First Responder" sceneMemberID="firstResponder"/>

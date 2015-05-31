@@ -19,6 +19,7 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
     
     @IBOutlet private weak var doneBarButtonItem: UIBarButtonItem!
     
+    @IBOutlet var allCells: [UITableViewCell]!
     @IBOutlet private weak var nameTextField: UITextField!
     
     @IBOutlet private weak var countdownModeSegmentedControl: UISegmentedControl!
@@ -62,6 +63,9 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
     override func loadView() {
         super.loadView()
         
+        
+        self.navigationController?.navigationBar.titleTextAttributes = LKNavigationBarTitleAttributes()
+        
         //self.doneBarButtonItem.enabled = false
         
         self.nameTextField.delegate = self
@@ -71,6 +75,11 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
         
         self.tableView.backgroundColor = UIColor.backgroundColor()
         self.nameTextField.backgroundColor = UIColor.foregroundColor()
+        
+        for cell in allCells {
+            cell.backgroundColor = UIColor.foregroundColor()
+        }
+        
         let textFieldFont = UIFont(name: "Avenir-Book", size: 16)!
         let placeholderString = NSLocalizedString("me.kollmer.countr.addItemView.itemTitlePlaceholderString", comment: "")
         self.nameTextField.attributedPlaceholder = NSAttributedString(string: placeholderString, attributes: [NSForegroundColorAttributeName : UIColor(rgba: "#D9D9D9"), NSFontAttributeName: textFieldFont])

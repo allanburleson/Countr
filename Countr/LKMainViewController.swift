@@ -23,6 +23,8 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
         super.loadView()
         self.title = "Countr"
         
+        self.navigationController?.navigationBar.titleTextAttributes = LKNavigationBarTitleAttributes()
+        
         self.view.backgroundColor = UIColor.backgroundColor()
         
         self.adBannerView.delegate = self
