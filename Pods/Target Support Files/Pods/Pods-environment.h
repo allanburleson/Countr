@@ -18,6 +18,30 @@
 #define COCOAPODS_VERSION_MINOR_GoogleAnalytics_iOS_SDK_Core 12
 #define COCOAPODS_VERSION_PATCH_GoogleAnalytics_iOS_SDK_Core 0
 
+// NSDate+Helper
+#define COCOAPODS_POD_AVAILABLE_NSDate_Helper
+#define COCOAPODS_VERSION_MAJOR_NSDate_Helper 1
+#define COCOAPODS_VERSION_MINOR_NSDate_Helper 0
+#define COCOAPODS_VERSION_PATCH_NSDate_Helper 0
+
+// UIApplication-AppInfo
+#define COCOAPODS_POD_AVAILABLE_UIApplication_AppInfo
+#define COCOAPODS_VERSION_MAJOR_UIApplication_AppInfo 0
+#define COCOAPODS_VERSION_MINOR_UIApplication_AppInfo 3
+#define COCOAPODS_VERSION_PATCH_UIApplication_AppInfo 0
+
+// VTAcknowledgementsViewController
+#define COCOAPODS_POD_AVAILABLE_VTAcknowledgementsViewController
+#define COCOAPODS_VERSION_MAJOR_VTAcknowledgementsViewController 0
+#define COCOAPODS_VERSION_MINOR_VTAcknowledgementsViewController 14
+#define COCOAPODS_VERSION_PATCH_VTAcknowledgementsViewController 0
+
+// YHRoundBorderedButton
+#define COCOAPODS_POD_AVAILABLE_YHRoundBorderedButton
+#define COCOAPODS_VERSION_MAJOR_YHRoundBorderedButton 0
+#define COCOAPODS_VERSION_MINOR_YHRoundBorderedButton 1
+#define COCOAPODS_VERSION_PATCH_YHRoundBorderedButton 0
+
 // Debug build configuration
 #ifdef DEBUG
 

@@ -15,6 +15,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     
     // UI
+    @IBOutlet var allCells: [UITableViewCell]!
     @IBOutlet weak var versionTextLabel: UILabel!
     @IBOutlet weak var versionNumberLabel: UILabel!
     @IBOutlet weak var premiumFeaturesTextLabel: UILabel!
@@ -77,7 +78,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         self.tableView.backgroundColor = UIColor.backgroundColor()
         
         // Section 0 - About/Info
-        self.versionNumberLabel.text = UIApplication.sharedApplication().version
+        self.versionNumberLabel.text = UIApplication.sharedApplication().appVersion()
         self.versionTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.versionTextLabel", comment: "")
         self.premiumFeaturesTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.unlockEverything", comment: "")
         
@@ -113,6 +114,11 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         // Settings
         self.sortBySegmentedControl.selectedSegmentIndex = settingsManager.sortingStyle.toIndex()
         self.appBadgeSwitch.on = settingsManager.appBadgeEnabled
+        
+        
+        for cell in allCells {
+            cell.backgroundColor = UIColor.foregroundColor()
+        }
         
 
         
@@ -219,7 +225,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if !(indexPath.section == 0 && indexPath.row == 1) {
+        if !((indexPath.section == 0 && indexPath.row == 1) || indexPath.section == 4) {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
         
@@ -241,6 +247,10 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         if indexPath.section == 3 {
             // Delete all Data
             deleteAllData()
+        }
+        
+        if indexPath.section == 4 {
+            showAcknowledgements()
         }
     }
     
@@ -351,6 +361,50 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         self.presentViewController(alertController, animated: true, completion: {
             //self.tracker.send(GAIDictionaryBuilder.createEventWithCategory(ui_action_key, action: button_press_key, label: delete_all_data_button_key, value: nil).build())
         })
+    }
+    
+    func showAcknowledgements() {
+        
+        /*
+        Setting the path automatically is necessary.
+        
+        According to the documentation of VTAcknowledgementsViewController, for creating a new instance, the +acknowledgementsViewController class function should be used. This function is not available in swift (I guess because it returns instancetype. When the VTAcknowledgementsViewController is created with the default init, the plist path is not set.
+        */
+        /*
+        let path: String = NSBundle.mainBundle().pathForResource("Pods-acknowledgements", ofType: "plist")!
+        
+        let acknowledgementsViewController = VTAcknowledgementsViewController(acknowledgementsPlistPath: path)
+        
+        let numberOfCells = acknowledgementsViewController.tableView.numberOfRowsInSection(0)
+        
+        for index in 1...numberOfCells {
+            let indexPath = NSIndexPath(forRow: index-1, inSection: 0)
+            let cell = acknowledgementsViewController.tableView.cellForRowAtIndexPath(indexPath)
+            
+            cell?.backgroundColor = UIColor.foregroundColor()
+            cell?.textLabel?.font = UIFont(name: "Avenir-Book", size: 17)
+            cell?.textLabel?.textColor = UIColor.whiteColor()
+        }
+        
+        // Set appearance
+        acknowledgementsViewController.tableView.backgroundColor = UIColor.backgroundColor()
+        
+        
+        self.navigationController?.showViewController(acknowledgementsViewController, sender: self)
+*/
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        let acknowledgementsViewController = LKAcknowledgementsViewController()
+        self.navigationController?.showViewController(acknowledgementsViewController, sender: self)
     }
     
     // MARK: MFMailViewController delegate

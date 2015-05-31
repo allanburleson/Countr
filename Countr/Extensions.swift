@@ -134,7 +134,7 @@ extension UIColor {
     }
     
     class func foregroundColor() -> UIColor {
-        return UIColor(rgba: "#252525")
+        return UIColor(rgba: "#252525") // alternative: #1C1C1C (much darker!😱)
     }
     
     class func borderColor() -> UIColor {
@@ -184,26 +184,6 @@ extension UIColor {
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }
 }
-
-// MARK: UIApplication
-
-extension UIApplication {
-    
-    /**
-    The version of the App (eg 1.2)
-    */
-    var version: String {
-        return NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as! String
-    }
-    
-    /**
-    The build number of the app (eg 12)
-    */
-    var build: String {
-        return NSBundle.mainBundle().infoDictionary?[kCFBundleVersionKey] as! String
-    }
-}
-
 
 // MARK: UIApplication
 

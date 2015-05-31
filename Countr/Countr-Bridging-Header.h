@@ -9,3 +9,6 @@
 #import "GAIDictionaryBuilder.h"
 #import "GAILogger.h"
 #import "TAGLogger.h"
+#import "VTAcknowledgementsViewController.h"
+#import "VTAcknowledgementViewController.h"
+#import "UIApplication+AppInfo.h"

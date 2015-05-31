@@ -7,223 +7,626 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		556F6A45DBF1835A45D39D7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B7181D8051DAC7F6671963 /* Foundation.framework */; };
-		696F0D71DF4F759E7EDDC86D /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3F0D3F9653811AF168CC23 /* Pods-dummy.m */; };
+		03E784D12CA5DAC726B3D1E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B8CCF86A7A47FEC0152A45 /* Foundation.framework */; };
+		0E5BF8BBA8E4C8D59ACC3A04 /* UIApplication+AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE465A45F3E34E2322E15E /* UIApplication+AppInfo.m */; };
+		151E16D765566F5D534C85F4 /* VTAcknowledgement.m in Sources */ = {isa = PBXBuildFile; fileRef = A41F90CC254BFF77D4782CA1 /* VTAcknowledgement.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		26ABDBCE8BCFC5C9E731EAE6 /* Pods-YHRoundBorderedButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D52A7D7D59FBDEF25B8D3E3 /* Pods-YHRoundBorderedButton-dummy.m */; };
+		3404A4CF11E7E69543984E00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B8CCF86A7A47FEC0152A45 /* Foundation.framework */; };
+		425FA8FE9344F367CACDED29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B8CCF86A7A47FEC0152A45 /* Foundation.framework */; };
+		46A36F6BBF1224198EE829A2 /* Pods-NSDate+Helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6A3E06699B3DAA1D6F1CD /* Pods-NSDate+Helper-dummy.m */; };
+		4DA8011752998EC8028F178B /* NSDate+Helper.h in Headers */ = {isa = PBXBuildFile; fileRef = D523C71C06A85E7B31E7026F /* NSDate+Helper.h */; };
+		5A88D9AEC6E5B95E8C2D4AAA /* YHRoundBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B626D2DCA5730B7A08A1BA6 /* YHRoundBorderedButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6533E402A5ED968E76F778DF /* YHRoundBorderedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = FAADC79D9CAD34980FD51219 /* YHRoundBorderedButton.h */; };
+		7480F6C7EB245C4BD6DAA81A /* VTAcknowledgement.h in Headers */ = {isa = PBXBuildFile; fileRef = 07CE5DA2E16A31210784978B /* VTAcknowledgement.h */; };
+		897660F3E28D64B130A182CD /* VTAcknowledgementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F779BB7CE19E53C314BBF9 /* VTAcknowledgementViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8D680F23FED023648570DCF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B8CCF86A7A47FEC0152A45 /* Foundation.framework */; };
+		8F7A138AAA9B4B13824F57C0 /* Pods-VTAcknowledgementsViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B580A31C0438D16F5B8E1F /* Pods-VTAcknowledgementsViewController-dummy.m */; };
+		9341AF2549738A6D11637549 /* Pods-UIApplication-AppInfo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F5562D19591485488C04A6 /* Pods-UIApplication-AppInfo-dummy.m */; };
+		9D10353C4AF0983A3B73A6E4 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 456AD752AE8BF945924783FF /* NSDate+Helper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BABAF7F69F38245789DA447E /* VTAcknowledgementsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BF9A9127114C2DA14E44E4D0 /* VTAcknowledgementsViewController.h */; };
+		C35CE635DD52B33147E05AF5 /* VTAcknowledgementViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E58FB5A8F02E35E7531D1A7 /* VTAcknowledgementViewController.h */; };
+		CCEB0AA3840F37FB2F31057C /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A192BF2953211566F1BA84 /* Pods-dummy.m */; };
+		CD2123E5C09B751A485CFE8B /* UIApplication+AppInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 89CC0AF346D4B35812565C5F /* UIApplication+AppInfo.h */; };
+		D8CC3DE3E7B9827F9FAED652 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B8CCF86A7A47FEC0152A45 /* Foundation.framework */; };
+		E49EF33E52CE2E7789CEA956 /* VTAcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595508E0100F68395B090A2C /* VTAcknowledgementsViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2B55BCB1AC61B5DCE193413E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 952AC371BD0B637D91FA5833 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1917393167F07F11F1403FC6;
+			remoteInfo = "Pods-VTAcknowledgementsViewController";
+		};
+		528E95FB3463146BF25E38B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 952AC371BD0B637D91FA5833 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0DDFA36DC9909BAC36AEAE7;
+			remoteInfo = "Pods-UIApplication-AppInfo";
+		};
+		CB47F7CA5986C7A5B3EB1417 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 952AC371BD0B637D91FA5833 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B265BEB9D72CE450C79CDFE1;
+			remoteInfo = "Pods-NSDate+Helper";
+		};
+		D5BAA19BED6613DB7381DF38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 952AC371BD0B637D91FA5833 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01E013B9AA0CDB56F62A86E2;
+			remoteInfo = "Pods-YHRoundBorderedButton";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		024438408A6D3E5498573828 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1416B81DB001E7865426D3A4 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = GoogleAnalytics/Library/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
-		2F2E03DD13011E235A5DF76D /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = GoogleAnalytics/Library/GAI.h; sourceTree = "<group>"; };
-		39B49EF8EDDE1AD9D5B5925E /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		4C269EB3F41EC949D280184D /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = GoogleAnalytics/Library/GAITrackedViewController.h; sourceTree = "<group>"; };
-		53EA6862EB63FD2AF8FEA76D /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = GoogleAnalytics/Library/GAITracker.h; sourceTree = "<group>"; };
-		55084100821A2E489FAF5E29 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		55DACBFC74A05CCC4E0B6FA0 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		6684D0C219FE964F79D7EAD0 /* TAGDataLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGDataLayer.h; path = GoogleTagManager/Library/TAGDataLayer.h; sourceTree = "<group>"; };
-		714CEBE04D70F254B586C6AF /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "Reveal-Framework-1.5.1/Reveal.framework"; sourceTree = "<group>"; };
-		72CDD9A40E297944E5BCFF7E /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = GoogleAnalytics/Library/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		7AD84F488A1AA2DA6B835E22 /* TAGContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGContainer.h; path = GoogleTagManager/Library/TAGContainer.h; sourceTree = "<group>"; };
-		8838363837A355A913B24E9E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		899DB3F94A1DA3F90D1C59BC /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		8D4E94F8E61F48E1FC819276 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = GoogleAnalytics/Library/GAIEcommerceFields.h; sourceTree = "<group>"; };
-		8ED2A2CE53257F079763A7A2 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = GoogleAnalytics/Library/GAIEcommerceProduct.h; sourceTree = "<group>"; };
-		B5DA266735DBB670914D95F1 /* GAILogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = GoogleAnalytics/Library/GAILogger.h; sourceTree = "<group>"; };
-		BB82BB62D5C706C322B368FF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC2DE1C80AF0615645D645E4 /* TAGLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGLogger.h; path = GoogleTagManager/Library/TAGLogger.h; sourceTree = "<group>"; };
-		BE3F0D3F9653811AF168CC23 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		C98DC89D316B225728522296 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		D58A54D4A3EE9C35FC8F4145 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = GoogleAnalytics/Library/GAIEcommercePromotion.h; sourceTree = "<group>"; };
-		DB67CA7B8CF2317A2A126F28 /* TAGManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGManager.h; path = GoogleTagManager/Library/TAGManager.h; sourceTree = "<group>"; };
-		EB99B66B0D43B9497C86471A /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = GoogleAnalytics/Library/GAIFields.h; sourceTree = "<group>"; };
-		EFF6CE1ED66DD9945B6EC234 /* TAGContainerOpener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGContainerOpener.h; path = GoogleTagManager/Library/TAGContainerOpener.h; sourceTree = "<group>"; };
-		F6B7181D8051DAC7F6671963 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		00BEE4E27441CC25C67E71CD /* libPods-UIApplication-AppInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UIApplication-AppInfo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		02394B5470260A62D9297BA5 /* libPods-YHRoundBorderedButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YHRoundBorderedButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CE5DA2E16A31210784978B /* VTAcknowledgement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTAcknowledgement.h; path = Classes/VTAcknowledgement.h; sourceTree = "<group>"; };
+		0E61138D08B86889F7A465FE /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = GoogleAnalytics/Library/GAITrackedViewController.h; sourceTree = "<group>"; };
+		11286C88C25491DCD56B0958 /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = GoogleAnalytics/Library/GAI.h; sourceTree = "<group>"; };
+		13569626C53A289519DF948B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		17D0DFBFC42F7CE3D8964EF8 /* Pods-VTAcknowledgementsViewController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VTAcknowledgementsViewController-Private.xcconfig"; sourceTree = "<group>"; };
+		19D6001F534E3912F8FDDD83 /* Pods-VTAcknowledgementsViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VTAcknowledgementsViewController-prefix.pch"; sourceTree = "<group>"; };
+		1BF6A3E06699B3DAA1D6F1CD /* Pods-NSDate+Helper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NSDate+Helper-dummy.m"; sourceTree = "<group>"; };
+		1EEC2D45816D6CF7578DA6C5 /* TAGContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGContainer.h; path = GoogleTagManager/Library/TAGContainer.h; sourceTree = "<group>"; };
+		2ABC18FFD31A813FFC6864D1 /* Pods-VTAcknowledgementsViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VTAcknowledgementsViewController.xcconfig"; sourceTree = "<group>"; };
+		2B626D2DCA5730B7A08A1BA6 /* YHRoundBorderedButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YHRoundBorderedButton.m; path = Classes/YHRoundBorderedButton.m; sourceTree = "<group>"; };
+		3839B8128D454C7AF23B79CF /* TAGContainerOpener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGContainerOpener.h; path = GoogleTagManager/Library/TAGContainerOpener.h; sourceTree = "<group>"; };
+		3C1958E3D43014F6FFC5858E /* Pods-NSDate+Helper-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NSDate+Helper-Private.xcconfig"; sourceTree = "<group>"; };
+		456AD752AE8BF945924783FF /* NSDate+Helper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		4DDAE118B6125627A53ECB80 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		575752E251DCA75B12575BFE /* Pods-UIApplication-AppInfo-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UIApplication-AppInfo-Private.xcconfig"; sourceTree = "<group>"; };
+		595508E0100F68395B090A2C /* VTAcknowledgementsViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VTAcknowledgementsViewController.m; path = Classes/VTAcknowledgementsViewController.m; sourceTree = "<group>"; };
+		60946DE5EE4655D24C150F47 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = GoogleAnalytics/Library/GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		69F779BB7CE19E53C314BBF9 /* VTAcknowledgementViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VTAcknowledgementViewController.m; path = Classes/VTAcknowledgementViewController.m; sourceTree = "<group>"; };
+		79144AF3725C0DA3763F0D28 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		7A4EF2FD52A6FF3669581EC0 /* TAGDataLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGDataLayer.h; path = GoogleTagManager/Library/TAGDataLayer.h; sourceTree = "<group>"; };
+		7CFE465A45F3E34E2322E15E /* UIApplication+AppInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AppInfo.m"; sourceTree = "<group>"; };
+		7DB26F467356ED88D031E099 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = GoogleAnalytics/Library/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		802540DD157D17A672ABE66F /* Pods-NSDate+Helper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NSDate+Helper.xcconfig"; sourceTree = "<group>"; };
+		85830A3988483ED90D2E2758 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = GoogleAnalytics/Library/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		863D6CFFFBBD33BF3FF7BA78 /* TAGLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGLogger.h; path = GoogleTagManager/Library/TAGLogger.h; sourceTree = "<group>"; };
+		87C1D22A9751A98C15013807 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		89CC0AF346D4B35812565C5F /* UIApplication+AppInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppInfo.h"; sourceTree = "<group>"; };
+		8C033CA0A46E836F8A8983ED /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = GoogleAnalytics/Library/GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		8D366598A4961B9A19019DFF /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		9251303EC0CD9BF889F4FB57 /* Pods-YHRoundBorderedButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YHRoundBorderedButton.xcconfig"; sourceTree = "<group>"; };
+		97A192BF2953211566F1BA84 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		9D52A7D7D59FBDEF25B8D3E3 /* Pods-YHRoundBorderedButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YHRoundBorderedButton-dummy.m"; sourceTree = "<group>"; };
+		9E481169E9965497BC5AC23D /* Pods-UIApplication-AppInfo-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UIApplication-AppInfo-prefix.pch"; sourceTree = "<group>"; };
+		9E58FB5A8F02E35E7531D1A7 /* VTAcknowledgementViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTAcknowledgementViewController.h; path = Classes/VTAcknowledgementViewController.h; sourceTree = "<group>"; };
+		9EC15CF30A65169E7F2B7B42 /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = GoogleAnalytics/Library/GAITracker.h; sourceTree = "<group>"; };
+		A08705D68D544E9C1F8D5216 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		A108E16EBF09A3CF85808155 /* GAILogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = GoogleAnalytics/Library/GAILogger.h; sourceTree = "<group>"; };
+		A41F90CC254BFF77D4782CA1 /* VTAcknowledgement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VTAcknowledgement.m; path = Classes/VTAcknowledgement.m; sourceTree = "<group>"; };
+		B63056906D44445CBE9A05AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		BF9A9127114C2DA14E44E4D0 /* VTAcknowledgementsViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTAcknowledgementsViewController.h; path = Classes/VTAcknowledgementsViewController.h; sourceTree = "<group>"; };
+		C0F8BBF7D3AC1C76B1A634CD /* Pods-NSDate+Helper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NSDate+Helper-prefix.pch"; sourceTree = "<group>"; };
+		C160D75E799EAF7BE8F4FF47 /* Pods-YHRoundBorderedButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YHRoundBorderedButton-Private.xcconfig"; sourceTree = "<group>"; };
+		C28F71A33CE8A24968AB9B5F /* VTAcknowledgementsViewController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = VTAcknowledgementsViewController.bundle; sourceTree = "<group>"; };
+		C8B8CCF86A7A47FEC0152A45 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C96524971661D4BECC69C859 /* TAGManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGManager.h; path = GoogleTagManager/Library/TAGManager.h; sourceTree = "<group>"; };
+		CA14DE3D01717852E11D419F /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = GoogleAnalytics/Library/GAIEcommerceFields.h; sourceTree = "<group>"; };
+		CA51FF9A1BB8C310FBDFA179 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D02E0078E794C1EEA8D91991 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "Reveal-Framework-1.5.1/Reveal.framework"; sourceTree = "<group>"; };
+		D15D4C01279F6966FA06E073 /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = GoogleAnalytics/Library/GAIFields.h; sourceTree = "<group>"; };
+		D523C71C06A85E7B31E7026F /* NSDate+Helper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		E827E88BA372ED10179BBFD3 /* Pods-YHRoundBorderedButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YHRoundBorderedButton-prefix.pch"; sourceTree = "<group>"; };
+		E9F5562D19591485488C04A6 /* Pods-UIApplication-AppInfo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UIApplication-AppInfo-dummy.m"; sourceTree = "<group>"; };
+		EC75DC0998F35B38B442A3B4 /* libPods-VTAcknowledgementsViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VTAcknowledgementsViewController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2911366EDB0C6ADC9488C32 /* libPods-NSDate+Helper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NSDate+Helper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3954588C5C63EB9DD0F6872 /* Pods-UIApplication-AppInfo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UIApplication-AppInfo.xcconfig"; sourceTree = "<group>"; };
+		F8B580A31C0438D16F5B8E1F /* Pods-VTAcknowledgementsViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VTAcknowledgementsViewController-dummy.m"; sourceTree = "<group>"; };
+		FAADC79D9CAD34980FD51219 /* YHRoundBorderedButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YHRoundBorderedButton.h; path = Classes/YHRoundBorderedButton.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3B3932AAF52A971DEAF8C6A1 /* Frameworks */ = {
+		31429DCEF672950ACE941606 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				556F6A45DBF1835A45D39D7B /* Foundation.framework in Frameworks */,
+				8D680F23FED023648570DCF5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7F15EA85870D457D55A5CC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03E784D12CA5DAC726B3D1E0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2488B89EF724E97D7CEBDB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8CC3DE3E7B9827F9FAED652 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D308C87454EDDE9FFFE9681F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3404A4CF11E7E69543984E00 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCDB9190B6A740B2027F8707 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425FA8FE9344F367CACDED29 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		033C961AAF9ED279E67B6070 /* Reveal-iOS-SDK */ = {
+		04334B0D0500C54C675B730A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F1AE9431DC612F3893D7E95B /* Frameworks */,
+				C28F71A33CE8A24968AB9B5F /* VTAcknowledgementsViewController.bundle */,
 			);
-			path = "Reveal-iOS-SDK";
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		1F1F16D747C11AFB35CBC52F /* iOS */ = {
+		31789FDE87DC2AA34AFE9B05 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F6B7181D8051DAC7F6671963 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		28700D83C72DB00DA110FBA5 /* GoogleAnalytics-iOS-SDK */ = {
-			isa = PBXGroup;
-			children = (
-				626D451802EEB82D00C7AB0D /* Core */,
-			);
-			path = "GoogleAnalytics-iOS-SDK";
-			sourceTree = "<group>";
-		};
-		3D8E6D4AC8C8600FD02F8A6B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				28700D83C72DB00DA110FBA5 /* GoogleAnalytics-iOS-SDK */,
-				033C961AAF9ED279E67B6070 /* Reveal-iOS-SDK */,
+				BA79886CFB57394A7F5EF3F4 /* GoogleAnalytics-iOS-SDK */,
+				C917033213B7056725BDC8E3 /* NSDate+Helper */,
+				F5F7CFA9AB65AD149B32CE7D /* Reveal-iOS-SDK */,
+				C7424E0BDA8BCAC1802A1B5A /* UIApplication-AppInfo */,
+				4C33DBD7D0B5E1BCE0C4E8BE /* VTAcknowledgementsViewController */,
+				65000DC66916A5896A22CD0E /* YHRoundBorderedButton */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		47C6C75F061790D978447BFC /* Pods */ = {
+		32A3E11C1DA230C4A42CC443 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				024438408A6D3E5498573828 /* Pods-acknowledgements.markdown */,
-				899DB3F94A1DA3F90D1C59BC /* Pods-acknowledgements.plist */,
-				BE3F0D3F9653811AF168CC23 /* Pods-dummy.m */,
-				55084100821A2E489FAF5E29 /* Pods-environment.h */,
-				55DACBFC74A05CCC4E0B6FA0 /* Pods-resources.sh */,
-				C98DC89D316B225728522296 /* Pods.debug.xcconfig */,
-				8838363837A355A913B24E9E /* Pods.release.xcconfig */,
+				2ABC18FFD31A813FFC6864D1 /* Pods-VTAcknowledgementsViewController.xcconfig */,
+				17D0DFBFC42F7CE3D8964EF8 /* Pods-VTAcknowledgementsViewController-Private.xcconfig */,
+				F8B580A31C0438D16F5B8E1F /* Pods-VTAcknowledgementsViewController-dummy.m */,
+				19D6001F534E3912F8FDDD83 /* Pods-VTAcknowledgementsViewController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-VTAcknowledgementsViewController";
+			sourceTree = "<group>";
+		};
+		3851371ED1AA3C8BA35BCFCA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9251303EC0CD9BF889F4FB57 /* Pods-YHRoundBorderedButton.xcconfig */,
+				C160D75E799EAF7BE8F4FF47 /* Pods-YHRoundBorderedButton-Private.xcconfig */,
+				9D52A7D7D59FBDEF25B8D3E3 /* Pods-YHRoundBorderedButton-dummy.m */,
+				E827E88BA372ED10179BBFD3 /* Pods-YHRoundBorderedButton-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-YHRoundBorderedButton";
+			sourceTree = "<group>";
+		};
+		47FEBF6005975713B54B1217 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				11286C88C25491DCD56B0958 /* GAI.h */,
+				85830A3988483ED90D2E2758 /* GAIDictionaryBuilder.h */,
+				CA14DE3D01717852E11D419F /* GAIEcommerceFields.h */,
+				8C033CA0A46E836F8A8983ED /* GAIEcommerceProduct.h */,
+				7DB26F467356ED88D031E099 /* GAIEcommerceProductAction.h */,
+				60946DE5EE4655D24C150F47 /* GAIEcommercePromotion.h */,
+				D15D4C01279F6966FA06E073 /* GAIFields.h */,
+				A108E16EBF09A3CF85808155 /* GAILogger.h */,
+				0E61138D08B86889F7A465FE /* GAITrackedViewController.h */,
+				9EC15CF30A65169E7F2B7B42 /* GAITracker.h */,
+				1EEC2D45816D6CF7578DA6C5 /* TAGContainer.h */,
+				3839B8128D454C7AF23B79CF /* TAGContainerOpener.h */,
+				7A4EF2FD52A6FF3669581EC0 /* TAGDataLayer.h */,
+				863D6CFFFBBD33BF3FF7BA78 /* TAGLogger.h */,
+				C96524971661D4BECC69C859 /* TAGManager.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		4C33DBD7D0B5E1BCE0C4E8BE /* VTAcknowledgementsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				07CE5DA2E16A31210784978B /* VTAcknowledgement.h */,
+				A41F90CC254BFF77D4782CA1 /* VTAcknowledgement.m */,
+				9E58FB5A8F02E35E7531D1A7 /* VTAcknowledgementViewController.h */,
+				69F779BB7CE19E53C314BBF9 /* VTAcknowledgementViewController.m */,
+				BF9A9127114C2DA14E44E4D0 /* VTAcknowledgementsViewController.h */,
+				595508E0100F68395B090A2C /* VTAcknowledgementsViewController.m */,
+				04334B0D0500C54C675B730A /* Resources */,
+				32A3E11C1DA230C4A42CC443 /* Support Files */,
+			);
+			path = VTAcknowledgementsViewController;
+			sourceTree = "<group>";
+		};
+		65000DC66916A5896A22CD0E /* YHRoundBorderedButton */ = {
+			isa = PBXGroup;
+			children = (
+				FAADC79D9CAD34980FD51219 /* YHRoundBorderedButton.h */,
+				2B626D2DCA5730B7A08A1BA6 /* YHRoundBorderedButton.m */,
+				3851371ED1AA3C8BA35BCFCA /* Support Files */,
+			);
+			path = YHRoundBorderedButton;
+			sourceTree = "<group>";
+		};
+		69B98E9F5DC695F73EA8D22F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72F458E8E7E0060503EF29AE /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72F458E8E7E0060503EF29AE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C8B8CCF86A7A47FEC0152A45 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		841A9C547EF9E713B6DB33A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				87C1D22A9751A98C15013807 /* Pods-acknowledgements.markdown */,
+				8D366598A4961B9A19019DFF /* Pods-acknowledgements.plist */,
+				97A192BF2953211566F1BA84 /* Pods-dummy.m */,
+				4DDAE118B6125627A53ECB80 /* Pods-environment.h */,
+				79144AF3725C0DA3763F0D28 /* Pods-resources.sh */,
+				A08705D68D544E9C1F8D5216 /* Pods.debug.xcconfig */,
+				B63056906D44445CBE9A05AC /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		626D451802EEB82D00C7AB0D /* Core */ = {
+		9A0913B402694D3C7FBA477A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2F2E03DD13011E235A5DF76D /* GAI.h */,
-				72CDD9A40E297944E5BCFF7E /* GAIDictionaryBuilder.h */,
-				8D4E94F8E61F48E1FC819276 /* GAIEcommerceFields.h */,
-				8ED2A2CE53257F079763A7A2 /* GAIEcommerceProduct.h */,
-				1416B81DB001E7865426D3A4 /* GAIEcommerceProductAction.h */,
-				D58A54D4A3EE9C35FC8F4145 /* GAIEcommercePromotion.h */,
-				EB99B66B0D43B9497C86471A /* GAIFields.h */,
-				B5DA266735DBB670914D95F1 /* GAILogger.h */,
-				4C269EB3F41EC949D280184D /* GAITrackedViewController.h */,
-				53EA6862EB63FD2AF8FEA76D /* GAITracker.h */,
-				7AD84F488A1AA2DA6B835E22 /* TAGContainer.h */,
-				EFF6CE1ED66DD9945B6EC234 /* TAGContainerOpener.h */,
-				6684D0C219FE964F79D7EAD0 /* TAGDataLayer.h */,
-				BC2DE1C80AF0615645D645E4 /* TAGLogger.h */,
-				DB67CA7B8CF2317A2A126F28 /* TAGManager.h */,
+				802540DD157D17A672ABE66F /* Pods-NSDate+Helper.xcconfig */,
+				3C1958E3D43014F6FFC5858E /* Pods-NSDate+Helper-Private.xcconfig */,
+				1BF6A3E06699B3DAA1D6F1CD /* Pods-NSDate+Helper-dummy.m */,
+				C0F8BBF7D3AC1C76B1A634CD /* Pods-NSDate+Helper-prefix.pch */,
 			);
-			name = Core;
+			name = "Support Files";
+			path = "../Target Support Files/Pods-NSDate+Helper";
 			sourceTree = "<group>";
 		};
-		7D02C6FE48186FC0D7B49E37 /* Frameworks */ = {
+		B3A247F543FB97FDD6EFA2D8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1F1F16D747C11AFB35CBC52F /* iOS */,
+				F3954588C5C63EB9DD0F6872 /* Pods-UIApplication-AppInfo.xcconfig */,
+				575752E251DCA75B12575BFE /* Pods-UIApplication-AppInfo-Private.xcconfig */,
+				E9F5562D19591485488C04A6 /* Pods-UIApplication-AppInfo-dummy.m */,
+				9E481169E9965497BC5AC23D /* Pods-UIApplication-AppInfo-prefix.pch */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "../Target Support Files/Pods-UIApplication-AppInfo";
 			sourceTree = "<group>";
 		};
-		8B2AE0F2C3062C87E1744151 = {
+		BA79886CFB57394A7F5EF3F4 /* GoogleAnalytics-iOS-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				39B49EF8EDDE1AD9D5B5925E /* Podfile */,
-				7D02C6FE48186FC0D7B49E37 /* Frameworks */,
-				3D8E6D4AC8C8600FD02F8A6B /* Pods */,
-				FCC87CDE080ED68A147D46EB /* Products */,
-				B2E6173C1F86C0ACA142432F /* Targets Support Files */,
+				47FEBF6005975713B54B1217 /* Core */,
 			);
+			path = "GoogleAnalytics-iOS-SDK";
 			sourceTree = "<group>";
 		};
-		B2E6173C1F86C0ACA142432F /* Targets Support Files */ = {
+		C7424E0BDA8BCAC1802A1B5A /* UIApplication-AppInfo */ = {
 			isa = PBXGroup;
 			children = (
-				47C6C75F061790D978447BFC /* Pods */,
+				89CC0AF346D4B35812565C5F /* UIApplication+AppInfo.h */,
+				7CFE465A45F3E34E2322E15E /* UIApplication+AppInfo.m */,
+				B3A247F543FB97FDD6EFA2D8 /* Support Files */,
+			);
+			path = "UIApplication-AppInfo";
+			sourceTree = "<group>";
+		};
+		C917033213B7056725BDC8E3 /* NSDate+Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D523C71C06A85E7B31E7026F /* NSDate+Helper.h */,
+				456AD752AE8BF945924783FF /* NSDate+Helper.m */,
+				9A0913B402694D3C7FBA477A /* Support Files */,
+			);
+			path = "NSDate+Helper";
+			sourceTree = "<group>";
+		};
+		CDC187C7B3A0A42C1BD6DE8B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				841A9C547EF9E713B6DB33A0 /* Pods */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		F1AE9431DC612F3893D7E95B /* Frameworks */ = {
+		D76850581A3EC96F60199A29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				714CEBE04D70F254B586C6AF /* Reveal.framework */,
+				D02E0078E794C1EEA8D91991 /* Reveal.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FCC87CDE080ED68A147D46EB /* Products */ = {
+		ECE4ADA922B1733A94981A71 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BB82BB62D5C706C322B368FF /* libPods.a */,
+				13569626C53A289519DF948B /* libPods.a */,
+				F2911366EDB0C6ADC9488C32 /* libPods-NSDate+Helper.a */,
+				00BEE4E27441CC25C67E71CD /* libPods-UIApplication-AppInfo.a */,
+				EC75DC0998F35B38B442A3B4 /* libPods-VTAcknowledgementsViewController.a */,
+				02394B5470260A62D9297BA5 /* libPods-YHRoundBorderedButton.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F18ECFF23F30A7925EF30AE2 = {
+			isa = PBXGroup;
+			children = (
+				CA51FF9A1BB8C310FBDFA179 /* Podfile */,
+				69B98E9F5DC695F73EA8D22F /* Frameworks */,
+				31789FDE87DC2AA34AFE9B05 /* Pods */,
+				ECE4ADA922B1733A94981A71 /* Products */,
+				CDC187C7B3A0A42C1BD6DE8B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		F5F7CFA9AB65AD149B32CE7D /* Reveal-iOS-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				D76850581A3EC96F60199A29 /* Frameworks */,
+			);
+			path = "Reveal-iOS-SDK";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		39792DC17A602B539F797A5D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD2123E5C09B751A485CFE8B /* UIApplication+AppInfo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E78F6275CE428D2106BFF09 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7480F6C7EB245C4BD6DAA81A /* VTAcknowledgement.h in Headers */,
+				C35CE635DD52B33147E05AF5 /* VTAcknowledgementViewController.h in Headers */,
+				BABAF7F69F38245789DA447E /* VTAcknowledgementsViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6541F1938E6C7A4BBEC75EDC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6533E402A5ED968E76F778DF /* YHRoundBorderedButton.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B6C6D878F57EF292D8C9CAE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DA8011752998EC8028F178B /* NSDate+Helper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		C49BE39051A693A16C8C37E5 /* Pods */ = {
+		01E013B9AA0CDB56F62A86E2 /* Pods-YHRoundBorderedButton */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5843C6017BEE25A690B0EC02 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = F1DC8595DE4166EAD55C4C17 /* Build configuration list for PBXNativeTarget "Pods-YHRoundBorderedButton" */;
 			buildPhases = (
-				446259995101EC68292145A1 /* Sources */,
-				3B3932AAF52A971DEAF8C6A1 /* Frameworks */,
+				7C93C806E8F5A8C159C2F620 /* Sources */,
+				31429DCEF672950ACE941606 /* Frameworks */,
+				6541F1938E6C7A4BBEC75EDC /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = "Pods-YHRoundBorderedButton";
+			productName = "Pods-YHRoundBorderedButton";
+			productReference = 02394B5470260A62D9297BA5 /* libPods-YHRoundBorderedButton.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		1917393167F07F11F1403FC6 /* Pods-VTAcknowledgementsViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C2072E6B5767EDA780963CA /* Build configuration list for PBXNativeTarget "Pods-VTAcknowledgementsViewController" */;
+			buildPhases = (
+				285D605D3079633D3F9D9F6A /* Sources */,
+				D2488B89EF724E97D7CEBDB8 /* Frameworks */,
+				4E78F6275CE428D2106BFF09 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-VTAcknowledgementsViewController";
+			productName = "Pods-VTAcknowledgementsViewController";
+			productReference = EC75DC0998F35B38B442A3B4 /* libPods-VTAcknowledgementsViewController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B265BEB9D72CE450C79CDFE1 /* Pods-NSDate+Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F33723CB464DE8AA2508EADF /* Build configuration list for PBXNativeTarget "Pods-NSDate+Helper" */;
+			buildPhases = (
+				7882B2CDB9ED3175F7AD1B42 /* Sources */,
+				C7F15EA85870D457D55A5CC3 /* Frameworks */,
+				8B6C6D878F57EF292D8C9CAE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-NSDate+Helper";
+			productName = "Pods-NSDate+Helper";
+			productReference = F2911366EDB0C6ADC9488C32 /* libPods-NSDate+Helper.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C0DDFA36DC9909BAC36AEAE7 /* Pods-UIApplication-AppInfo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEFF396CB47A7E5A2690C057 /* Build configuration list for PBXNativeTarget "Pods-UIApplication-AppInfo" */;
+			buildPhases = (
+				547D7305233D27BBC60643E6 /* Sources */,
+				FCDB9190B6A740B2027F8707 /* Frameworks */,
+				39792DC17A602B539F797A5D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-UIApplication-AppInfo";
+			productName = "Pods-UIApplication-AppInfo";
+			productReference = 00BEE4E27441CC25C67E71CD /* libPods-UIApplication-AppInfo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EAE85478237FD8091A51EE03 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E859B0EB708C697785EA1955 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				C21C08E4DD0331B2A6AE8D9C /* Sources */,
+				D308C87454EDDE9FFFE9681F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEF0B5B27BA5CAB1BAAC721E /* PBXTargetDependency */,
+				1AA535E7D3518C019E39AB07 /* PBXTargetDependency */,
+				35CD11A805315A67B58996DC /* PBXTargetDependency */,
+				8E7A6BD76DEBB11B9830E00E /* PBXTargetDependency */,
+			);
 			name = Pods;
 			productName = Pods;
-			productReference = BB82BB62D5C706C322B368FF /* libPods.a */;
+			productReference = 13569626C53A289519DF948B /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E2F931AC5A2173BD0741DE90 /* Project object */ = {
+		952AC371BD0B637D91FA5833 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 9D1DDC26C8913C7C881BDBAB /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 07FC4921190537F954A05A22 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 8B2AE0F2C3062C87E1744151;
-			productRefGroup = FCC87CDE080ED68A147D46EB /* Products */;
+			mainGroup = F18ECFF23F30A7925EF30AE2;
+			productRefGroup = ECE4ADA922B1733A94981A71 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C49BE39051A693A16C8C37E5 /* Pods */,
+				EAE85478237FD8091A51EE03 /* Pods */,
+				B265BEB9D72CE450C79CDFE1 /* Pods-NSDate+Helper */,
+				C0DDFA36DC9909BAC36AEAE7 /* Pods-UIApplication-AppInfo */,
+				1917393167F07F11F1403FC6 /* Pods-VTAcknowledgementsViewController */,
+				01E013B9AA0CDB56F62A86E2 /* Pods-YHRoundBorderedButton */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		446259995101EC68292145A1 /* Sources */ = {
+		285D605D3079633D3F9D9F6A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				696F0D71DF4F759E7EDDC86D /* Pods-dummy.m in Sources */,
+				8F7A138AAA9B4B13824F57C0 /* Pods-VTAcknowledgementsViewController-dummy.m in Sources */,
+				151E16D765566F5D534C85F4 /* VTAcknowledgement.m in Sources */,
+				897660F3E28D64B130A182CD /* VTAcknowledgementViewController.m in Sources */,
+				E49EF33E52CE2E7789CEA956 /* VTAcknowledgementsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		547D7305233D27BBC60643E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9341AF2549738A6D11637549 /* Pods-UIApplication-AppInfo-dummy.m in Sources */,
+				0E5BF8BBA8E4C8D59ACC3A04 /* UIApplication+AppInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7882B2CDB9ED3175F7AD1B42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D10353C4AF0983A3B73A6E4 /* NSDate+Helper.m in Sources */,
+				46A36F6BBF1224198EE829A2 /* Pods-NSDate+Helper-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C93C806E8F5A8C159C2F620 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26ABDBCE8BCFC5C9E731EAE6 /* Pods-YHRoundBorderedButton-dummy.m in Sources */,
+				5A88D9AEC6E5B95E8C2D4AAA /* YHRoundBorderedButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C21C08E4DD0331B2A6AE8D9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCEB0AA3840F37FB2F31057C /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1AA535E7D3518C019E39AB07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-UIApplication-AppInfo";
+			target = C0DDFA36DC9909BAC36AEAE7 /* Pods-UIApplication-AppInfo */;
+			targetProxy = 528E95FB3463146BF25E38B4 /* PBXContainerItemProxy */;
+		};
+		35CD11A805315A67B58996DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-VTAcknowledgementsViewController";
+			target = 1917393167F07F11F1403FC6 /* Pods-VTAcknowledgementsViewController */;
+			targetProxy = 2B55BCB1AC61B5DCE193413E /* PBXContainerItemProxy */;
+		};
+		8E7A6BD76DEBB11B9830E00E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-YHRoundBorderedButton";
+			target = 01E013B9AA0CDB56F62A86E2 /* Pods-YHRoundBorderedButton */;
+			targetProxy = D5BAA19BED6613DB7381DF38 /* PBXContainerItemProxy */;
+		};
+		CEF0B5B27BA5CAB1BAAC721E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-NSDate+Helper";
+			target = B265BEB9D72CE450C79CDFE1 /* Pods-NSDate+Helper */;
+			targetProxy = CB47F7CA5986C7A5B3EB1417 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		29D5D536D61976775BFCA8DC /* Debug */ = {
+		136BAACBFC6C2310124794E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C98DC89D316B225728522296 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A08705D68D544E9C1F8D5216 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -237,7 +640,7 @@
 			};
 			name = Debug;
 		};
-		6549C7BEC83569383E2E1A08 /* Release */ = {
+		5EBFAB5109799AA4DDC6542C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -271,7 +674,119 @@
 			};
 			name = Release;
 		};
-		6D688D65992DA80482E38244 /* Debug */ = {
+		621FFD29ABC0732856551974 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C1958E3D43014F6FFC5858E /* Pods-NSDate+Helper-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-NSDate+Helper/Pods-NSDate+Helper-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		692012356901FCDBD461CECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C1958E3D43014F6FFC5858E /* Pods-NSDate+Helper-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-NSDate+Helper/Pods-NSDate+Helper-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7AD95FE9C692AF649A438978 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C160D75E799EAF7BE8F4FF47 /* Pods-YHRoundBorderedButton-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YHRoundBorderedButton/Pods-YHRoundBorderedButton-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9CDFC7F97579B38AAEE04D51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 575752E251DCA75B12575BFE /* Pods-UIApplication-AppInfo-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-UIApplication-AppInfo/Pods-UIApplication-AppInfo-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BCC1CDD6C926B0E6CC626FFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 575752E251DCA75B12575BFE /* Pods-UIApplication-AppInfo-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-UIApplication-AppInfo/Pods-UIApplication-AppInfo-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CB0B69434BBF42BA63C7AA1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17D0DFBFC42F7CE3D8964EF8 /* Pods-VTAcknowledgementsViewController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-VTAcknowledgementsViewController/Pods-VTAcknowledgementsViewController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CECD0CF18CF8B5E29D921DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17D0DFBFC42F7CE3D8964EF8 /* Pods-VTAcknowledgementsViewController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-VTAcknowledgementsViewController/Pods-VTAcknowledgementsViewController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E03E7C8D44A41A1BB85CE65D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -310,9 +825,9 @@
 			};
 			name = Debug;
 		};
-		ACC904E84689CC323EE3876A /* Release */ = {
+		F9F7A107C19E66191428D32F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8838363837A355A913B24E9E /* Pods.release.xcconfig */;
+			baseConfigurationReference = B63056906D44445CBE9A05AC /* Pods.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -326,28 +841,80 @@
 			};
 			name = Release;
 		};
+		FA8B07FC6F52B821FEC4DC3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C160D75E799EAF7BE8F4FF47 /* Pods-YHRoundBorderedButton-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YHRoundBorderedButton/Pods-YHRoundBorderedButton-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5843C6017BEE25A690B0EC02 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		07FC4921190537F954A05A22 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				29D5D536D61976775BFCA8DC /* Debug */,
-				ACC904E84689CC323EE3876A /* Release */,
+				E03E7C8D44A41A1BB85CE65D /* Debug */,
+				5EBFAB5109799AA4DDC6542C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D1DDC26C8913C7C881BDBAB /* Build configuration list for PBXProject "Pods" */ = {
+		0C2072E6B5767EDA780963CA /* Build configuration list for PBXNativeTarget "Pods-VTAcknowledgementsViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6D688D65992DA80482E38244 /* Debug */,
-				6549C7BEC83569383E2E1A08 /* Release */,
+				CB0B69434BBF42BA63C7AA1C /* Debug */,
+				CECD0CF18CF8B5E29D921DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEFF396CB47A7E5A2690C057 /* Build configuration list for PBXNativeTarget "Pods-UIApplication-AppInfo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CDFC7F97579B38AAEE04D51 /* Debug */,
+				BCC1CDD6C926B0E6CC626FFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E859B0EB708C697785EA1955 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				136BAACBFC6C2310124794E2 /* Debug */,
+				F9F7A107C19E66191428D32F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1DC8595DE4166EAD55C4C17 /* Build configuration list for PBXNativeTarget "Pods-YHRoundBorderedButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AD95FE9C692AF649A438978 /* Debug */,
+				FA8B07FC6F52B821FEC4DC3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F33723CB464DE8AA2508EADF /* Build configuration list for PBXNativeTarget "Pods-NSDate+Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				692012356901FCDBD461CECB /* Debug */,
+				621FFD29ABC0732856551974 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E2F931AC5A2173BD0741DE90 /* Project object */;
+	rootObject = 952AC371BD0B637D91FA5833 /* Project object */;
 }

@@ -72,4 +72,9 @@ class CountrTests: XCTestCase {
             XCTAssert(items[index].countdownMode == itemsReadByExtension[index].countdownMode, "mode not equal")
         }
     }
+    
+    // TODO: Write this test
+    func testAcknowledgementLoading() {
+        XCTAssert(false, "Go on and implement this test!!!")
+    }
 }

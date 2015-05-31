@@ -4,6 +4,26 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-NSDate+Helper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-UIApplication-AppInfo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-VTAcknowledgementsViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-YHRoundBorderedButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -12,7 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C49BE39051A693A16C8C37E5</key>
+		<key>01E013B9AA0CDB56F62A86E2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1917393167F07F11F1403FC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B265BEB9D72CE450C79CDFE1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C0DDFA36DC9909BAC36AEAE7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EAE85478237FD8091A51EE03</key>
 		<dict>
 			<key>primary</key>
 			<true/>
