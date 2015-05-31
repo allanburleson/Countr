@@ -29,7 +29,7 @@ class LKItemDetailViewController: UIViewController {
         super.loadView()
         
         
-        self.navigationController?.navigationBar.titleTextAttributes = LKNavigationBarTitleAttributes()
+        self.navigationController?.navigationBar.setDarkAttributes()
         
         
         self.view.backgroundColor = UIColor.backgroundColor()

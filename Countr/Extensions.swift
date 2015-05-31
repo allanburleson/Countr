@@ -72,14 +72,25 @@ let notification_userInfo_item_name_key = "notification_userInfo_item_name"
 
 
 // MARK: Appearance
-public func LKNavigationBarTitleAttributes() -> [NSObject : AnyObject] {
-    let font = UIFont(name: "Avenir-Book", size: 17)!
-    let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
-    
-    return titleTextAttributes
+
+
+extension UINavigationBar {
+    func setDarkAttributes() {
+        
+        
+        
+        // Bar Style
+        self.barStyle = .Black
+        
+        // Title Text Attributes
+        let font = UIFont(name: "Avenir-Book", size: 17)!
+        let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.titleTextAttributes = titleTextAttributes
+        
+        // Tint Color
+        self.tintColor = UIColor.whiteColor()
+    }
 }
-
-
 
 // MARK: Getting class names
 

@@ -64,7 +64,7 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
         super.loadView()
         
         
-        self.navigationController?.navigationBar.titleTextAttributes = LKNavigationBarTitleAttributes()
+        self.navigationController?.navigationBar.setDarkAttributes()
         
         //self.doneBarButtonItem.enabled = false
         

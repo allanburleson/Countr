@@ -70,7 +70,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         super.loadView()
         
         
-        self.navigationController?.navigationBar.titleTextAttributes = LKNavigationBarTitleAttributes()
+        self.navigationController?.navigationBar.setDarkAttributes()
         
         self.title = NSLocalizedString("me.kollmer.countr.infoView.title", comment: "")
         
@@ -254,12 +254,9 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             let mailComposer = MFMailComposeViewController()
             mailComposer.mailComposeDelegate = self
             mailComposer.setSubject("Countr Feedback")
-            mailComposer.setToRecipients(["lukas@kollmer.me"])
+            mailComposer.setToRecipients(["Lukas Kollmer <lukas@kollmer.me>"])
             mailComposer.setMessageBody("", isHTML: false) //TODO: Add some default text?
             mailComposer.mailComposeDelegate = self
-            let font = UIFont(name: "Avenir-Book", size: 17)!
-            let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.blackColor()]
-            mailComposer.navigationBar.titleTextAttributes = titleTextAttributes
             self.presentViewController(mailComposer, animated: true, completion: nil)
         } else {
             /*

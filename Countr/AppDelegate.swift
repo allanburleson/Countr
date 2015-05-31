@@ -38,10 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // UICollectionView
         UICollectionView.appearance().backgroundColor = UIColor.backgroundColor()
         
-        // UINavigationBar
-        UINavigationBar.appearance().barStyle = .Black
+        // UINavigationBar - Disabled as it ruins the UI of the feedback mail composer. If this was enabled, the feedback controllers navBar would be dark for a few seconds, then switch to the default white.
+        //UINavigationBar.appearance().barStyle = .Black
         //UINavigationBar.appearance().titleTextAttributes = titleTextAttributes
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        //UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         // UIToolbar
         UIToolbar.appearance().barStyle = .Black

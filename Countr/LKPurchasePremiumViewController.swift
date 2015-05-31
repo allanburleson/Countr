@@ -42,7 +42,7 @@ class LKPurchasePremiumViewController: UIViewController {
         super.loadView()
         
         
-        self.navigationController?.navigationBar.titleTextAttributes = LKNavigationBarTitleAttributes()
+        self.navigationController?.navigationBar.setDarkAttributes()
         self.view.backgroundColor = UIColor.backgroundColor()
         self.descriptionTextView.backgroundColor = UIColor.backgroundColor()
         self.titleLabel.font = UIFont(name: "Avenir-Book", size: 19)

@@ -25,7 +25,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
         super.loadView()
         
         
-        self.navigationController?.navigationBar.titleTextAttributes = LKNavigationBarTitleAttributes()
+        self.navigationController?.navigationBar.setDarkAttributes()
 
 
         /*
