@@ -199,11 +199,18 @@ class LKModel {
     func deleteItem(item: LKCountdownItem) {
         
         let index: Int = find(self.items, item)!
+        
+        let _tempItemManagedObject: NSManagedObject = self.rawItems[index] as NSManagedObject
+        let _tempItemID: String = _tempItemManagedObject.valueForKey(coreDataIdKey) as! String
+        
+        assert(_tempItemID == item.id, "_tempItemID == item.id")
         //println("Will delet item at index: \(index) itemDescription: \(item)")
         
         self.items.removeAtIndex(index)
         self.rawItems.removeAtIndex(index)
-        self.managedObjectContext!.deleteObject(item.managedObject)
+        println("self.managedObjectContext!: \(self.managedObjectContext!)")
+        println("item.managedObject: \(item.managedObject)")
+        self.managedObjectContext!.deleteObject(_tempItemManagedObject)
         
         var error: NSErrorPointer = NSErrorPointer()
         // Save the object to persistent store

@@ -87,6 +87,10 @@ class LKItemDetailViewController: UIViewController {
             let oldItem = self.countdownItem
             self.countdownItem = item
             
+            self.countdownTitleLabel.text = self.countdownItem.title
+            
+            self.update()
+            
             LKCountdownManager.sharedInstance.updateCountdownItem(oldItem, withCountdownItem: self.countdownItem)
             
         }
