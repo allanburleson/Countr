@@ -59,6 +59,14 @@
 
 
 /*
+ Item Detail View Controller
+ */
+"me.kollmer.countr.itemDetailView.edit" = "Edit";
+"me.kollmer.countr.itemDetailView.delete" = "Delete";
+
+
+
+/*
  Delete Item Alert
  */
 "me.kollmer.countr.deleteItemAlert.title" = "Delete Item";

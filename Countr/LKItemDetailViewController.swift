@@ -53,7 +53,9 @@ class LKItemDetailViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = shareBarButtonItem
         
         // Set the font of the buttons
-        let buttonTitles = ["Edit", "Delete"]
+        let editButtonTitle = NSLocalizedString("me.kollmer.countr.itemDetailView.edit", comment: "")
+        let deleteButtonTitle = NSLocalizedString("me.kollmer.countr.itemDetailView.delete", comment: "")
+        let buttonTitles = [editButtonTitle, deleteButtonTitle]
         let buttons = [self.editButton!, self.deleteButton!]
         for button in buttons {
             let index = find(buttons, button)!

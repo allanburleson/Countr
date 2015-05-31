@@ -67,6 +67,15 @@
 "me.kollmer.countr.deleteItemAlert.cancel" = "Abbrechen";
 
 
+
+/*
+ Item Detail View Controller
+ */
+"me.kollmer.countr.itemDetailView.edit" = "Bearbeiten";
+"me.kollmer.countr.itemDetailView.delete" = "Löschen";
+
+
+
 /*
  Purchase View Controller
  // Deleted from the features: \n\n• Apple Watch: Sehen Sie alle Countdowns auf Ihrer Apple Watch
