@@ -1067,7 +1067,6 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Countr",
 				);
@@ -1097,7 +1096,6 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Countr",
 				);

@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-GoogleAnalytics-iOS-SDK.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>42F991A94FD7C8075D2CB8C9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9DB785F6FE69A0190E0D7961</key>
+		<key>C49BE39051A693A16C8C37E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
