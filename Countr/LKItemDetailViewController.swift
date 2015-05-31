@@ -13,6 +13,7 @@ class LKItemDetailViewController: UIViewController {
     
     @IBOutlet weak private var countdownLabel: UILabel!
     @IBOutlet weak private var countdownTitleLabel: UILabel!
+    @IBOutlet weak var countdownDateLabel: UILabel!
     @IBOutlet weak private var editButton: UIButton!
     @IBOutlet weak private var deleteButton: UIButton!
     
@@ -34,8 +35,14 @@ class LKItemDetailViewController: UIViewController {
         self.countdownLabel.font = UIFont(name: "Avenir-Heavy", size: 50)!
         self.countdownLabel.adjustsFontSizeToFitWidth = true
         
+        
+
         self.countdownTitleLabel.textColor = UIColor.whiteColor()
         self.countdownTitleLabel.font = UIFont(name: "Avenir-Medium", size: 19)!
+        
+        self.countdownDateLabel.textColor = UIColor.whiteColor()
+        self.countdownDateLabel.font = UIFont(name: "Avenir-BookOblique", size: 17)!
+        
         
         
         let doneBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done")
@@ -55,8 +62,10 @@ class LKItemDetailViewController: UIViewController {
         
         
         if let countdownItem = self.countdownItem {
-            self.countdownTitleLabel.text = self.countdownItem.title
+            self.countdownTitleLabel.text = countdownItem.title
+            self.countdownDateLabel.text = countdownItem.date.descriptiveString
             update()
+            
             self.updateTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "update", userInfo: nil, repeats: true)
         }
     }

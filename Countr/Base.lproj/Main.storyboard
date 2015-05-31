@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIi-Ts-t9l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIi-Ts-t9l">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -617,13 +617,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000d : 00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqi-NZ-8os">
-                                <rect key="frame" x="16" y="28" width="568" height="300"/>
+                                <rect key="frame" x="16" y="48" width="568" height="260"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXJ-5C-mJE">
-                                <rect key="frame" x="16" y="336" width="568" height="21"/>
+                                <rect key="frame" x="16" y="316" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -646,25 +646,35 @@
                                     <action selector="editButtonTapped:" destination="NQf-Vh-BW0" eventType="touchUpInside" id="op9-pp-FUi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mv-XP-7Bg">
+                                <rect key="frame" x="16" y="345" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Gnk-fr-QTR" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="3wE-aq-Nnv"/>
                             <constraint firstItem="ZXJ-5C-mJE" firstAttribute="top" secondItem="mqi-NZ-8os" secondAttribute="bottom" constant="8" id="A1K-qd-8t1"/>
-                            <constraint firstAttribute="height" secondItem="mqi-NZ-8os" secondAttribute="height" multiplier="2" id="Baj-pj-4ix"/>
+                            <constraint firstAttribute="height" secondItem="mqi-NZ-8os" secondAttribute="height" multiplier="2" constant="80" id="Baj-pj-4ix"/>
+                            <constraint firstItem="9mv-XP-7Bg" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="EkU-k5-V7J"/>
                             <constraint firstItem="DEF-53-z73" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="HAB-hq-gjz"/>
-                            <constraint firstItem="DEF-53-z73" firstAttribute="top" secondItem="ZXJ-5C-mJE" secondAttribute="bottom" constant="38" id="Qen-B7-X5x"/>
                             <constraint firstItem="ZXJ-5C-mJE" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="VvG-Ej-7Yc"/>
                             <constraint firstItem="ZXJ-5C-mJE" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="XM9-3y-38n"/>
-                            <constraint firstItem="mqi-NZ-8os" firstAttribute="top" secondItem="wVi-fk-bKZ" secondAttribute="bottom" constant="8" id="ie8-FF-fgI"/>
+                            <constraint firstItem="9mv-XP-7Bg" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="fLm-lc-Zm8"/>
+                            <constraint firstItem="mqi-NZ-8os" firstAttribute="top" secondItem="wVi-fk-bKZ" secondAttribute="bottom" constant="28" id="ie8-FF-fgI"/>
+                            <constraint firstItem="Gnk-fr-QTR" firstAttribute="top" secondItem="9mv-XP-7Bg" secondAttribute="bottom" constant="29" id="n2d-uo-vdZ"/>
+                            <constraint firstItem="DEF-53-z73" firstAttribute="top" secondItem="9mv-XP-7Bg" secondAttribute="bottom" constant="29" id="pXP-ps-qcS"/>
                             <constraint firstItem="mqi-NZ-8os" firstAttribute="trailing" secondItem="tWV-bk-OvC" secondAttribute="trailingMargin" id="pdb-bu-DMO"/>
-                            <constraint firstItem="Gnk-fr-QTR" firstAttribute="top" secondItem="ZXJ-5C-mJE" secondAttribute="bottom" constant="38" id="xFe-o4-vS7"/>
+                            <constraint firstItem="9mv-XP-7Bg" firstAttribute="top" secondItem="ZXJ-5C-mJE" secondAttribute="bottom" constant="8" id="qa8-BA-hxE"/>
                             <constraint firstItem="mqi-NZ-8os" firstAttribute="leading" secondItem="tWV-bk-OvC" secondAttribute="leadingMargin" id="znV-Ph-0fa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countdownDateLabel" destination="9mv-XP-7Bg" id="gal-fF-igg"/>
                         <outlet property="countdownLabel" destination="mqi-NZ-8os" id="Bch-cO-Rxh"/>
-                        <outlet property="countdownTitleLabel" destination="ZXJ-5C-mJE" id="sgt-We-xgM"/>
+                        <outlet property="countdownTitleLabel" destination="ZXJ-5C-mJE" id="xNB-pP-mnw"/>
                         <outlet property="deleteButton" destination="Gnk-fr-QTR" id="ZNa-xN-gWc"/>
                         <outlet property="editButton" destination="DEF-53-z73" id="dbC-k3-13I"/>
                     </connections>

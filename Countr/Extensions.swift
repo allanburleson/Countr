@@ -252,6 +252,9 @@ extension NSDate {
         return self.timeIntervalSinceNow < 0.0
     }
     
+    var descriptiveString: String {
+        return NSDateFormatter.localizedStringFromDate(self, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+    }
     
     var descriptiveStringForDatePicker: String {
         get {

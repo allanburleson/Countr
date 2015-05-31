@@ -3,7 +3,7 @@
 import UIKit
 
 // UIFonts
-let fontFamilies: [String] = UIFont.familyNames() as [String]
+let fontFamilies: [String] = UIFont.familyNames() as! [String]
 
 var fontNamesForFamilyName: [String: AnyObject] = Dictionary()
 

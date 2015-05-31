@@ -60,7 +60,6 @@
 		5DAB38131ABDD5C6001DBB71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
 		5DB05DCD1ACFE91E00E11144 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D1C84FD1ACEE79C00EB2BBF /* settings.plist */; };
 		5DB05DCE1ACFE91F00E11144 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D1C84FD1ACEE79C00EB2BBF /* settings.plist */; };
-		5DB5E5B31B1AF4F700CB3786 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5E5B11B1AF4F700CB3786 /* NSDate+Helper.m */; };
 		5DE0732E1A79394500A1071E /* CWStatusBarNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0732D1A79394500A1071E /* CWStatusBarNotification.swift */; };
 		5DE1A4531AC6E2BF005BF8D4 /* MainTableInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4521AC6E2BF005BF8D4 /* MainTableInterfaceController.swift */; };
 		5DE1A4551AC6E2BF005BF8D4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4541AC6E2BF005BF8D4 /* NotificationController.swift */; };
@@ -184,8 +183,7 @@
 		5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKCountdown.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5DAA33B71A2B4026006DDB65 /* LKEditItemPropertiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKEditItemPropertiesViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5DAA33B91A2B42B8006DDB65 /* LKMainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKMainCollectionViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		5DB5E5B11B1AF4F700CB3786 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
-		5DB5E5B21B1AF4F700CB3786 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		5DB5E5B41B1AFB7600CB3786 /* NSDate_description.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NSDate_description.playground; sourceTree = "<group>"; };
 		5DE0732D1A79394500A1071E /* CWStatusBarNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotification.swift; sourceTree = "<group>"; };
 		5DE1A44D1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Countr WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE1A4501AC6E2BF005BF8D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -311,8 +309,6 @@
 		5D9B9EBB1AECCD1300BDA2E0 /* objc_classes */ = {
 			isa = PBXGroup;
 			children = (
-				5DB5E5B11B1AF4F700CB3786 /* NSDate+Helper.m */,
-				5DB5E5B21B1AF4F700CB3786 /* NSDate+Helper.h */,
 				5D4157F41AF3BC64005FEC8D /* LKURLParser.h */,
 				5D4157F51AF3BC64005FEC8D /* LKURLParser.m */,
 				5D56C2061A77F161000E0FE3 /* objc_Extensions.h */,
@@ -329,6 +325,7 @@
 				5D52D6C81ABD638F0081F0D8 /* Swift_Array.playground */,
 				5D9DAA0C1A7BE19A00CED935 /* NSDate_Playground.playground */,
 				5D4157F31AF3B71D005FEC8D /* url_parsing.playground */,
+				5DB5E5B41B1AFB7600CB3786 /* NSDate_description.playground */,
 			);
 			name = playgrounds;
 			sourceTree = "<group>";
@@ -830,7 +827,6 @@
 				5DAA33B81A2B4026006DDB65 /* LKEditItemPropertiesViewController.swift in Sources */,
 				5DAA338F1A2B19EB006DDB65 /* AppDelegate.swift in Sources */,
 				5D8721011A7D64C200F6C527 /* LKPurchasePremiumCell.swift in Sources */,
-				5DB5E5B31B1AF4F700CB3786 /* NSDate+Helper.m in Sources */,
 				5DE435E51A7D250D0034327A /* LKPurchaseManager.swift in Sources */,
 				5DAA33BA1A2B42B8006DDB65 /* LKMainCollectionViewController.swift in Sources */,
 				5D9DAA081A7BD3E400CED935 /* Extensions.swift in Sources */,
