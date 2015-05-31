@@ -1,0 +1,36 @@
+PODS:
+  - GoogleAnalytics-iOS-SDK (3.12):
+    - GoogleAnalytics-iOS-SDK/Core (= 3.12)
+  - GoogleAnalytics-iOS-SDK/Core (3.12)
+  - NSDate+Helper (1.0.0)
+  - Reveal-iOS-SDK (1.5.1)
+  - UIApplication-AppInfo (0.3)
+  - VTAcknowledgementsViewController (0.14)
+  - YHRoundBorderedButton (0.1.0)
+
+DEPENDENCIES:
+  - GoogleAnalytics-iOS-SDK
+  - NSDate+Helper (from `https://github.com/lukaskollmer/nsdate-helper.git`)
+  - Reveal-iOS-SDK
+  - UIApplication-AppInfo
+  - VTAcknowledgementsViewController
+  - YHRoundBorderedButton
+
+EXTERNAL SOURCES:
+  NSDate+Helper:
+    :git: https://github.com/lukaskollmer/nsdate-helper.git
+
+CHECKOUT OPTIONS:
+  NSDate+Helper:
+    :commit: 7faf6421403cadfa2215bdebd1ec3ff8b16abfd5
+    :git: https://github.com/lukaskollmer/nsdate-helper.git
+
+SPEC CHECKSUMS:
+  GoogleAnalytics-iOS-SDK: 0a3327a993b8ed2b8fe1c6c4a8dcf5b76d2237a8
+  NSDate+Helper: 38676f1c2bd50fcebcebf8fc281276e1f18df18c
+  Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
+  UIApplication-AppInfo: f99f15086aec544669a6135bbc65d8dd79fc1227
+  VTAcknowledgementsViewController: 11a869dd69598a852f12699aeaf36e2589d3fc1b
+  YHRoundBorderedButton: 2180f04094db264cace8db88eae977d78a3b4633
+
+COCOAPODS: 0.37.2
