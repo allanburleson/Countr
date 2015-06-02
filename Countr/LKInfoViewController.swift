@@ -92,6 +92,10 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         self.sortBySegmentedControl.setTitle(segmentedControlTitles[0], forSegmentAtIndex: 0)
         self.sortBySegmentedControl.setTitle(segmentedControlTitles[1], forSegmentAtIndex: 1)
         
+        self.appBadgeSwitch.tintColor = UIColor.whiteColor()
+        self.appBadgeSwitch.onTintColor = UIColor.whiteColor()
+        self.appBadgeSwitch.thumbTintColor = UIColor.grayColor()
+        
         // Section 2 – Feedback
         self.sendFeedbackTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.feedbackLabel", comment: "")
         //self.supportTextLabel.text = NSLocalizedString("me.kollmer.countr.infoView.supportLabel", comment: "")

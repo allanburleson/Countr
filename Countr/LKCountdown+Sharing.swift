@@ -103,12 +103,6 @@ class LKCountdownSharingActivityAddToCalendar: UIActivity, EKEventEditViewDelega
         self.activityItems = activityItems
     }
     
-    override func performActivity() {
-        println("performActivity")
-        
-    }
-    
-    
     override func activityViewController() -> UIViewController? {
         println("activityViewController")
         
@@ -150,10 +144,16 @@ class LKCountdownSharingActivityAddToCalendar: UIActivity, EKEventEditViewDelega
         
         if EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) != .Authorized {
             let alertController = LKAlertController.alertViewWithTitle("Error", message: "You need to allow Countr to access your calendar in order to save items") // TODO: Edit the message
-            let dismissAction = UIAlertAction(title: "Dismiss", style: .Cancel, handler: { (action: UIAlertAction!) -> Void in
+            let grantAccessAction = UIAlertAction(title: "Grant Access", style: .Default, handler: { (action: UIAlertAction!) -> Void in
+                let settingsURL = NSURL(string: UIApplicationOpenSettingsURLString)!
+                
+                UIApplication.sharedApplication().openURL(settingsURL)
+            })
+            let cancelAction = UIAlertAction(title: "Dismiss", style: .Cancel, handler: { (action: UIAlertAction!) -> Void in
                 alertController.dismissViewControllerAnimated(true, completion: nil)
             })
-            alertController.addAction(dismissAction)
+            alertController.addAction(cancelAction)
+            alertController.addAction(grantAccessAction)
             
             return alertController
             

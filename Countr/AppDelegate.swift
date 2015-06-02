@@ -50,19 +50,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // UITextField
         UITextField.appearance().tintColor = UIColor.whiteColor()
         
-        // UIBarButtonItem
-        UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Normal)
-        UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Highlighted)
-        UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Disabled)
+        // UIBarButtonItem - Disabled as it ruins the ui of the calendar event view controller
+        //UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Normal)
+        //UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Highlighted)
+        //UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Disabled)
         
         // UISegmentedControl
         let segmentedControlTitleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName : UIFont(name: "Avenir-Book", size: 13)!]
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlTitleTextAttributes, forState: UIControlState.Normal)
         
         // UISwitch
-        UISwitch.appearance().tintColor = UIColor.whiteColor()
-        UISwitch.appearance().onTintColor = UIColor.whiteColor()
-        UISwitch.appearance().thumbTintColor = UIColor.grayColor()
+        //UISwitch.appearance().tintColor = UIColor.whiteColor()
+        //UISwitch.appearance().onTintColor = UIColor.whiteColor()
+        //UISwitch.appearance().thumbTintColor = UIColor.grayColor()
         
         // UIScrollView
         UIScrollView.appearance().indicatorStyle = .White
