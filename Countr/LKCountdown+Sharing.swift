@@ -89,6 +89,7 @@ class LKCountdownSharingActivityAddToCalendar: UIActivity, EKEventEditViewDelega
     }
     
     override func activityImage() -> UIImage? {
+        // TODO: Add a real item
         return nil
     }
     
@@ -176,7 +177,7 @@ class LKCountdownSharingActivityAddToCalendar: UIActivity, EKEventEditViewDelega
             event.endDate = date.dateByAddingMinutes(60) // TODO: Change default duration???
         }
         
-        event.URL = url
+        event.URL = url // TODO: Would it be better to set the url in the notes section with some text (Saved with Countr. Tap [this link](countr://add...) to add the item to countr)
         
         
         
