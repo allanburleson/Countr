@@ -238,6 +238,11 @@ extension NSDate {
 
     }
     
+    func dateByAddingMinutes(minutes: Int) -> NSDate {
+        let seconds: NSTimeInterval = Double(minutes) * 60
+        return self.dateByAddingTimeInterval(seconds)
+    }
+    
     var isToday: Bool {
         let calendar = NSCalendar.currentCalendar()
         let unitFlags: NSCalendarUnit =  .CalendarUnitEra | .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay

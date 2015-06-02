@@ -23,20 +23,24 @@
 		5D3388641A6AB63F0068C37C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D3388631A6AB63F0068C37C /* MainInterface.storyboard */; };
 		5D3388671A6AB63F0068C37C /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5D33885A1A6AB63F0068C37C /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5D33886D1A6AB7320068C37C /* Countr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33901A2B19EB006DDB65 /* Countr.xcdatamodeld */; };
-		5D3388701A6AB8660068C37C /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
 		5D3388711A6AB9E80068C37C /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
 		5D35E9731AF3EAB900335A13 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D35E9721AF3EAB900335A13 /* Crashlytics.framework */; };
 		5D4157F61AF3BC64005FEC8D /* LKURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4157F51AF3BC64005FEC8D /* LKURLParser.m */; };
 		5D52D6CA1ABD84CA0081F0D8 /* extensionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D52D6C91ABD84CA0081F0D8 /* extensionData.plist */; };
 		5D52D6CC1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */; };
 		5D52D6CD1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */; };
-		5D52D6CE1ABD96150081F0D8 /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
 		5D52D6CF1ABD96250081F0D8 /* LKSharedExtensionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */; };
 		5D52D6D01ABD97430081F0D8 /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
 		5D52D6D11ABD97540081F0D8 /* LKPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */; };
 		5D56C2081A77F161000E0FE3 /* objc_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D56C2071A77F161000E0FE3 /* objc_Extensions.m */; };
 		5D57D49A1A48219E0030EF9C /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
 		5D58D6711B0F5E8300190D6B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D58D6701B0F5E8300190D6B /* Fabric.framework */; };
+		5D74F55A1B1D9E3200769815 /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
+		5D74F55E1B1D9E5D00769815 /* LKCountdown+Sharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74F55D1B1D9E5D00769815 /* LKCountdown+Sharing.swift */; };
+		5D74F55F1B1D9EFE00769815 /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
+		5D74F5601B1D9EFF00769815 /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
+		5D74F5611B1D9F0300769815 /* LKCountdown+Sharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74F55D1B1D9E5D00769815 /* LKCountdown+Sharing.swift */; };
+		5D74F5621B1DA29700769815 /* LKAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0844671895D6654A100B73 /* LKAlertController.swift */; };
 		5D83B1491A2B4E2000BB17E3 /* LKItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */; };
 		5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */; };
 		5D8721011A7D64C200F6C527 /* LKPurchasePremiumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */; };
@@ -75,7 +79,6 @@
 		5DE1A46A1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5DE1A44D1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5DE1A4721AC6E38D005BF8D4 /* LKSharedExtensionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */; };
 		5DE1A4731AC6E391005BF8D4 /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
-		5DE1A4741AC6E395005BF8D4 /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
 		5DE1A4751AC6E3B1005BF8D4 /* LKPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */; };
 		5DE1A4761AC6E3F0005BF8D4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DAA071A7BD3E400CED935 /* Extensions.swift */; };
 		5DE1A4781AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4771AC6F3DD005BF8D4 /* CountdownItemDetailInterfaceController.swift */; };
@@ -166,6 +169,7 @@
 		5D57D4961A481F770030EF9C /* Countr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Countr.entitlements; sourceTree = "<group>"; };
 		5D57D4991A48219E0030EF9C /* LKModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D58D6701B0F5E8300190D6B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		5D74F55D1B1D9E5D00769815 /* LKCountdown+Sharing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LKCountdown+Sharing.swift"; sourceTree = "<group>"; };
 		5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKItemCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKItemCell.xib; sourceTree = "<group>"; };
 		5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKPurchasePremiumCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -299,6 +303,7 @@
 				5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */,
 				5D57D4991A48219E0030EF9C /* LKModel.swift */,
 				5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */,
+				5D74F55D1B1D9E5D00769815 /* LKCountdown+Sharing.swift */,
 				5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */,
 			);
 			name = Model;
@@ -813,10 +818,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D3388711A6AB9E80068C37C /* LKModel.swift in Sources */,
-				5D3388701A6AB8660068C37C /* LKCountdown.swift in Sources */,
 				5DAB38121ABDD5BC001DBB71 /* Extensions.swift in Sources */,
 				5D52D6CD1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift in Sources */,
 				5D33886D1A6AB7320068C37C /* Countr.xcdatamodeld in Sources */,
+				5D74F55F1B1D9EFE00769815 /* LKCountdown.swift in Sources */,
 				5D8928291ACF094000E3EB1A /* LKSettingsManager.swift in Sources */,
 				5D3388621A6AB63F0068C37C /* TodayViewController.swift in Sources */,
 				5DF32FBB1A7E114600063FAC /* LKPurchaseManager.swift in Sources */,
@@ -837,6 +842,7 @@
 				5DF32FBF1A7E222A00063FAC /* LKMainViewController.swift in Sources */,
 				5DAA33921A2B19EB006DDB65 /* Countr.xcdatamodeld in Sources */,
 				5DAA33B81A2B4026006DDB65 /* LKEditItemPropertiesViewController.swift in Sources */,
+				5D74F55E1B1D9E5D00769815 /* LKCountdown+Sharing.swift in Sources */,
 				5DB5E5BA1B1B2A0400CB3786 /* LKAcknowledgementsViewController.swift in Sources */,
 				5DAA338F1A2B19EB006DDB65 /* AppDelegate.swift in Sources */,
 				5D8721011A7D64C200F6C527 /* LKPurchasePremiumCell.swift in Sources */,
@@ -859,13 +865,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D52D6D01ABD97430081F0D8 /* LKModel.swift in Sources */,
+				5D74F5621B1DA29700769815 /* LKAlertController.swift in Sources */,
 				5DAB38131ABDD5C6001DBB71 /* Extensions.swift in Sources */,
 				5DB5E5BD1B1B54F500CB3786 /* LKAcknowledgementsViewController.swift in Sources */,
 				5D52D6CF1ABD96250081F0D8 /* LKSharedExtensionDataManager.swift in Sources */,
+				5D74F55A1B1D9E3200769815 /* LKCountdown.swift in Sources */,
 				5D8928281ACF093F00E3EB1A /* LKSettingsManager.swift in Sources */,
-				5D52D6CE1ABD96150081F0D8 /* LKCountdown.swift in Sources */,
 				5DAA33A81A2B19EB006DDB65 /* CountrTests.swift in Sources */,
 				5D52D6D11ABD97540081F0D8 /* LKPurchaseManager.swift in Sources */,
+				5D74F5611B1D9F0300769815 /* LKCountdown+Sharing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,9 +884,9 @@
 				5D89282A1ACF094300E3EB1A /* LKSettingsManager.swift in Sources */,
 				5DE1A4551AC6E2BF005BF8D4 /* NotificationController.swift in Sources */,
 				5DE1A4721AC6E38D005BF8D4 /* LKSharedExtensionDataManager.swift in Sources */,
-				5DE1A4741AC6E395005BF8D4 /* LKCountdown.swift in Sources */,
 				5DE1A4761AC6E3F0005BF8D4 /* Extensions.swift in Sources */,
 				5DE1A4531AC6E2BF005BF8D4 /* MainTableInterfaceController.swift in Sources */,
+				5D74F5601B1D9EFF00769815 /* LKCountdown.swift in Sources */,
 				5DE1A4571AC6E2BF005BF8D4 /* GlanceController.swift in Sources */,
 				5DE1A4731AC6E391005BF8D4 /* LKModel.swift in Sources */,
 				5DA85E6D1AC704EB00D1BB31 /* LKAddItemInterfaceController.swift in Sources */,

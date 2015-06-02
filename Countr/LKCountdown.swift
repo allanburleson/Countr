@@ -195,34 +195,6 @@ class LKCountdownManager: NSObject {
 
     }
     
-    /*
-    Share a countdownItem
-    
-    :param: item The LKCountdownItem to be shared
-    :param: sender The ViewController to present the share sheet from. If this parameter is nil, the sender has to present the share sheet
-    */
-    func shareCountdownItem(item: LKCountdownItem, sender: UIViewController?) -> (shareURL: NSURL, shareHTMLBody: String) {
-        // Create the share string
-        let _example_string = "countr://add?title=Hello%20World&date=1430491533.436371&mode=dateAndTime"
-        
-        let encodedTitle: String = item.title.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-        let dateInterval: String = String(stringInterpolationSegment: item.date.timeIntervalSince1970)
-        let countdownMode: String = item.countdownMode.toString()
-        let urlString: String = "countr://add?title=" + encodedTitle + "&date=" + dateInterval + "&mode=" + countdownMode
-        
-        let text = item.shareDescription
-        let url = NSURL(string: urlString)!
-        
-        if let _sender = sender {
-            let activityViewController = UIActivityViewController(activityItems: [text, url], applicationActivities: nil)
-            
-            _sender.presentViewController(activityViewController, animated: true, completion: nil)
-        }
-        
-        
-        return (url, "html share body")
-        
-    }
     
     // TODO: Add documentstaion
     func updateCountdownItem(oldItem: LKCountdownItem, withCountdownItem newItem: LKCountdownItem) {
@@ -475,3 +447,8 @@ extension LKCountdownMode {
         return self.toString()
     }
 }
+
+
+
+
+
