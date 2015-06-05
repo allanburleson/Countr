@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "01E013B9AA0CDB56F62A86E2"
+               BlueprintIdentifier = "50585196C86D5338606A499A"
                BuildableName = "libPods-YHRoundBorderedButton.a"
                BlueprintName = "Pods-YHRoundBorderedButton"
                ReferencedContainer = "container:Pods.xcodeproj">
