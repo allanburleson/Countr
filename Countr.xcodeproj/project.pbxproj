@@ -39,7 +39,6 @@
 		5D74F55E1B1D9E5D00769815 /* LKCountdown+Sharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74F55D1B1D9E5D00769815 /* LKCountdown+Sharing.swift */; };
 		5D74F55F1B1D9EFE00769815 /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
 		5D74F5601B1D9EFF00769815 /* LKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA33B11A2B1A7F006DDB65 /* LKCountdown.swift */; };
-		5D74F5611B1D9F0300769815 /* LKCountdown+Sharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74F55D1B1D9E5D00769815 /* LKCountdown+Sharing.swift */; };
 		5D74F5621B1DA29700769815 /* LKAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0844671895D6654A100B73 /* LKAlertController.swift */; };
 		5D83B1491A2B4E2000BB17E3 /* LKItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */; };
 		5D83B14A1A2B4E2000BB17E3 /* LKItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */; };
@@ -873,7 +872,6 @@
 				5D8928281ACF093F00E3EB1A /* LKSettingsManager.swift in Sources */,
 				5DAA33A81A2B19EB006DDB65 /* CountrTests.swift in Sources */,
 				5D52D6D11ABD97540081F0D8 /* LKPurchaseManager.swift in Sources */,
-				5D74F5611B1D9F0300769815 /* LKCountdown+Sharing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

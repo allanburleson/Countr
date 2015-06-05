@@ -342,7 +342,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             }
             
             let shareAction = UIAlertAction(title: alertShare, style: .Default) { (action) in
-                self.countdownManager.shareCountdownItem(self.countdownManager.items()[indexPath.row], sender: self)
+                self.countdownManager.shareCountdownItem(self.countdownManager.items()[indexPath.row], sender: cell, presentingViewController: self)
             }
             
             let deleteAction = UIAlertAction(title: alertDelete, style: .Destructive) { (action) in

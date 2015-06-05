@@ -307,9 +307,9 @@ class LKCountdownItem: NSObject, Printable {
     */
     var shareDescription: String {
         var shareString = ""
-        var onlyString   = NSLocalizedString("me.kollmer.countr.shareItem.only", comment: "")
-        var sinceString  = NSLocalizedString("me.kollmer.countr.shareItem.since", comment: "")
-        var leftToString = NSLocalizedString("me.kollmer.countr.shareItem.leftTo", comment: "")
+        var onlyString   = NSLocalizedString("me.kollmer.countr.shareItemShareSheet.only", comment: "")
+        var sinceString  = NSLocalizedString("me.kollmer.countr.shareItemShareSheet.since", comment: "")
+        var leftToString = NSLocalizedString("me.kollmer.countr.shareItemShareSheet.leftTo", comment: "")
         
         if !self.date.isPast {
             shareString += "\(onlyString) "

@@ -65,6 +65,7 @@
 "me.kollmer.countr.deleteItemAlert.message" = "Möchten Sie %@ wirklich löschen?";
 "me.kollmer.countr.deleteItemAlert.delete" = "Löschen";
 "me.kollmer.countr.deleteItemAlert.cancel" = "Abbrechen";
+"me.kollmer.countr.deleteItemAlert.share" = "Teilen";
 
 
 
@@ -91,17 +92,17 @@
 /*
  Share item description
  */
-"me.kollmer.countr.shareItem.shareButtonTitle" = "Teilen";
-"me.kollmer.countr.shareItem.only" = "Nur";
-"me.kollmer.countr.shareItem.since" = "seit";
-"me.kollmer.countr.shareItem.leftTo" = "bis";
+"me.kollmer.countr.shareItemShareSheet.shareButtonTitle" = "Teilen";
+"me.kollmer.countr.shareItemShareSheet.only" = "Nur";
+"me.kollmer.countr.shareItemShareSheet.since" = "seit";
+"me.kollmer.countr.shareItemShareSheet.leftTo" = "bis";
 
-"me.kollmer.countr.shareItem.day" = "Tag";
-"me.kollmer.countr.shareItem.days" = "Tage";
-"me.kollmer.countr.shareItem.hour" = "Stunde";
-"me.kollmer.countr.shareItem.hours" = "Stunden";
-"me.kollmer.countr.shareItem.minute" = "Minute";
-"me.kollmer.countr.shareItem.minutes" = "Minuten";
+"me.kollmer.countr.shareItemShareSheet.day" = "Tag";
+"me.kollmer.countr.shareItemShareSheet.days" = "Tage";
+"me.kollmer.countr.shareItemShareSheet.hour" = "Stunde";
+"me.kollmer.countr.shareItemShareSheet.hours" = "Stunden";
+"me.kollmer.countr.shareItemShareSheet.minute" = "Minute";
+"me.kollmer.countr.shareItemShareSheet.minutes" = "Minuten";
 
 
 

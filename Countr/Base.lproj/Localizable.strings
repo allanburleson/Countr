@@ -73,23 +73,24 @@
 "me.kollmer.countr.deleteItemAlert.message" = "Are you sure you want to delete \"%@\"?";
 "me.kollmer.countr.deleteItemAlert.delete" = "Delete";
 "me.kollmer.countr.deleteItemAlert.cancel" = "Cancel";
+"me.kollmer.countr.deleteItemAlert.share" = "Share";
 
 
 
 /*
  Share item description
  */
-"me.kollmer.countr.shareItem.shareButtonTitle" = "Share";
-"me.kollmer.countr.shareItem.only" = "Only";
-"me.kollmer.countr.shareItem.since" = "since";
-"me.kollmer.countr.shareItem.leftTo" = "left to";
+"me.kollmer.countr.shareItemShareSheet.shareButtonTitle" = "Share";
+"me.kollmer.countr.shareItemShareSheet.only" = "Only";
+"me.kollmer.countr.shareItemShareSheet.since" = "since";
+"me.kollmer.countr.shareItemShareSheet.leftTo" = "left to";
 
-"me.kollmer.countr.shareItem.day" = "day";
-"me.kollmer.countr.shareItem.days" = "days";
-"me.kollmer.countr.shareItem.hour" = "hour";
-"me.kollmer.countr.shareItem.hours" = "hours";
-"me.kollmer.countr.shareItem.minute" = "minute";
-"me.kollmer.countr.shareItem.minutes" = "minutes";
+"me.kollmer.countr.shareItemShareSheet.day" = "day";
+"me.kollmer.countr.shareItemShareSheet.days" = "days";
+"me.kollmer.countr.shareItemShareSheet.hour" = "hour";
+"me.kollmer.countr.shareItemShareSheet.hours" = "hours";
+"me.kollmer.countr.shareItemShareSheet.minute" = "minute";
+"me.kollmer.countr.shareItemShareSheet.minutes" = "minutes";
 
 
 

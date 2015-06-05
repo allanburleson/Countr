@@ -19,7 +19,7 @@ extension LKCountdownManager {
     :param: item The LKCountdownItem to be shared
     :param: sender The ViewController to present the share sheet from. If this parameter is nil, the sender has to present the share sheet
     */
-    func shareCountdownItem(item: LKCountdownItem, sender: UIViewController?) -> (shareURL: NSURL, shareHTMLBody: String) {
+    func shareCountdownItem(item: LKCountdownItem, sender: AnyObject?, presentingViewController: UIViewController?) -> (shareURL: NSURL, shareHTMLBody: String) {
         // Create the share string
         let _example_string = "countr://add?title=Hello%20World&date=1430491533.436371&mode=dateAndTime"
         
@@ -35,10 +35,32 @@ extension LKCountdownManager {
         
         let addToCalendarActivity = LKCountdownSharingActivityAddToCalendar()
         
-        if let _ = sender {
-            let activityViewController = UIActivityViewController(activityItems: [title, text, date, url], applicationActivities: [addToCalendarActivity])
+        if let _ = sender, _ = presentingViewController {
             
-            sender!.presentViewController(activityViewController, animated: true, completion: nil)
+            var sourceView: UIView!
+            var sourceRect: CGRect!
+            
+            if sender is UIButton {
+                sourceView = sender as! UIButton
+                sourceRect = (sender as! UIButton).bounds
+            }
+            
+            if sender is UIBarButtonItem {
+                sourceView = (sender as! UIBarButtonItem).valueForKey("_view") as! UIView
+                sourceRect = ((sender as! UIBarButtonItem).valueForKey("_view") as! UIView).bounds
+            }
+            
+            if sender is LKItemCell {
+                sourceView = sender as! LKItemCell
+                sourceRect = (sender as! LKItemCell).bounds
+            }
+            
+            
+            let activityViewController = UIActivityViewController(activityItems: [title, text, date, url], applicationActivities: [addToCalendarActivity])
+            activityViewController.popoverPresentationController?.sourceView = sourceView
+            activityViewController.popoverPresentationController?.sourceRect = sourceRect
+            
+            presentingViewController!.presentViewController(activityViewController, animated: true, completion: nil)
         }
         
         
@@ -85,11 +107,12 @@ class LKCountdownSharingActivityAddToCalendar: UIActivity, EKEventEditViewDelega
     }
     
     override func activityTitle() -> String? {
-        return "Add2Cal" // TODO: Change title
+        let title = NSLocalizedString("me.kollmer.countr.shareItemShareSheet.addToCalendarActivity.title", comment: "")
+        return "Add to Calendar"
     }
     
     override func activityImage() -> UIImage? {
-        // TODO: Add a real item
+        // TODO: Add a real image
         return nil
     }
     
@@ -105,6 +128,9 @@ class LKCountdownSharingActivityAddToCalendar: UIActivity, EKEventEditViewDelega
     }
     
     override func activityViewController() -> UIViewController? {
+        
+        
+        // TODO: Instead of actually showing a calendar vc, just add the event and shiow a confirmation notification
         println("activityViewController")
         
         var title: String!

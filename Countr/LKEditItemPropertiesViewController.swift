@@ -245,6 +245,10 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
             alertController.addAction(cancelAction)
             alertController.addAction(continueAction)
             
+            alertController.popoverPresentationController?.sourceView = self.view
+            alertController.popoverPresentationController?.sourceRect = self.view.bounds
+            alertController.popoverPresentationController?.permittedArrowDirections = .Down
+            
             self.presentViewController(alertController, animated: true, completion: nil)
             //self.notification.displayNotificationWithMessage("The entered date is in the past", duration: 2) //TODO: Use an UIalertController, allowing teh user to continue
         }

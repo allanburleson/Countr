@@ -16,6 +16,7 @@ class LKItemDetailViewController: UIViewController {
     @IBOutlet weak var countdownDateLabel: UILabel!
     @IBOutlet weak private var editButton: UIButton!
     @IBOutlet weak private var deleteButton: UIButton!
+    private var shareButton: UIBarButtonItem!
     
     
     private lazy var tracker = GAI.sharedInstance().defaultTracker
@@ -49,11 +50,11 @@ class LKItemDetailViewController: UIViewController {
         
         
         let doneBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done")
-        let shareBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share")
-        shareBarButtonItem.tintColor = UIColor.whiteColor()
+        self.shareButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share")
+        self.shareButton.tintColor = UIColor.whiteColor()
         
         self.navigationItem.leftBarButtonItem = doneBarButtonItem
-        self.navigationItem.rightBarButtonItem = shareBarButtonItem
+        self.navigationItem.rightBarButtonItem = self.shareButton
         
         // Set the font of the buttons
         let editButtonTitle = NSLocalizedString("me.kollmer.countr.itemDetailView.edit", comment: "")
@@ -85,7 +86,7 @@ class LKItemDetailViewController: UIViewController {
     
     
     func share() {
-        let shareData = LKCountdownManager.sharedInstance.shareCountdownItem(self.countdownItem, sender: self)
+        let shareData = LKCountdownManager.sharedInstance.shareCountdownItem(self.countdownItem, sender: self.shareButton, presentingViewController: self)
     }
     
     
