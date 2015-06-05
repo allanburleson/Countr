@@ -13,7 +13,12 @@
 /*
  Returns the UIInterfaceOrientation masks foe each ViewController
  */
-NSUInteger interfaceOrientationsForClass(id _class) {
+NSUInteger LKInterfaceOrientationsForClass(id _class, UIInterfaceOrientation interfaceOrientation, UIUserInterfaceIdiom interfaceIdiom) {
+    
+    // Allow all orientations on iPad
+    if (interfaceIdiom == UIUserInterfaceIdiomPad) {
+        return UIInterfaceOrientationMaskAll;
+    }
     
     // LKMainViewController
     if ([_class isKindOfClass: [LKMainViewController class]]) {
@@ -46,7 +51,7 @@ NSUInteger interfaceOrientationsForClass(id _class) {
      @discussion: This actually works!!!
      */
     if ([_class isKindOfClass:[UINavigationController class]]) {
-        return interfaceOrientationsForClass([(UINavigationController *)_class topViewController]);
+        return LKInterfaceOrientationsForClass([(UINavigationController *)_class topViewController], interfaceOrientation, interfaceIdiom);
     }
     
     
@@ -59,7 +64,7 @@ Disable rotation based on the current ViewController class
 @implementation UIViewController (NoRotation)
 
 - (NSUInteger)supportedInterfaceOrientations {
-    return interfaceOrientationsForClass(self);
+    return LKInterfaceOrientationsForClass(self, [UIApplication sharedApplication].statusBarOrientation, self.traitCollection.userInterfaceIdiom);
 }
 
 @end
