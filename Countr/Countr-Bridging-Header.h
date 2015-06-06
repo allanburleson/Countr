@@ -12,3 +12,6 @@
 #import "VTAcknowledgementsViewController.h"
 #import "VTAcknowledgementViewController.h"
 #import "UIApplication+AppInfo.h"
+
+// C functions will only work with Swift when declared in the Bridging-Header
+void LKSetLabelAppearanceWhenContainedInTableView();

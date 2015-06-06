@@ -45,8 +45,8 @@ class LKPurchasePremiumViewController: UIViewController {
         self.navigationController?.navigationBar.setDarkAttributes()
         self.view.backgroundColor = UIColor.backgroundColor()
         self.descriptionTextView.backgroundColor = UIColor.backgroundColor()
-        self.titleLabel.font = UIFont(name: "Avenir-Book", size: 19)
-        self.descriptionTextView.font = UIFont(name: "Avenir-Book", size: 15)
+        self.titleLabel.font = UIFont.systemFontOfSize(19)
+        self.descriptionTextView.font = UIFont.systemFontOfSize(15)
         self.descriptionTextView.editable = false
         self.descriptionTextView.selectable = false
         self.descriptionTextView.indicatorStyle = .White
@@ -59,13 +59,13 @@ class LKPurchasePremiumViewController: UIViewController {
         
         // Notifications + Watch:  \n\n• Notifications: Get notifications when a countdown is about to be finished \n\n• Apple Watch: View all your countdowns on your brand-new apple watch
         let title = NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.loading", comment: "")
-        self.buyButton.setTitle(title, forState: .Normal)
+        setBuyButtonTitle(title)
         self.buyButton.userInteractionEnabled = false // Ignore taps while the price is loaded
         
         if LKPurchaseManager.didPurchase {
             self.buyButton.enabled = false
             let title = NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.purchased", comment: "")
-            self.buyButton.setTitle(title, forState: .Normal)
+            setBuyButtonTitle(title)
             self.buyButton.setTitleColor(UIColor.whiteColor(), forState: .Disabled)
             self.restoreButton.hidden = true
             self.restoreButton.setTitle(nil, forState: .Disabled)
@@ -99,12 +99,12 @@ class LKPurchasePremiumViewController: UIViewController {
             
             
             let buttonTitle = NSString(format: NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.price", comment: ""), formattedPrice)
-            self.buyButton.setTitle(buttonTitle as String, forState: .Normal)
+            self.setBuyButtonTitle(buttonTitle as String)
         }
         
         self.store.didFinishBuyingProductCompletionHandler = {(status: LKPurchaseStatus) in
             let title = NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.purchased", comment: "")
-            self.buyButton.setTitle(title, forState: .Normal)
+            self.setBuyButtonTitle(title)
         }
         
     }
@@ -120,7 +120,7 @@ class LKPurchasePremiumViewController: UIViewController {
     @IBAction func didClickBuyButton(sender: LKRoundBorderedButton) {
         //println("Buy")
         let title = NSLocalizedString("me.kollmer.countr.purchaseView.buyButton.loading", comment: "")
-        self.buyButton.setTitle(title, forState: .Normal)
+        setBuyButtonTitle(title)
         self.store.buy()
     }
     
@@ -131,6 +131,15 @@ class LKPurchasePremiumViewController: UIViewController {
     func cancelButtonPressed() {
         // TODO: GA Tracking
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    private func setBuyButtonTitle(text: String) {
+        let font = UIFont.systemFontOfSize(15)
+        
+        let attributedTitle = NSAttributedString(string: text, attributes: [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.whiteColor()])
+        
+        self.buyButton.setAttributedTitle(attributedTitle, forState: .Normal)
     }
     
 }

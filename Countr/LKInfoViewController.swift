@@ -16,6 +16,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     
     // UI
     @IBOutlet var allCells: [UITableViewCell]!
+    @IBOutlet var allLabels: [UILabel]!
     @IBOutlet weak var versionTextLabel: UILabel!
     @IBOutlet weak var versionNumberLabel: UILabel!
     @IBOutlet weak var premiumFeaturesTextLabel: UILabel!
@@ -124,6 +125,10 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             cell.backgroundColor = UIColor.foregroundColor()
         }
         
+        for label in allLabels {
+            label.font = UIFont.systemFontOfSize(17)
+        }
+        
 
         
     }
@@ -183,6 +188,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         return [nil, NSLocalizedString("me.kollmer.countr.infoView.appBadgeExplanationFooter", comment: "") as String?, nil, nil, nil][section]
     }
     
+    /*
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         label.frame = CGRectMake(16, 13, 320, 17)
@@ -196,8 +202,9 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         
         return headerView
     }
+*/
     
-    
+    /*
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         println("tableView.viewForFooterInSection: \(section)")
         let label = UILabel()
@@ -214,7 +221,8 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         
         return footerView
     }
-    
+*/
+    /*
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == 1 {
             return 55
@@ -222,6 +230,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
             return UITableViewAutomaticDimension
         }
     }
+*/
 
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

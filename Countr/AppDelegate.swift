@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // UILabel
-        UILabel.appearance().font = font
+        //UILabel.appearance().font = font
+        //LKSetLabelAppearanceWhenContainedInTableView()
         //UILabel.appearance().textColor = UIColor.whiteColor()
         
         // UIButton

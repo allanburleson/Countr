@@ -99,3 +99,30 @@ Disable rotation based on the current ViewController class
 
 @end
 #pragma clang diagnostic pop
+
+
+
+@implementation UITableViewHeaderFooterView (CustomFont)
+
+/*
+ Overriding this internal method allows us to use Avenir as font in the TableView header and footer
+ 
+ NOTE: This cannot be used with a font set to UILabel via UIAppearance (eg UILabel.appearance().font = font)
+ ("https://github.com/nst/iOS-Runtime-Headers/blob/master/Frameworks/UIKit.framework/UITableViewHeaderFooterView.h#L66")
+ */
++ (UIFont *)_defaultFontForTableViewStyle:(int)arg1 isSectionHeader:(BOOL)arg2 {
+    NSLog(@"UITableViewHeaderFooterView: _defaultFontForTableViewStyle: %d, isSectionHeader: %i", arg1, arg2);
+    if (arg2) { // is Header
+        return [UIFont boldSystemFontOfSize:15];
+    } else {    // is Footer
+        return [UIFont systemFontOfSize:14];
+    }
+}
+
++ (UIColor *)_defaultTextColorForTableViewStyle:(int)arg1 isSectionHeader:(BOOL)arg2 {
+    NSLog(@"UITableViewHeaderFooterView: _defaultTextColorForTableViewStyle: %d, isSectionHeader: %i", arg1, arg2);
+    
+    return [UIColor lightGrayColor];
+}
+
+@end

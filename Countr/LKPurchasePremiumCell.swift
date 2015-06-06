@@ -33,8 +33,8 @@ class LKPurchasePremiumCell: UICollectionViewCell {
         self.layer.cornerRadius = 12
         self.clipsToBounds = true
         
-        self.titleLabel.font = UIFont(name: "Avenir-Book", size: 17)
-        self.descriptionLabel.font = UIFont(name: "Avenir-Book", size: 13)
+        self.titleLabel.font = UIFont.systemFontOfSize(17)
+        self.descriptionLabel.font = UIFont.systemFontOfSize(13)
         
         self.titleLabel.text = NSLocalizedString("me.kollmer.countr.purchaseCell.titleLabel", comment: "")
         self.descriptionLabel.text = NSLocalizedString("me.kollmer.countr.purchaseCell.descriptionLabel", comment: "")

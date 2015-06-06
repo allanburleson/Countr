@@ -144,7 +144,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Countr Premium Features" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK9-6W-Qcl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countr Premium Features" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK9-6W-Qcl">
                                 <rect key="frame" x="16" y="75" width="479" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -413,13 +413,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015, Lukas Kollmer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTW-IE-4RE">
-                                                    <rect key="frame" x="16" y="11" width="176" height="21"/>
+                                                    <rect key="frame" x="16" y="11" width="576" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="wTW-IE-4RE" firstAttribute="trailing" secondItem="tME-pa-he6" secondAttribute="trailingMargin" id="0bJ-eQ-oeK"/>
                                                 <constraint firstItem="wTW-IE-4RE" firstAttribute="top" secondItem="tME-pa-he6" secondAttribute="topMargin" constant="3" id="McT-tl-5so"/>
                                                 <constraint firstItem="wTW-IE-4RE" firstAttribute="leading" secondItem="tME-pa-he6" secondAttribute="leading" constant="16" id="teL-84-LZb"/>
                                             </constraints>
@@ -463,6 +464,14 @@
                         <outletCollection property="allCells" destination="Ca3-84-OZb" collectionClass="NSMutableArray" id="5MV-Kt-c2e"/>
                         <outletCollection property="allCells" destination="BWl-Xf-KoO" collectionClass="NSMutableArray" id="ub6-Vl-5uR"/>
                         <outletCollection property="allCells" destination="pSj-3s-TBm" collectionClass="NSMutableArray" id="BGK-sS-Z5p"/>
+                        <outletCollection property="allLabels" destination="NZf-r4-utw" collectionClass="NSMutableArray" id="Ewe-4K-pez"/>
+                        <outletCollection property="allLabels" destination="1dt-CC-ODz" collectionClass="NSMutableArray" id="4zl-6n-Frh"/>
+                        <outletCollection property="allLabels" destination="rpr-ZO-t5h" collectionClass="NSMutableArray" id="ff2-Ef-0oD"/>
+                        <outletCollection property="allLabels" destination="oRz-Od-SZy" collectionClass="NSMutableArray" id="q27-Hn-iOU"/>
+                        <outletCollection property="allLabels" destination="80p-Kx-1qi" collectionClass="NSMutableArray" id="zGI-h2-8vG"/>
+                        <outletCollection property="allLabels" destination="StU-Cc-TdA" collectionClass="NSMutableArray" id="2ms-eU-N6a"/>
+                        <outletCollection property="allLabels" destination="rBO-ga-OHI" collectionClass="NSMutableArray" id="Ya8-1C-UNa"/>
+                        <outletCollection property="allLabels" destination="wTW-IE-4RE" collectionClass="NSMutableArray" id="622-Ru-mEc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Byf-C8-CES" userLabel="First Responder" sceneMemberID="firstResponder"/>

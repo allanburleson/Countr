@@ -49,6 +49,11 @@ class LKItemCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let font = UIFont.systemFontOfSize(17)
+        self.countdownLabel.font = font
+        self.titleLabel.font = font
+        
         self.countdownLabel.textColor = UIColor.whiteColor() // These values are not set in IB, as there ia a white background
         self.titleLabel.textColor = UIColor.whiteColor()
         self.backgroundColor = UIColor.foregroundColor()
