@@ -376,46 +376,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
         })
     }
     
-    func showAcknowledgements() {
-        
-        /*
-        Setting the path automatically is necessary.
-        
-        According to the documentation of VTAcknowledgementsViewController, for creating a new instance, the +acknowledgementsViewController class function should be used. This function is not available in swift (I guess because it returns instancetype. When the VTAcknowledgementsViewController is created with the default init, the plist path is not set.
-        */
-        /*
-        let path: String = NSBundle.mainBundle().pathForResource("Pods-acknowledgements", ofType: "plist")!
-        
-        let acknowledgementsViewController = VTAcknowledgementsViewController(acknowledgementsPlistPath: path)
-        
-        let numberOfCells = acknowledgementsViewController.tableView.numberOfRowsInSection(0)
-        
-        for index in 1...numberOfCells {
-            let indexPath = NSIndexPath(forRow: index-1, inSection: 0)
-            let cell = acknowledgementsViewController.tableView.cellForRowAtIndexPath(indexPath)
-            
-            cell?.backgroundColor = UIColor.foregroundColor()
-            cell?.textLabel?.font = UIFont(name: "Avenir-Book", size: 17)
-            cell?.textLabel?.textColor = UIColor.whiteColor()
-        }
-        
-        // Set appearance
-        acknowledgementsViewController.tableView.backgroundColor = UIColor.backgroundColor()
-        
-        
-        self.navigationController?.showViewController(acknowledgementsViewController, sender: self)
-*/
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    func showAcknowledgements() {        
         let acknowledgementsViewController = LKAcknowledgementsViewController()
         self.navigationController?.showViewController(acknowledgementsViewController, sender: self)
     }

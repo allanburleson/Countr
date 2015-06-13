@@ -83,7 +83,7 @@ extension UINavigationBar {
         self.barStyle = .Black
         
         // Title Text Attributes
-        let font = UIFont(name: "Avenir-Book", size: 17)!
+        let font = UIFont.systemFontOfSize(17)
         let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.titleTextAttributes = titleTextAttributes
         

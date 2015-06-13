@@ -181,7 +181,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             messageLabel.text = NSLocalizedString("me.kollmer.countr.mainView.noDataAddedYetLabel", comment: "")
             messageLabel.textAlignment = .Center
             messageLabel.textColor = UIColor.whiteColor()
-            messageLabel.font = UIFont(name: "Avenir-Book", size: 26)
+            messageLabel.font = UIFont.systemFontOfSize(26)
             self.collectionView?.backgroundView = messageLabel
         } else {
             let view = UIView()

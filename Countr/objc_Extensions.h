@@ -8,17 +8,3 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-
-@interface UIFont (MySystemFont)
-
-+ (UIFont *)systemFontOfSize:(CGFloat)fontSize;
-
-+ (UIFont *)boldSystemFontOfSize:(CGFloat)fontSize;
-
-+ (UIFont *)italicSystemFontOfSize:(CGFloat)fontSize;
-
-+ (UIFont *)systemFontOfSize:(CGFloat)fontSize weight:(CGFloat)weight;
-
-
-@end

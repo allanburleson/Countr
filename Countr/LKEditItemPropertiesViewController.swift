@@ -80,7 +80,7 @@ class LKEditItemPropertiesViewController: UITableViewController, UITextFieldDele
             cell.backgroundColor = UIColor.foregroundColor()
         }
         
-        let textFieldFont = UIFont(name: "Avenir-Book", size: 16)!
+        let textFieldFont = UIFont.systemFontOfSize(16)
         let placeholderString = NSLocalizedString("me.kollmer.countr.addItemView.itemTitlePlaceholderString", comment: "")
         self.nameTextField.attributedPlaceholder = NSAttributedString(string: placeholderString, attributes: [NSForegroundColorAttributeName : UIColor(rgba: "#D9D9D9"), NSFontAttributeName: textFieldFont])
         

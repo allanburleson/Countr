@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let font = UIFont(name: "Avenir-Book", size: 17)!
+        let font = UIFont.systemFontOfSize(17)
         let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //UILabel.appearance().textColor = UIColor.whiteColor()
         
         // UIButton
-        UIButton.appearance().titleLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+        UIButton.appearance().titleLabel?.font = UIFont.systemFontOfSize(15)
         
         // UITableViewCell - Disabled as it riuns the UI of share extension which are using a tableview for selecting contacts (eg: mail, messages)
         //UITableViewCell.appearance().backgroundColor = UIColor.foregroundColor()
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //UIBarButtonItem.appearance().setTitleTextAttributes(titleTextAttributes, forState: UIControlState.Disabled)
         
         // UISegmentedControl
-        let segmentedControlTitleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName : UIFont(name: "Avenir-Book", size: 13)!]
+        let segmentedControlTitleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName : UIFont.systemFontOfSize(13)]
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlTitleTextAttributes, forState: UIControlState.Normal)
         
         // UISwitch

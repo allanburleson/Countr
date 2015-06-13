@@ -43,7 +43,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             view.removeFromSuperview()
         }
         
-        self.messageLabel.font = UIFont(name: "Avenir-Book", size: 17)
+        self.messageLabel.font = UIFont.systemFontOfSize(17)
         self.messageLabel.text = NSLocalizedString("me.kollmer.countr.todayExtension.emptyTableMessage", comment: "")
         
         for label in allLabels {
@@ -133,11 +133,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         //}
         
         for label in self.countdownRemainingLabels {
-            label.font = UIFont(name: "Avenir-Book", size: 20)
+            label.font = UIFont.systemFontOfSize(20)
         }
         
         for label in self.countdownTitleLabels {
-            label.font = UIFont(name: "Avenir-Book", size: 17)
+            label.font = UIFont.systemFontOfSize(17)
         }
         self.messageLabel.hidden = true
         

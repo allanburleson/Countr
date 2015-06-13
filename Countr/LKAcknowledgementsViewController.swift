@@ -86,7 +86,7 @@ class LKAcknowledgementsViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 17)
+        cell.textLabel?.font = UIFont.systemFontOfSize(17)
         cell.textLabel?.textColor = UIColor.whiteColor()
         cell.textLabel?.text = acknowledgements[indexPath.row].title
         
@@ -132,7 +132,7 @@ class LKAcknowledgementViewController: UIViewController {
         
         let textView = UITextView(frame: CGRectZero)
         textView.alwaysBounceVertical = true
-        textView.font                 = UIFont(name: "Avenir-Book", size: 17)
+        textView.font                 = UIFont.systemFontOfSize(17)
         textView.textColor = UIColor.whiteColor()
         textView.backgroundColor = UIColor.backgroundColor()
         textView.text                 = self.acknowledgement?.text

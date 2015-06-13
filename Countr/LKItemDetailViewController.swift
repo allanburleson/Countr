@@ -36,16 +36,16 @@ class LKItemDetailViewController: UIViewController {
         self.view.backgroundColor = UIColor.backgroundColor()
         
         self.countdownLabel.textColor = UIColor.whiteColor()
-        self.countdownLabel.font = UIFont(name: "Avenir-Heavy", size: 50)!
+        self.countdownLabel.font = UIFont.boldSystemFontOfSize(50)
         self.countdownLabel.adjustsFontSizeToFitWidth = true
         
         
 
         self.countdownTitleLabel.textColor = UIColor.whiteColor()
-        self.countdownTitleLabel.font = UIFont(name: "Avenir-Medium", size: 19)!
+        self.countdownTitleLabel.font = UIFont.systemFontOfSize(19)
         
         self.countdownDateLabel.textColor = UIColor.whiteColor()
-        self.countdownDateLabel.font = UIFont(name: "Avenir-BookOblique", size: 17)!
+        self.countdownDateLabel.font = UIFont.italicSystemFontOfSize(17)
         
         
         
@@ -63,7 +63,7 @@ class LKItemDetailViewController: UIViewController {
         let buttons = [self.editButton!, self.deleteButton!]
         for button in buttons {
             let index = find(buttons, button)!
-            button.setAttributedTitle(NSAttributedString.attributedStringWithString(buttonTitles[index], font: UIFont(name: "Avenir", size: 15)!), forState: .Normal)
+            button.setAttributedTitle(NSAttributedString.attributedStringWithString(buttonTitles[index], font: UIFont.systemFontOfSize(15)), forState: .Normal)
         }
         
         

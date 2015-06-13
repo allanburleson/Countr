@@ -275,9 +275,9 @@ class CWStatusBarNotification : NSObject {
         self.notificationLabel.textAlignment = .Center
         self.notificationLabel.adjustsFontSizeToFitWidth = false
         if self.notificationStyle == .NavigationBarNotification {
-            self.notificationLabel.font = UIFont(name: "Avenir-Book", size: FONT_SIZE)
+            self.notificationLabel.font = UIFont.systemFontOfSize(FONT_SIZE)
         } else {
-            self.notificationLabel.font = UIFont(name: "Avenir-Book", size: FONT_SIZE_SMALL)
+            self.notificationLabel.font = UIFont.systemFontOfSize(FONT_SIZE_SMALL)
         }
         self.notificationLabel.backgroundColor = self.notificationLabelBackgroundColor
         self.notificationLabel.textColor = self.notificationLabelTextColor

@@ -91,6 +91,7 @@
 		5DF32FC31A7E23DC00063FAC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF32FC21A7E23DC00063FAC /* StoreKit.framework */; };
 		5DF32FC51A7E44BE00063FAC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF32FC41A7E44BE00063FAC /* libPods.a */; };
 		5DF32FF81A7E831100063FAC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DF32FFA1A7E831100063FAC /* Localizable.strings */; };
+		5DF8CB9F1B2C137200D2F3F9 /* UIFont+CustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8CB9E1B2C137200D2F3F9 /* UIFont+CustomFont.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,7 @@
 		5DF32FC41A7E44BE00063FAC /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		5DF32FF91A7E831100063FAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5DF32FFB1A7E832E00063FAC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5DF8CB9E1B2C137200D2F3F9 /* UIFont+CustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+CustomFont.m"; sourceTree = "<group>"; };
 		B3DBA926475D472657B32222 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C9FCE20DDEA76DB63F5B519B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -324,6 +326,7 @@
 				5D4157F51AF3BC64005FEC8D /* LKURLParser.m */,
 				5D56C2061A77F161000E0FE3 /* objc_Extensions.h */,
 				5D56C2071A77F161000E0FE3 /* objc_Extensions.m */,
+				5DF8CB9E1B2C137200D2F3F9 /* UIFont+CustomFont.m */,
 				5D56C2051A77F160000E0FE3 /* Countr-Bridging-Header.h */,
 				1E084B79BD97DE0D385BB98E /* UILabel+WhiteUIDatePickerLabels.m */,
 			);
@@ -855,6 +858,7 @@
 				5D1C84FC1ACEE75100EB2BBF /* LKSettingsManager.swift in Sources */,
 				5D33343C1A6A8BD6007D9A4B /* LKInfoViewController.swift in Sources */,
 				1E084B951BC9E569F33EE8FE /* UILabel+WhiteUIDatePickerLabels.m in Sources */,
+				5DF8CB9F1B2C137200D2F3F9 /* UIFont+CustomFont.m in Sources */,
 				1E0849CF750855CF383B62D5 /* LKAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

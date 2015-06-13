@@ -8,6 +8,7 @@
 
 #import "objc_Extensions.h"
 #import "Countr-Swift.h"
+#import <objc/runtime.h>
 
 
 /*
@@ -68,37 +69,6 @@ Disable rotation based on the current ViewController class
 }
 
 @end
-
-/**
- Ignore the warnings for overriding the following methods
- 
- The clang warning code is "[-Wobjc-protocol-method-implementation]"
- */
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
-
-
-@implementation UIFont (MySystemFont)
-+ (UIFont *)systemFontOfSize:(CGFloat)fontSize {
-    return [UIFont fontWithName:@"Avenir-Book" size:fontSize];
-}
-
-+ (UIFont *)boldSystemFontOfSize:(CGFloat)fontSize {
-    return [UIFont fontWithName:@"Avenir-Heavy" size:fontSize];
-}
-
-+ (UIFont *)italicSystemFontOfSize:(CGFloat)fontSize {
-    return [UIFont fontWithName:@"Avenir-BookOblique" size:fontSize];
-}
-
-+ (UIFont *)systemFontOfSize:(CGFloat)fontSize weight:(CGFloat)weight {
-    return [UIFont fontWithName:@"Avenir-Book" size:fontSize];
-}
-
-@end
-#pragma clang diagnostic pop
 
 
 
