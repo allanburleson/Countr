@@ -375,11 +375,20 @@ class LKCountdownItem: NSObject, Printable {
         let unitFlags = NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond
         let components: NSDateComponents = calendar.components(unitFlags, fromDate: NSDate(), toDate: self.date, options: nil)
         
+        
         self.remaining.days = components.day
         self.remaining.hours = components.hour
         self.remaining.minutes = components.minute
         self.remaining.seconds = components.second
-        self.remaining.asString = "\(self.remaining.days.positive)d : \(self.remaining.hours.positive) : \(self.remaining.minutes.positive) : \(self.remaining.seconds.positive)"
+        
+        
+        // Add leading integer digits for the display string
+        
+        let formattedDays = self.remaining.days.positive.toStringWithNumberOfLeadingDigits(3)!
+        let formattedHours = self.remaining.hours.positive.toStringWithNumberOfLeadingDigits(2)!
+        let formattedMinutes = self.remaining.minutes.positive.toStringWithNumberOfLeadingDigits(2)!
+        let formattedSeconds = self.remaining.seconds.positive.toStringWithNumberOfLeadingDigits(2)!
+        self.remaining.asString = "\(formattedDays)d : \(formattedHours) : \(formattedMinutes) : \(formattedSeconds)"
         
     }
     
@@ -397,7 +406,7 @@ class LKCountdownItem: NSObject, Printable {
 extension LKCountdownItem {
     
     /**
-    Delete all countdown items
+    Compare two countdown items
     
     :param: item The countdown item to compare the current item with
     */

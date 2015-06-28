@@ -118,6 +118,32 @@ extension Float {
     }
 }
 
+
+/**
+Extends Int to support getting strings with a certain number of leading integer digits
+*/
+extension Int {
+    
+    /**
+    Convert the Int to a String with a specified number of leading integer digits
+    
+    Example: ``5.toStringWithNumberOfLeadingDigits(2)`` would be 05
+    
+    :param: leadingDigits An Int representing the number of leading integers you wish to be added
+    */
+    func toStringWithNumberOfLeadingDigits(leadingDigits: Int) -> String? {
+        let numberFormatter = NSNumberFormatter()
+        
+        numberFormatter.minimumIntegerDigits = leadingDigits
+        
+        let number = NSNumber(integer: self)
+        
+        return numberFormatter.stringFromNumber(number)
+    
+    }
+    
+}
+
 // MARK: NSAttributedString
 
 extension NSAttributedString {

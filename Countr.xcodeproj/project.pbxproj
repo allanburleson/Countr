@@ -170,6 +170,7 @@
 		5D57D4991A48219E0030EF9C /* LKModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D58D6701B0F5E8300190D6B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		5D74F55D1B1D9E5D00769815 /* LKCountdown+Sharing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LKCountdown+Sharing.swift"; sourceTree = "<group>"; };
+		5D8055FD1B3FDF2B0032DF37 /* NSNumberFormatter.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NSNumberFormatter.playground; sourceTree = "<group>"; };
 		5D83B1471A2B4E2000BB17E3 /* LKItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKItemCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5D83B1481A2B4E2000BB17E3 /* LKItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LKItemCell.xib; sourceTree = "<group>"; };
 		5D8720FF1A7D64C200F6C527 /* LKPurchasePremiumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LKPurchasePremiumCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -340,6 +341,7 @@
 				5D9DAA0C1A7BE19A00CED935 /* NSDate_Playground.playground */,
 				5D4157F31AF3B71D005FEC8D /* url_parsing.playground */,
 				5DB5E5B41B1AFB7600CB3786 /* NSDate_description.playground */,
+				5D8055FD1B3FDF2B0032DF37 /* NSNumberFormatter.playground */,
 			);
 			name = playgrounds;
 			sourceTree = "<group>";

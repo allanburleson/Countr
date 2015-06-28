@@ -102,9 +102,9 @@
     NSOperatingSystemVersion osVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
     
     if (osVersion.majorVersion < 9) {
-        return [UIFont fontWithName:@"Avenir-Heavy" size:fontSize];
-    } else {
         return [self swizzledSystemFontOfSize:fontSize];
+    } else {
+        return [UIFont fontWithName:@"Avenir-Heavy" size:fontSize];
     }
 }
 
@@ -113,9 +113,9 @@
     NSOperatingSystemVersion osVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
     
     if (osVersion.majorVersion < 9) {
-        return [UIFont fontWithName:@"Avenir-BookOblique" size:fontSize];
-    } else {
         return [self swizzledSystemFontOfSize:fontSize];
+    } else {
+        return [UIFont fontWithName:@"Avenir-BookOblique" size:fontSize];
     }
 }
 
@@ -124,9 +124,9 @@
     NSOperatingSystemVersion osVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
     
     if (osVersion.majorVersion < 9) {
-        return [UIFont fontWithName:@"Avenir-Book" size:fontSize];
-    } else {
         return [self swizzledSystemFontOfSize:fontSize];
+    } else {
+        return [UIFont fontWithName:@"Avenir-Book" size:fontSize];
     }
 }
 

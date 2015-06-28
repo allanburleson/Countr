@@ -181,7 +181,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     // TableView
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return [nil, NSLocalizedString("me.kollmer.countr.infoView.settingsSectionHeader", comment: "") as String?, nil, nil, nil][section]
+        return ["\(UIFont.systemFontOfSize(17))", NSLocalizedString("me.kollmer.countr.infoView.settingsSectionHeader", comment: "") as String?, nil, nil, nil][section]
     }
     
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
