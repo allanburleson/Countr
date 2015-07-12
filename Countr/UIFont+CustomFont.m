@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 
+BOOL LKDeviceOSVersionIsUnder9() {
+    NSOperatingSystemVersion osVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
+    
+    return (osVersion.majorVersion < 9);
+}
+
 /*
  This is a class that is only used for storing the implementations of the methods that will be swizzled
  */
@@ -83,14 +89,11 @@
     
 }
 
-
 // Swizzled methods
 
 + (UIFont *)swizzledSystemFontOfSize:(CGFloat)fontSize {
     
-    NSOperatingSystemVersion osVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
-    
-    if (osVersion.majorVersion < 9) {
+    if (LKDeviceOSVersionIsUnder9()) {
         return [UIFont fontWithName:@"Avenir-Book" size:fontSize];
     } else {
         return [self swizzledSystemFontOfSize:fontSize];
@@ -98,10 +101,8 @@
 }
 
 + (UIFont *)swizzledBoldSystemFontOfSize:(CGFloat)fontSize {
-    
-    NSOperatingSystemVersion osVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
-    
-    if (osVersion.majorVersion < 9) {
+
+    if (LKDeviceOSVersionIsUnder9()) {
         return [self swizzledSystemFontOfSize:fontSize];
     } else {
         return [UIFont fontWithName:@"Avenir-Heavy" size:fontSize];
@@ -110,9 +111,7 @@
 
 + (UIFont *)swizzledItalicSystemFontOfSize:(CGFloat)fontSize {
     
-    NSOperatingSystemVersion osVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
-    
-    if (osVersion.majorVersion < 9) {
+    if (LKDeviceOSVersionIsUnder9()) {
         return [self swizzledSystemFontOfSize:fontSize];
     } else {
         return [UIFont fontWithName:@"Avenir-BookOblique" size:fontSize];
@@ -121,9 +120,7 @@
 
 + (UIFont *)swizzledSystemFontOfSize:(CGFloat)fontSize weight:(CGFloat)weight {
     
-    NSOperatingSystemVersion osVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
-    
-    if (osVersion.majorVersion < 9) {
+    if (LKDeviceOSVersionIsUnder9()) {
         return [self swizzledSystemFontOfSize:fontSize];
     } else {
         return [UIFont fontWithName:@"Avenir-Book" size:fontSize];
