@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LKItemCell" customModule="Countr" customModuleProvider="target"/>
@@ -18,7 +18,7 @@
                             <constraint firstAttribute="height" constant="21" id="TNW-sV-7SZ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rch-Fr-6fS">
@@ -27,15 +27,24 @@
                             <constraint firstAttribute="height" constant="21" id="Caw-Fa-LKS"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t2q-ds-6v2">
+                        <rect key="frame" x="6" y="6" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="B2j-BG-wj0"/>
+                            <constraint firstAttribute="height" constant="20" id="KMc-SM-4MN"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstItem="t2q-ds-6v2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="05c-2k-rIr"/>
                 <constraint firstAttribute="trailing" secondItem="10m-Qc-vyb" secondAttribute="trailing" constant="8" id="7zb-zv-gXa"/>
                 <constraint firstItem="10m-Qc-vyb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="GUL-w8-DdS"/>
+                <constraint firstItem="t2q-ds-6v2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="JrL-0W-evt"/>
                 <constraint firstAttribute="centerX" secondItem="10m-Qc-vyb" secondAttribute="centerX" constant="-0.5" id="LBV-g5-4nr"/>
                 <constraint firstAttribute="bottom" secondItem="rch-Fr-6fS" secondAttribute="bottom" constant="8" id="NS0-Ji-MsJ"/>
                 <constraint firstAttribute="trailing" secondItem="rch-Fr-6fS" secondAttribute="trailing" constant="8" id="Nxy-m0-XKj"/>
@@ -45,6 +54,7 @@
             <size key="customSize" width="320" height="80"/>
             <connections>
                 <outlet property="countdownLabel" destination="10m-Qc-vyb" id="HnA-LV-4b6"/>
+                <outlet property="isPastImageView" destination="t2q-ds-6v2" id="4Dz-1x-L8k"/>
                 <outlet property="titleLabel" destination="rch-Fr-6fS" id="bqL-3c-sqW"/>
             </connections>
             <point key="canvasLocation" x="299" y="292"/>

@@ -48,8 +48,8 @@ BOOL LKDeviceOSVersionIsUnder9() {
     //////////////////////////////
     
     
-    LKSwizzledImplementationStorage *systemFontOfSizeImplementations = [LKSwizzledImplementationStorage new];
-    LKSwizzledImplementationStorage *boldSystemFontOfSizeImplementations = [LKSwizzledImplementationStorage new];
+    LKSwizzledImplementationStorage *systemFontOfSizeImplementations       = [LKSwizzledImplementationStorage new];
+    LKSwizzledImplementationStorage *boldSystemFontOfSizeImplementations   = [LKSwizzledImplementationStorage new];
     LKSwizzledImplementationStorage *italicSystemFontOfSizeImplementations = [LKSwizzledImplementationStorage new];
     LKSwizzledImplementationStorage *systemFontOfSizeWeightImplementations = [LKSwizzledImplementationStorage new];
     

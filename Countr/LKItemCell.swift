@@ -10,6 +10,7 @@ import UIKit
 
 class LKItemCell: UICollectionViewCell {
 
+    @IBOutlet weak private var isPastImageView: UIImageView!
 
     @IBOutlet weak private var countdownLabel: UILabel!
 
@@ -35,6 +36,10 @@ class LKItemCell: UICollectionViewCell {
         didSet {
             self.titleLabel.text = self.countdownItem.title
             self.countdownLabel.text = self.countdownItem.remaining.asString
+            
+            if self.countdownItem.date.isPast {
+                self.isPastImageView.image = UIImage(named: "date_is_past")
+            }
         }
     }
     
@@ -53,6 +58,7 @@ class LKItemCell: UICollectionViewCell {
         let font = UIFont.systemFontOfSize(17)
         self.countdownLabel.font = font
         self.titleLabel.font = font
+        
         
         self.countdownLabel.textColor = UIColor.whiteColor() // These values are not set in IB, as there ia a white background
         self.titleLabel.textColor = UIColor.whiteColor()
