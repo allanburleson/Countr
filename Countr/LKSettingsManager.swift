@@ -17,6 +17,9 @@ internal typealias LKSettingsConfiguration = [String : AnyObject]
 internal let appBadgeKey: String = "displaysAppBadge"
 internal let sortingStyleKey: String = "sortingStyle"
 
+/**
+
+*/
 class LKSettingsManager {
     class var sharedInstance : LKSettingsManager {
         struct Static {

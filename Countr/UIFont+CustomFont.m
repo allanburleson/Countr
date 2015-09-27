@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 
+/*
+ NOTE:
+ 
+ The sole purpose of this class extension is swizzling the [UIFont defaultFont] method. This is currently (as of 19/07/15) disabled.
+ 
+ To re-enable this functionalily, just uncomment the last line of code in +load. (in the for loop)
+ */
+
 BOOL LKDeviceOSVersionIsUnder9() {
     NSOperatingSystemVersion osVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
     
@@ -35,6 +43,7 @@ BOOL LKDeviceOSVersionIsUnder9() {
 
 
 #pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
 //#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation" // Ignore overridden system methods
 //#pragma clang diagnostic ignored "-Wincomplete-implementation" // Ignore missing overridden system methods
 
@@ -84,7 +93,7 @@ BOOL LKDeviceOSVersionIsUnder9() {
                                  ];
     
     for (LKSwizzledImplementationStorage *swizzledImplementation in implementations) {
-        method_exchangeImplementations(swizzledImplementation.original, swizzledImplementation.swizzled);
+        //method_exchangeImplementations(swizzledImplementation.original, swizzledImplementation.swizzled);
     }
     
 }

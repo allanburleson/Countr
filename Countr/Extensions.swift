@@ -76,17 +76,17 @@ let notification_userInfo_item_name_key = "notification_userInfo_item_name"
 
 extension UINavigationBar {
     func setDarkAttributes() {
-        
-        
-        
+
+
+
         // Bar Style
         self.barStyle = .Black
-        
+
         // Title Text Attributes
         let font = UIFont.systemFontOfSize(17)
         let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.titleTextAttributes = titleTextAttributes
-        
+
         // Tint Color
         self.tintColor = UIColor.whiteColor()
     }
@@ -118,30 +118,60 @@ extension Float {
     }
 }
 
+/**
+Add multiple actions at once to UIAlertController
+*/
+extension UIAlertController {
+    func addActions(actions: [UIAlertAction]) {
+        for action in actions {
+            self.addAction(action)
+        }
+    }
+    
+    func showCancelButtonOniPhone(value: Bool) {
+        if value == true {
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            self.addAction(cancelAction)
+        }
+    }
+    
+    class func alert(title: String) {
+        let viewController = UIViewController.topmost()
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
+            alertController.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        viewController.presentViewController(alertController, animated: true, completion: nil)
+    }
+}
+
 
 /**
 Extends Int to support getting strings with a certain number of leading integer digits
 */
 extension Int {
-    
+
     /**
     Convert the Int to a String with a specified number of leading integer digits
-    
+
     Example: ``5.toStringWithNumberOfLeadingDigits(2)`` would be 05
-    
+
     :param: leadingDigits An Int representing the number of leading integers you wish to be added
     */
     func toStringWithNumberOfLeadingDigits(leadingDigits: Int) -> String? {
         let numberFormatter = NSNumberFormatter()
-        
+
         numberFormatter.minimumIntegerDigits = leadingDigits
-        
+
         let number = NSNumber(integer: self)
-        
+
         return numberFormatter.stringFromNumber(number)
-    
+
     }
-    
+
 }
 
 // MARK: NSAttributedString
@@ -158,21 +188,21 @@ extension UIColor {
     class func backgroundColor() -> UIColor {
         return UIColor(rgba: "#232323")
     }
-    
+
     class func foregroundColor() -> UIColor {
         return UIColor(rgba: "#252525") // alternative: #1C1C1C (much darker!😱)
     }
-    
+
     class func borderColor() -> UIColor {
         return UIColor(rgba: "#292929")
     }
-    
+
     convenience init(rgba: String) {
         var red:   CGFloat = 0.0
         var green: CGFloat = 0.0
         var blue:  CGFloat = 0.0
         var alpha: CGFloat = 1.0
-        
+
         if rgba.hasPrefix("#") {
             let index   = advance(rgba.startIndex, 1)
             let hex     = rgba.substringFromIndex(index)
@@ -238,10 +268,10 @@ extension Array {
 // MARK: NSDate
 
 extension NSDate {
-    
+
     class func dateFromDatePicker(datePicker: UIDatePicker) -> NSDate {
         let dateComponents = NSDateComponents()
-        
+
         dateComponents.year = datePicker.date.year
         dateComponents.month = datePicker.date.month
         dateComponents.day = datePicker.date.day
@@ -249,9 +279,9 @@ extension NSDate {
         dateComponents.minute = datePicker.date.minute
         dateComponents.second = 0
         dateComponents.nanosecond = 0
-        
+
         if datePicker.datePickerMode == .Date {
-            
+
             // Reset all values for datePickerMode .Date (hour, minute, second, nanosecond)
             dateComponents.hour = 0
             dateComponents.minute = 0
@@ -259,16 +289,16 @@ extension NSDate {
             dateComponents.nanosecond = 0
 
         }
-        
+
         return NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
 
     }
-    
+
     func dateByAddingMinutes(minutes: Int) -> NSDate {
         let seconds: NSTimeInterval = Double(minutes) * 60
         return self.dateByAddingTimeInterval(seconds)
     }
-    
+
     var isToday: Bool {
         let calendar = NSCalendar.currentCalendar()
         let unitFlags: NSCalendarUnit =  .CalendarUnitEra | .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay
@@ -276,18 +306,18 @@ extension NSDate {
         let today = calendar.dateFromComponents(dateComponents)!
         dateComponents = calendar.components(unitFlags, fromDate: self)
         let referenceDate = calendar.dateFromComponents(dateComponents)!
-        
+
         return today.isEqualToDate(referenceDate)
     }
-    
+
     var isPast: Bool {
         return self.timeIntervalSinceNow < 0.0
     }
-    
+
     var descriptiveString: String {
         return NSDateFormatter.localizedStringFromDate(self, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
     }
-    
+
     var descriptiveStringForDatePicker: String {
         get {
             var fullDateString :String
@@ -295,17 +325,17 @@ extension NSDate {
             var monthString: String
             var dayNumberString: String
             let formatter = NSDateFormatter()
-            
-            
+
+
             formatter.dateFormat = "EE" // "Fri"
             dayString = formatter.stringFromDate(self)
-            
+
             formatter.dateFormat = "MMM" // "Jan"
             monthString = formatter.stringFromDate(self)
-            
+
             formatter.dateFormat = "d"
             dayNumberString = formatter.stringFromDate(self)
-            
+
             fullDateString = "\(dayString) \(monthString) \(dayNumberString)"
             return fullDateString
         }
@@ -323,40 +353,40 @@ extension NSDate {
     var month: Int {
         return self.dateComponents.month
     }
-    
+
     var day: Int {
         return self.dateComponents.day
     }
-    
+
     var hour: Int {
         return self.dateComponents.hour
     }
-    
+
     var minute: Int {
         return self.dateComponents.minute
     }
-    
+
     var second: Int {
         return self.dateComponents.second
     }
-    
+
     var nanosecond: Int {
         return self.dateComponents.nanosecond
     }
 
-    
-    
+
+
     private var dateComponents: NSDateComponents {
         get {
             let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
             let calendarUnits: NSCalendarUnit = (NSCalendarUnit.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond)
-            
-            
+
+
             let dateComponents = calendar?.components( calendarUnits, fromDate: self)
-            
+
             return dateComponents!
         }
     }
-    
-    
+
+
 }

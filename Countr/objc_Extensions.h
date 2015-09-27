@@ -8,3 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+
+@interface UIViewController (Topmost)
+
++ (UIViewController *)topmost;
+
+@end

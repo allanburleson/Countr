@@ -11,6 +11,29 @@
 #import <objc/runtime.h>
 
 
+/**
+ UIViewController extension to save topmost ViewController
+ */
+
+static UIViewController *topmostViewController;
+
+@implementation UIViewController (Topmost)
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    if ([self isKindOfClass:[LKMainViewController class]] || [self isKindOfClass:[LKItemDetailViewController class]] || [self isKindOfClass:[LKInfoViewController class]] || [self isKindOfClass:[LKEditItemPropertiesViewController class]] || [self isKindOfClass:[LKPurchasePremiumViewController class]] ) {
+        topmostViewController = self;
+    }
+    
+}
+
++ (UIViewController *)topmost {
+    return topmostViewController;
+}
+
+@end
+
+
 /*
  Returns the UIInterfaceOrientation masks foe each ViewController
  */

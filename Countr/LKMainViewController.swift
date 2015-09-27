@@ -23,6 +23,11 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
         super.loadView()
         self.title = "Countr"
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "didTap")
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "didLongPress")
+        (self.addButton.valueForKey("view") as! UIView).addGestureRecognizer(tapGestureRecognizer)
+        (self.addButton.valueForKey("view") as! UIView).addGestureRecognizer(longPressGestureRecognizer)
+        
         self.navigationController?.navigationBar.setDarkAttributes()
         
         self.view.backgroundColor = UIColor.backgroundColor()
@@ -51,6 +56,38 @@ class LKMainViewController: UIViewController, ADBannerViewDelegate {
             //println("collectionView.bounds: \(self.collectionViewController?.collectionView?.bounds)")
         }
     }
+    
+    // MARK: Add Button
+    
+    func didTap() {
+        createNewCountdownItem()
+    }
+    
+    func didLongPress() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let createCountdownAction = UIAlertAction(title: "New Countdown", style: .Default) { (action) in
+            self.createNewCountdownItem()
+        }
+        
+        let createCountdownItemFromCalendarEventAction = UIAlertAction(title: "New Countdown from calendar", style: .Default) { (action) in
+            UIAlertController.alert("Countdown from calendar")
+        }
+        
+        alertController.addActions([createCountdownAction, createCountdownItemFromCalendarEventAction])
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func createNewCountdownItem() {
+        let newItemViewController: LKEditItemPropertiesViewController = self.storyboard?.instantiateViewControllerWithIdentifier("me.countr.editItemViewController") as! LKEditItemPropertiesViewController
+        
+        let navigationController = UINavigationController(rootViewController: newItemViewController)
+        
+        self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    // MARK: ADBannerView
     
     func adjustViewForAdBannerVisible(visible: Bool) {
 
