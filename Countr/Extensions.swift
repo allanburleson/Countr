@@ -159,7 +159,7 @@ extension Int {
 
     Example: ``5.toStringWithNumberOfLeadingDigits(2)`` would be 05
 
-    :param: leadingDigits An Int representing the number of leading integers you wish to be added
+    - parameter leadingDigits: An Int representing the number of leading integers you wish to be added
     */
     func toStringWithNumberOfLeadingDigits(leadingDigits: Int) -> String? {
         let numberFormatter = NSNumberFormatter()
@@ -204,12 +204,12 @@ extension UIColor {
         var alpha: CGFloat = 1.0
 
         if rgba.hasPrefix("#") {
-            let index   = advance(rgba.startIndex, 1)
+            let index   = rgba.startIndex.advancedBy(1)
             let hex     = rgba.substringFromIndex(index)
             let scanner = NSScanner(string: hex)
             var hexValue: CUnsignedLongLong = 0
             if scanner.scanHexLongLong(&hexValue) {
-                switch (count(hex)) {
+                switch (hex.characters.count) {
                 case 3:
                     red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
                     green = CGFloat((hexValue & 0x0F0) >> 4)       / 15.0
@@ -229,13 +229,13 @@ extension UIColor {
                     blue  = CGFloat((hexValue & 0x0000FF00) >> 8)  / 255.0
                     alpha = CGFloat(hexValue & 0x000000FF)         / 255.0
                 default:
-                    print("Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8")
+                    print("Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8", terminator: "")
                 }
             } else {
-                println("Scan hex error")
+                print("Scan hex error")
             }
         } else {
-            print("Invalid RGB string, missing '#' as prefix")
+            print("Invalid RGB string, missing '#' as prefix", terminator: "")
         }
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }
@@ -301,7 +301,7 @@ extension NSDate {
 
     var isToday: Bool {
         let calendar = NSCalendar.currentCalendar()
-        let unitFlags: NSCalendarUnit =  .CalendarUnitEra | .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay
+        let unitFlags: NSCalendarUnit =  [.Era, .Year, .Month, .Day]
         var dateComponents = calendar.components(unitFlags, fromDate: NSDate())
         let today = calendar.dateFromComponents(dateComponents)!
         dateComponents = calendar.components(unitFlags, fromDate: self)
@@ -343,7 +343,7 @@ extension NSDate {
 
     var dayInYear: Int {
         get {
-            return NSCalendar.currentCalendar().ordinalityOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitYear, forDate: self)
+            return NSCalendar.currentCalendar().ordinalityOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Year, forDate: self)
         }
     }
 
@@ -379,7 +379,7 @@ extension NSDate {
     private var dateComponents: NSDateComponents {
         get {
             let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-            let calendarUnits: NSCalendarUnit = (NSCalendarUnit.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond)
+            let calendarUnits: NSCalendarUnit = ([NSCalendarUnit.Year, .Month, .Day, .Hour, .Minute, .Second])
 
 
             let dateComponents = calendar?.components( calendarUnits, fromDate: self)

@@ -33,7 +33,7 @@ class LKRoundBorderedButton: UIButton {
         }
     }
     
-    @IBInspectable override var tintColor: UIColor? {
+    @IBInspectable override var tintColor: UIColor! {
         didSet {
             super.tintColor = self.tintColor
             self.setTitleColor(self.tintColor, forState: .Normal)
@@ -62,7 +62,7 @@ class LKRoundBorderedButton: UIButton {
         commonInit()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         commonInit()

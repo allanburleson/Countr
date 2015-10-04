@@ -194,7 +194,7 @@ class LKMainCollectionViewController: UICollectionViewController, UICollectionVi
             //println("visiblecells: \(visible)")
             for object in visible {
                 //println("in the for loop")
-                let indexPath: NSIndexPath = object as! NSIndexPath
+                let indexPath: NSIndexPath = object 
                 //println("Will update item \(indexPath.item) in section: \(indexPath.section)")
                 let cell = self.collectionView?.cellForItemAtIndexPath(indexPath)
                 //println("cell.tag: \(cell?.tag)")

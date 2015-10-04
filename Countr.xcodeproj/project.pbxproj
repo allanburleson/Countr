@@ -67,15 +67,15 @@
 		5DB5E5BA1B1B2A0400CB3786 /* LKAcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5E5B91B1B2A0400CB3786 /* LKAcknowledgementsViewController.swift */; };
 		5DB5E5BC1B1B548400CB3786 /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5E5BB1B1B548400CB3786 /* Pods-acknowledgements.plist */; };
 		5DB5E5BD1B1B54F500CB3786 /* LKAcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5E5B91B1B2A0400CB3786 /* LKAcknowledgementsViewController.swift */; };
+		5DCA47281BC16AB600711C46 /* Countr WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5DE1A44D1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5DCA472B1BC16AB600711C46 /* Countr WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5DE1A45C1AC6E2BF005BF8D4 /* Countr WatchKit App.app */; };
 		5DE0732E1A79394500A1071E /* CWStatusBarNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0732D1A79394500A1071E /* CWStatusBarNotification.swift */; };
 		5DE1A4531AC6E2BF005BF8D4 /* MainTableInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4521AC6E2BF005BF8D4 /* MainTableInterfaceController.swift */; };
 		5DE1A4551AC6E2BF005BF8D4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4541AC6E2BF005BF8D4 /* NotificationController.swift */; };
 		5DE1A4571AC6E2BF005BF8D4 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1A4561AC6E2BF005BF8D4 /* GlanceController.swift */; };
 		5DE1A4591AC6E2BF005BF8D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE1A4581AC6E2BF005BF8D4 /* Images.xcassets */; };
-		5DE1A45D1AC6E2BF005BF8D4 /* Countr WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 5DE1A45C1AC6E2BF005BF8D4 /* Countr WatchKit App.app */; };
 		5DE1A4651AC6E2BF005BF8D4 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE1A4631AC6E2BF005BF8D4 /* Interface.storyboard */; };
 		5DE1A4671AC6E2BF005BF8D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE1A4661AC6E2BF005BF8D4 /* Images.xcassets */; };
-		5DE1A46A1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5DE1A44D1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5DE1A4721AC6E38D005BF8D4 /* LKSharedExtensionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52D6CB1ABD86D70081F0D8 /* LKSharedExtensionDataManager.swift */; };
 		5DE1A4731AC6E391005BF8D4 /* LKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D57D4991A48219E0030EF9C /* LKModel.swift */; };
 		5DE1A4751AC6E3B1005BF8D4 /* LKPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE435E41A7D250D0034327A /* LKPurchaseManager.swift */; };
@@ -109,19 +109,19 @@
 			remoteGlobalIDString = 5DAA33881A2B19EB006DDB65;
 			remoteInfo = Countr;
 		};
-		5DE1A45E1AC6E2BF005BF8D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5DAA33811A2B19EB006DDB65 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5DE1A45B1AC6E2BF005BF8D4;
-			remoteInfo = "Countr WatchKit App";
-		};
-		5DE1A4681AC6E2BF005BF8D4 /* PBXContainerItemProxy */ = {
+		5DCA47261BC16AB600711C46 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5DAA33811A2B19EB006DDB65 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5DE1A44C1AC6E2BF005BF8D4;
 			remoteInfo = "Countr WatchKit Extension";
+		};
+		5DCA47291BC16AB600711C46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DAA33811A2B19EB006DDB65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DE1A45B1AC6E2BF005BF8D4;
+			remoteInfo = "Countr WatchKit App";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -132,10 +132,31 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				5DE1A46A1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex in Embed App Extensions */,
 				5D3388671A6AB63F0068C37C /* TodayExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DCA472C1BC16AB800711C46 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5DCA47281BC16AB600711C46 /* Countr WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DCA472D1BC16AB800711C46 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5DCA472B1BC16AB600711C46 /* Countr WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -536,12 +557,13 @@
 				5D33886B1A6AB6400068C37C /* Embed App Extensions */,
 				1036446A50168306062A5590 /* Copy Pods Resources */,
 				5D35E9711AF3EA4200335A13 /* Crashlytics */,
+				5DCA472D1BC16AB800711C46 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				5D3388661A6AB63F0068C37C /* PBXTargetDependency */,
-				5DE1A4691AC6E2BF005BF8D4 /* PBXTargetDependency */,
+				5DCA472A1BC16AB600711C46 /* PBXTargetDependency */,
 			);
 			name = Countr;
 			productName = Countr;
@@ -577,27 +599,28 @@
 			buildRules = (
 			);
 			dependencies = (
-				5DE1A45F1AC6E2BF005BF8D4 /* PBXTargetDependency */,
 			);
 			name = "Countr WatchKit Extension";
 			productName = "Countr WatchKit Extension";
 			productReference = 5DE1A44D1AC6E2BF005BF8D4 /* Countr WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit-extension";
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		5DE1A45B1AC6E2BF005BF8D4 /* Countr WatchKit App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DE1A46B1AC6E2C0005BF8D4 /* Build configuration list for PBXNativeTarget "Countr WatchKit App" */;
 			buildPhases = (
 				5DE1A45A1AC6E2BF005BF8D4 /* Resources */,
+				5DCA472C1BC16AB800711C46 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5DCA47271BC16AB600711C46 /* PBXTargetDependency */,
 			);
 			name = "Countr WatchKit App";
 			productName = "Countr WatchKit App";
 			productReference = 5DE1A45C1AC6E2BF005BF8D4 /* Countr WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp";
+			productType = "com.apple.product-type.application.watchapp2";
 		};
 /* End PBXNativeTarget section */
 
@@ -605,7 +628,9 @@
 		5DAA33811A2B19EB006DDB65 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Lukas Kollmer";
 				TargetAttributes = {
 					5D3388591A6AB63F0068C37C = {
@@ -724,7 +749,6 @@
 			files = (
 				5DE1A4591AC6E2BF005BF8D4 /* Images.xcassets in Resources */,
 				5DB05DCD1ACFE91E00E11144 /* settings.plist in Resources */,
-				5DE1A45D1AC6E2BF005BF8D4 /* Countr WatchKit App.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,15 +936,15 @@
 			target = 5DAA33881A2B19EB006DDB65 /* Countr */;
 			targetProxy = 5DAA33A21A2B19EB006DDB65 /* PBXContainerItemProxy */;
 		};
-		5DE1A45F1AC6E2BF005BF8D4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5DE1A45B1AC6E2BF005BF8D4 /* Countr WatchKit App */;
-			targetProxy = 5DE1A45E1AC6E2BF005BF8D4 /* PBXContainerItemProxy */;
-		};
-		5DE1A4691AC6E2BF005BF8D4 /* PBXTargetDependency */ = {
+		5DCA47271BC16AB600711C46 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5DE1A44C1AC6E2BF005BF8D4 /* Countr WatchKit Extension */;
-			targetProxy = 5DE1A4681AC6E2BF005BF8D4 /* PBXContainerItemProxy */;
+			targetProxy = 5DCA47261BC16AB600711C46 /* PBXContainerItemProxy */;
+		};
+		5DCA472A1BC16AB600711C46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DE1A45B1AC6E2BF005BF8D4 /* Countr WatchKit App */;
+			targetProxy = 5DCA47291BC16AB600711C46 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -978,6 +1002,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "WL6ZJ4C8V3.me.kollmer.Countr.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -998,6 +1023,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "WL6ZJ4C8V3.me.kollmer.Countr.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -1025,6 +1051,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1102,6 +1129,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "WL6ZJ4C8V3.me.kollmer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
@@ -1130,6 +1158,7 @@
 				INFOPLIST_FILE = Countr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WL6ZJ4C8V3.me.kollmer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
@@ -1153,6 +1182,7 @@
 				);
 				INFOPLIST_FILE = CountrTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WL6ZJ4C8V3.LukasKollmer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Countr.app/Countr";
@@ -1170,6 +1200,7 @@
 				);
 				INFOPLIST_FILE = CountrTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WL6ZJ4C8V3.LukasKollmer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Countr.app/Countr";
@@ -1181,17 +1212,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				IBSC_MODULE = Countr_WatchKit_Extension;
 				INFOPLIST_FILE = "Countr WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = WL6ZJ4C8V3.me.kollmer.Countr.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1201,13 +1234,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Countr_WatchKit_Extension;
 				INFOPLIST_FILE = "Countr WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = WL6ZJ4C8V3.me.kollmer.Countr.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1225,10 +1260,14 @@
 				INFOPLIST_FILE = "Countr WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WL6ZJ4C8V3.me.kollmer.Countr.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1243,10 +1282,14 @@
 				INFOPLIST_FILE = "Countr WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WL6ZJ4C8V3.me.kollmer.Countr.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Countr/Countr-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};

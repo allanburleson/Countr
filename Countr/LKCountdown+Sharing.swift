@@ -20,8 +20,8 @@ extension LKCountdownManager {
     /**
     Share a countdownItem
 
-    :param: item The LKCountdownItem to be shared
-    :param: sender The ViewController to present the share sheet from. If this parameter is nil, the sender has to present the share sheet
+    - parameter item: The LKCountdownItem to be shared
+    - parameter sender: The ViewController to present the share sheet from. If this parameter is nil, the sender has to present the share sheet
     */
     func shareCountdownItem(item: LKCountdownItem, sender: AnyObject?, presentingViewController: UIViewController?) -> (shareURL: NSURL, shareHTMLBody: String) {
         // Create the share string
@@ -82,7 +82,7 @@ internal let LKActivityTypeAddToCalendar = "me.kollmer.countr.share.customActivi
 class LKCountdownSharingActivityAddToCalendarTimeRemaininigTextItemProvider: UIActivityItemProvider {
 
     override func item() -> AnyObject! {
-        println("item::timeremainingi")
+        print("item::timeremainingi")
         if activityType != LKActivityTypeAddToCalendar {
             return placeholderItem
         } else {
@@ -94,7 +94,7 @@ class LKCountdownSharingActivityAddToCalendarTimeRemaininigTextItemProvider: UIA
 class LKCountdownSharingActivityAddToCalendarDateItemProvider: UIActivityItemProvider {
 
     override func item() -> AnyObject! {
-        println("item::date")
+        print("item::date")
         if activityType == LKActivityTypeAddToCalendar {
             return placeholderItem
         } else {
@@ -122,21 +122,21 @@ class LKCountdownSharingActivityAddToCalendar: UIActivity {
     }
 
     override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
-        println("canPerform::activityItems: \(activityItems)")
+        print("canPerform::activityItems: \(activityItems)")
         return true
     }
 
 
     override func prepareWithActivityItems(activityItems: [AnyObject]) {
-        println("prepare::activityItems: \(activityItems)")
+        print("prepare::activityItems: \(activityItems)")
         self.activityItems = activityItems
     }
 
     override func performActivity() {
         let eventStore = EKEventStore()
-        eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion: { (granted: Bool, error: NSError!) -> Void in
+        eventStore.requestAccessToEntityType(EKEntityType.Event, completion: { (granted: Bool, error: NSError!) -> Void in
             if !granted {
-                println("no access to cal!!!!!!") // TODO: Show error/notification
+                print("no access to cal!!!!!!") // TODO: Show error/notification
                 //let topViewController = (UIApplication.sharedApplication().keyWindow!.rootViewController as! UINavigationController).topViewController
                 let topmostViewController = UIViewController.topmost()
                 let alertContoller = UIAlertController(title: "Error", message: "You need to allow Countr to access your calendar. You can change this in settings", preferredStyle: .Alert)
@@ -152,7 +152,7 @@ class LKCountdownSharingActivityAddToCalendar: UIActivity {
                 alertContoller.addActions([openSettingsAction, cancelAction])
 
                 topmostViewController.presentViewController(alertContoller, animated: true, completion: nil)
-                println("topViewController: \(topmostViewController)")
+                print("topViewController: \(topmostViewController)")
             }
 
             var title: String!
@@ -173,9 +173,9 @@ class LKCountdownSharingActivityAddToCalendar: UIActivity {
                 }
             }
 
-            println("performActivity::title: \(title)")
-            println("performActivity::date: \(date)")
-            println("performActivity::url: \(url)")
+            print("performActivity::title: \(title)")
+            print("performActivity::date: \(date)")
+            print("performActivity::url: \(url)")
 
             let event = EKEvent(eventStore: eventStore)
             event.title = title
@@ -197,10 +197,16 @@ class LKCountdownSharingActivityAddToCalendar: UIActivity {
             event.URL = url // TODO: Would it be better to set the url in the notes section with some text (Saved with Countr. Tap [this link](countr://add...) to add the item to countr)
 
             var error: NSErrorPointer = nil
-            eventStore.saveEvent(event, span: EKSpanThisEvent, commit: true, error: error)
+            do {
+                try eventStore.saveEvent(event, span: EKSpanThisEvent, commit: true)
+            } catch var error1 as NSError {
+                error.memory = error1
+            } catch {
+                fatalError()
+            }
 
             if (error != nil) {
-                println("error saving the event: \(error)")
+                print("error saving the event: \(error)")
             }
         })
     }

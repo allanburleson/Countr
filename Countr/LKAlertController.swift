@@ -15,11 +15,11 @@ class LKAlertController: UIAlertController {
     /**
     Create a new instance if LKAlertController
     
-    :param: title The string used as title for the action sheet
+    - parameter title: The string used as title for the action sheet
     
-    :param: message The string used as message in the action sheet
+    - parameter message: The string used as message in the action sheet
     
-    :returns: An instance of LKAlertController which is configured to use the title and message as input that were given via the parameters
+    - returns: An instance of LKAlertController which is configured to use the title and message as input that were given via the parameters
     */
     class func actionSheetWithTitle(title: String, message: String) -> LKAlertController {
         let alertController = LKAlertController(title: title, message: message, preferredStyle: .ActionSheet)

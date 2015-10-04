@@ -96,7 +96,7 @@ class LKSettingsManager {
     /**
     Load the settings configuration
     
-    :returns: The Apps settings configutation
+    - returns: The Apps settings configutation
     */
     private func loadSettingsConfigurationRawDataFromFile() -> LKSettingsConfiguration {
         
@@ -122,12 +122,16 @@ class LKSettingsManager {
     private func copyRessourceFileToDocumentdDirectory() {
         // Copy the plist file containinf the data for the extension
         
-        var error: NSErrorPointer = nil
+        let error: NSErrorPointer = nil
         
         
         if !NSFileManager.defaultManager().fileExistsAtPath(filePathForSharedContainer) {
-            //println("file dies not exist, copy")
-            NSFileManager.defaultManager().copyItemAtPath(localFilePath, toPath:filePathForSharedContainer, error: error)
+            do {
+                //println("file dies not exist, copy")
+                try NSFileManager.defaultManager().copyItemAtPath(localFilePath, toPath:filePathForSharedContainer)
+            } catch let error1 as NSError {
+                error.memory = error1
+            }
             
             //println("did copy file. error: \(error.debugDescription)")
         }

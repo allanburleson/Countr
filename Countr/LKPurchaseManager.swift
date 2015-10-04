@@ -74,18 +74,18 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     }
     
     private func makePurchase(product: SKProduct) {
-        var payment = SKPayment(product: product)
+        let payment = SKPayment(product: product)
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         SKPaymentQueue.defaultQueue().addPayment(payment)
     }
     
     
-    internal func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
+    internal func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
         
         //println("got the request from Apple")
-        var count : Int = response.products.count
+        let count : Int = response.products.count
         if (count>0) {
-            var product: SKProduct = response.products[0] as! SKProduct
+            let product: SKProduct = response.products[0] 
             if (product.productIdentifier == self.productIdentifier){
                 //println("recived product: \(product)")
                 self.recivedProduct = []
@@ -97,7 +97,7 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
         }
     }
     
-    internal func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
+    internal func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         //println("Received Payment Transaction Response from Apple")
         //println("transactions: \(transactions)")
         for transaction:AnyObject in transactions {
@@ -123,13 +123,13 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
         }
     }
     
-    internal func paymentQueue(queue: SKPaymentQueue!, restoreCompletedTransactionsFailedWithError error: NSError!) {
+    internal func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError) {
         //println("paymentQueue:restoreCompletedTransactionsFailedWithError")
         //println("error: \(error)")
         //println("localizedDescription: \(error.localizedDescription)")
     }
     
-    internal func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue!) {
+    internal func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue) {
         //println("paymentQueueRestoreCompletedTransactionsFinished")
         self.didFinishPurchaseWithStatus(.Restored)
     }

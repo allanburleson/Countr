@@ -54,7 +54,7 @@ class LKCountdownManager: NSObject {
     /**
     The number of countdown items
 
-    :returns: The number of items as an Int object
+    - returns: The number of items as an Int object
     */
     var numberOfItems: Int {
         get {
@@ -65,7 +65,7 @@ class LKCountdownManager: NSObject {
     /**
     Indicates if the user currently can add new countdown items
 
-    :returns: A bool indicating if the user can add new countdwown items
+    - returns: A bool indicating if the user can add new countdwown items
 
 
     */
@@ -96,7 +96,7 @@ class LKCountdownManager: NSObject {
     /**
     All countdown items
 
-    :returns: An Array of LKCountdownItem objects
+    - returns: An Array of LKCountdownItem objects
 
     */
     func items() -> [LKCountdownItem]! {
@@ -122,8 +122,8 @@ class LKCountdownManager: NSObject {
     /**
     Get the countdown item with the provided id
 
-    :param: itemID The UUID of the item you want to recive (As String)
-    :returns: The countdownItem with the provided id
+    - parameter itemID: The UUID of the item you want to recive (As String)
+    - returns: The countdownItem with the provided id
     */
     func itemWithID(itemID: String) -> LKCountdownItem? {
         for item in self.items() {
@@ -176,7 +176,7 @@ class LKCountdownManager: NSObject {
     /**
     Update the remaining time property of the countown item at a certain indexPath
 
-    :param: item The item var of the items indexPath
+    - parameter item: The item var of the items indexPath
     */
     func updateCellAtItem(item: Int) {
         self.items()[item].updateTimeRemaining()
@@ -185,9 +185,9 @@ class LKCountdownManager: NSObject {
     /**
     Save a new countdown item
 
-    :param: item The item to be saved
-    :param: countdownMode The Mode of the item (either Date or DateAndTime)
-    :param: completionHandler A closure which is executed when the item was sucessfully saved
+    - parameter item: The item to be saved
+    - parameter countdownMode: The Mode of the item (either Date or DateAndTime)
+    - parameter completionHandler: A closure which is executed when the item was sucessfully saved
     */
     func saveNewCountdownItem(item: LKCountdownItem, completionHandler: (() -> Void)?) {
 
@@ -202,8 +202,8 @@ class LKCountdownManager: NSObject {
     /**
     Update an countdownItem in the data stack
 
-    :param: oldItem The countdownItem you wish to update
-    :param: newItem The updated countdownItem
+    - parameter oldItem: The countdownItem you wish to update
+    - parameter newItem: The updated countdownItem
     */
     func updateCountdownItem(oldItem: LKCountdownItem, withCountdownItem newItem: LKCountdownItem) {
         self.model.updateItem(oldItem, withItem: newItem) {
@@ -214,7 +214,7 @@ class LKCountdownManager: NSObject {
     /**
     Delete a countdown item
 
-    :param: item The item to be deleted
+    - parameter item: The item to be deleted
     */
     func deleteCountdownItem(item: LKCountdownItem) {
         self.model.deleteItem(item)
@@ -229,7 +229,7 @@ class LKCountdownManager: NSObject {
     /**
     Delete all countdown items
 
-    :param: completionHandler A closure which is executed when all items were sucessfully deleted
+    - parameter completionHandler: A closure which is executed when all items were sucessfully deleted
     */
     func deleteAllItems(completionHandler: (success: Bool) -> ()) {
         self.model.deleteAllItems(completionHandler: completionHandler)
@@ -284,7 +284,7 @@ public struct TimeRemaining {
 /**
 A countdown item
 */
-class LKCountdownItem: NSObject, Printable {
+class LKCountdownItem: NSObject, CustomStringConvertible {
 
     let title: String!
     let date: NSDate!
@@ -315,9 +315,9 @@ class LKCountdownItem: NSObject, Printable {
     */
     var shareDescription: String {
         var shareString = ""
-        var onlyString   = NSLocalizedString("me.kollmer.countr.shareItemShareSheet.only", comment: "")
-        var sinceString  = NSLocalizedString("me.kollmer.countr.shareItemShareSheet.since", comment: "")
-        var leftToString = NSLocalizedString("me.kollmer.countr.shareItemShareSheet.leftTo", comment: "")
+        let onlyString   = NSLocalizedString("me.kollmer.countr.shareItemShareSheet.only", comment: "")
+        let sinceString  = NSLocalizedString("me.kollmer.countr.shareItemShareSheet.since", comment: "")
+        let leftToString = NSLocalizedString("me.kollmer.countr.shareItemShareSheet.leftTo", comment: "")
 
         if !self.date.isPast {
             shareString += "\(onlyString) "
@@ -342,14 +342,14 @@ class LKCountdownItem: NSObject, Printable {
     /**
     Create a new Countdown Item manually
 
-    :param: name The title of the item
-    :param: date The date to which the item counts
-    :param: mode The countdown mode (either Date or DateAndTime)
-    :param: id default the UUID of th eitem. Can be omitted when creating new countdown items. Only used in today extension
+    - parameter name: The title of the item
+    - parameter date: The date to which the item counts
+    - parameter mode: The countdown mode (either Date or DateAndTime)
+    - parameter id: default the UUID of th eitem. Can be omitted when creating new countdown items. Only used in today extension
     */
     init(title: String, date: NSDate, mode: LKCountdownMode, id: NSUUID = NSUUID()) {
         self.title = title
-        self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: nil) as NSDate!
+        self.date = NSCalendar.currentCalendar().dateBySettingHour(date.hour, minute: date.minute, second: 00, ofDate: date, options: []) as NSDate!
         //self.date = date
         //println("uuid used for saving: \(uuid)")
         self.id = id.UUIDString
@@ -360,7 +360,7 @@ class LKCountdownItem: NSObject, Printable {
     /**
     Create a new countdown item from an NSManagedObject
 
-    :param: object The NSManagedObject to use when the item is created
+    - parameter object: The NSManagedObject to use when the item is created
     */
     init(object: NSManagedObject) {
         self.title = object.valueForKey(coreDataTitleKey) as! String
@@ -380,8 +380,8 @@ class LKCountdownItem: NSObject, Printable {
 
         let calendar = NSCalendar.currentCalendar()
 
-        let unitFlags = NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond
-        let components: NSDateComponents = calendar.components(unitFlags, fromDate: NSDate(), toDate: self.date, options: nil)
+        let unitFlags: NSCalendarUnit = [NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second]
+        let components: NSDateComponents = calendar.components(unitFlags, fromDate: NSDate(), toDate: self.date, options: [])
 
 
         self.remaining.days = components.day
@@ -416,7 +416,7 @@ extension LKCountdownItem {
     /**
     Compare two countdown items
 
-    :param: item The countdown item to compare the current item with
+    - parameter item: The countdown item to compare the current item with
     */
     func isEqualToCountdownItem(item: LKCountdownItem) -> Bool {
         return self.id == item.id
@@ -428,7 +428,7 @@ extension LKCountdownMode {
     /**
     Init a new LKCountdownMode object from a string
 
-    :param: string The String to be used for creating the LKCountdownMode object
+    - parameter string: The String to be used for creating the LKCountdownMode object
     */
     init(string: String) {
         if string == coreDataKindDateKey {
@@ -447,7 +447,7 @@ extension LKCountdownMode {
     /**
     Get a string representation of the countdown mode
 
-    :returns: A string object describing the Countdown mode
+    - returns: A string object describing the Countdown mode
     */
     func toString() -> String {
         switch self {

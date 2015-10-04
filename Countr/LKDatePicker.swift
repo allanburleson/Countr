@@ -84,7 +84,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         commonInit()
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         //fatalError("init(coder:) has not been implemented")
         super.init(coder: aDecoder)
         
@@ -106,7 +106,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
     private func setSelectedRows() {
-        let dateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitHour|NSCalendarUnit.CalendarUnitMinute, fromDate: NSDate())
+        let dateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.Hour, NSCalendarUnit.Minute], fromDate: NSDate())
         
         if UIDevice.currentDevice().is12HourFormat && dateComponents.hour > 12 {
             dateComponents.hour -= 12 //T His code works fine
@@ -173,7 +173,7 @@ class LKDatePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
     
-    internal func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
+    internal func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         let label = UILabel()
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
@@ -265,7 +265,7 @@ private class LKPickerData {
             Example: It is Jan 30 2015. The user scrolls back 365 rows and selects Jan 30, the date object created for that row has still set 2015 as the date. Same for selecting a december date in january
         */
         for index in -365...365 {
-            let _date: NSDate = _calendar.dateByAddingUnit(.CalendarUnitDay, value: index, toDate: _refDate, options: nil)!
+            let _date: NSDate = _calendar.dateByAddingUnit(.Day, value: index, toDate: _refDate, options: [])!
             descriptiveDatesRawData.append(_date)
         }
 

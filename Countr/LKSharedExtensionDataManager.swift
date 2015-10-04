@@ -55,7 +55,7 @@ class LKSharedExtensionDataManager {
     /**
     The file path for the extension data file in the applications shared container
     
-    :returns: A String representing the file Path
+    - returns: A String representing the file Path
     */
     private func filePathForSharedContainer() -> String {
         let fileManager = NSFileManager.defaultManager()
@@ -69,7 +69,7 @@ class LKSharedExtensionDataManager {
     /**
     The file path for the extension data file in the applications main bundle
     
-    :returns: A String representing the file Path
+    - returns: A String representing the file Path
     */
     private func filePathForApplicationBundle() -> String {
         return NSBundle.mainBundle().pathForResource("extensionData", ofType: "plist")!
@@ -84,9 +84,9 @@ class LKSharedExtensionDataManager {
     /**
     Load the countdown data for the extension
     
-    :param: type A value of LKExtensionType representing the extension requesting the items
+    - parameter type: A value of LKExtensionType representing the extension requesting the items
     
-    :returns: An Array containing either 0-3 items (for today extension), two items (for watch glance) or all items (for watch app)
+    - returns: An Array containing either 0-3 items (for today extension), two items (for watch glance) or all items (for watch app)
     */
     func loadCountdownItemsForExtensionWithType(type: LKExtensionType) -> [LKCountdownItem] {
         
@@ -129,9 +129,9 @@ class LKSharedExtensionDataManager {
         if type == .WatchApp {
             switch LKSettingsManager.sharedInstance.sortingStyle {
             case .Date:
-                return countdownItems.sorted {$0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow}
+                return countdownItems.sort {$0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow}
             case .Title:
-                return countdownItems.sorted {$0.title.localizedCaseInsensitiveCompare($1.title) == NSComparisonResult.OrderedAscending}
+                return countdownItems.sort {$0.title.localizedCaseInsensitiveCompare($1.title) == NSComparisonResult.OrderedAscending}
             }
         }
         
@@ -142,7 +142,7 @@ class LKSharedExtensionDataManager {
     /**
     Save the countdown items used in the extension
     
-    :param: items An Array containing the items that should be saved
+    - parameter items: An Array containing the items that should be saved
     */
     func saveCountdownItemsToExtension(items: [LKCountdownItem]) {
         var itemsForExtension: [LKCountdownItem] = []
@@ -170,7 +170,7 @@ class LKSharedExtensionDataManager {
     /**
     Read the extension data from the file
     
-    :returns: An object of type LKExtensionData which is an array containing multiple dictionaries containg the items
+    - returns: An object of type LKExtensionData which is an array containing multiple dictionaries containg the items
     */
     private func loadDataFromExtensionDataFile() -> LKExtensionData {
         let _arrayBridgedToNSArray: NSArray = NSArray(contentsOfFile: filePathForSharedContainer())!
@@ -183,7 +183,7 @@ class LKSharedExtensionDataManager {
     /**
     Save the extension data to the file
     
-    :param: data An object of type LKExtensionData which is an array containing multiple dictionaries containg the items
+    - parameter data: An object of type LKExtensionData which is an array containing multiple dictionaries containg the items
     */
     private func saveDataToExtensionDataFile(data: LKExtensionData) {
 
@@ -207,11 +207,15 @@ class LKSharedExtensionDataManager {
     private func copyRessourceFileToDocumentdDirectory() {
         // Copy the plist file containinf the data for the extension
         
-        var error: NSErrorPointer = nil
+        let error: NSErrorPointer = nil
         
         if !NSFileManager.defaultManager().fileExistsAtPath(filePathForSharedContainer()) {
-            //println("file dies not exist, copy")
-            NSFileManager.defaultManager().copyItemAtPath(filePathForApplicationBundle(), toPath:filePathForSharedContainer(), error: error)
+            do {
+                //println("file dies not exist, copy")
+                try NSFileManager.defaultManager().copyItemAtPath(filePathForApplicationBundle(), toPath:filePathForSharedContainer())
+            } catch let error1 as NSError {
+                error.memory = error1
+            }
             
             //println("did copy file. error: \(error.debugDescription)")
         }

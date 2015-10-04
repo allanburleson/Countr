@@ -43,7 +43,7 @@ class CountrTests: XCTestCase {
             dateComponents.day = 1
             
             for index in 1...1001 {
-                let _date = calendar.dateByAddingUnit(.CalendarUnitDay, value: -index, toDate: NSDate(), options: nil)!
+                let _date = calendar.dateByAddingUnit(.Day, value: -index, toDate: NSDate(), options: [])!
                 dates.append(_date)
             }
         }
@@ -56,15 +56,15 @@ class CountrTests: XCTestCase {
         
         let items: [LKCountdownItem] = [testItemOne, testItemTwo, testItemThree]
         
-        var extensionDataManager = LKSharedExtensionDataManager()
+        let extensionDataManager = LKSharedExtensionDataManager()
         extensionDataManager.saveCountdownItemsToExtension(items)
         
         let itemsReadByExtension: [LKCountdownItem] = extensionDataManager.loadCountdownItemsForExtensionWithType(.TodayExtension)
-        println("The arrays: saved: \(items), loaded: \(itemsReadByExtension)")
+        print("The arrays: saved: \(items), loaded: \(itemsReadByExtension)")
         
         XCTAssert(items.count == itemsReadByExtension.count, "Items saved are equal to items read")
         for item in itemsReadByExtension {
-            let index: Int = find(itemsReadByExtension, item)!
+            let index: Int = itemsReadByExtension.indexOf(item)!
 
             XCTAssert(items[index].title == itemsReadByExtension[index].title, "name not equal")
             XCTAssert(items[index].date == itemsReadByExtension[index].date, "date not equal")

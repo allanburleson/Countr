@@ -30,7 +30,7 @@ class LKAcknowledgementsViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let indexPath = self.tableView.indexPathForSelectedRow() {
+        if let indexPath = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
@@ -71,7 +71,7 @@ class LKAcknowledgementsViewController: UITableViewController {
             acknowledgements.append(acknowledgement)
         }
         
-        acknowledgements.sort{$0.title.localizedCaseInsensitiveCompare($1.title) == .OrderedAscending}
+        acknowledgements.sortInPlace{$0.title.localizedCaseInsensitiveCompare($1.title) == .OrderedAscending}
         
         
     }
@@ -97,7 +97,7 @@ class LKAcknowledgementsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("did select \(acknowledgements[indexPath.row])")
+        print("did select \(acknowledgements[indexPath.row])")
         
         let acknowledgementViewController = LKAcknowledgementViewController()
         acknowledgementViewController.acknowledgement = acknowledgements[indexPath.row]

@@ -47,7 +47,7 @@ class ScrollLabel : UILabel {
         super.init(frame: CGRectZero)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -57,8 +57,8 @@ class ScrollLabel : UILabel {
     }
     
     func fullWidth() -> CGFloat {
-        var content : NSString = self.text!
-        var size = content.sizeWithAttributes([NSFontAttributeName: self.font])
+        let content : NSString = self.text!
+        let size = content.sizeWithAttributes([NSFontAttributeName: self.font])
         return size.width
     }
     
@@ -67,7 +67,7 @@ class ScrollLabel : UILabel {
             return 0
         }
         
-        var insetRect : CGRect = CGRectInset(self.bounds, PADDING, 0)
+        let insetRect : CGRect = CGRectInset(self.bounds, PADDING, 0)
         return max(0, self.fullWidth() - insetRect.size.width)
     }
     
@@ -87,8 +87,7 @@ class ScrollLabel : UILabel {
             textImage.sizeToFit()
             UIView.animateWithDuration(NSTimeInterval(self.scrollTime() - SCROLL_DELAY),
                 delay: NSTimeInterval(SCROLL_DELAY),
-                options: UIViewAnimationOptions.BeginFromCurrentState |
-                    UIViewAnimationOptions.CurveEaseInOut,
+                options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut],
                 animations: {
                     self.textImage.transform =
                         CGAffineTransformMakeTranslation(-1 *
@@ -125,7 +124,7 @@ func performClosureAfterDelay(seconds : Double, closure: dispatch_block_t?) -> C
     var closureToExecute : dispatch_block_t! = closure // copy?
     var delayHandleCopy : CWDelayedClosureHandle! = nil
     
-    var delayHandle : CWDelayedClosureHandle = {
+    let delayHandle : CWDelayedClosureHandle = {
         (cancel : Bool) -> () in
         if !cancel && closureToExecute != nil {
             dispatch_async(dispatch_get_main_queue(), closureToExecute)
@@ -300,7 +299,7 @@ class CWStatusBarNotification : NSObject {
         self.notificationWindow = CWWindowContainer(frame: UIScreen.mainScreen().bounds)
         self.notificationWindow.backgroundColor = UIColor.clearColor()
         self.notificationWindow.userInteractionEnabled = true
-        self.notificationWindow.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+        self.notificationWindow.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.notificationWindow.windowLevel = UIWindowLevelStatusBar
         self.notificationWindow.rootViewController = UIViewController()
     }
@@ -309,7 +308,7 @@ class CWStatusBarNotification : NSObject {
         self.statusBarView = UIView(frame: self.getNotificationLabelFrame())
         self.statusBarView.clipsToBounds = true
         if self.notificationAnimationType == .Replace {
-            var statusBarImageView : UIView = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(true)
+            let statusBarImageView : UIView = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(true)
             self.statusBarView.addSubview(statusBarImageView)
         }
         self.notificationWindow.rootViewController!.view.addSubview(self.statusBarView)
@@ -388,7 +387,7 @@ class CWStatusBarNotification : NSObject {
                 self.firstFrameChange()
                 }, completion: { (finished : Bool) -> () in
                     var delayInSeconds = Double(self.notificationLabel.scrollTime())
-                    performClosureAfterDelay(delayInSeconds, {
+                    performClosureAfterDelay(delayInSeconds, closure: {
                         if let completion = completion {
                             completion()
                             self.notificationDidDisplayClosure()
@@ -420,7 +419,7 @@ class CWStatusBarNotification : NSObject {
     
     func displayNotificationWithMessage(message: String, duration: Double) {
         self.displayNotificationWithMessage(message, completion: {
-            self.dismissHandle = performClosureAfterDelay(duration, {
+            self.dismissHandle = performClosureAfterDelay(duration, closure: {
                 self.dismissNotification()
                 })
             })

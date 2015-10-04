@@ -62,7 +62,7 @@ class LKItemDetailViewController: UIViewController {
         let buttonTitles = [editButtonTitle, deleteButtonTitle]
         let buttons = [self.editButton!, self.deleteButton!]
         for button in buttons {
-            let index = find(buttons, button)!
+            let index = buttons.indexOf(button)!
             button.setAttributedTitle(NSAttributedString.attributedStringWithString(buttonTitles[index], font: UIFont.systemFontOfSize(15)), forState: .Normal)
         }
 

@@ -114,7 +114,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Dispose of any resources that can be recreated.
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
         // If an error is encountered, use NCUpdateResult.Failed
@@ -204,7 +204,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         // Set the titles
         for item in self.itemsCached {
-            let index = find(self.itemsCached, item)!
+            let index = self.itemsCached.indexOf(item)!
             self.countdownTitleLabels[index].text = item.title
         }
         
@@ -228,7 +228,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         for item in self.itemsCached {
             //println("in the loop")
             item.updateTimeRemaining()
-            let index = find(self.itemsCached, item)!
+            let index = self.itemsCached.indexOf(item)!
             self.countdownRemainingLabels[index].text = item.remaining.asString
         }
         

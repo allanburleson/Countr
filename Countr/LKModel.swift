@@ -90,17 +90,17 @@ class LKModel {
     /**
     Load the countdownItems from the CoreData model
     
-    :param: completionHandler A closure which is executed when all items have been loadad
+    - parameter completionHandler: A closure which is executed when all items have been loadad
     */
-    private func loadData(#completionHandler: (() -> Void)?) {
+    private func loadData(completionHandler completionHandler: (() -> Void)?) {
         
         let managedObjectContext: NSManagedObjectContext = self.managedObjectContext!
         let fetchRequest: NSFetchRequest = NSFetchRequest()
         fetchRequest.returnsObjectsAsFaults = false
         let entity = NSEntityDescription.entityForName(coreDataEnitiyNameKey, inManagedObjectContext: managedObjectContext)
         fetchRequest.entity = entity
-        var error = NSErrorPointer()
-        let fetchedItems: NSArray = managedObjectContext.executeFetchRequest(fetchRequest, error: error)! as NSArray
+        let error = NSErrorPointer()
+        let fetchedItems: NSArray = (try! managedObjectContext.executeFetchRequest(fetchRequest)) as NSArray
         let _rawItems: NSArray = fetchedItems.reverseObjectEnumerator().allObjects
         if (error != nil) {
         } else {
@@ -133,11 +133,11 @@ class LKModel {
     private func sortArray() {
         switch LKSettingsManager.sharedInstance.sortingStyle {
         case .Date:
-            self.items.sort    { $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow}
-            self.rawItems.sort { ($0.valueForKey(coreDataDateKey) as! NSDate).timeIntervalSinceNow < ($1.valueForKey(coreDataDateKey) as! NSDate).timeIntervalSinceNow}
+            self.items.sortInPlace    { $0.date.timeIntervalSinceNow < $1.date.timeIntervalSinceNow}
+            self.rawItems.sortInPlace { ($0.valueForKey(coreDataDateKey) as! NSDate).timeIntervalSinceNow < ($1.valueForKey(coreDataDateKey) as! NSDate).timeIntervalSinceNow}
         case .Title:
-            self.items.sort    { $0.title.localizedCaseInsensitiveCompare($1.title) == NSComparisonResult.OrderedAscending }
-            self.rawItems.sort { ($0.valueForKey(coreDataTitleKey) as! String).localizedCaseInsensitiveCompare(($1.valueForKey(coreDataTitleKey) as! String)) == NSComparisonResult.OrderedAscending}
+            self.items.sortInPlace    { $0.title.localizedCaseInsensitiveCompare($1.title) == NSComparisonResult.OrderedAscending }
+            self.rawItems.sortInPlace { ($0.valueForKey(coreDataTitleKey) as! String).localizedCaseInsensitiveCompare(($1.valueForKey(coreDataTitleKey) as! String)) == NSComparisonResult.OrderedAscending}
         }
     }
     
@@ -151,18 +151,22 @@ class LKModel {
     /**
     Save a new countdown item to the model
     
-    :param: item The countdown item to be saved
+    - parameter item: The countdown item to be saved
     */
     func saveNewItem(item: LKCountdownItem) {
         
         let context = self.managedObjectContext!
-        let object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(coreDataEnitiyNameKey, inManagedObjectContext: context) as! NSManagedObject
+        let object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(coreDataEnitiyNameKey, inManagedObjectContext: context) 
         object.setValue(item.title, forKey: coreDataTitleKey)
         object.setValue(item.date, forKey: coreDataDateKey)
         object.setValue(item.id, forKey: coreDataIdKey)
         object.setValue(item.countdownMode.toString(), forKey: coreDataKindKey)
         let saveError = NSErrorPointer()
-        context.save(saveError)
+        do {
+            try context.save()
+        } catch let error as NSError {
+            saveError.memory = error
+        }
         if !(saveError != nil) {
             //println("locally saved!")
             self.items.append(item)
@@ -194,11 +198,11 @@ class LKModel {
     /**
     Delete a countdown Item
     
-    :param: item The countdown item to be deleted
+    - parameter item: The countdown item to be deleted
     */
     func deleteItem(item: LKCountdownItem) {
         
-        let index: Int = find(self.items, item)!
+        let index: Int = self.items.indexOf(item)!
         
         let _tempItemManagedObject: NSManagedObject = self.rawItems[index] as NSManagedObject
         let _tempItemID: String = _tempItemManagedObject.valueForKey(coreDataIdKey) as! String
@@ -208,16 +212,18 @@ class LKModel {
         
         self.items.removeAtIndex(index)
         self.rawItems.removeAtIndex(index)
-        println("self.managedObjectContext!: \(self.managedObjectContext!)")
-        println("item.managedObject: \(item.managedObject)")
+        print("self.managedObjectContext!: \(self.managedObjectContext!)")
+        print("item.managedObject: \(item.managedObject)")
         self.managedObjectContext!.deleteObject(_tempItemManagedObject)
         
-        var error: NSErrorPointer = NSErrorPointer()
+        let error: NSErrorPointer = NSErrorPointer()
         // Save the object to persistent store
-        if !self.managedObjectContext!.save(error) {
-            //println("Can't delete: \(error), \(error.debugDescription)")
-        } else {
+        do {
+            try self.managedObjectContext!.save()
             //println("Did sucessfully delete the item at index \(index)")
+        } catch let error1 as NSError {
+            error.memory = error1
+            //println("Can't delete: \(error), \(error.debugDescription)")
         }
         
         reloadItems()
@@ -234,19 +240,21 @@ class LKModel {
     /**
     Delete all countdown items currently stored in the CoreData model
     
-    :param: completionHandler A closure which is executed when all items were deleted sucessfully
+    - parameter completionHandler: A closure which is executed when all items were deleted sucessfully
     */
-    func deleteAllItems(#completionHandler: (success: Bool) -> ()) {
+    func deleteAllItems(completionHandler completionHandler: (success: Bool) -> ()) {
         let moc = self.managedObjectContext!
         for object in self.rawItems {
             moc.deleteObject(object)
         }
         let error: NSErrorPointer = NSErrorPointer()
-        if moc.save(error) {
+        do {
+            try moc.save()
             //println("Sucessfully deleted all items")
             modelChangedAction()
             completionHandler(success: true)
-        } else {
+        } catch let error1 as NSError {
+            error.memory = error1
             //println("Error: \(error.debugDescription)")
             completionHandler(success: false)
         }
@@ -260,7 +268,7 @@ class LKModel {
     /**
     The iCloud CoreData settings
     
-    :returns: A Dictionary containing the required options
+    - returns: A Dictionary containing the required options
     */
     private func iCloudPersistentStoreOptions() -> [NSObject : AnyObject] {
         //println("iCloudPersistentStoreOptions")
@@ -278,7 +286,16 @@ class LKModel {
             var error: NSError? = nil
             
             if (context?.hasChanges != nil) {
-                let success: Bool! = context?.save(&error)
+                let success: Bool!
+                do {
+                    try context?.save()
+                    success = true
+                } catch let error1 as NSError {
+                    error = error1
+                    success = false
+                } catch {
+                    fatalError()
+                }
                 
                 if (!success && error != nil) {
                     //println("Error: \(error?.localizedDescription)")
@@ -329,7 +346,7 @@ class LKModel {
     lazy private var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "WL6ZJ4C8V3.me.kollmer.Countr" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] 
         }()
     
     /**
@@ -355,7 +372,10 @@ class LKModel {
         options = self.iCloudPersistentStoreOptions()
         
         //println("did purchase sync: \(LKPurchaseManager.didPurchase), options: \(options)")
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
             // Report any error we got.
             let dict = NSMutableDictionary()
@@ -367,6 +387,8 @@ class LKModel {
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -396,11 +418,16 @@ class LKModel {
         modelChangedAction()
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    abort()
+                }
             }
         }
     }
@@ -426,9 +453,9 @@ extension CKRecord {
     /**
     Create a CKRecord object from a countdown item
     
-    :param: item The Countdown item to be used for creating the record
+    - parameter item: The Countdown item to be used for creating the record
     
-    :returns: A CKRecord created from the passed countdown item
+    - returns: A CKRecord created from the passed countdown item
     */
     class func recordFromCountdownItem(item: LKCountdownItem) -> CKRecord {
         let record = CKRecord(recordType: countdownItemRecordType)

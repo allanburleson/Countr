@@ -137,7 +137,7 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        if let indexPath = self.tableView.indexPathForSelectedRow() {
+        if let indexPath = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
@@ -163,12 +163,12 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
     }
 
     @IBAction func sortBySegmentedControlChanged(sender: UISegmentedControl) {
-        println("sortBySegmentedControlChanged")
+        print("sortBySegmentedControlChanged")
         self.settingsManager.setSortingStyle(LKSortingStyle(index: self.sortBySegmentedControl.selectedSegmentIndex))
     }
 
     @IBAction func appBadgeSwitchChanged(sender: UISwitch) {
-        println("appBadgeSwitchChanged")
+        print("appBadgeSwitchChanged")
         self.settingsManager.setAppBadgeOn(self.appBadgeSwitch.on)
         if !self.appBadgeSwitch.on {
             UIApplication.sharedApplication().applicationIconBadgeNumber = 0
@@ -373,21 +373,21 @@ class LKInfoViewController: UITableViewController, MFMailComposeViewControllerDe
 
     // MARK: MFMailViewController delegate
 
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
         //println("mailComposeController didFinishWithResult: \(result)")
 
-        switch result.value {
-            case MFMailComposeResultCancelled.value:
+        switch result.rawValue {
+            case MFMailComposeResultCancelled.rawValue:
                 //println("MFMailComposeResultCancelled")
                 break
-            case MFMailComposeResultSaved.value:
+            case MFMailComposeResultSaved.rawValue:
                 //println("MFMailComposeResultSaved")
                 break
-            case MFMailComposeResultSent.value:
+            case MFMailComposeResultSent.rawValue:
                 //println("MFMailComposeResultSent")
                 break
-            case MFMailComposeResultFailed.value:
+            case MFMailComposeResultFailed.rawValue:
                 //println("MFMailComposeResultFailed")
                 break
         default:
