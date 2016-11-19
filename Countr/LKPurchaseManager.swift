@@ -16,7 +16,7 @@ let didPurchasePremiumFeaturesNotificationKey = "didPurchasePremiumFeaturesNotif
 class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
     private let productIdentifier = "countr.premiumfeatures"
-    private let products: NSSet
+    private let products: Set<String>
     var recivedProduct: [SKProduct] = []
     
     var didFinishLoadingCompletionHandler: () -> () = {}
@@ -36,7 +36,7 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     }
     
     override init() {
-        self.products = NSSet(object: self.productIdentifier)
+        self.products = Set(arrayLiteral: self.productIdentifier)
         self.didFinishBuyingProductCompletionHandler = {(status: LKPurchaseStatus) in}
         super.init()
     }
@@ -47,8 +47,7 @@ class LKPurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransacti
     func load() {
         if SKPaymentQueue.canMakePayments() {
             //println("The pyment queue can make paymants, will continue")
-            
-            var productsRequest = SKProductsRequest(productIdentifiers: self.products as Set<NSObject>)
+            var productsRequest = SKProductsRequest(productIdentifiers: self.products)
             productsRequest.delegate = self
             productsRequest.start()
             //println("fetching products")

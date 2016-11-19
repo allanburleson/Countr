@@ -37,7 +37,7 @@ class LKSettingsManager {
         let fileManager = NSFileManager.defaultManager()
         let containerURL = fileManager.containerURLForSecurityApplicationGroupIdentifier("group.me.kollmer.Countr")!
         let containerURLPath = containerURL.path!
-        let filePath = containerURLPath.stringByAppendingPathComponent("settings.plist")
+        let filePath = containerURLPath + "settings.plist"
         
         return filePath
     }
@@ -122,15 +122,14 @@ class LKSettingsManager {
     private func copyRessourceFileToDocumentdDirectory() {
         // Copy the plist file containinf the data for the extension
         
-        let error: NSErrorPointer = nil
         
         
         if !NSFileManager.defaultManager().fileExistsAtPath(filePathForSharedContainer) {
             do {
                 //println("file dies not exist, copy")
                 try NSFileManager.defaultManager().copyItemAtPath(localFilePath, toPath:filePathForSharedContainer)
-            } catch let error1 as NSError {
-                error.memory = error1
+            } catch  {
+                print("error error error error error")
             }
             
             //println("did copy file. error: \(error.debugDescription)")

@@ -61,7 +61,8 @@ class LKSharedExtensionDataManager {
         let fileManager = NSFileManager.defaultManager()
         let containerURL = fileManager.containerURLForSecurityApplicationGroupIdentifier("group.me.kollmer.Countr")!
         let containerURLPath = containerURL.path!
-        let filePath = containerURLPath.stringByAppendingPathComponent("extensionData.plist")
+        print("FILEPATHFILEPATHFILEPATH: \(containerURLPath)")
+        let filePath = containerURLPath + "extensionData.plist"
         
         return filePath
     }

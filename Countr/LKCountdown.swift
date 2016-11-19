@@ -284,7 +284,7 @@ public struct TimeRemaining {
 /**
 A countdown item
 */
-class LKCountdownItem: NSObject, CustomStringConvertible {
+class LKCountdownItem: NSObject {
 
     let title: String!
     let date: NSDate!

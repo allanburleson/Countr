@@ -84,8 +84,8 @@ extension UINavigationBar {
 
         // Title Text Attributes
         let font = UIFont.systemFontOfSize(17)
-        let titleTextAttributes: [NSObject : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.titleTextAttributes = titleTextAttributes
+        let _titleTextAttributes: [String : AnyObject] = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.titleTextAttributes = _titleTextAttributes
 
         // Tint Color
         self.tintColor = UIColor.whiteColor()
@@ -94,9 +94,9 @@ extension UINavigationBar {
 
 // MARK: Getting class names
 
-public func nameOfClass(_class: AnyObject) -> String {
-    return _stdlib_getDemangledTypeName(_class)
-}
+//public func nameOfClass(_class: AnyObject) -> String {
+//    return _stdlib_getDemangledTypeName(_class)
+//}
 
 // MARK: Int, Double, Float: Positive Value
 
@@ -130,7 +130,7 @@ extension UIAlertController {
     
     func showCancelButtonOniPhone(value: Bool) {
         if value == true {
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
             self.addAction(cancelAction)
